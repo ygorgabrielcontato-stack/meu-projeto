@@ -1165,13 +1165,72 @@
     }
 
 
-    function demoRegister() {
+async function demoRegister() {
 
-      alert(
-        "O cadastro será conectado ao banco de dados na próxima etapa."
-      );
+      const inputs = registerForm.querySelectorAll("input");
+  const select = registerForm.querySelector("select");
 
+  const nome = inputs[0].value.trim();
+  const username = inputs[1].value.trim().replace("@", "");
+  const email = inputs[2].value.trim();
+  const senha = inputs[3].value;
+  const tipoConta = select.value;
+
+  if (!nome || !username || !email || !senha) {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  if (senha.length < 6) {
+    alert("A senha precisa ter pelo menos 6 caracteres.");
+    return;
+  }
+
+  try {
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: senha
+    });
+
+    if (error) {
+      throw error;
     }
+
+    const user = data.user;
+
+    if (!user) {
+      throw new Error("Não foi possível criar o usuário.");
+    }
+
+    const { error: profileError } = await supabase
+      .from("profiles")
+      .insert({
+        id: user.id,
+        nome: nome,
+        username: username,
+        tipo_conta: tipoConta
+      });
+
+    if (profileError) {
+      throw profileError;
+    }
+
+    alert("Conta criada com sucesso! 🎉");
+
+    registerForm.reset();
+
+    closeModal();
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert("Erro ao criar conta: " + error.message);
+
+  }
+
+}
 
 
     window.addEventListener("click", function(event) {
