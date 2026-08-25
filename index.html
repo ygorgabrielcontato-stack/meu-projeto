@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TechCommunity</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :root {
+      --bg: #08090d;
+      --card: #11131a;
+      --card-hover: #171a23;
+      --border: #242936;
+      --text: #f5f7fb;
+      --muted: #9299aa;
+      --primary: #6366f1;
+      --primary-hover: #5558e8;
+      --secondary: #8b5cf6;
+      --success: #22c55e;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, .14), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(139, 92, 246, .12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      height: 72px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8, 9, 13, .85);
+      backdrop-filter: blur(14px);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 11px 17px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: var(--card-hover);
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 650px;
+
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+
+      padding: 70px 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 50px;
+
+      background: rgba(99, 102, 241, .12);
+      border: 1px solid rgba(99, 102, 241, .3);
+
+      color: #a5b4fc;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.03;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        #818cf8,
+        #a78bfa,
+        #c084fc
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* CODE CARD */
+
+    .code-card {
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, .4);
+      transform: rotate(1deg);
+    }
+
+    .window-bar {
+      height: 44px;
+      background: #151821;
+      border-bottom: 1px solid var(--border);
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 15px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .red {
+      background: #ff5f57;
+    }
+
+    .yellow {
+      background: #ffbd2e;
+    }
+
+    .green {
+      background: #28c840;
+    }
+
+    pre {
+      padding: 25px;
+      overflow-x: auto;
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .purple {
+      color: #c084fc;
+    }
+
+    .blue {
+      color: #60a5fa;
+    }
+
+    .green-text {
+      color: #4ade80;
+    }
+
+    /* SECTION */
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* FEATURES */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 25px;
+      transition: .25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      border-color: #3b4150;
+      background: var(--card-hover);
+    }
+
+    .icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+
+      background: rgba(99, 102, 241, .12);
+      border-radius: 12px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      margin-bottom: 9px;
+      font-size: 17px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 7px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(99, 102, 241, .15),
+          rgba(139, 92, 246, .08)
+        );
+
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 65px 25px;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+      font-size: 13px;
+    }
+
+    /* MODAL */
+
+    .modal {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0, 0, 0, .75);
+      backdrop-filter: blur(5px);
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 450px;
+
+      background: #11131a;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      padding: 30px;
+
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+
+      border: none;
+      background: transparent;
+      color: var(--muted);
+
+      font-size: 25px;
+    }
+
+    .modal h2 {
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+
+      background: #0b0d12;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: white;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .switch {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .switch button {
+      border: none;
+      background: transparent;
+      color: #818cf8;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .code-card {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 550px) {
+      header {
+        padding: 0 18px;
+      }
+
+      .header-buttons .btn-outline {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .features,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 20px;
+      }
+
+      .section-title h2,
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <a href="#" class="logo">
+      Tech<span>Community</span>
+    </a>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#recursos">Comunidade</a>
+      <a href="#recursos">Perguntas</a>
+      <a href="#recursos">Projetos</a>
+      <a href="#recursos">Explorar</a>
+    </nav>
+
+    <div class="header-buttons">
+
+      <button
+        class="btn btn-outline"
+        onclick="openModal('login')">
+        Entrar
+      </button>
+
+      <button
+        class="btn btn-primary"
+        onclick="openModal('register')">
+        Criar conta
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <main id="inicio">
+
+    <div class="hero">
+
+      <div>
+
+        <span class="badge">
+          Comunidade para tecnologia
+        </span>
+
+        <h1>
+          Aprenda.<br>
+          Conecte-se.<br>
+          <span class="gradient">Evolua.</span>
+        </h1>
+
+        <p>
+          Uma comunidade criada para diminuir o abismo entre
+          quem está começando e quem já possui experiência
+          em tecnologia.
+        </p>
+
+        <div class="hero-buttons">
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('register')">
+            Começar agora →
+          </button>
+
+          <button
+            class="btn btn-outline"
+            onclick="scrollToSection('recursos')">
+            Explorar comunidade
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- CODE WINDOW -->
+
+      <div class="code-card">
+
+        <div class="window-bar">
+
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+
+        </div>
+
+        <pre><code>
+<span class="purple">const</span> comunidade = {
+
+  <span class="blue">objetivo</span>:
+    <span class="green-text">"conectar pessoas"</span>,
+
+  <span class="blue">iniciante</span>:
+    <span class="green-text">"perguntar"</span>,
+
+  <span class="blue">experiente</span>:
+    <span class="green-text">"compartilhar"</span>,
+
+  <span class="blue">resultado</span>:
+    <span class="green-text">"evoluir juntos"</span>
+
+};
+
+<span class="purple">console</span>.log(
+  <span class="green-text">
+    "Bem-vindo à comunidade!"
+  </span>
+);
+        </code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <section id="recursos">
+
+      <div class="section-title">
+
+        <h2>
+          Uma comunidade feita para evoluir
+        </h2>
+
+        <p>
+          Aprenda, compartilhe conhecimento e construa projetos.
+        </p>
+
+      </div>
+
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="icon">📚</div>
+
+          <h3>Aprenda tecnologia</h3>
+
+          <p>
+            Encontre conteúdos e pessoas que podem ajudar
+            na sua jornada de aprendizado.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">💬</div>
+
+          <h3>Tire suas dúvidas</h3>
+
+          <p>
+            Faça perguntas e receba ajuda de estudantes,
+            desenvolvedores e professores.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">💻</div>
+
+          <h3>Crie projetos</h3>
+
+          <p>
+            Compartilhe seus projetos e construa seu
+            portfólio profissional.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">🤝</div>
+
+          <h3>Conecte-se</h3>
+
+          <p>
+            Encontre pessoas com interesses semelhantes
+            e construa networking.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">🏆</div>
+
+          <h3>Ganhe conquistas</h3>
+
+          <p>
+            Evolua na plataforma através de desafios,
+            projetos e participação.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">🚀</div>
+
+          <h3>Construa seu portfólio</h3>
+
+          <p>
+            Mostre seus projetos, conhecimentos,
+            experiências e conquistas.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">🔥</div>
+
+          <h3>Evolua seu nível</h3>
+
+          <p>
+            Ganhe XP e acompanhe seu desenvolvimento
+            dentro da comunidade.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="icon">🌎</div>
+
+          <h3>Compartilhe conhecimento</h3>
+
+          <p>
+            Ajude outras pessoas e fortaleça a
+            comunidade tecnológica.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section>
+
+      <div class="section-title">
+
+        <h2>
+          A comunidade em números
+        </h2>
+
+        <p>
+          Dados demonstrativos da interface.
+        </p>
+
+      </div>
+
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <strong>+1.2K</strong>
+
+          <span>
+            Pessoas cadastradas
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>+850</strong>
+
+          <span>
+            Projetos publicados
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>+2.4K</strong>
+
+          <span>
+            Perguntas respondidas
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>+320</strong>
+
+          <span>
+            Desafios concluídos
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section>
+
+      <div class="cta">
+
+        <h2>
+          O conhecimento não precisa ser um abismo.
+        </h2>
+
+        <p>
+          Faça parte de uma comunidade onde todos podem
+          aprender, ajudar e evoluir.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          onclick="openModal('register')">
+          Criar minha conta
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 TechCommunity —
+    Projeto acadêmico de comunidade tecnológica.
+
+  </footer>
+
+
+  <!-- MODAL -->
+
+  <div
+    class="modal"
+    id="modal">
+
+    <div class="modal-content">
+
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
+
+
+      <!-- LOGIN -->
+
+      <div id="loginForm">
+
+        <h2>
+          Bem-vindo de volta
+        </h2>
+
+        <p class="modal-subtitle">
+          Entre na sua conta TechCommunity.
+        </p>
+
+
+        <div class="form-group">
+
+          <label>
+            E-mail ou username
+          </label>
+
+          <input
+            type="text"
+            placeholder="voce@email.com">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Senha
+          </label>
+
+          <input
+            type="password"
+            placeholder="Sua senha">
+
+        </div>
+
+
+        <button
+          class="btn btn-primary form-submit"
+          onclick="demoLogin()">
+
+          Entrar
+
+        </button>
+
+
+        <div class="switch">
+
+          Não possui conta?
+
+          <button
+            onclick="switchForm('register')">
+
+            Criar conta
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- REGISTER -->
+
+      <div
+        id="registerForm"
+        style="display:none;">
+
+        <h2>
+          Criar conta
+        </h2>
+
+        <p class="modal-subtitle">
+          Faça parte da comunidade.
+        </p>
+
+
+        <div class="form-group">
+
+          <label>
+            Nome completo
+          </label>
+
+          <input
+            type="text"
+            placeholder="Seu nome">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Username
+          </label>
+
+          <input
+            type="text"
+            placeholder="@seuusername">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            E-mail
+          </label>
+
+          <input
+            type="email"
+            placeholder="voce@email.com">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Senha
+          </label>
+
+          <input
+            type="password"
+            placeholder="Crie uma senha">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Tipo de conta
+          </label>
+
+          <select>
+
+            <option>Aluno</option>
+            <option>Professor</option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary form-submit"
+          onclick="demoRegister()">
+
+          Criar conta
+
+        </button>
+
+
+        <div class="switch">
+
+          Já possui uma conta?
+
+          <button
+            onclick="switchForm('login')">
+
+            Entrar
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const modal = document.getElementById("modal");
+
+    const loginForm = document.getElementById("loginForm");
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+
+    function openModal(type) {
+
+      modal.classList.add("active");
+
+      switchForm(type);
+
+    }
+
+
+    function closeModal() {
+
+      modal.classList.remove("active");
+
+    }
+
+
+    function switchForm(type) {
+
+      if (type === "login") {
+
+        loginForm.style.display = "block";
+
+        registerForm.style.display = "none";
+
+      } else {
+
+        loginForm.style.display = "none";
+
+        registerForm.style.display = "block";
+
+      }
+
+    }
+
+
+    function scrollToSection(id) {
+
+      document
+        .getElementById(id)
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    function demoLogin() {
+
+      alert(
+        "O login será conectado ao banco de dados na próxima etapa."
+      );
+
+    }
+
+
+    function demoRegister() {
+
+      alert(
+        "O cadastro será conectado ao banco de dados na próxima etapa."
+      );
+
+    }
+
+
+    window.addEventListener("click", function(event) {
+
+      if (event.target === modal) {
+
+        closeModal();
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
