@@ -1188,7 +1188,7 @@ async function demoRegister() {
 
   try {
 
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await window.supabaseClient.auth.signUp({
       email: email,
       password: senha
     });
@@ -1203,7 +1203,7 @@ async function demoRegister() {
       throw new Error("Não foi possível criar o usuário.");
     }
 
-    const { error: profileError } = await supabase
+    const { error: profileError } = await window.supabaseClient
       .from("profiles")
       .insert({
         id: user.id,
