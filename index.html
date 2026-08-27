@@ -1182,12 +1182,7 @@
 
         alert("Login realizado com sucesso! 🎉");
 
-        console.log("Usuário logado:", data.user);
-
-        loginForm.querySelectorAll("input").forEach(input => {
-    input.value = "";
-});
-
+        window.location.href = "comunidade.html";
         closeModal();
 
     } catch (error) {
