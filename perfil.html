@@ -10,11 +10,13 @@
 
     <title>Meu Perfil - TechCommunity</title>
 
+
     <style>
 
         * {
             box-sizing: border-box;
         }
+
 
         body {
 
@@ -22,11 +24,19 @@
 
             font-family: Arial, sans-serif;
 
-            background: #0b0d17;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #171a32 0%,
+                    #0b0d17 45%
+                );
 
             color: white;
 
+            min-height: 100vh;
+
         }
+
 
         /* =========================
            HEADER
@@ -38,15 +48,19 @@
 
             padding: 0 8%;
 
-            border-bottom: 1px solid #25283a;
+            border-bottom:
+                1px solid #25283a;
+
+            background:
+                rgba(11, 13, 23, 0.9);
+
+            backdrop-filter: blur(12px);
 
             display: flex;
 
-            justify-content: space-between;
-
             align-items: center;
 
-            background: #0b0d17;
+            justify-content: space-between;
 
             position: sticky;
 
@@ -56,6 +70,7 @@
 
         }
 
+
         .logo {
 
             font-size: 24px;
@@ -64,11 +79,13 @@
 
         }
 
+
         .logo span {
 
             color: #6c63ff;
 
         }
+
 
         .header-botoes {
 
@@ -78,71 +95,52 @@
 
         }
 
-        button {
-
-            border: none;
-
-            cursor: pointer;
-
-            font-weight: bold;
-
-        }
 
         .btn-header {
 
             background: #171a29;
 
-            color: white;
+            border:
+                1px solid #292d42;
 
-            border: 1px solid #292d42;
+            color: white;
 
             padding: 10px 16px;
 
             border-radius: 9px;
 
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
         }
+
 
         .btn-header:hover {
 
             background: #25283a;
 
+            transform: translateY(-1px);
+
         }
 
+
         /* =========================
-           MAIN
+           CONTAINER
         ========================= */
 
         main {
 
             width: 92%;
 
-            max-width: 900px;
+            max-width: 850px;
 
-            margin: 40px auto 80px;
-
-        }
-
-        /* =========================
-           VOLTAR
-        ========================= */
-
-        .voltar {
-
-            color: #9da3b8;
-
-            cursor: pointer;
-
-            display: inline-block;
-
-            margin-bottom: 25px;
+            margin: 45px auto 80px;
 
         }
 
-        .voltar:hover {
-
-            color: white;
-
-        }
 
         /* =========================
            PERFIL
@@ -150,63 +148,109 @@
 
         .perfil-card {
 
-            background: #111421;
+            background:
+                linear-gradient(
+                    145deg,
+                    #171a29,
+                    #111421
+                );
 
-            border: 1px solid #292d42;
+            border:
+                1px solid #292d42;
 
-            border-radius: 20px;
-
-            padding: 35px;
-
-            position: relative;
+            border-radius: 24px;
 
             overflow: hidden;
 
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.25);
+
         }
 
-        .perfil-card::before {
+
+        /* =========================
+           CAPA
+        ========================= */
+
+        .capa {
+
+            height: 180px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6258e8,
+                    #302b70,
+                    #15182a
+                );
+
+            position: relative;
+
+        }
+
+
+        .capa::after {
 
             content: "";
 
             position: absolute;
 
-            top: 0;
+            inset: 0;
 
-            left: 0;
-
-            right: 0;
-
-            height: 4px;
-
-            background: #6258e8;
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(255,255,255,0.15),
+                    transparent 30%
+                );
 
         }
 
-        .perfil-topo {
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .perfil-conteudo {
+
+            padding: 0 35px 35px;
+
+        }
+
+
+        .foto-area {
+
+            margin-top: -65px;
+
+            position: relative;
 
             display: flex;
 
-            align-items: center;
+            align-items: flex-end;
 
-            gap: 25px;
+            justify-content: space-between;
 
         }
 
-        /* =========================
-           AVATAR
-        ========================= */
 
-        .avatar {
+        .foto {
 
-            width: 100px;
+            width: 130px;
 
-            height: 100px;
+            height: 130px;
 
             border-radius: 50%;
 
-            background: #292d42;
+            border:
+                5px solid #111421;
 
-            border: 3px solid #6258e8;
+            background:
+                linear-gradient(
+                    135deg,
+                    #6258e8,
+                    #302b70
+                );
 
             display: flex;
 
@@ -214,33 +258,107 @@
 
             justify-content: center;
 
-            font-size: 42px;
+            font-size: 55px;
 
-            flex-shrink: 0;
+            font-weight: bold;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.35);
 
         }
+
+
+        .foto img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        /* =========================
+           BOTÃO EDITAR
+        ========================= */
+
+        .btn-editar {
+
+            background: #6258e8;
+
+            color: white;
+
+            border: none;
+
+            padding: 11px 20px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .btn-editar:hover {
+
+            background: #7168f0;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================
+           INFORMAÇÕES
+        ========================= */
 
         .informacoes {
 
-            flex: 1;
+            margin-top: 20px;
 
         }
 
-        .informacoes h1 {
 
-            margin: 0 0 5px;
+        .nome {
 
             font-size: 30px;
 
+            font-weight: bold;
+
+            margin: 0;
+
         }
+
 
         .username {
 
             color: #8e95aa;
 
-            font-size: 15px;
+            margin-top: 5px;
 
         }
+
+
+        .bio {
+
+            color: #c8ccda;
+
+            line-height: 1.6;
+
+            margin-top: 18px;
+
+            white-space: pre-wrap;
+
+        }
+
 
         /* =========================
            BADGES
@@ -254,9 +372,10 @@
 
             gap: 8px;
 
-            margin-top: 12px;
+            margin-top: 20px;
 
         }
+
 
         .badge {
 
@@ -264,49 +383,40 @@
 
             color: #c8ccda;
 
-            padding: 6px 10px;
+            padding: 7px 12px;
 
-            border-radius: 15px;
+            border-radius: 20px;
 
-            font-size: 12px;
+            font-size: 13px;
 
         }
+
 
         .badge-professor {
 
-            background: #6258e8;
+            background:
+                rgba(98, 88, 232, 0.25);
 
-            color: white;
+            color: #aaa5ff;
 
-        }
-
-        /* =========================
-           BIO
-        ========================= */
-
-        .bio {
-
-            margin-top: 30px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid #292d42;
+            border:
+                1px solid #6258e8;
 
         }
 
-        .bio h3 {
 
-            margin-top: 0;
+        .badge-aluno {
+
+            background:
+                rgba(46, 160, 67, 0.15);
+
+            color: #8be09b;
+
+            border:
+                1px solid #34783e;
 
         }
 
-        .bio p {
-
-            color: #aeb4c7;
-
-            line-height: 1.6;
-
-        }
 
         /* =========================
            ESTATÍSTICAS
@@ -319,47 +429,43 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 12px;
+            border-top:
+                1px solid #292d42;
 
-            margin-top: 25px;
+            margin-top: 30px;
 
-        }
-
-        .estatistica {
-
-            background: #0d0f19;
-
-            border: 1px solid #25283a;
-
-            border-radius: 12px;
-
-            padding: 18px;
+            padding-top: 25px;
 
             text-align: center;
 
-            transition: 0.2s;
+        }
+
+
+        .estatistica {
+
+            border-right:
+                1px solid #292d42;
 
         }
 
-        .estatistica:hover {
 
-            transform: translateY(-3px);
+        .estatistica:last-child {
 
-            border-color: #6258e8;
+            border-right: none;
 
         }
+
 
         .numero {
 
             display: block;
 
-            font-size: 25px;
+            font-size: 22px;
 
             font-weight: bold;
 
-            color: white;
-
         }
+
 
         .label {
 
@@ -369,211 +475,140 @@
 
             margin-top: 5px;
 
-            display: block;
-
         }
+
 
         /* =========================
-           BOTÃO EDITAR
+           FORMULÁRIO
         ========================= */
 
-        .acoes-perfil {
+        .editar-area {
 
-            margin-top: 25px;
+            display: none;
 
-            display: flex;
+            margin-top: 30px;
 
-            gap: 10px;
+            padding-top: 30px;
+
+            border-top:
+                1px solid #292d42;
 
         }
 
-        .btn-editar {
 
-            background: #6258e8;
+        .editar-area.aberto {
+
+            display: block;
+
+            animation:
+                aparecer 0.25s ease;
+
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .campo {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .campo label {
+
+            display: block;
+
+            color: #c8ccda;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            padding: 13px 14px;
+
+            background: #0d0f19;
 
             color: white;
 
-            padding: 12px 20px;
+            border:
+                1px solid #30344b;
 
             border-radius: 9px;
 
-        }
+            outline: none;
 
-        .btn-editar:hover {
-
-            background: #7168f0;
-
-        }
-
-        /* =========================
-           ATIVIDADE
-        ========================= */
-
-        .atividade {
-
-            margin-top: 35px;
-
-        }
-
-        .atividade h2 {
-
-            margin-bottom: 20px;
-
-        }
-
-        .item {
-
-            background: #111421;
-
-            border: 1px solid #292d42;
-
-            border-radius: 14px;
-
-            padding: 20px;
-
-            margin-bottom: 12px;
-
-            cursor: pointer;
-
-            transition: 0.2s;
-
-        }
-
-        .item:hover {
-
-            border-color: #6258e8;
-
-            transform: translateY(-2px);
-
-        }
-
-        .item h3 {
-
-            margin: 0 0 8px;
-
-            font-size: 17px;
-
-        }
-
-        .item p {
-
-            color: #8e95aa;
-
-            margin: 0;
+            font-family: Arial, sans-serif;
 
             font-size: 14px;
 
         }
 
-        .sem-atividade {
 
-            color: #8e95aa;
-
-            padding: 20px 0;
-
-        }
-
-        /* =========================
-           MODAL EDITAR
-        ========================= */
-
-        .modal {
-
-            display: none;
-
-            position: fixed;
-
-            inset: 0;
-
-            background: rgba(0,0,0,0.75);
-
-            align-items: center;
-
-            justify-content: center;
-
-            z-index: 100;
-
-            padding: 20px;
-
-        }
-
-        .modal.ativo {
-
-            display: flex;
-
-        }
-
-        .modal-conteudo {
-
-            width: 100%;
-
-            max-width: 500px;
-
-            background: #171a29;
-
-            border: 1px solid #292d42;
-
-            border-radius: 18px;
-
-            padding: 25px;
-
-        }
-
-        .modal-conteudo h2 {
-
-            margin-top: 0;
-
-        }
-
-        .modal-conteudo input {
-
-            width: 100%;
-
-            padding: 13px;
-
-            margin-top: 8px;
-
-            margin-bottom: 15px;
-
-            background: #0d0f19;
-
-            border: 1px solid #30344b;
-
-            border-radius: 8px;
-
-            color: white;
-
-            outline: none;
-
-        }
-
-        .modal-conteudo input:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
 
             border-color: #6258e8;
 
+            box-shadow:
+                0 0 0 3px
+                rgba(98,88,232,0.12);
+
         }
 
-        .modal-botoes {
+
+        textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+
+        }
+
+
+        .botoes-edicao {
 
             display: flex;
 
-            justify-content: flex-end;
-
             gap: 10px;
 
-        }
-
-        .btn-cancelar {
-
-            background: #292d42;
-
-            color: white;
-
-            padding: 11px 18px;
-
-            border-radius: 8px;
+            margin-top: 20px;
 
         }
+
 
         .btn-salvar {
 
@@ -581,11 +616,51 @@
 
             color: white;
 
-            padding: 11px 18px;
+            padding: 12px 20px;
 
-            border-radius: 8px;
+            border: none;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
 
         }
+
+
+        .btn-cancelar {
+
+            background: #292d42;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+
+        .btn-salvar:hover {
+
+            background: #7168f0;
+
+        }
+
+
+        .btn-cancelar:hover {
+
+            background: #363b54;
+
+        }
+
 
         /* =========================
            CARREGANDO
@@ -595,25 +670,28 @@
 
             text-align: center;
 
+            padding: 80px;
+
             color: #9da3b8;
 
-            padding: 50px;
-
         }
+
 
         .erro {
 
             background: #301820;
 
-            border: 1px solid #6b2636;
+            border:
+                1px solid #6b2636;
 
             color: #ff9da9;
 
             padding: 20px;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
         }
+
 
         /* =========================
            RESPONSIVO
@@ -627,17 +705,20 @@
 
             }
 
+
             .logo {
 
                 font-size: 20px;
 
             }
 
+
             .btn-header {
 
                 padding: 8px 10px;
 
             }
+
 
             main {
 
@@ -647,38 +728,51 @@
 
             }
 
-            .perfil-card {
 
-                padding: 22px;
+            .capa {
 
-            }
-
-            .perfil-topo {
-
-                align-items: flex-start;
+                height: 140px;
 
             }
 
-            .avatar {
 
-                width: 75px;
+            .perfil-conteudo {
 
-                height: 75px;
-
-                font-size: 32px;
+                padding:
+                    0 20px 25px;
 
             }
 
-            .informacoes h1 {
 
-                font-size: 23px;
+            .foto {
+
+                width: 105px;
+
+                height: 105px;
+
+                font-size: 40px;
 
             }
 
-            .estatisticas {
 
-                grid-template-columns:
-                    1fr;
+            .foto-area {
+
+                margin-top: -52px;
+
+            }
+
+
+            .nome {
+
+                font-size: 25px;
+
+            }
+
+
+            .btn-editar {
+
+                padding:
+                    9px 14px;
 
             }
 
@@ -705,17 +799,19 @@
 
         <button
             class="btn-header"
-            onclick="comunidade()"
-        >
+            onclick="comunidade()">
+
             💬 Comunidade
+
         </button>
 
 
         <button
             class="btn-header"
-            onclick="sair()"
-        >
+            onclick="sair()">
+
             Sair
+
         </button>
 
     </div>
@@ -723,19 +819,11 @@
 </header>
 
 
+
 <main>
 
-    <div
-        class="voltar"
-        onclick="comunidade()"
-    >
 
-        ← Voltar para comunidade
-
-    </div>
-
-
-    <div id="perfil">
+    <div id="perfilContainer">
 
         <div class="carregando">
 
@@ -748,89 +836,6 @@
 
 </main>
 
-
-<!-- =========================
-     MODAL EDITAR
-========================= -->
-
-<div
-    id="modal"
-    class="modal"
->
-
-    <div class="modal-conteudo">
-
-        <h2>
-            ✏️ Editar perfil
-        </h2>
-
-
-        <label>
-            Nome
-        </label>
-
-        <input
-            id="editarNome"
-            type="text"
-            placeholder="Seu nome"
-        >
-
-
-        <label>
-            Username
-        </label>
-
-        <input
-            id="editarUsername"
-            type="text"
-            placeholder="Seu username"
-        >
-
-
-        <label>
-            Curso
-        </label>
-
-        <input
-            id="editarCurso"
-            type="text"
-            placeholder="Seu curso"
-        >
-
-
-        <label>
-            Semestre
-        </label>
-
-        <input
-            id="editarSemestre"
-            type="text"
-            placeholder="Ex: 3º semestre"
-        >
-
-
-        <div class="modal-botoes">
-
-            <button
-                class="btn-cancelar"
-                onclick="fecharModal()"
-            >
-                Cancelar
-            </button>
-
-
-            <button
-                class="btn-salvar"
-                onclick="salvarPerfil()"
-            >
-                Salvar alterações
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -902,7 +907,7 @@ async function carregarPerfil() {
 
     const container =
         document.getElementById(
-            "perfil"
+            "perfilContainer"
         );
 
 
@@ -918,7 +923,8 @@ async function carregarPerfil() {
                 curso,
                 semestre,
                 nivel,
-                tipo_conta
+                tipo_conta,
+                bio
             `)
 
             .eq(
@@ -945,42 +951,658 @@ async function carregarPerfil() {
     perfilAtual = data;
 
 
+    renderizarPerfil();
+
+}
+
+
+/* ================================
+   MOSTRAR PERFIL
+================================ */
+
+function renderizarPerfil() {
+
+    const container =
+        document.getElementById(
+            "perfilContainer"
+        );
+
+
     const nome =
-        data.nome ||
+        perfilAtual.nome ||
         "Usuário";
 
 
     const username =
-        data.username ||
+        perfilAtual.username ||
         "usuario";
 
 
     const curso =
-        data.curso ||
+        perfilAtual.curso ||
         "Curso não informado";
 
 
     const semestre =
-        data.semestre ||
+        perfilAtual.semestre ||
         "Semestre não informado";
 
 
     const nivel =
-        data.nivel ||
+        perfilAtual.nivel ||
         "Membro";
 
 
     const tipoConta =
-        data.tipo_conta ||
+        perfilAtual.tipo_conta ||
         "Aluno";
 
 
-    /* =========================
-       CARREGAR ESTATÍSTICAS
-    ========================= */
+    const bio =
+        perfilAtual.bio ||
+        "Ainda não adicionou uma biografia.";
 
 
-    const { count: perguntas } =
+    const inicial =
+        nome
+            .charAt(0)
+            .toUpperCase();
+
+
+    const classeCargo =
+        tipoConta
+            .toLowerCase()
+            .includes("professor")
+            ? "badge-professor"
+            : "badge-aluno";
+
+
+    container.innerHTML = `
+
+        <div class="perfil-card">
+
+
+            <div class="capa"></div>
+
+
+            <div class="perfil-conteudo">
+
+
+                <div class="foto-area">
+
+
+                    <div class="foto">
+
+                        ${inicial}
+
+                    </div>
+
+
+                    <button
+                        class="btn-editar"
+                        onclick="abrirEdicao()">
+
+                        ✏️ Editar perfil
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="informacoes">
+
+
+                    <h1 class="nome">
+
+                        ${escaparHTML(nome)}
+
+                    </h1>
+
+
+                    <div class="username">
+
+                        @${escaparHTML(username)}
+
+                    </div>
+
+
+                    <div class="bio">
+
+                        ${escaparHTML(bio)}
+
+                    </div>
+
+
+
+                    <div class="badges">
+
+
+                        <span class="badge ${classeCargo}">
+
+                            ${
+                                tipoConta
+                                    .toLowerCase()
+                                    .includes("professor")
+                                    ? "👨‍🏫"
+                                    : "🎓"
+                            }
+
+                            ${escaparHTML(tipoConta)}
+
+                        </span>
+
+
+                        <span class="badge">
+
+                            📚 ${escaparHTML(curso)}
+
+                        </span>
+
+
+                        <span class="badge">
+
+                            📅 ${escaparHTML(
+                                String(semestre)
+                            )}
+
+                        </span>
+
+
+                        <span class="badge">
+
+                            ⭐ ${escaparHTML(nivel)}
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="estatisticas">
+
+
+                        <div class="estatistica">
+
+                            <span
+                                class="numero"
+                                id="totalPosts">
+
+                                ...
+
+                            </span>
+
+                            <span class="label">
+
+                                Perguntas
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="estatistica">
+
+                            <span
+                                class="numero"
+                                id="totalRespostas">
+
+                                ...
+
+                            </span>
+
+                            <span class="label">
+
+                                Respostas
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="estatistica">
+
+                            <span
+                                class="numero">
+
+                                ✓
+
+                            </span>
+
+                            <span class="label">
+
+                                Membro
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =====================
+                         EDIÇÃO
+                    ====================== -->
+
+
+                    <div
+                        id="editarArea"
+                        class="editar-area">
+
+
+                        <h2>
+
+                            Editar perfil
+
+                        </h2>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Nome
+                            </label>
+
+                            <input
+                                id="editNome"
+                                type="text"
+                                maxlength="100"
+                                value="${escaparAtributo(nome)}"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Username
+                            </label>
+
+                            <input
+                                id="editUsername"
+                                type="text"
+                                maxlength="50"
+                                value="${escaparAtributo(username)}"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Bio
+                            </label>
+
+                            <textarea
+                                id="editBio"
+                                maxlength="500"
+                                placeholder="Conte um pouco sobre você..."
+                            >${escaparHTML(
+                                perfilAtual.bio || ""
+                            )}</textarea>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Curso
+                            </label>
+
+                            <input
+                                id="editCurso"
+                                type="text"
+                                maxlength="100"
+                                value="${escaparAtributo(
+                                    curso === "Curso não informado"
+                                        ? ""
+                                        : curso
+                                )}"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Semestre
+                            </label>
+
+                            <input
+                                id="editSemestre"
+                                type="text"
+                                maxlength="30"
+                                value="${escaparAtributo(
+                                    perfilAtual.semestre || ""
+                                )}"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Nível
+                            </label>
+
+                            <select id="editNivel">
+
+                                <option value="Iniciante"
+                                    ${
+                                        nivel === "Iniciante"
+                                        ? "selected"
+                                        : ""
+                                    }>
+                                    Iniciante
+                                </option>
+
+                                <option value="Intermediário"
+                                    ${
+                                        nivel === "Intermediário"
+                                        ? "selected"
+                                        : ""
+                                    }>
+                                    Intermediário
+                                </option>
+
+                                <option value="Avançado"
+                                    ${
+                                        nivel === "Avançado"
+                                        ? "selected"
+                                        : ""
+                                    }>
+                                    Avançado
+                                </option>
+
+                                <option value="Membro"
+                                    ${
+                                        nivel === "Membro"
+                                        ? "selected"
+                                        : ""
+                                    }>
+                                    Membro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="botoes-edicao">
+
+
+                            <button
+                                class="btn-salvar"
+                                onclick="salvarPerfil()">
+
+                                💾 Salvar alterações
+
+                            </button>
+
+
+                            <button
+                                class="btn-cancelar"
+                                onclick="fecharEdicao()">
+
+                                Cancelar
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    carregarEstatisticas();
+
+}
+
+
+/* ================================
+   ABRIR EDIÇÃO
+================================ */
+
+function abrirEdicao() {
+
+    const area =
+        document.getElementById(
+            "editarArea"
+        );
+
+
+    area.classList.add(
+        "aberto"
+    );
+
+
+    area.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* ================================
+   FECHAR EDIÇÃO
+================================ */
+
+function fecharEdicao() {
+
+    const area =
+        document.getElementById(
+            "editarArea"
+        );
+
+
+    area.classList.remove(
+        "aberto"
+    );
+
+}
+
+
+/* ================================
+   SALVAR PERFIL
+================================ */
+
+async function salvarPerfil() {
+
+    const nome =
+        document
+            .getElementById("editNome")
+            .value
+            .trim();
+
+
+    const username =
+        document
+            .getElementById("editUsername")
+            .value
+            .trim();
+
+
+    const bio =
+        document
+            .getElementById("editBio")
+            .value
+            .trim();
+
+
+    const curso =
+        document
+            .getElementById("editCurso")
+            .value
+            .trim();
+
+
+    const semestre =
+        document
+            .getElementById("editSemestre")
+            .value
+            .trim();
+
+
+    const nivel =
+        document
+            .getElementById("editNivel")
+            .value;
+
+
+    if (!nome) {
+
+        alert(
+            "Digite seu nome."
+        );
+
+        return;
+
+    }
+
+
+    if (!username) {
+
+        alert(
+            "Digite seu username."
+        );
+
+        return;
+
+    }
+
+
+    const { data: usernameExistente, error: erroUsername } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .select("id")
+
+            .eq(
+                "username",
+                username
+            )
+
+            .neq(
+                "id",
+                usuarioAtual.id
+            );
+
+
+    if (erroUsername) {
+
+        console.error(
+            erroUsername
+        );
+
+        alert(
+            "Erro ao verificar username: " +
+            erroUsername.message
+        );
+
+        return;
+
+    }
+
+
+    if (
+        usernameExistente &&
+        usernameExistente.length > 0
+    ) {
+
+        alert(
+            "Esse username já está sendo usado."
+        );
+
+        return;
+
+    }
+
+
+    const { error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .update({
+
+                nome:
+                    nome,
+
+                username:
+                    username,
+
+                bio:
+                    bio || null,
+
+                curso:
+                    curso || null,
+
+                semestre:
+                    semestre || null,
+
+                nivel:
+                    nivel
+
+            })
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao salvar perfil: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Perfil atualizado com sucesso! 🎉"
+    );
+
+
+    await carregarPerfil();
+
+}
+
+
+/* ================================
+   ESTATÍSTICAS
+================================ */
+
+async function carregarEstatisticas() {
+
+
+    const { count: posts } =
         await window.supabaseClient
 
             .from("posts")
@@ -1018,481 +1640,61 @@ async function carregarPerfil() {
             );
 
 
-    const { count: curtidas } =
-        await window.supabaseClient
-
-            .from("curtidas_respostas")
-
-            .select(
-                "id",
-                {
-                    count: "exact",
-                    head: true
-                }
-            );
-
-
-    container.innerHTML = `
-
-        <section class="perfil-card">
-
-            <div class="perfil-topo">
-
-                <div class="avatar">
-
-                    👤
-
-                </div>
-
-
-                <div class="informacoes">
-
-                    <h1>
-                        ${nome}
-                    </h1>
-
-
-                    <div class="username">
-
-                        @${username}
-
-                    </div>
-
-
-                    <div class="badges">
-
-                        <span class="badge">
-
-                            🎓 ${curso}
-
-                        </span>
-
-
-                        <span class="badge">
-
-                            📚 ${semestre}
-
-                        </span>
-
-
-                        <span class="badge">
-
-                            ⭐ ${nivel}
-
-                        </span>
-
-
-                        ${
-                            tipoConta
-                                .toLowerCase()
-                                .includes("professor")
-
-                            ?
-
-                            `
-                            <span
-                                class="badge badge-professor"
-                            >
-                                👨‍🏫 Professor
-                            </span>
-                            `
-
-                            :
-
-                            `
-                            <span class="badge">
-                                👨‍🎓 Aluno
-                            </span>
-                            `
-                        }
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="bio">
-
-                <h3>
-                    Sobre mim
-                </h3>
-
-
-                <p>
-                    👋 Bem-vindo ao meu perfil na TechCommunity!
-                    Estou aqui para aprender, compartilhar conhecimento
-                    e ajudar outros estudantes.
-                </p>
-
-            </div>
-
-
-            <div class="estatisticas">
-
-                <div class="estatistica">
-
-                    <span class="numero">
-                        ${perguntas || 0}
-                    </span>
-
-                    <span class="label">
-                        Perguntas
-                    </span>
-
-                </div>
-
-
-                <div class="estatistica">
-
-                    <span class="numero">
-                        ${respostas || 0}
-                    </span>
-
-                    <span class="label">
-                        Respostas
-                    </span>
-
-                </div>
-
-
-                <div class="estatistica">
-
-                    <span class="numero">
-                        ${curtidas || 0}
-                    </span>
-
-                    <span class="label">
-                        Curtidas
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="acoes-perfil">
-
-                <button
-                    class="btn-editar"
-                    onclick="abrirModal()"
-                >
-                    ✏️ Editar perfil
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section class="atividade">
-
-            <h2>
-                📝 Minhas perguntas
-            </h2>
-
-
-            <div id="minhasPerguntas">
-
-                <div class="carregando">
-
-                    Carregando perguntas...
-
-                </div>
-
-            </div>
-
-        </section>
-
-    `;
-
-
-    carregarMinhasPerguntas();
-
-}
-
-
-/* ================================
-   MINHAS PERGUNTAS
-================================ */
-
-async function carregarMinhasPerguntas() {
-
-    const container =
+    const totalPosts =
         document.getElementById(
-            "minhasPerguntas"
+            "totalPosts"
         );
 
 
-    const { data, error } =
-        await window.supabaseClient
-
-            .from("posts")
-
-            .select(`
-                id,
-                titulo,
-                conteudo,
-                categoria,
-                created_at
-            `)
-
-            .eq(
-                "author_id",
-                usuarioAtual.id
-            )
-
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        container.innerHTML =
-            "<p class='sem-atividade'>Erro ao carregar perguntas.</p>";
-
-        return;
-
-    }
-
-
-    if (!data || data.length === 0) {
-
-        container.innerHTML = `
-
-            <div class="sem-atividade">
-
-                Você ainda não publicou nenhuma pergunta. 🚀
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML = "";
-
-
-    data.forEach(post => {
-
-        const div =
-            document.createElement(
-                "div"
-            );
-
-
-        div.className =
-            "item";
-
-
-        div.onclick = function() {
-
-            abrirPost(post.id);
-
-        };
-
-
-        div.innerHTML = `
-
-            <h3>
-
-                ${post.titulo}
-
-            </h3>
-
-
-            <p>
-
-                ${post.categoria}
-
-                ·
-
-                ${formatarData(
-                    post.created_at
-                )}
-
-            </p>
-
-        `;
-
-
-        container.appendChild(div);
-
-    });
-
-}
-
-
-/* ================================
-   EDITAR PERFIL
-================================ */
-
-function abrirModal() {
-
-    document.getElementById(
-        "editarNome"
-    ).value =
-        perfilAtual.nome || "";
-
-
-    document.getElementById(
-        "editarUsername"
-    ).value =
-        perfilAtual.username || "";
-
-
-    document.getElementById(
-        "editarCurso"
-    ).value =
-        perfilAtual.curso || "";
-
-
-    document.getElementById(
-        "editarSemestre"
-    ).value =
-        perfilAtual.semestre || "";
-
-
-    document.getElementById(
-        "modal"
-    ).classList.add(
-        "ativo"
-    );
-
-}
-
-
-function fecharModal() {
-
-    document.getElementById(
-        "modal"
-    ).classList.remove(
-        "ativo"
-    );
-
-}
-
-
-/* ================================
-   SALVAR PERFIL
-================================ */
-
-async function salvarPerfil() {
-
-    const nome =
+    const totalRespostas =
         document.getElementById(
-            "editarNome"
-        ).value.trim();
-
-
-    const username =
-        document.getElementById(
-            "editarUsername"
-        ).value.trim();
-
-
-    const curso =
-        document.getElementById(
-            "editarCurso"
-        ).value.trim();
-
-
-    const semestre =
-        document.getElementById(
-            "editarSemestre"
-        ).value.trim();
-
-
-    if (!nome || !username) {
-
-        alert(
-            "Nome e username são obrigatórios."
+            "totalRespostas"
         );
 
-        return;
+
+    if (totalPosts) {
+
+        totalPosts.textContent =
+            posts || 0;
 
     }
 
 
-    const { error } =
-        await window.supabaseClient
+    if (totalRespostas) {
 
-            .from("profiles")
-
-            .update({
-
-                nome:
-                    nome,
-
-                username:
-                    username,
-
-                curso:
-                    curso,
-
-                semestre:
-                    semestre
-
-            })
-
-            .eq(
-                "id",
-                usuarioAtual.id
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        alert(
-            "Erro ao atualizar perfil: " +
-            error.message
-        );
-
-        return;
+        totalRespostas.textContent =
+            respostas || 0;
 
     }
-
-
-    alert(
-        "Perfil atualizado! 🎉"
-    );
-
-
-    fecharModal();
-
-
-    carregarPerfil();
 
 }
 
 
 /* ================================
-   ABRIR POST
+   ESCAPAR HTML
 ================================ */
 
-function abrirPost(postId) {
+function escaparHTML(valor) {
 
-    window.location.href =
-        "post.html?id=" +
-        postId;
+    return String(valor)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function escaparAtributo(valor) {
+
+    return escaparHTML(valor);
 
 }
 
 
 /* ================================
-   COMUNIDADE
+   NAVEGAÇÃO
 ================================ */
 
 function comunidade() {
@@ -1521,41 +1723,18 @@ async function sair() {
 
 
 /* ================================
-   DATA
-================================ */
-
-function formatarData(data) {
-
-    if (!data) {
-
-        return "";
-
-    }
-
-
-    return new Date(data)
-        .toLocaleDateString(
-            "pt-BR"
-        );
-
-}
-
-
-/* ================================
    ERRO
 ================================ */
 
-function mostrarErro(
-    mensagem
-) {
+function mostrarErro(mensagem) {
 
     document.getElementById(
-        "perfil"
+        "perfilContainer"
     ).innerHTML = `
 
         <div class="erro">
 
-            ${mensagem}
+            ${escaparHTML(mensagem)}
 
         </div>
 
@@ -1569,6 +1748,7 @@ function mostrarErro(
 ================================ */
 
 verificarLogin();
+
 
 </script>
 
