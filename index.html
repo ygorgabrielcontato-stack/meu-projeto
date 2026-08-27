@@ -1156,14 +1156,46 @@
     }
 
 
-    function demoLogin() {
+    async function demoLogin() {
 
-      alert(
-        "O login será conectado ao banco de dados na próxima etapa."
-      );
+    const inputs = loginForm.querySelectorAll("input");
 
+    const email = inputs[0].value.trim();
+    const senha = inputs[1].value;
+
+    if (!email || !senha) {
+        alert("Preencha o e-mail e a senha.");
+        return;
     }
 
+    try {
+
+        const { data, error } =
+            await window.supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: senha
+            });
+
+        if (error) {
+            throw error;
+        }
+
+        alert("Login realizado com sucesso! 🎉");
+
+        console.log("Usuário logado:", data.user);
+
+        loginForm.reset();
+
+        closeModal();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Erro ao entrar: " + error.message);
+
+    }
+}
 
 async function demoRegister() {
 
