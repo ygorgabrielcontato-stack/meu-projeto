@@ -58,10 +58,7 @@
             opacity: 0.9;
         }
 
-        .btn-voltar {
-            background: #292d42;
-        }
-
+        .btn-voltar,
         .btn-sair {
             background: #292d42;
         }
@@ -92,16 +89,11 @@
 
         .categoria {
             display: inline-block;
-
             background: #292d42;
             color: #aaa4ff;
-
             padding: 7px 13px;
-
             border-radius: 20px;
-
             font-size: 13px;
-
             margin-bottom: 15px;
         }
 
@@ -142,6 +134,22 @@
             margin-top: 12px;
         }
 
+        .resposta.melhor {
+            border: 2px solid #6258e8;
+            background: #17152b;
+        }
+
+        .melhor-label {
+            display: inline-block;
+            background: #6258e8;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
         .resposta-autor {
             color: #aaa4ff;
             font-weight: bold;
@@ -152,6 +160,17 @@
             color: #c8ccda;
             line-height: 1.6;
             white-space: pre-wrap;
+        }
+
+        .botao-melhor {
+            margin-top: 15px;
+            background: #292d42;
+            padding: 9px 14px;
+            font-size: 13px;
+        }
+
+        .botao-melhor:hover {
+            background: #6258e8;
         }
 
         .responder {
@@ -165,19 +184,13 @@
         textarea {
             width: 100%;
             min-height: 110px;
-
             background: #0d0f19;
             border: 1px solid #30344b;
-
             border-radius: 8px;
-
             color: white;
-
             padding: 14px;
-
             font-family: Arial, sans-serif;
             font-size: 15px;
-
             resize: vertical;
         }
 
@@ -190,7 +203,6 @@
             margin-top: 15px;
             padding: 12px;
             border-radius: 8px;
-
             display: none;
         }
 
@@ -214,7 +226,6 @@
             color: #8e95aa;
             padding: 10px 0;
         }
-
 
         @media (max-width: 700px) {
 
@@ -313,7 +324,7 @@
 
 
 /* =====================================
-   PEGAR ID DA PERGUNTA NA URL
+   PEGAR ID DA PERGUNTA
 ===================================== */
 
 const parametros =
@@ -322,6 +333,46 @@ const parametros =
 
 const postId =
     parametros.get("id");
+
+
+/* =====================================
+   USUÁRIO LOGADO
+===================================== */
+
+let usuarioLogado = null;
+
+
+/* =====================================
+   AUTOR DA PERGUNTA
+===================================== */
+
+let autorDaPergunta = null;
+
+
+/* =====================================
+   VERIFICAR LOGIN
+===================================== */
+
+async function verificarLogin() {
+
+    const { data, error } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    if (error) {
+
+        console.error(error);
+
+        return;
+    }
+
+
+    usuarioLogado =
+        data.session?.user || null;
+
+}
 
 
 /* =====================================
@@ -334,16 +385,16 @@ async function carregarPost() {
         document.getElementById("postContainer");
 
 
-    /* Verifica se recebeu o ID */
-
     if (!postId) {
 
         container.innerHTML = `
 
             <div class="post">
 
-                <div class="erro"
-                    style="display:block;">
+                <div
+                    class="erro"
+                    style="display:block;"
+                >
 
                     Pergunta não encontrada.
 
@@ -357,8 +408,6 @@ async function carregarPost() {
     }
 
 
-    /* Busca a pergunta */
-
     const { data: post, error } =
         await window.supabaseClient
 
@@ -371,6 +420,7 @@ async function carregarPost() {
                 conteudo,
                 categoria,
                 created_at,
+                author_id,
 
                 profiles (
                     nome,
@@ -384,8 +434,6 @@ async function carregarPost() {
 
             .single();
 
-
-    /* Erro */
 
     if (error) {
 
@@ -417,8 +465,6 @@ async function carregarPost() {
     }
 
 
-    /* Pergunta não encontrada */
-
     if (!post) {
 
         container.innerHTML = `
@@ -442,7 +488,9 @@ async function carregarPost() {
     }
 
 
-    /* Dados do perfil */
+    autorDaPergunta =
+        post.author_id;
+
 
     const nome =
         post.profiles?.nome ||
@@ -458,8 +506,6 @@ async function carregarPost() {
         post.profiles?.nivel ||
         "Membro";
 
-
-    /* Mostra a pergunta */
 
     container.innerHTML = `
 
@@ -484,7 +530,10 @@ async function carregarPost() {
 
                 👤 ${nome}
 
-                ${username ? ` · @${username}` : ""}
+                ${username
+                    ? ` · @${username}`
+                    : ""
+                }
 
                 · ${nivel}
 
@@ -557,8 +606,6 @@ async function carregarPost() {
     `;
 
 
-    /* Depois carrega as respostas */
-
     carregarRespostas();
 
 }
@@ -575,7 +622,6 @@ async function carregarRespostas() {
 
 
     const { data, error } =
-
         await window.supabaseClient
 
             .from("respostas")
@@ -585,6 +631,8 @@ async function carregarRespostas() {
                 id,
                 conteudo,
                 created_at,
+                author_id,
+                melhor_resposta,
 
                 profiles (
                     nome,
@@ -596,13 +644,9 @@ async function carregarRespostas() {
             .eq("post_id", postId)
 
             .order("created_at", {
-
                 ascending: true
-
             });
 
-
-    /* Erro */
 
     if (error) {
 
@@ -630,8 +674,6 @@ async function carregarRespostas() {
     }
 
 
-    /* Nenhuma resposta */
-
     if (!data || data.length === 0) {
 
         container.innerHTML = `
@@ -650,8 +692,6 @@ async function carregarRespostas() {
     }
 
 
-    /* Título */
-
     container.innerHTML = `
 
         <h3>
@@ -662,8 +702,6 @@ async function carregarRespostas() {
 
     `;
 
-
-    /* Mostrar respostas */
 
     data.forEach(resposta => {
 
@@ -682,10 +720,60 @@ async function carregarRespostas() {
 
 
         div.className =
-            "resposta";
+            resposta.melhor_resposta
+                ? "resposta melhor"
+                : "resposta";
+
+
+        let melhorLabel = "";
+
+
+        if (resposta.melhor_resposta) {
+
+            melhorLabel = `
+
+                <div class="melhor-label">
+
+                    ⭐ Melhor resposta
+
+                </div>
+
+            `;
+
+        }
+
+
+        let botaoMelhor = "";
+
+
+        /* Só mostra o botão para o autor da pergunta */
+
+        if (
+            usuarioLogado &&
+            usuarioLogado.id === autorDaPergunta &&
+            !resposta.melhor_resposta
+        ) {
+
+            botaoMelhor = `
+
+                <button
+                    class="botao-melhor"
+                    onclick="marcarMelhor('${resposta.id}')"
+                >
+
+                    ⭐ Marcar como melhor resposta
+
+                </button>
+
+            `;
+
+        }
 
 
         div.innerHTML = `
+
+            ${melhorLabel}
+
 
             <div class="resposta-autor">
 
@@ -705,12 +793,111 @@ async function carregarRespostas() {
 
             </div>
 
+
+            ${botaoMelhor}
+
         `;
 
 
         container.appendChild(div);
 
     });
+
+}
+
+
+/* =====================================
+   MARCAR MELHOR RESPOSTA
+===================================== */
+
+async function marcarMelhor(respostaId) {
+
+    if (!usuarioLogado) {
+
+        mostrarMensagem(
+            "Você precisa estar logado.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    if (
+        usuarioLogado.id !== autorDaPergunta
+    ) {
+
+        mostrarMensagem(
+            "Somente o autor da pergunta pode marcar a melhor resposta.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    /* Remove a melhor resposta anterior */
+
+    const { error: limparErro } =
+        await window.supabaseClient
+
+            .from("respostas")
+
+            .update({
+                melhor_resposta: false
+            })
+
+            .eq("post_id", postId);
+
+
+    if (limparErro) {
+
+        console.error(limparErro);
+
+        mostrarMensagem(
+            "Erro ao atualizar a resposta.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    /* Marca a nova melhor resposta */
+
+    const { error } =
+        await window.supabaseClient
+
+            .from("respostas")
+
+            .update({
+                melhor_resposta: true
+            })
+
+            .eq("id", respostaId);
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao marcar melhor resposta: " +
+            error.message,
+            "erro"
+        );
+
+        return;
+    }
+
+
+    mostrarMensagem(
+        "Melhor resposta marcada! ⭐",
+        "sucesso"
+    );
+
+
+    carregarRespostas();
 
 }
 
@@ -731,8 +918,6 @@ async function responder() {
         campo.value.trim();
 
 
-    /* Verifica texto */
-
     if (!texto) {
 
         mostrarMensagem(
@@ -744,12 +929,9 @@ async function responder() {
     }
 
 
-    /* Verifica login */
-
     const {
         data: sessionData,
         error: sessionError
-
     } =
         await window.supabaseClient
             .auth
@@ -774,8 +956,6 @@ async function responder() {
         sessionData.session.user;
 
 
-    /* Insere resposta */
-
     const { error } =
 
         await window.supabaseClient
@@ -788,48 +968,35 @@ async function responder() {
 
                 author_id: user.id,
 
-                conteudo: texto
+                conteudo: texto,
+
+                melhor_resposta: false
 
             });
 
-
-    /* Erro */
 
     if (error) {
 
         console.error(error);
 
-
         mostrarMensagem(
-
             "Erro ao responder: " +
             error.message,
-
             "erro"
-
         );
 
         return;
     }
 
 
-    /* Limpa campo */
-
     campo.value = "";
 
 
-    /* Mensagem */
-
     mostrarMensagem(
-
         "Resposta publicada! 🎉",
-
         "sucesso"
-
     );
 
-
-    /* Atualiza respostas */
 
     carregarRespostas();
 
@@ -837,7 +1004,7 @@ async function responder() {
 
 
 /* =====================================
-   MOSTRAR MENSAGEM
+   MENSAGEM
 ===================================== */
 
 function mostrarMensagem(
@@ -874,7 +1041,7 @@ function mostrarMensagem(
 
 
 /* =====================================
-   VOLTAR PARA COMUNIDADE
+   VOLTAR
 ===================================== */
 
 function voltarComunidade() {
@@ -906,7 +1073,16 @@ async function sair() {
    INICIAR
 ===================================== */
 
-carregarPost();
+async function iniciar() {
+
+    await verificarLogin();
+
+    await carregarPost();
+
+}
+
+
+iniciar();
 
 </script>
 
