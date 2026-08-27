@@ -108,6 +108,34 @@
             color: #c8ccda;
             line-height: 1.6;
         }
+
+        .respostas {
+            margin-top: 25px;
+            border-top: 1px solid #292d42;
+            padding-top: 15px;
+        }
+
+        .resposta {
+            background: #0d0f19;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 1px solid #25283a;
+        }
+
+        .resposta p {
+            color: #c8ccda;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .responder-area {
+            margin-top: 20px;
+        }
+
+        .responder-area textarea {
+            min-height: 80px;
+        }
     </style>
 </head>
 
@@ -174,15 +202,31 @@
 
 </main>
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="js/supabase.js"></script>
 
 <script>
 
+
+/* ================================
+   VERIFICAR LOGIN
+================================ */
+
 async function verificarLogin() {
 
-    const { data } =
+    const { data, error } =
         await window.supabaseClient.auth.getSession();
+
+    if (error) {
+
+        console.error(error);
+
+        alert("Erro ao verificar login.");
+
+        return;
+    }
 
     if (!data.session) {
 
@@ -194,6 +238,10 @@ async function verificarLogin() {
     carregarPosts();
 }
 
+
+/* ================================
+   CRIAR PERGUNTA
+================================ */
 
 async function criarPost() {
 
@@ -218,7 +266,9 @@ async function criarPost() {
     const { data: sessionData } =
         await window.supabaseClient.auth.getSession();
 
-    const user = sessionData.session?.user;
+
+    const user =
+        sessionData.session?.user;
 
 
     if (!user) {
@@ -269,6 +319,10 @@ async function criarPost() {
 }
 
 
+/* ================================
+   CARREGAR PERGUNTAS
+================================ */
+
 async function carregarPosts() {
 
     const { data, error } =
@@ -286,7 +340,9 @@ async function carregarPosts() {
                     nivel
                 )
             `)
-            .order("created_at", { ascending: false });
+            .order("created_at", {
+                ascending: false
+            });
 
 
     if (error) {
@@ -321,6 +377,7 @@ async function carregarPosts() {
         const nome =
             post.profiles?.nome || "Usuário";
 
+
         const nivel =
             post.profiles?.nivel || "Membro";
 
@@ -328,49 +385,89 @@ async function carregarPosts() {
         const div =
             document.createElement("div");
 
+
         div.className = "post";
 
 
         div.innerHTML = `
 
-    <h2>${post.titulo}</h2>
+            <h2>
+                ${post.titulo}
+            </h2>
 
-    <div class="post-info">
-        👤 ${nome}
-        · ${nivel}
-        · ${post.categoria}
-    </div>
+            <div class="post-info">
+                👤 ${nome}
+                · ${nivel}
+                · ${post.categoria}
+            </div>
 
-    <p class="post-conteudo">
-        ${post.conteudo}
-    </p>
+            <p class="post-conteudo">
+                ${post.conteudo}
+            </p>
 
-    <div id="respostas-${post.id}">
-        Carregando respostas...
-    </div>
+            <div
+                class="respostas"
+                id="respostas-${post.id}"
+            >
+                Carregando respostas...
+            </div>
 
-    <textarea
-        id="resposta-${post.id}"
-        placeholder="Escreva sua resposta..."
-        style="margin-top: 15px;"
-    ></textarea>
+            <div class="responder-area">
 
-    <button onclick="responder('${post.id}')">
-        Responder
-    </button>
+                <textarea
+                    id="resposta-${post.id}"
+                    placeholder="Escreva sua resposta..."
+                ></textarea>
 
-`;
+                <button
+                    onclick="responder('${post.id}')"
+                >
+                    💬 Responder
+                </button>
 
-carregarRespostas(post.id);
+            </div>
+
+        `;
+
+
+        /*
+         * PRIMEIRO adicionamos a pergunta
+         * na página.
+         */
 
         container.appendChild(div);
 
+
+        /*
+         * DEPOIS carregamos as respostas.
+         */
+
+        carregarRespostas(post.id);
+
     });
 }
+
+
+/* ================================
+   CARREGAR RESPOSTAS
+================================ */
+
 async function carregarRespostas(postId) {
 
     const container =
-        document.getElementById(`respostas-${postId}`);
+        document.getElementById(
+            `respostas-${postId}`
+        );
+
+
+    if (!container) {
+
+        console.error(
+            "Área de respostas não encontrada."
+        );
+
+        return;
+    }
 
 
     const { data, error } =
@@ -386,7 +483,9 @@ async function carregarRespostas(postId) {
                 )
             `)
             .eq("post_id", postId)
-            .order("created_at", { ascending: true });
+            .order("created_at", {
+                ascending: true
+            });
 
 
     if (error) {
@@ -424,17 +523,16 @@ async function carregarRespostas(postId) {
             document.createElement("div");
 
 
-        div.style.background = "#0d0f19";
-        div.style.padding = "15px";
-        div.style.borderRadius = "8px";
-        div.style.marginTop = "10px";
+        div.className = "resposta";
 
 
         div.innerHTML = `
 
-            <strong>👤 ${nome}</strong>
+            <strong>
+                👤 ${nome}
+            </strong>
 
-            <p style="color:#c8ccda;">
+            <p>
                 ${resposta.conteudo}
             </p>
 
@@ -445,14 +543,31 @@ async function carregarRespostas(postId) {
 
     });
 }
-    
+
+
+/* ================================
+   RESPONDER PERGUNTA
+================================ */
+
 async function responder(postId) {
 
     const campo =
-        document.getElementById(`resposta-${postId}`);
+        document.getElementById(
+            `resposta-${postId}`
+        );
+
+
+    if (!campo) {
+
+        alert("Campo de resposta não encontrado.");
+
+        return;
+    }
+
 
     const conteudo =
         campo.value.trim();
+
 
     if (!conteudo) {
 
@@ -465,7 +580,9 @@ async function responder(postId) {
     const { data: sessionData } =
         await window.supabaseClient.auth.getSession();
 
-    const user = sessionData.session?.user;
+
+    const user =
+        sessionData.session?.user;
 
 
     if (!user) {
@@ -496,7 +613,10 @@ async function responder(postId) {
 
         console.error(error);
 
-        alert("Erro ao responder: " + error.message);
+        alert(
+            "Erro ao responder: " +
+            error.message
+        );
 
         return;
     }
@@ -504,10 +624,17 @@ async function responder(postId) {
 
     campo.value = "";
 
+
     alert("Resposta publicada! 🎉");
+
 
     carregarRespostas(postId);
 }
+
+
+/* ================================
+   SAIR
+================================ */
 
 async function sair() {
 
@@ -516,6 +643,10 @@ async function sair() {
     window.location.href = "index.html";
 }
 
+
+/* ================================
+   INICIAR
+================================ */
 
 verificarLogin();
 
