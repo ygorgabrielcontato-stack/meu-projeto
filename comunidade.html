@@ -136,21 +136,6 @@
         .responder-area textarea {
             min-height: 80px;
         }
-
-        .tipo-aluno {
-            color: #7dd3fc;
-            font-weight: bold;
-        }
-
-        .tipo-professor {
-            color: #a78bfa;
-            font-weight: bold;
-        }
-
-        .tipo-outro {
-            color: #9da3b8;
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -360,8 +345,7 @@ async function carregarPosts() {
                 profiles (
                     nome,
                     username,
-                    nivel,
-                    tipo_conta
+                    nivel
                 )
             `)
             .order("created_at", {
@@ -406,24 +390,6 @@ async function carregarPosts() {
             post.profiles?.nivel || "Membro";
 
 
-        const tipoConta =
-            post.profiles?.tipo_conta || "aluno";
-
-
-        let tipoTexto = "Aluno";
-
-        let tipoClasse = "tipo-aluno";
-
-
-        if (tipoConta.toLowerCase() === "professor") {
-
-            tipoTexto = "Professor";
-
-            tipoClasse = "tipo-professor";
-
-        }
-
-
         const div =
             document.createElement("div");
 
@@ -440,10 +406,6 @@ async function carregarPosts() {
             <div class="post-info">
 
                 👤 ${nome}
-
-                · <span class="${tipoClasse}">
-                    ${tipoTexto}
-                  </span>
 
                 · ${nivel}
 
@@ -480,8 +442,12 @@ async function carregarPosts() {
         `;
 
 
+        /* Primeiro colocamos o post na página */
+
         container.appendChild(div);
 
+
+        /* Depois carregamos as respostas */
 
         carregarRespostas(post.id);
 
@@ -520,9 +486,7 @@ async function carregarRespostas(postId) {
                 created_at,
                 profiles (
                     nome,
-                    username,
-                    nivel,
-                    tipo_conta
+                    username
                 )
             `)
             .eq("post_id", postId)
@@ -562,28 +526,6 @@ async function carregarRespostas(postId) {
             resposta.profiles?.nome || "Usuário";
 
 
-        const nivel =
-            resposta.profiles?.nivel || "Membro";
-
-
-        const tipoConta =
-            resposta.profiles?.tipo_conta || "aluno";
-
-
-        let tipoTexto = "Aluno";
-
-        let tipoClasse = "tipo-aluno";
-
-
-        if (tipoConta.toLowerCase() === "professor") {
-
-            tipoTexto = "Professor";
-
-            tipoClasse = "tipo-professor";
-
-        }
-
-
         const div =
             document.createElement("div");
 
@@ -594,15 +536,7 @@ async function carregarRespostas(postId) {
         div.innerHTML = `
 
             <strong>
-
                 👤 ${nome}
-
-                · <span class="${tipoClasse}">
-                    ${tipoTexto}
-                  </span>
-
-                · ${nivel}
-
             </strong>
 
             <p>
@@ -619,7 +553,7 @@ async function carregarRespostas(postId) {
 
 
 /* ================================
-   RESPONDER PERGUNTA
+   RESPONDER
 ================================ */
 
 async function responder(postId) {
