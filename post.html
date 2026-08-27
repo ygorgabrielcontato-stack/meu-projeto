@@ -5,13 +5,10 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Pergunta - TechCommunity</title>
-
 
     <style>
 
@@ -19,36 +16,22 @@
             box-sizing: border-box;
         }
 
-
         body {
 
             margin: 0;
 
             font-family: Arial, sans-serif;
 
-            background:
-                radial-gradient(
-                    circle at top,
-                    #151936 0%,
-                    #0b0d17 45%
-                );
+            background: #0b0d17;
 
             color: white;
-
-            min-height: 100vh;
 
         }
 
 
-        /* =========================
-           HEADER
-        ========================= */
-
         header {
 
-            height: 70px;
-
-            padding: 0 8%;
+            padding: 20px 8%;
 
             border-bottom: 1px solid #25283a;
 
@@ -57,16 +40,6 @@
             justify-content: space-between;
 
             align-items: center;
-
-            background: rgba(11, 13, 23, 0.92);
-
-            backdrop-filter: blur(12px);
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 10;
 
         }
 
@@ -98,7 +71,15 @@
 
         button {
 
+            background: #6258e8;
+
             border: none;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
 
             cursor: pointer;
 
@@ -107,58 +88,40 @@
         }
 
 
-        .btn-header {
+        button:hover {
 
-            background: #171a29;
-
-            color: white;
-
-            border: 1px solid #292d42;
-
-            padding: 10px 16px;
-
-            border-radius: 9px;
-
-            transition: 0.2s;
+            opacity: 0.9;
 
         }
 
 
-        .btn-header:hover {
+        .btn-voltar {
 
-            background: #25283a;
-
-            transform: translateY(-1px);
+            background: #292d42;
 
         }
 
-
-        /* =========================
-           MAIN
-        ========================= */
 
         main {
 
-            width: 92%;
+            width: 90%;
 
-            max-width: 850px;
+            max-width: 900px;
 
-            margin: 35px auto 70px;
+            margin: 40px auto 80px;
 
         }
 
 
         .voltar {
 
-            background: transparent;
-
             color: #9da3b8;
 
-            padding: 0;
+            cursor: pointer;
 
             margin-bottom: 25px;
 
-            font-size: 15px;
+            display: inline-block;
 
         }
 
@@ -170,169 +133,15 @@
         }
 
 
-        /* =========================
-           POST
-        ========================= */
-
         .post {
 
-            background: rgba(23, 26, 41, 0.95);
+            background: #171a29;
 
             border: 1px solid #292d42;
 
+            border-radius: 18px;
+
             padding: 30px;
-
-            border-radius: 20px;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.25);
-
-        }
-
-
-        .post h1 {
-
-            font-size: 30px;
-
-            line-height: 1.4;
-
-            margin: 0 0 14px;
-
-        }
-
-
-        /* =========================
-           AUTOR
-        ========================= */
-
-        .autor {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .avatar {
-
-            width: 46px;
-
-            height: 46px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #6258e8,
-                    #8b82ff
-                );
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-weight: bold;
-
-            font-size: 19px;
-
-            flex-shrink: 0;
-
-        }
-
-
-        .autor-info {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 4px;
-
-        }
-
-
-        .autor-nome {
-
-            font-weight: bold;
-
-        }
-
-
-        .autor-detalhes {
-
-            color: #8e95aa;
-
-            font-size: 13px;
-
-        }
-
-
-        /* =========================
-           BADGES
-        ========================= */
-
-        .badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            padding: 5px 9px;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            margin-left: 5px;
-
-        }
-
-
-        .badge-aluno {
-
-            background: rgba(98, 88, 232, 0.15);
-
-            color: #aaa3ff;
-
-            border: 1px solid rgba(98, 88, 232, 0.3);
-
-        }
-
-
-        .badge-professor {
-
-            background: rgba(255, 183, 77, 0.12);
-
-            color: #ffc66d;
-
-            border: 1px solid rgba(255, 183, 77, 0.3);
-
-        }
-
-
-        /* =========================
-           CONTEÚDO
-        ========================= */
-
-        .post-conteudo {
-
-            color: #d2d5e0;
-
-            font-size: 16px;
-
-            line-height: 1.8;
-
-            white-space: pre-wrap;
 
         }
 
@@ -341,73 +150,192 @@
 
             display: inline-block;
 
-            margin-top: 20px;
-
             background: #292d42;
 
-            color: #bfc4d6;
+            color: #aaa5ff;
 
             padding: 7px 12px;
 
             border-radius: 20px;
 
-            font-size: 12px;
+            font-size: 13px;
+
+            margin-bottom: 15px;
 
         }
 
 
-        .data {
+        .post h1 {
 
-            color: #73798e;
+            font-size: 30px;
 
-            font-size: 12px;
+            margin: 5px 0 15px;
 
-            margin-left: 8px;
+        }
+
+
+        .autor {
+
+            color: #8e95aa;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .conteudo {
+
+            color: #d0d3df;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+
+        }
+
+
+        .separador {
+
+            border: none;
+
+            border-top: 1px solid #292d42;
+
+            margin: 30px 0;
+
+        }
+
+
+        .titulo-respostas {
+
+            font-size: 22px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .resposta {
+
+            background: #0d0f19;
+
+            border: 1px solid #25283a;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .resposta-topo {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .autor-resposta {
+
+            font-weight: bold;
+
+        }
+
+
+        .tipo-professor {
+
+            display: inline-block;
+
+            margin-left: 7px;
+
+            background: #6258e8;
+
+            color: white;
+
+            padding: 4px 8px;
+
+            border-radius: 12px;
+
+            font-size: 11px;
+
+        }
+
+
+        .resposta-conteudo {
+
+            color: #c8ccda;
+
+            line-height: 1.6;
+
+            margin: 15px 0;
+
+            white-space: pre-wrap;
 
         }
 
 
         /* =========================
-           AÇÕES
+           CURTIDA
         ========================= */
 
-        .acoes {
+
+        .acoes-resposta {
 
             display: flex;
 
             align-items: center;
 
-            gap: 20px;
-
-            border-top: 1px solid #25283a;
-
-            margin-top: 25px;
-
-            padding-top: 18px;
+            gap: 10px;
 
         }
 
 
-        .curtida-area {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-        }
-
-
-        .botao-coracao {
+        .curtir {
 
             background: transparent;
 
-            color: #9da3b8;
+            border: none;
 
-            font-size: 32px;
+            padding: 4px 6px;
 
-            padding: 0;
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            color: #8e95aa;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+
+
+        .curtir:hover {
+
+            background: transparent;
+
+            opacity: 1;
+
+        }
+
+
+        .coracao {
+
+            font-size: 25px;
 
             line-height: 1;
 
@@ -418,37 +346,51 @@
         }
 
 
-        .botao-coracao:hover {
+        .coracao.vazio {
 
-            transform: scale(1.15);
-
-            color: #ff4f7b;
+            color: #9da3b8;
 
         }
 
 
-        .botao-coracao.curtido {
+        .coracao.curtiu {
 
-            color: #ff3b6b;
-
-            animation:
-                coracao 0.25s ease;
+            color: #ff3040;
 
         }
 
 
-        @keyframes coracao {
+        .curtir.animar .coracao {
+
+            animation: bater 0.3s ease;
+
+        }
+
+
+        @keyframes bater {
 
             0% {
+
                 transform: scale(1);
+
             }
 
-            50% {
+            40% {
+
                 transform: scale(1.35);
+
+            }
+
+            70% {
+
+                transform: scale(0.9);
+
             }
 
             100% {
+
                 transform: scale(1);
+
             }
 
         }
@@ -456,152 +398,24 @@
 
         .contador {
 
-            color: #c8ccda;
-
             font-size: 14px;
 
-        }
-
-
-        /* =========================
-           RESPOSTAS
-        ========================= */
-
-        .respostas-container {
-
-            margin-top: 35px;
+            color: #8e95aa;
 
         }
 
-
-        .respostas-container h2 {
-
-            font-size: 22px;
-
-            margin-bottom: 18px;
-
-        }
-
-
-        .resposta {
-
-            background: #111421;
-
-            border: 1px solid #292d42;
-
-            padding: 20px;
-
-            border-radius: 15px;
-
-            margin-top: 12px;
-
-            transition: 0.2s;
-
-        }
-
-
-        .resposta:hover {
-
-            border-color: #3b4059;
-
-            transform: translateY(-1px);
-
-        }
-
-
-        .resposta-topo {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .resposta-avatar {
-
-            width: 38px;
-
-            height: 38px;
-
-            border-radius: 50%;
-
-            background: #292d42;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-weight: bold;
-
-            flex-shrink: 0;
-
-        }
-
-
-        .resposta-autor {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 3px;
-
-        }
-
-
-        .resposta-nome {
-
-            font-weight: bold;
-
-            font-size: 14px;
-
-        }
-
-
-        .resposta-data {
-
-            color: #73798e;
-
-            font-size: 11px;
-
-        }
-
-
-        .resposta p {
-
-            color: #c8ccda;
-
-            line-height: 1.6;
-
-            margin: 0;
-
-            white-space: pre-wrap;
-
-        }
-
-
-        /* =========================
-           RESPONDER
-        ========================= */
 
         .responder {
+
+            margin-top: 30px;
 
             background: #171a29;
 
             border: 1px solid #292d42;
 
+            border-radius: 15px;
+
             padding: 25px;
-
-            border-radius: 18px;
-
-            margin-top: 28px;
 
         }
 
@@ -609,19 +423,6 @@
         .responder h2 {
 
             margin-top: 0;
-
-            font-size: 20px;
-
-        }
-
-
-        .responder-sub {
-
-            color: #8e95aa;
-
-            font-size: 13px;
-
-            margin-bottom: 15px;
 
         }
 
@@ -640,15 +441,15 @@
 
             border: 1px solid #30344b;
 
-            border-radius: 10px;
+            border-radius: 8px;
 
             color: white;
 
-            outline: none;
-
             font-family: Arial, sans-serif;
 
-            font-size: 14px;
+            font-size: 15px;
+
+            outline: none;
 
         }
 
@@ -657,10 +458,6 @@
 
             border-color: #6258e8;
 
-            box-shadow:
-                0 0 0 2px
-                rgba(98, 88, 232, 0.12);
-
         }
 
 
@@ -668,56 +465,49 @@
 
             margin-top: 12px;
 
-            background: #6258e8;
-
-            color: white;
-
-            padding: 12px 20px;
-
-            border-radius: 9px;
-
-            transition: 0.2s;
-
         }
 
 
-        .btn-responder:hover {
+        .carregando {
 
-            background: #7168f0;
-
-            transform: translateY(-1px);
-
-        }
-
-
-        /* =========================
-           MENSAGENS
-        ========================= */
-
-        .mensagem {
-
-            background: #171a29;
-
-            border: 1px solid #292d42;
-
-            padding: 25px;
-
-            border-radius: 15px;
+            text-align: center;
 
             color: #9da3b8;
 
+            padding: 40px;
+
         }
 
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .erro {
+
+            background: #301820;
+
+            border: 1px solid #6b2636;
+
+            color: #ff9da9;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+        }
+
+
+        .sem-respostas {
+
+            color: #8e95aa;
+
+            padding: 15px 0;
+
+        }
+
 
         @media (max-width: 600px) {
 
             header {
 
-                padding: 0 5%;
+                padding: 15px 5%;
 
             }
 
@@ -729,9 +519,9 @@
             }
 
 
-            .btn-header {
+            .header-botoes button {
 
-                padding: 8px 10px;
+                padding: 9px 12px;
 
             }
 
@@ -758,13 +548,6 @@
 
             }
 
-
-            .autor {
-
-                align-items: flex-start;
-
-            }
-
         }
 
     </style>
@@ -777,7 +560,6 @@
 
 <header>
 
-
     <div class="logo">
 
         Tech<span>Community</span>
@@ -787,50 +569,41 @@
 
     <div class="header-botoes">
 
-
         <button
-            class="btn-header"
-            onclick="perfil()"
-        >
+            class="btn-voltar"
+            onclick="voltarComunidade()">
+
+            ← Comunidade
+
+        </button>
+
+
+        <button onclick="perfil()">
 
             👤 Perfil
 
         </button>
 
-
-        <button
-            class="btn-header"
-            onclick="sair()"
-        >
-
-            Sair
-
-        </button>
-
-
     </div>
 
-
 </header>
-
 
 
 <main>
 
 
-    <button
+    <div
         class="voltar"
-        onclick="voltarComunidade()"
-    >
+        onclick="voltarComunidade()">
 
         ← Voltar para comunidade
 
-    </button>
+    </div>
 
 
-    <div id="conteudoPagina">
+    <div id="conteudoPost">
 
-        <div class="mensagem">
+        <div class="carregando">
 
             Carregando pergunta...
 
@@ -842,28 +615,17 @@
 </main>
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
 
 
-
 <script>
 
 
-/* =================================
-   VARIÁVEIS
-================================= */
-
-let usuarioLogado = null;
-
-let postId = null;
-
-
-/* =================================
-   PEGAR ID DA URL
-================================= */
+/* ================================
+   PEGAR ID DA PERGUNTA
+================================ */
 
 const parametros =
     new URLSearchParams(
@@ -871,115 +633,20 @@ const parametros =
     );
 
 
-postId =
+const postId =
     parametros.get("id");
 
 
-/* =================================
-   FORMATAR DATA
-================================= */
-
-function formatarData(data) {
-
-    if (!data) {
-
-        return "";
-
-    }
+let usuarioAtual = null;
 
 
-    const dataObj =
-        new Date(data);
-
-
-    return dataObj.toLocaleString(
-        "pt-BR",
-        {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-        }
-    );
-
-}
-
-
-/* =================================
-   PEGAR INICIAL
-================================= */
-
-function inicial(nome) {
-
-    if (!nome) {
-
-        return "U";
-
-    }
-
-
-    return nome
-        .charAt(0)
-        .toUpperCase();
-
-}
-
-
-/* =================================
-   BADGE DO TIPO DE CONTA
-================================= */
-
-function badgeTipo(tipo) {
-
-    if (!tipo) {
-
-        return `
-            <span class="badge badge-aluno">
-                🎓 Aluno
-            </span>
-        `;
-
-    }
-
-
-    const tipoNormalizado =
-        tipo.toLowerCase();
-
-
-    if (
-        tipoNormalizado.includes(
-            "professor"
-        )
-    ) {
-
-        return `
-            <span class="badge badge-professor">
-                👨‍🏫 Professor
-            </span>
-        `;
-
-    }
-
-
-    return `
-        <span class="badge badge-aluno">
-            🎓 Aluno
-        </span>
-    `;
-
-}
-
-
-/* =================================
+/* ================================
    VERIFICAR LOGIN
-================================= */
+================================ */
 
 async function verificarLogin() {
 
-
     const { data, error } =
-
         await window.supabaseClient
             .auth
             .getSession();
@@ -998,7 +665,11 @@ async function verificarLogin() {
     }
 
 
-    if (!data.session) {
+    usuarioAtual =
+        data.session?.user;
+
+
+    if (!usuarioAtual) {
 
         window.location.href =
             "index.html";
@@ -1006,10 +677,6 @@ async function verificarLogin() {
         return;
 
     }
-
-
-    usuarioLogado =
-        data.session.user;
 
 
     if (!postId) {
@@ -1028,42 +695,38 @@ async function verificarLogin() {
 }
 
 
-/* =================================
+/* ================================
    CARREGAR PERGUNTA
-================================= */
+================================ */
 
 async function carregarPost() {
 
+    const container =
+        document.getElementById(
+            "conteudoPost"
+        );
+
 
     const { data, error } =
-
         await window.supabaseClient
 
             .from("posts")
 
             .select(`
-
                 id,
                 titulo,
                 conteudo,
                 categoria,
                 created_at,
-
                 profiles (
-
                     nome,
                     username,
                     nivel,
                     tipo_conta
-
                 )
-
             `)
 
-            .eq(
-                "id",
-                postId
-            )
+            .eq("id", postId)
 
             .single();
 
@@ -1073,18 +736,7 @@ async function carregarPost() {
         console.error(error);
 
         mostrarErro(
-            "Não foi possível carregar essa pergunta."
-        );
-
-        return;
-
-    }
-
-
-    if (!data) {
-
-        mostrarErro(
-            "Essa pergunta não existe."
+            "Erro ao carregar a pergunta."
         );
 
         return;
@@ -1099,7 +751,7 @@ async function carregarPost() {
 
     const username =
         data.profiles?.username ||
-        "usuário";
+        "usuario";
 
 
     const nivel =
@@ -1112,18 +764,15 @@ async function carregarPost() {
         "Aluno";
 
 
-    const categoria =
-        data.categoria ||
-        "Geral";
+    container.innerHTML = `
 
+        <article class="post">
 
-    document
-        .getElementById(
-            "conteudoPagina"
-        )
-        .innerHTML = `
+            <div class="categoria">
 
-        <div class="post">
+                ${data.categoria}
+
+            </div>
 
 
             <h1>
@@ -1135,132 +784,56 @@ async function carregarPost() {
 
             <div class="autor">
 
+                👤 ${nome}
 
-                <div class="avatar">
+                · @${username}
 
-                    ${inicial(nome)}
+                · ${nivel}
 
-                </div>
-
-
-                <div class="autor-info">
-
-
-                    <div class="autor-nome">
-
-                        ${nome}
-
-                        ${badgeTipo(tipoConta)}
-
-                    </div>
-
-
-                    <div class="autor-detalhes">
-
-                        @${username}
-
-                        · ${nivel}
-
-                        · ${formatarData(
-                            data.created_at
-                        )}
-
-                    </div>
-
-
-                </div>
-
+                · ${tipoConta}
 
             </div>
 
 
-            <div class="post-conteudo">
+            <div class="conteudo">
 
                 ${data.conteudo}
 
             </div>
 
-
-            <span class="categoria">
-
-                🏷️ ${categoria}
-
-            </span>
+        </article>
 
 
-            <span class="data">
-
-                ${formatarData(
-                    data.created_at
-                )}
-
-            </span>
+        <hr class="separador">
 
 
-            <div class="acoes">
+        <section>
 
-
-                <div class="curtida-area">
-
-
-                    <button
-
-                        id="botaoCurtir"
-
-                        class="botao-coracao"
-
-                        onclick="alternarCurtida()"
-
-                        aria-label="Curtir"
-
-                    >
-
-                        ♡
-
-                    </button>
-
-
-                    <span
-                        id="contadorCurtidas"
-                        class="contador"
-                    >
-
-                        Carregando...
-
-                    </span>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-        <div class="respostas-container">
-
-
-            <h2>
+            <h2 class="titulo-respostas">
 
                 💬 Respostas
+
+                <span id="contadorRespostas">
+                    ...
+                </span>
 
             </h2>
 
 
             <div id="listaRespostas">
 
-                Carregando respostas...
+                <div class="carregando">
+
+                    Carregando respostas...
+
+                </div>
 
             </div>
 
+        </section>
 
-        </div>
 
-
-        <div class="responder">
-
+        <section class="responder">
 
             <h2>
 
@@ -1269,288 +842,35 @@ async function carregarPost() {
             </h2>
 
 
-            <div class="responder-sub">
-
-                Ajude quem está começando
-                compartilhando seu conhecimento.
-
-            </div>
-
-
             <textarea
-
                 id="campoResposta"
-
-                placeholder="Escreva uma resposta..."
-
-            ></textarea>
+                placeholder="Escreva uma resposta para ajudar quem fez a pergunta...">
+            </textarea>
 
 
             <button
-
                 class="btn-responder"
-
-                onclick="responder()"
-
-            >
+                onclick="responder()">
 
                 💬 Publicar resposta
 
             </button>
 
-
-        </div>
+        </section>
 
     `;
 
-
-    carregarCurtida();
 
     carregarRespostas();
 
 }
 
 
-/* =================================
-   CARREGAR CURTIDA
-================================= */
-
-async function carregarCurtida() {
-
-
-    const contador =
-        document.getElementById(
-            "contadorCurtidas"
-        );
-
-
-    const botao =
-        document.getElementById(
-            "botaoCurtir"
-        );
-
-
-    if (!contador || !botao) {
-
-        return;
-
-    }
-
-
-    const { data, error } =
-
-        await window.supabaseClient
-
-            .from("curtidas")
-
-            .select("user_id")
-
-            .eq(
-                "post_id",
-                postId
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        contador.textContent =
-            "Erro";
-
-        return;
-
-    }
-
-
-    const quantidade =
-        data?.length || 0;
-
-
-    contador.textContent =
-
-        quantidade === 1
-
-            ? "1 curtida"
-
-            : `${quantidade} curtidas`;
-
-
-    const curtiu =
-
-        data?.some(
-
-            curtida =>
-
-                curtida.user_id ===
-                usuarioLogado.id
-
-        );
-
-
-    if (curtiu) {
-
-        botao.textContent =
-            "♥";
-
-        botao.classList.add(
-            "curtido"
-        );
-
-    }
-
-    else {
-
-        botao.textContent =
-            "♡";
-
-        botao.classList.remove(
-            "curtido"
-        );
-
-    }
-
-}
-
-
-/* =================================
-   CURTIR / DESCURTIR
-================================= */
-
-async function alternarCurtida() {
-
-
-    if (!usuarioLogado) {
-
-        alert(
-            "Você precisa estar logado."
-        );
-
-        return;
-
-    }
-
-
-    const { data, error } =
-
-        await window.supabaseClient
-
-            .from("curtidas")
-
-            .select("id")
-
-            .eq(
-                "post_id",
-                postId
-            )
-
-            .eq(
-                "user_id",
-                usuarioLogado.id
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        alert(
-            "Erro ao verificar curtida: " +
-            error.message
-        );
-
-        return;
-
-    }
-
-
-    if (
-        data &&
-        data.length > 0
-    ) {
-
-
-        const { error: deleteError } =
-
-            await window.supabaseClient
-
-                .from("curtidas")
-
-                .delete()
-
-                .eq(
-                    "id",
-                    data[0].id
-                );
-
-
-        if (deleteError) {
-
-            console.error(
-                deleteError
-            );
-
-            alert(
-                "Erro ao remover curtida: " +
-                deleteError.message
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    else {
-
-
-        const { error: insertError } =
-
-            await window.supabaseClient
-
-                .from("curtidas")
-
-                .insert({
-
-                    post_id:
-                        postId,
-
-                    user_id:
-                        usuarioLogado.id
-
-                });
-
-
-        if (insertError) {
-
-            console.error(
-                insertError
-            );
-
-            alert(
-                "Erro ao curtir: " +
-                insertError.message
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    carregarCurtida();
-
-}
-
-
-/* =================================
+/* ================================
    CARREGAR RESPOSTAS
-================================= */
+================================ */
 
 async function carregarRespostas() {
-
 
     const container =
         document.getElementById(
@@ -1558,47 +878,28 @@ async function carregarRespostas() {
         );
 
 
-    if (!container) {
-
-        return;
-
-    }
-
-
     const { data, error } =
-
         await window.supabaseClient
 
             .from("respostas")
 
             .select(`
-
                 id,
                 conteudo,
                 created_at,
-
                 profiles (
-
                     nome,
                     username,
                     nivel,
                     tipo_conta
-
                 )
-
             `)
 
-            .eq(
-                "post_id",
-                postId
-            )
+            .eq("post_id", postId)
 
-            .order(
-                "created_at",
-                {
-                    ascending: true
-                }
-            );
+            .order("created_at", {
+                ascending: true
+            });
 
 
     if (error) {
@@ -1607,7 +908,7 @@ async function carregarRespostas() {
 
         container.innerHTML = `
 
-            <div class="mensagem">
+            <div class="erro">
 
                 Erro ao carregar respostas.
 
@@ -1620,19 +921,19 @@ async function carregarRespostas() {
     }
 
 
-    if (
-        !data ||
-        data.length === 0
-    ) {
+    document.getElementById(
+        "contadorRespostas"
+    ).textContent =
+        `(${data?.length || 0})`;
+
+
+    if (!data || data.length === 0) {
 
         container.innerHTML = `
 
-            <div class="mensagem">
+            <div class="sem-respostas">
 
-                Ainda não existem respostas.
-
-                <br><br>
-
+                Nenhuma resposta ainda.
                 Seja o primeiro a ajudar! 🚀
 
             </div>
@@ -1647,140 +948,397 @@ async function carregarRespostas() {
     container.innerHTML = "";
 
 
-    data.forEach(
-        resposta => {
+    for (const resposta of data) {
+
+        const nome =
+            resposta.profiles?.nome ||
+            "Usuário";
 
 
-            const nome =
-
-                resposta
-                    .profiles
-                    ?.nome ||
-
-                "Usuário";
+        const tipoConta =
+            resposta.profiles?.tipo_conta ||
+            "Aluno";
 
 
-            const username =
-
-                resposta
-                    .profiles
-                    ?.username ||
-
-                "usuário";
+        const div =
+            document.createElement("div");
 
 
-            const nivel =
-
-                resposta
-                    .profiles
-                    ?.nivel ||
-
-                "Membro";
+        div.className =
+            "resposta";
 
 
-            const tipoConta =
+        div.innerHTML = `
 
-                resposta
-                    .profiles
-                    ?.tipo_conta ||
+            <div class="resposta-topo">
 
-                "Aluno";
+                <div>
 
+                    <span class="autor-resposta">
 
-            const div =
+                        👤 ${nome}
 
-                document.createElement(
-                    "div"
-                );
+                    </span>
 
 
-            div.className =
-                "resposta";
+                    ${
+                        tipoConta
+                            .toLowerCase()
+                            .includes("professor")
 
+                        ?
 
-            div.innerHTML = `
+                        `<span class="tipo-professor">
+                            👨‍🏫 Professor
+                        </span>`
 
-                <div class="resposta-topo">
+                        :
 
-
-                    <div class="resposta-avatar">
-
-                        ${inicial(nome)}
-
-                    </div>
-
-
-                    <div class="resposta-autor">
-
-
-                        <div class="resposta-nome">
-
-                            ${nome}
-
-                            ${badgeTipo(
-                                tipoConta
-                            )}
-
-                        </div>
-
-
-                        <div class="resposta-data">
-
-                            @${username}
-
-                            · ${nivel}
-
-                            · ${formatarData(
-                                resposta.created_at
-                            )}
-
-                        </div>
-
-
-                    </div>
-
+                        ""
+                    }
 
                 </div>
 
 
-                <p>
+                <div class="acoes-resposta">
 
-                    ${resposta.conteudo}
+                    <button
+                        class="curtir"
+                        id="curtir-${resposta.id}"
+                        onclick="curtirResposta('${resposta.id}')">
 
-                </p>
+                        <span
+                            class="coracao vazio"
+                            id="coracao-${resposta.id}">
 
-            `;
+                            ♡
+
+                        </span>
 
 
-            container.appendChild(
-                div
+                        <span
+                            class="contador"
+                            id="contador-${resposta.id}">
+
+                            0
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="resposta-conteudo">
+
+                ${resposta.conteudo}
+
+            </div>
+
+        `;
+
+
+        container.appendChild(div);
+
+
+        carregarCurtidas(resposta.id);
+
+    }
+
+}
+
+
+/* ================================
+   CARREGAR CURTIDAS
+================================ */
+
+async function carregarCurtidas(
+    respostaId
+) {
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("curtidas_respostas")
+
+            .select(
+                "user_id"
+            )
+
+            .eq(
+                "resposta_id",
+                respostaId
             );
 
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar curtidas:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    const contador =
+        document.getElementById(
+            `contador-${respostaId}`
+        );
+
+
+    const coracao =
+        document.getElementById(
+            `coracao-${respostaId}`
+        );
+
+
+    if (!contador || !coracao) {
+
+        return;
+
+    }
+
+
+    const quantidade =
+        data?.length || 0;
+
+
+    contador.textContent =
+        quantidade;
+
+
+    const usuarioCurtiu =
+        data?.some(
+            curtida =>
+                curtida.user_id ===
+                usuarioAtual.id
+        );
+
+
+    if (usuarioCurtiu) {
+
+        coracao.textContent =
+            "♥";
+
+        coracao.classList.remove(
+            "vazio"
+        );
+
+        coracao.classList.add(
+            "curtiu"
+        );
+
+    }
+
+}
+
+
+/* ================================
+   CURTIR / DESCURTIR
+================================ */
+
+async function curtirResposta(
+    respostaId
+) {
+
+    if (!usuarioAtual) {
+
+        alert(
+            "Você precisa estar logado."
+        );
+
+        return;
+
+    }
+
+
+    const botao =
+        document.getElementById(
+            `curtir-${respostaId}`
+        );
+
+
+    const coracao =
+        document.getElementById(
+            `coracao-${respostaId}`
+        );
+
+
+    const contador =
+        document.getElementById(
+            `contador-${respostaId}`
+        );
+
+
+    if (
+        !botao ||
+        !coracao ||
+        !contador
+    ) {
+
+        return;
+
+    }
+
+
+    const jaCurtiu =
+        coracao.classList.contains(
+            "curtiu"
+        );
+
+
+    /* ==========================
+       DESCURTIR
+    ========================== */
+
+    if (jaCurtiu) {
+
+        const { error } =
+            await window.supabaseClient
+
+                .from("curtidas_respostas")
+
+                .delete()
+
+                .eq(
+                    "resposta_id",
+                    respostaId
+                )
+
+                .eq(
+                    "user_id",
+                    usuarioAtual.id
+                );
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Erro ao remover curtida: " +
+                error.message
+            );
+
+            return;
+
         }
+
+
+        coracao.textContent =
+            "♡";
+
+
+        coracao.classList.remove(
+            "curtiu"
+        );
+
+
+        coracao.classList.add(
+            "vazio"
+        );
+
+
+        contador.textContent =
+            Math.max(
+                0,
+                parseInt(
+                    contador.textContent
+                ) - 1
+            );
+
+
+        return;
+
+    }
+
+
+    /* ==========================
+       CURTIR
+    ========================== */
+
+    const { error } =
+        await window.supabaseClient
+
+            .from("curtidas_respostas")
+
+            .insert({
+
+                resposta_id:
+                    respostaId,
+
+                user_id:
+                    usuarioAtual.id
+
+            });
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao curtir: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    coracao.textContent =
+        "♥";
+
+
+    coracao.classList.remove(
+        "vazio"
+    );
+
+
+    coracao.classList.add(
+        "curtiu"
+    );
+
+
+    contador.textContent =
+        parseInt(
+            contador.textContent
+        ) + 1;
+
+
+    /* Animação */
+
+    botao.classList.remove(
+        "animar"
+    );
+
+
+    void botao.offsetWidth;
+
+
+    botao.classList.add(
+        "animar"
     );
 
 }
 
 
-/* =================================
+/* ================================
    RESPONDER
-================================= */
+================================ */
 
 async function responder() {
 
-
     const campo =
-
         document.getElementById(
             "campoResposta"
         );
-
-
-    if (!campo) {
-
-        return;
-
-    }
 
 
     const conteudo =
@@ -1798,7 +1356,7 @@ async function responder() {
     }
 
 
-    if (!usuarioLogado) {
+    if (!usuarioAtual) {
 
         alert(
             "Você precisa estar logado."
@@ -1810,7 +1368,6 @@ async function responder() {
 
 
     const { error } =
-
         await window.supabaseClient
 
             .from("respostas")
@@ -1821,7 +1378,7 @@ async function responder() {
                     postId,
 
                 author_id:
-                    usuarioLogado.id,
+                    usuarioAtual.id,
 
                 conteudo:
                     conteudo
@@ -1834,10 +1391,8 @@ async function responder() {
         console.error(error);
 
         alert(
-
             "Erro ao publicar resposta: " +
             error.message
-
         );
 
         return;
@@ -1858,9 +1413,9 @@ async function responder() {
 }
 
 
-/* =================================
-   VOLTAR
-================================= */
+/* ================================
+   NAVEGAÇÃO
+================================ */
 
 function voltarComunidade() {
 
@@ -1870,10 +1425,6 @@ function voltarComunidade() {
 }
 
 
-/* =================================
-   PERFIL
-================================= */
-
 function perfil() {
 
     window.location.href =
@@ -1882,49 +1433,21 @@ function perfil() {
 }
 
 
-/* =================================
-   SAIR
-================================= */
-
-async function sair() {
-
-    await window.supabaseClient
-        .auth
-        .signOut();
-
-
-    window.location.href =
-        "index.html";
-
-}
-
-
-/* =================================
+/* ================================
    ERRO
-================================= */
+================================ */
 
-function mostrarErro(mensagem) {
+function mostrarErro(
+    mensagem
+) {
 
-    document
-        .getElementById(
-            "conteudoPagina"
-        )
-        .innerHTML = `
+    document.getElementById(
+        "conteudoPost"
+    ).innerHTML = `
 
-        <div class="mensagem">
+        <div class="erro">
 
-            ❌ ${mensagem}
-
-            <br><br>
-
-            <button
-                class="btn-header"
-                onclick="voltarComunidade()"
-            >
-
-                ← Voltar para comunidade
-
-            </button>
+            ${mensagem}
 
         </div>
 
@@ -1933,14 +1456,13 @@ function mostrarErro(mensagem) {
 }
 
 
-/* =================================
+/* ================================
    INICIAR
-================================= */
+================================ */
 
 verificarLogin();
 
 </script>
-
 
 </body>
 
