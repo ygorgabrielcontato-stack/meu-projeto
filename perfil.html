@@ -32,14 +32,27 @@
             color: #6c63ff;
         }
 
-        .voltar {
+        .botoes-header {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
             background: #6258e8;
             border: none;
             color: white;
-            padding: 10px 18px;
+            padding: 11px 18px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .sair {
+            background: #292d42;
         }
 
         main {
@@ -53,6 +66,13 @@
             border: 1px solid #292d42;
             border-radius: 18px;
             padding: 35px;
+        }
+
+        .topo-perfil {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         .avatar {
@@ -74,7 +94,7 @@
 
         .username {
             color: #8e95aa;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .tipo {
@@ -119,6 +139,13 @@
             border-radius: 10px;
             color: #ff9da9;
         }
+
+        .acoes {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
     </style>
 </head>
 
@@ -130,9 +157,17 @@
         Tech<span>Community</span>
     </div>
 
-    <button class="voltar" onclick="voltar()">
-        Comunidade
-    </button>
+    <div class="botoes-header">
+
+        <button onclick="voltarComunidade()">
+            💬 Comunidade
+        </button>
+
+        <button class="sair" onclick="sair()">
+            Sair
+        </button>
+
+    </div>
 
 </header>
 
@@ -157,13 +192,15 @@
 
 <script>
 
+/* ================================
+   CARREGAR PERFIL
+================================ */
+
 async function carregarPerfil() {
 
     const container =
         document.getElementById("perfil");
 
-
-    /* Verifica se está logado */
 
     const { data: sessionData, error: sessionError } =
         await window.supabaseClient.auth.getSession();
@@ -194,8 +231,6 @@ async function carregarPerfil() {
         return;
     }
 
-
-    /* Busca o perfil */
 
     const { data, error } =
         await window.supabaseClient
@@ -228,8 +263,6 @@ async function carregarPerfil() {
     }
 
 
-    /* Dados do usuário */
-
     const nome =
         data.nome || "Usuário";
 
@@ -254,44 +287,49 @@ async function carregarPerfil() {
         data.tipo_conta || "Aluno";
 
 
-    /* Primeira letra do nome */
-
     const inicial =
         nome.charAt(0).toUpperCase();
 
 
-    /* Ícone dependendo do tipo */
-
     let icone = "👨‍🎓";
 
 
-    if (tipoConta.toLowerCase() === "professor") {
+    if (
+        tipoConta.toLowerCase() === "professor"
+    ) {
 
         icone = "👨‍🏫";
 
     }
 
 
-    /* Mostra o perfil */
-
     container.innerHTML = `
 
-        <div class="avatar">
-            ${inicial}
+        <div class="topo-perfil">
+
+            <div>
+
+                <div class="avatar">
+                    ${inicial}
+                </div>
+
+                <h1>
+                    ${nome}
+                </h1>
+
+                <div class="username">
+                    @${username}
+                </div>
+
+                <div class="tipo">
+                    ${icone} ${tipoConta}
+                    · ${nivel}
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>
-            ${nome}
-        </h1>
-
-        <div class="username">
-            @${username}
-        </div>
-
-        <div class="tipo">
-            ${icone} ${tipoConta}
-            · ${nivel}
-        </div>
 
         <div class="informacoes">
 
@@ -348,20 +386,64 @@ async function carregarPerfil() {
 
         </div>
 
+
+        <div class="acoes">
+
+            <button onclick="editarPerfil()">
+                ✏️ Editar Perfil
+            </button>
+
+            <button onclick="voltarComunidade()">
+                💬 Ir para Comunidade
+            </button>
+
+        </div>
+
     `;
 }
 
 
-/* Voltar para comunidade */
+/* ================================
+   EDITAR PERFIL
+================================ */
 
-function voltar() {
+function editarPerfil() {
 
-    window.location.href = "comunidade.html";
+    window.location.href =
+        "editar-perfil.html";
 
 }
 
 
-/* Iniciar */
+/* ================================
+   VOLTAR PARA COMUNIDADE
+================================ */
+
+function voltarComunidade() {
+
+    window.location.href =
+        "comunidade.html";
+
+}
+
+
+/* ================================
+   SAIR
+================================ */
+
+async function sair() {
+
+    await window.supabaseClient.auth.signOut();
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* ================================
+   INICIAR
+================================ */
 
 carregarPerfil();
 
