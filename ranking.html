@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Ranking - TechCommunity</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #1b1e3b 0%,
+                    #0b0d17 45%
+                );
+
+            color: white;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            height: 70px;
+
+            padding: 0 8%;
+
+            border-bottom: 1px solid #25283a;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(11, 13, 23, 0.92);
+
+            backdrop-filter: blur(10px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo span {
+
+            color: #6c63ff;
+
+        }
+
+
+        .header-botoes {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+        }
+
+
+        .btn-header {
+
+            background: #171a29;
+
+            color: white;
+
+            border: 1px solid #292d42;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
+        }
+
+
+        .btn-header:hover {
+
+            background: #25283a;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            width: 92%;
+
+            max-width: 1000px;
+
+            margin: 45px auto 80px;
+
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .titulo .icone {
+
+            font-size: 55px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        h1 {
+
+            margin: 0;
+
+            font-size: 38px;
+
+        }
+
+
+        .descricao {
+
+            color: #9da3b8;
+
+            margin-top: 10px;
+
+        }
+
+
+        /* =========================
+           PODIO
+        ========================= */
+
+        .podio {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.15fr 1fr;
+
+            align-items: end;
+
+            gap: 15px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .podio-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171a29,
+                    #111421
+                );
+
+            border: 1px solid #292d42;
+
+            border-radius: 20px;
+
+            padding: 25px 18px;
+
+            text-align: center;
+
+            transition: 0.25s;
+
+            position: relative;
+
+        }
+
+
+        .podio-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #6258e8;
+
+        }
+
+
+        .primeiro {
+
+            padding-top: 35px;
+
+            padding-bottom: 35px;
+
+        }
+
+
+        .medalha {
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .avatar {
+
+            width: 82px;
+
+            height: 82px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 3px solid #6258e8;
+
+            background: #292d42;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .primeiro .avatar {
+
+            width: 100px;
+
+            height: 100px;
+
+            border-color: #aaa5ff;
+
+        }
+
+
+        .nome {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .username {
+
+            color: #8e95aa;
+
+            font-size: 13px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .nivel {
+
+            display: inline-block;
+
+            background: rgba(98, 88, 232, 0.15);
+
+            color: #aaa5ff;
+
+            border: 1px solid rgba(98, 88, 232, 0.35);
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .xp {
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #e4e6ef;
+
+        }
+
+
+        /* =========================
+           RANKING
+        ========================= */
+
+        .ranking-area {
+
+            background: #171a29;
+
+            border: 1px solid #292d42;
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+        }
+
+
+        .ranking-titulo {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .ranking-titulo h2 {
+
+            margin: 0;
+
+        }
+
+
+        .total {
+
+            color: #8e95aa;
+
+            font-size: 13px;
+
+        }
+
+
+        .usuario-ranking {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px;
+
+            margin-bottom: 10px;
+
+            background: #111421;
+
+            border: 1px solid #292d42;
+
+            border-radius: 14px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .usuario-ranking:hover {
+
+            border-color: #464b6a;
+
+            transform: translateX(3px);
+
+        }
+
+
+        .usuario-ranking.voce {
+
+            border-color: #6258e8;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(98, 88, 232, 0.14),
+                    #111421
+                );
+
+        }
+
+
+        .posicao {
+
+            width: 45px;
+
+            text-align: center;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: #8e95aa;
+
+        }
+
+
+        .avatar-lista {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 2px solid #30344b;
+
+            background: #292d42;
+
+        }
+
+
+        .dados {
+
+            flex: 1;
+
+            min-width: 0;
+
+        }
+
+
+        .dados-nome {
+
+            font-weight: bold;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .dados-username {
+
+            color: #8e95aa;
+
+            font-size: 12px;
+
+        }
+
+
+        .dados-nivel {
+
+            display: inline-block;
+
+            margin-top: 6px;
+
+            color: #aaa5ff;
+
+            font-size: 11px;
+
+        }
+
+
+        .dados-xp {
+
+            text-align: right;
+
+            font-weight: bold;
+
+        }
+
+
+        .dados-xp span {
+
+            display: block;
+
+            color: #8e95aa;
+
+            font-size: 11px;
+
+            font-weight: normal;
+
+            margin-top: 3px;
+
+        }
+
+
+        .badge-voce {
+
+            display: inline-block;
+
+            margin-left: 7px;
+
+            padding: 3px 7px;
+
+            border-radius: 10px;
+
+            background: #6258e8;
+
+            color: white;
+
+            font-size: 10px;
+
+            vertical-align: middle;
+
+        }
+
+
+        /* =========================
+           CARREGANDO
+        ========================= */
+
+        .carregando {
+
+            text-align: center;
+
+            padding: 50px;
+
+            color: #8e95aa;
+
+        }
+
+
+        .spinner {
+
+            width: 35px;
+
+            height: 35px;
+
+            border: 3px solid #292d42;
+
+            border-top-color: #6258e8;
+
+            border-radius: 50%;
+
+            animation: girar 0.8s linear infinite;
+
+            margin: 0 auto 15px;
+
+        }
+
+
+        @keyframes girar {
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+
+        /* =========================
+           VAZIO
+        ========================= */
+
+        .vazio {
+
+            text-align: center;
+
+            padding: 40px;
+
+            color: #8e95aa;
+
+        }
+
+
+        .erro {
+
+            background: #301820;
+
+            border: 1px solid #6b2636;
+
+            color: #ff9da9;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+        }
+
+
+        /* =========================
+           BOTÃO ATUALIZAR
+        ========================= */
+
+        .atualizar-area {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+        }
+
+
+        .btn-atualizar {
+
+            background: #292d42;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 9px;
+
+        }
+
+
+        .btn-atualizar:hover {
+
+            background: #6258e8;
+
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                padding: 0 5%;
+
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+
+            .btn-header {
+
+                padding: 8px 10px;
+
+            }
+
+
+            main {
+
+                width: 94%;
+
+                margin-top: 30px;
+
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .podio {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .primeiro {
+
+                order: -1;
+
+            }
+
+
+            .usuario-ranking {
+
+                gap: 10px;
+
+            }
+
+
+            .posicao {
+
+                width: 30px;
+
+            }
+
+
+            .avatar-lista {
+
+                width: 45px;
+
+                height: 45px;
+
+            }
+
+
+            .dados-xp {
+
+                font-size: 13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        Tech<span>Community</span>
+
+    </div>
+
+
+    <div class="header-botoes">
+
+        <button
+            class="btn-header"
+            onclick="voltarComunidade()">
+
+            ← Comunidade
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="sair()">
+
+            Sair
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- =========================
+         TÍTULO
+    ========================== -->
+
+    <div class="titulo">
+
+        <div class="icone">
+            🏆
+        </div>
+
+        <h1>
+            Ranking da Comunidade
+        </h1>
+
+        <p class="descricao">
+
+            Veja quem mais contribui para a TechCommunity.
+
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         PÓDIO
+    ========================== -->
+
+    <div
+        id="podio"
+        class="podio">
+
+        <div class="carregando">
+
+            <div class="spinner"></div>
+
+            Carregando ranking...
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         LISTA
+    ========================== -->
+
+    <section class="ranking-area">
+
+        <div class="ranking-titulo">
+
+            <h2>
+                👑 Classificação
+            </h2>
+
+            <span
+                id="totalUsuarios"
+                class="total">
+
+                Carregando...
+
+            </span>
+
+        </div>
+
+
+        <div id="listaRanking">
+
+            <div class="carregando">
+
+                <div class="spinner"></div>
+
+                Carregando usuários...
+
+            </div>
+
+        </div>
+
+
+        <div class="atualizar-area">
+
+            <button
+                class="btn-atualizar"
+                onclick="carregarRanking()">
+
+                🔄 Atualizar ranking
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+
+<script>
+
+
+/* =================================
+   VARIÁVEIS
+================================= */
+
+let usuarioAtual = null;
+
+
+/* =================================
+   VERIFICAR LOGIN
+================================= */
+
+async function verificarLogin() {
+
+    const { data, error } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao verificar login."
+        );
+
+        return;
+
+    }
+
+
+    usuarioAtual =
+        data.session?.user;
+
+
+    if (!usuarioAtual) {
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
+
+
+    carregarRanking();
+
+}
+
+
+/* =================================
+   CARREGAR RANKING
+================================= */
+
+async function carregarRanking() {
+
+    const podio =
+        document.getElementById(
+            "podio"
+        );
+
+
+    const lista =
+        document.getElementById(
+            "listaRanking"
+        );
+
+
+    podio.innerHTML = `
+
+        <div
+            class="carregando"
+            style="grid-column:1/-1;">
+
+            <div class="spinner"></div>
+
+            Carregando ranking...
+
+        </div>
+
+    `;
+
+
+    lista.innerHTML = `
+
+        <div class="carregando">
+
+            <div class="spinner"></div>
+
+            Carregando usuários...
+
+        </div>
+
+    `;
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .select(`
+                id,
+                nome,
+                username,
+                nivel_num,
+                xp,
+                avatar_url
+            `)
+
+            .order(
+                "xp",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao carregar ranking: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    const usuarios =
+        data || [];
+
+
+    document.getElementById(
+        "totalUsuarios"
+    ).textContent =
+        `${usuarios.length} usuário${
+            usuarios.length !== 1
+                ? "s"
+                : ""
+        }`;
+
+
+    if (usuarios.length === 0) {
+
+        podio.innerHTML = `
+
+            <div
+                class="vazio"
+                style="grid-column:1/-1;">
+
+                🏆
+
+                <h3>
+                    Ainda não há usuários no ranking.
+                </h3>
+
+            </div>
+
+        `;
+
+
+        lista.innerHTML = "";
+
+        return;
+
+    }
+
+
+    mostrarPodio(
+        usuarios
+    );
+
+
+    mostrarLista(
+        usuarios
+    );
+
+}
+
+
+/* =================================
+   MOSTRAR PÓDIO
+================================= */
+
+function mostrarPodio(
+    usuarios
+) {
+
+    const podio =
+        document.getElementById(
+            "podio"
+        );
+
+
+    podio.innerHTML = "";
+
+
+    /*
+       Ordem visual:
+
+       2º | 1º | 3º
+    */
+
+
+    const ordem = [
+        usuarios[1],
+        usuarios[0],
+        usuarios[2]
+    ];
+
+
+    const medalhas = [
+        "🥈",
+        "🥇",
+        "🥉"
+    ];
+
+
+    const classes = [
+        "",
+        "primeiro",
+        ""
+    ];
+
+
+    ordem.forEach(
+        (usuario, indice) => {
+
+            if (!usuario) {
+                return;
+            }
+
+
+            const posicao =
+                usuarios.indexOf(
+                    usuario
+                ) + 1;
+
+
+            const nome =
+                usuario.nome ||
+                "Usuário";
+
+
+            const username =
+                usuario.username ||
+                "usuario";
+
+
+            const xp =
+                Number(
+                    usuario.xp || 0
+                );
+
+
+            const nivel =
+                Number(
+                    usuario.nivel_num || 1
+                );
+
+
+            const tituloNivel =
+                nomeNivel(
+                    xp
+                );
+
+
+            const avatar =
+                usuario.avatar_url ||
+                gerarAvatar(
+                    nome
+                );
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "podio-card " +
+                classes[indice];
+
+
+            div.innerHTML = `
+
+                <div class="medalha">
+
+                    ${medalhas[indice]}
+
+                </div>
+
+
+                <img
+                    class="avatar"
+                    src="${escaparHTML(avatar)}"
+                    alt="Foto de ${escaparHTML(nome)}"
+                >
+
+
+                <div class="nome">
+
+                    ${escaparHTML(nome)}
+
+                    ${
+                        usuarioAtual &&
+                        usuario.id === usuarioAtual.id
+                        ?
+                        `<span class="badge-voce">
+                            VOCÊ
+                        </span>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+
+                <div class="username">
+
+                    @${escaparHTML(username)}
+
+                </div>
+
+
+                <div class="nivel">
+
+                    Nível ${nivel} ·
+                    ${tituloNivel}
+
+                </div>
+
+
+                <div class="xp">
+
+                    ⭐ ${xp.toLocaleString("pt-BR")} XP
+
+                </div>
+
+            `;
+
+
+            podio.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   MOSTRAR LISTA
+================================= */
+
+function mostrarLista(
+    usuarios
+) {
+
+    const lista =
+        document.getElementById(
+            "listaRanking"
+        );
+
+
+    lista.innerHTML = "";
+
+
+    usuarios.forEach(
+        (usuario, indice) => {
+
+            const posicao =
+                indice + 1;
+
+
+            const nome =
+                usuario.nome ||
+                "Usuário";
+
+
+            const username =
+                usuario.username ||
+                "usuario";
+
+
+            const xp =
+                Number(
+                    usuario.xp || 0
+                );
+
+
+            const nivel =
+                Number(
+                    usuario.nivel_num || 1
+                );
+
+
+            const tituloNivel =
+                nomeNivel(
+                    xp
+                );
+
+
+            const avatar =
+                usuario.avatar_url ||
+                gerarAvatar(
+                    nome
+                );
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            const souEu =
+                usuarioAtual &&
+                usuario.id ===
+                usuarioAtual.id;
+
+
+            div.className =
+                "usuario-ranking" +
+                (
+                    souEu
+                    ?
+                    " voce"
+                    :
+                    ""
+                );
+
+
+            let simbolo =
+                posicao;
+
+
+            if (posicao === 1) {
+                simbolo = "🥇";
+            }
+
+            else if (posicao === 2) {
+                simbolo = "🥈";
+            }
+
+            else if (posicao === 3) {
+                simbolo = "🥉";
+            }
+
+
+            div.innerHTML = `
+
+                <div class="posicao">
+
+                    ${simbolo}
+
+                </div>
+
+
+                <img
+                    class="avatar-lista"
+                    src="${escaparHTML(avatar)}"
+                    alt="Foto de ${escaparHTML(nome)}"
+                >
+
+
+                <div class="dados">
+
+                    <div class="dados-nome">
+
+                        ${escaparHTML(nome)}
+
+                        ${
+                            souEu
+                            ?
+                            `<span class="badge-voce">
+                                VOCÊ
+                            </span>`
+                            :
+                            ""
+                        }
+
+                    </div>
+
+
+                    <div class="dados-username">
+
+                        @${escaparHTML(username)}
+
+                    </div>
+
+
+                    <div class="dados-nivel">
+
+                        Nível ${nivel}
+                        ·
+                        ${tituloNivel}
+
+                    </div>
+
+                </div>
+
+
+                <div class="dados-xp">
+
+                    ⭐ ${xp.toLocaleString("pt-BR")} XP
+
+                    <span>
+                        posição #${posicao}
+                    </span>
+
+                </div>
+
+            `;
+
+
+            lista.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   NOME DO NÍVEL
+================================= */
+
+function nomeNivel(
+    xp
+) {
+
+    xp = Number(xp || 0);
+
+
+    if (xp >= 2500) {
+
+        return "Lenda";
+
+    }
+
+
+    if (xp >= 2000) {
+
+        return "Mestre";
+
+    }
+
+
+    if (xp >= 1000) {
+
+        return "Especialista";
+
+    }
+
+
+    if (xp >= 500) {
+
+        return "Avançado";
+
+    }
+
+
+    if (xp >= 250) {
+
+        return "Intermediário";
+
+    }
+
+
+    if (xp >= 100) {
+
+        return "Aprendiz";
+
+    }
+
+
+    if (xp >= 50) {
+
+        return "Novato";
+
+    }
+
+
+    return "Iniciante";
+
+}
+
+
+/* =================================
+   AVATAR PADRÃO
+================================= */
+
+function gerarAvatar(
+    nome
+) {
+
+    return (
+        "https://ui-avatars.com/api/" +
+        "?name=" +
+        encodeURIComponent(nome) +
+        "&background=6258e8&color=fff"
+    );
+
+}
+
+
+/* =================================
+   ESCAPAR HTML
+================================= */
+
+function escaparHTML(
+    texto
+) {
+
+    return String(
+        texto || ""
+    )
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =================================
+   VOLTAR
+================================= */
+
+function voltarComunidade() {
+
+    window.location.href =
+        "comunidade.html";
+
+}
+
+
+/* =================================
+   SAIR
+================================= */
+
+async function sair() {
+
+    await window.supabaseClient
+        .auth
+        .signOut();
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =================================
+   ERRO
+================================= */
+
+function mostrarErro(
+    mensagem
+) {
+
+    document.getElementById(
+        "podio"
+    ).innerHTML = `
+
+        <div
+            class="erro"
+            style="grid-column:1/-1;">
+
+            ${escaparHTML(mensagem)}
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "listaRanking"
+    ).innerHTML = "";
+
+}
+
+
+/* =================================
+   INICIAR
+================================= */
+
+verificarLogin();
+
+</script>
+
+</body>
+
+</html>
