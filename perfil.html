@@ -2,10 +2,14 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Meu Perfil - TechCommunity</title>
+
 
     <style>
 
@@ -13,449 +17,826 @@
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background:
-                radial-gradient(circle at top, #171a35 0%, #0b0d17 45%);
+                radial-gradient(
+                    circle at top left,
+                    #17152f 0%,
+                    #0b0d17 40%
+                );
+
             color: white;
+
             min-height: 100vh;
+
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
+
             height: 70px;
+
             padding: 0 8%;
-            border-bottom: 1px solid #25283a;
+
+            border-bottom:
+                1px solid #25283a;
+
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
+
+            justify-content: space-between;
+
             background: rgba(11, 13, 23, 0.9);
+
             backdrop-filter: blur(12px);
+
             position: sticky;
+
             top: 0;
-            z-index: 10;
+
+            z-index: 20;
+
         }
+
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
         }
+
 
         .logo span {
+
             color: #6c63ff;
+
         }
+
 
         .header-botoes {
+
             display: flex;
+
             gap: 10px;
+
         }
 
-        button {
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
 
         .btn-header {
+
             background: #171a29;
+
             color: white;
+
             border: 1px solid #292d42;
+
             padding: 10px 16px;
+
             border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
         }
+
 
         .btn-header:hover {
+
             background: #25283a;
+
             transform: translateY(-1px);
+
         }
 
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
         main {
+
             width: 92%;
-            max-width: 850px;
+
+            max-width: 900px;
+
             margin: 45px auto 80px;
+
         }
+
 
         /* =========================
            PERFIL
         ========================= */
 
         .perfil-card {
-            background: rgba(23, 26, 41, 0.95);
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #171a29,
+                    #111421
+                );
+
             border: 1px solid #292d42;
-            border-radius: 24px;
+
+            border-radius: 22px;
+
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+
         }
+
+
+        /* =========================
+           CAPA
+        ========================= */
 
         .capa {
-            height: 150px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #6258e8,
-                    #8a4fff,
-                    #302b63
-                );
-            position: relative;
-        }
 
-        .capa::after {
-            content: "";
-            position: absolute;
-            inset: 0;
+            height: 170px;
+
             background:
+
                 radial-gradient(
                     circle at 20% 30%,
-                    rgba(255,255,255,0.15),
+                    #6258e8,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    #8b5cf6,
                     transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #171a35,
+                    #25204a
                 );
-        }
 
-        .perfil-conteudo {
-            padding: 0 35px 35px;
-        }
-
-        .perfil-topo {
-            display: flex;
-            align-items: flex-end;
-            gap: 22px;
-            margin-top: -60px;
             position: relative;
+
         }
+
+
+        .capa::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(11, 13, 23, 0.25)
+                );
+
+        }
+
 
         /* =========================
            FOTO
         ========================= */
 
-        .foto-container {
+        .foto-area {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: -70px;
+
             position: relative;
+
+            z-index: 5;
+
         }
+
+
+        .foto-wrapper {
+
+            position: relative;
+
+        }
+
 
         .foto-perfil {
-            width: 130px;
-            height: 130px;
+
+            width: 140px;
+
+            height: 140px;
+
             border-radius: 50%;
-            border: 5px solid #171a29;
-            background: #25283a;
+
+            border: 6px solid #111421;
+
+            background: #292d42;
+
             object-fit: cover;
+
             display: block;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.4);
+
         }
 
-        .btn-foto {
+
+        .botao-foto {
+
             position: absolute;
-            right: 5px;
+
+            right: 4px;
+
             bottom: 5px;
-            width: 38px;
-            height: 38px;
+
+            width: 40px;
+
+            height: 40px;
+
             border-radius: 50%;
+
+            border: 3px solid #111421;
+
             background: #6258e8;
+
             color: white;
-            border: 3px solid #171a29;
-            font-size: 16px;
-            padding: 0;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: 0.2s;
+
         }
 
-        .btn-foto:hover {
-            background: #796fff;
-            transform: scale(1.08);
+
+        .botao-foto:hover {
+
+            transform: scale(1.1);
+
+            background: #7168f0;
+
         }
+
 
         #inputFoto {
+
             display: none;
+
         }
+
+
+        /* =========================
+           DADOS DO PERFIL
+        ========================= */
+
+        .perfil-conteudo {
+
+            padding: 25px 35px 35px;
+
+            text-align: center;
+
+        }
+
+
+        .nome {
+
+            font-size: 29px;
+
+            font-weight: bold;
+
+            margin: 5px 0;
+
+        }
+
+
+        .username {
+
+            color: #8e95aa;
+
+            font-size: 15px;
+
+        }
+
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            margin-top: 12px;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: #292d42;
+
+            color: #aaa5ff;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================
+           BIO
+        ========================= */
+
+        .bio {
+
+            max-width: 650px;
+
+            margin: 20px auto 0;
+
+            color: #c8ccda;
+
+            line-height: 1.6;
+
+            white-space: pre-wrap;
+
+        }
+
+
+        .sem-bio {
+
+            color: #777e94;
+
+            font-style: italic;
+
+        }
+
 
         /* =========================
            INFORMAÇÕES
         ========================= */
 
         .informacoes {
-            padding-bottom: 10px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 30px;
+
         }
 
-        .nome {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 0 0 5px;
+
+        .info {
+
+            background: #0d0f19;
+
+            border: 1px solid #25283a;
+
+            border-radius: 13px;
+
+            padding: 16px;
+
+            text-align: left;
+
         }
 
-        .username {
-            color: #8e95aa;
-            font-size: 15px;
-        }
 
-        .badge {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            background: #292d42;
-            color: #aaa5ff;
+        .info-label {
+
+            color: #777e94;
+
             font-size: 12px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .info-valor {
+
+            color: #e2e4ec;
+
             font-weight: bold;
+
+            font-size: 14px;
+
         }
 
-        .bio {
-            margin-top: 28px;
-            color: #c8ccda;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        .sem-bio {
-            color: #777d91;
-            font-style: italic;
-        }
-
-        /* =========================
-           ESTATÍSTICAS
-        ========================= */
-
-        .estatisticas {
-            display: flex;
-            gap: 40px;
-            border-top: 1px solid #292d42;
-            border-bottom: 1px solid #292d42;
-            margin-top: 28px;
-            padding: 20px 0;
-        }
-
-        .estatistica {
-            text-align: center;
-        }
-
-        .estatistica strong {
-            display: block;
-            font-size: 20px;
-        }
-
-        .estatistica span {
-            color: #8e95aa;
-            font-size: 13px;
-        }
 
         /* =========================
            BOTÃO EDITAR
         ========================= */
 
         .area-editar {
+
             margin-top: 25px;
+
         }
+
 
         .btn-editar {
-            width: 100%;
-            padding: 13px;
-            border-radius: 10px;
+
             background: #6258e8;
+
             color: white;
-            font-size: 15px;
+
+            border: none;
+
+            padding: 12px 24px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+
         }
+
 
         .btn-editar:hover {
-            background: #756cf0;
-            transform: translateY(-1px);
+
+            background: #7168f0;
+
+            transform: translateY(-2px);
+
         }
+
 
         /* =========================
-           MODAL
+           FORMULÁRIO
         ========================= */
 
-        .modal {
+        .editor {
+
             display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            z-index: 100;
+
+            margin-top: 30px;
+
+            text-align: left;
+
+            border-top: 1px solid #292d42;
+
+            padding-top: 30px;
+
         }
 
-        .modal.ativo {
-            display: flex;
+
+        .editor.ativo {
+
+            display: block;
+
+            animation: aparecer 0.25s ease;
+
         }
 
-        .modal-conteudo {
-            width: 100%;
-            max-width: 500px;
-            background: #171a29;
-            border: 1px solid #292d42;
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-            animation: aparecer 0.2s ease;
-        }
 
         @keyframes aparecer {
+
             from {
+
                 opacity: 0;
-                transform: scale(0.95) translateY(10px);
+
+                transform: translateY(10px);
+
             }
 
             to {
+
                 opacity: 1;
-                transform: scale(1) translateY(0);
+
+                transform: translateY(0);
+
             }
+
         }
 
-        .modal-topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
+
+        .editor h2 {
+
+            margin-top: 0;
+
         }
 
-        .modal-topo h2 {
-            margin: 0;
+
+        .campo {
+
+            margin-bottom: 18px;
+
         }
 
-        .fechar {
-            background: transparent;
-            color: #8e95aa;
-            font-size: 25px;
-            padding: 0;
-        }
 
-        .fechar:hover {
-            color: white;
-        }
+        .campo label {
 
-        label {
             display: block;
+
             margin-bottom: 7px;
+
             color: #c8ccda;
+
             font-size: 14px;
+
             font-weight: bold;
+
         }
+
 
         input,
         textarea {
+
             width: 100%;
-            background: #0d0f19;
-            border: 1px solid #30344b;
-            color: white;
-            border-radius: 9px;
+
             padding: 13px;
+
+            background: #0d0f19;
+
+            color: white;
+
+            border: 1px solid #30344b;
+
+            border-radius: 9px;
+
             outline: none;
-            margin-bottom: 18px;
+
             font-family: Arial, sans-serif;
+
         }
+
 
         input:focus,
         textarea:focus {
+
             border-color: #6258e8;
+
+            box-shadow:
+                0 0 0 3px rgba(
+                    98,
+                    88,
+                    232,
+                    0.1
+                );
+
         }
+
 
         textarea {
-            min-height: 120px;
+
+            min-height: 110px;
+
             resize: vertical;
+
         }
 
-        .botoes-modal {
+
+        .contador-bio {
+
+            text-align: right;
+
+            color: #777e94;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        .botoes-editor {
+
             display: flex;
+
             gap: 10px;
+
+            margin-top: 22px;
+
         }
 
-        .btn-cancelar {
-            flex: 1;
-            padding: 12px;
-            border-radius: 9px;
-            background: #292d42;
-            color: white;
-        }
 
         .btn-salvar {
-            flex: 1;
-            padding: 12px;
-            border-radius: 9px;
+
             background: #6258e8;
+
             color: white;
+
+            border: none;
+
+            padding: 12px 22px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
         }
+
+
+        .btn-cancelar {
+
+            background: #292d42;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 22px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
 
         .btn-salvar:hover {
-            background: #756cf0;
+
+            background: #7168f0;
+
         }
+
+
+        .btn-cancelar:hover {
+
+            background: #363b55;
+
+        }
+
 
         /* =========================
-           PREVIEW DA FOTO
+           STATUS
         ========================= */
 
-        .preview-area {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        .status {
 
-        .preview {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #6258e8;
-            display: none;
-            margin: auto;
-        }
-
-        .mensagem {
             margin-top: 15px;
-            color: #8e95aa;
-            font-size: 13px;
-            text-align: center;
+
+            padding: 12px;
+
+            border-radius: 9px;
+
+            display: none;
+
+            font-size: 14px;
+
         }
 
-        .erro {
-            color: #ff8996;
+
+        .status.sucesso {
+
+            display: block;
+
+            background: #10261d;
+
+            border: 1px solid #1f6b4b;
+
+            color: #7ee2b5;
+
         }
+
+
+        .status.erro {
+
+            display: block;
+
+            background: #301820;
+
+            border: 1px solid #6b2636;
+
+            color: #ff9da9;
+
+        }
+
+
+        /* =========================
+           CARREGANDO
+        ========================= */
+
+        .carregando {
+
+            text-align: center;
+
+            color: #9da3b8;
+
+            padding: 70px 20px;
+
+        }
+
 
         /* =========================
            RESPONSIVO
         ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
             header {
+
                 padding: 0 5%;
+
             }
+
 
             .logo {
+
                 font-size: 20px;
+
             }
+
 
             .btn-header {
+
                 padding: 8px 10px;
+
             }
+
 
             main {
+
                 width: 94%;
+
                 margin-top: 25px;
+
             }
+
 
             .capa {
-                height: 120px;
+
+                height: 130px;
+
             }
 
-            .perfil-conteudo {
-                padding: 0 20px 25px;
-            }
-
-            .perfil-topo {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 12px;
-                margin-top: -55px;
-            }
 
             .foto-perfil {
-                width: 110px;
-                height: 110px;
+
+                width: 120px;
+
+                height: 120px;
+
             }
+
+
+            .foto-area {
+
+                margin-top: -60px;
+
+            }
+
+
+            .perfil-conteudo {
+
+                padding: 20px;
+
+            }
+
 
             .nome {
-                font-size: 24px;
+
+                font-size: 25px;
+
             }
 
-            .estatisticas {
-                gap: 25px;
+
+            .informacoes {
+
+                grid-template-columns: 1fr;
+
             }
 
         }
@@ -471,23 +852,29 @@
 <header>
 
     <div class="logo">
+
         Tech<span>Community</span>
+
     </div>
+
 
     <div class="header-botoes">
 
         <button
             class="btn-header"
-            onclick="voltarComunidade()"
-        >
+            onclick="voltarComunidade()">
+
             ← Comunidade
+
         </button>
+
 
         <button
             class="btn-header"
-            onclick="sair()"
-        >
+            onclick="sair()">
+
             Sair
+
         </button>
 
     </div>
@@ -497,66 +884,101 @@
 
 <main>
 
-    <div class="perfil-card">
+
+    <div id="carregando"
+        class="carregando">
+
+        Carregando perfil...
+
+    </div>
+
+
+    <div
+        id="perfilCard"
+        class="perfil-card"
+        style="display:none;"
+    >
+
+
+        <!-- =========================
+             CAPA
+        ========================== -->
 
         <div class="capa"></div>
 
 
+        <!-- =========================
+             FOTO
+        ========================== -->
+
+        <div class="foto-area">
+
+            <div class="foto-wrapper">
+
+                <img
+                    id="fotoPerfil"
+                    class="foto-perfil"
+                    src=""
+                    alt="Foto de perfil"
+                >
+
+
+                <label
+                    class="botao-foto"
+                    for="inputFoto"
+                    title="Alterar foto"
+                >
+
+                    📷
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="inputFoto"
+                    accept="image/png,image/jpeg,image/webp"
+                    onchange="alterarFoto(event)"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CONTEÚDO
+        ========================== -->
+
         <div class="perfil-conteudo">
 
-            <div class="perfil-topo">
 
-                <div class="foto-container">
+            <div
+                id="nomePerfil"
+                class="nome"
+            >
 
-                    <img
-                        id="fotoPerfil"
-                        class="foto-perfil"
-                        src=""
-                        alt="Foto de perfil"
-                    >
+                Usuário
 
-                    <button
-                        class="btn-foto"
-                        onclick="abrirFoto()"
-                        title="Alterar foto"
-                    >
-                        📷
-                    </button>
-
-                    <input
-                        type="file"
-                        id="inputFoto"
-                        accept="image/*"
-                        onchange="selecionarFoto(event)"
-                    >
-
-                </div>
+            </div>
 
 
-                <div class="informacoes">
+            <div
+                id="usernamePerfil"
+                class="username"
+            >
 
-                    <h1
-                        id="nomePerfil"
-                        class="nome"
-                    >
-                        Carregando...
-                    </h1>
+                @usuario
 
-                    <div
-                        id="usernamePerfil"
-                        class="username"
-                    >
-                        @usuario
-                    </div>
+            </div>
 
-                    <div
-                        id="tipoConta"
-                        class="badge"
-                    >
-                        Aluno
-                    </div>
 
-                </div>
+            <div
+                id="badgePerfil"
+                class="badge"
+            >
+
+                👤 Aluno
 
             </div>
 
@@ -565,48 +987,217 @@
                 id="bioPerfil"
                 class="bio"
             >
-                Carregando bio...
+
+                <span class="sem-bio">
+                    Nenhuma bio adicionada ainda.
+                </span>
+
             </div>
 
 
-            <div class="estatisticas">
+            <!-- =========================
+                 INFORMAÇÕES
+            ========================== -->
 
-                <div class="estatistica">
+            <div class="informacoes">
 
-                    <strong id="contadorPosts">
-                        0
-                    </strong>
 
-                    <span>
-                        Perguntas
-                    </span>
+                <div class="info">
+
+                    <div class="info-label">
+
+                        🎓 Curso
+
+                    </div>
+
+
+                    <div
+                        id="cursoPerfil"
+                        class="info-valor"
+                    >
+
+                        Não informado
+
+                    </div>
 
                 </div>
 
 
-                <div class="estatistica">
+                <div class="info">
 
-                    <strong id="contadorRespostas">
-                        0
-                    </strong>
+                    <div class="info-label">
 
-                    <span>
-                        Respostas
-                    </span>
+                        📚 Semestre
+
+                    </div>
+
+
+                    <div
+                        id="semestrePerfil"
+                        class="info-valor"
+                    >
+
+                        Não informado
+
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div class="info-label">
+
+                        🏆 Nível
+
+                    </div>
+
+
+                    <div
+                        id="nivelPerfil"
+                        class="info-valor"
+                    >
+
+                        Membro
+
+                    </div>
 
                 </div>
 
             </div>
 
+
+            <!-- =========================
+                 BOTÃO EDITAR
+            ========================== -->
 
             <div class="area-editar">
 
                 <button
                     class="btn-editar"
-                    onclick="abrirEdicao()"
+                    onclick="abrirEditor()"
                 >
+
                     ✏️ Editar perfil
+
                 </button>
+
+            </div>
+
+
+            <!-- =========================
+                 EDITOR
+            ========================== -->
+
+            <div
+                id="editor"
+                class="editor"
+            >
+
+
+                <h2>
+
+                    Editar perfil
+
+                </h2>
+
+
+                <div class="campo">
+
+                    <label for="editarNome">
+
+                        Nome
+
+                    </label>
+
+
+                    <input
+                        id="editarNome"
+                        type="text"
+                        maxlength="100"
+                        placeholder="Seu nome"
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="editarUsername">
+
+                        Username
+
+                    </label>
+
+
+                    <input
+                        id="editarUsername"
+                        type="text"
+                        maxlength="30"
+                        placeholder="seuusername"
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="editarBio">
+
+                        Bio
+
+                    </label>
+
+
+                    <textarea
+                        id="editarBio"
+                        maxlength="250"
+                        placeholder="Conte um pouco sobre você..."
+                        oninput="atualizarContadorBio()"
+                    ></textarea>
+
+
+                    <div
+                        id="contadorBio"
+                        class="contador-bio"
+                    >
+
+                        0/250
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="status"
+                    class="status"
+                ></div>
+
+
+                <div class="botoes-editor">
+
+
+                    <button
+                        class="btn-salvar"
+                        onclick="salvarPerfil()"
+                    >
+
+                        💾 Salvar alterações
+
+                    </button>
+
+
+                    <button
+                        class="btn-cancelar"
+                        onclick="fecharEditor()"
+                    >
+
+                        Cancelar
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -615,106 +1206,6 @@
     </div>
 
 </main>
-
-
-<!-- =========================
-     MODAL EDITAR PERFIL
-========================= -->
-
-<div
-    id="modal"
-    class="modal"
->
-
-    <div class="modal-conteudo">
-
-        <div class="modal-topo">
-
-            <h2>
-                Editar perfil
-            </h2>
-
-            <button
-                class="fechar"
-                onclick="fecharEdicao()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <label>
-            Nome
-        </label>
-
-        <input
-            id="editarNome"
-            type="text"
-            placeholder="Seu nome"
-        >
-
-
-        <label>
-            Username
-        </label>
-
-        <input
-            id="editarUsername"
-            type="text"
-            placeholder="Seu username"
-        >
-
-
-        <label>
-            Bio
-        </label>
-
-        <textarea
-            id="editarBio"
-            placeholder="Fale um pouco sobre você..."
-        ></textarea>
-
-
-        <div class="preview-area">
-
-            <img
-                id="previewFoto"
-                class="preview"
-                src=""
-                alt="Preview"
-            >
-
-        </div>
-
-
-        <div class="botoes-modal">
-
-            <button
-                class="btn-cancelar"
-                onclick="fecharEdicao()"
-            >
-                Cancelar
-            </button>
-
-            <button
-                class="btn-salvar"
-                onclick="salvarPerfil()"
-            >
-                💾 Salvar alterações
-            </button>
-
-        </div>
-
-
-        <div
-            id="mensagem"
-            class="mensagem"
-        ></div>
-
-    </div>
-
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -733,25 +1224,12 @@ let usuarioAtual = null;
 
 let perfilAtual = null;
 
-let novaFoto = null;
-
-
-/*
-   Nome do bucket no Supabase Storage.
-
-   IMPORTANTE:
-   Se você criou o bucket com outro nome,
-   altere "avatars" abaixo.
-*/
-
-const BUCKET_FOTOS = "avatars";
-
 
 /* =================================
-   VERIFICAR LOGIN
+   INICIAR
 ================================= */
 
-async function verificarLogin() {
+async function iniciar() {
 
     const { data, error } =
         await window.supabaseClient
@@ -763,25 +1241,28 @@ async function verificarLogin() {
 
         console.error(error);
 
-        alert(
-            "Erro ao verificar login."
+        mostrarStatus(
+            "Erro ao verificar login.",
+            "erro"
         );
 
         return;
+
     }
 
 
-    if (!data.session) {
+    usuarioAtual =
+        data.session?.user;
+
+
+    if (!usuarioAtual) {
 
         window.location.href =
             "index.html";
 
         return;
+
     }
-
-
-    usuarioAtual =
-        data.session.user;
 
 
     carregarPerfil();
@@ -804,6 +1285,8 @@ async function carregarPerfil() {
                 id,
                 nome,
                 username,
+                curso,
+                semestre,
                 nivel,
                 tipo_conta,
                 bio,
@@ -822,106 +1305,139 @@ async function carregarPerfil() {
 
         console.error(error);
 
-        /*
-           Caso sua tabela ainda não tenha
-           avatar_url ou bio, aparecerá erro.
-        */
-
-        alert(
-            "Erro ao carregar perfil: " +
-            error.message
-        );
+        document.getElementById(
+            "carregando"
+        ).innerHTML =
+            "Erro ao carregar perfil.";
 
         return;
+
     }
 
 
     perfilAtual = data;
 
 
-    mostrarPerfil();
+    preencherPerfil(data);
 
 
-    carregarEstatisticas();
+    document.getElementById(
+        "carregando"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "perfilCard"
+    ).style.display = "block";
 
 }
 
 
 /* =================================
-   MOSTRAR PERFIL
+   PREENCHER PERFIL
 ================================= */
 
-function mostrarPerfil() {
-
-    const nome =
-        perfilAtual.nome ||
-        "Usuário";
+function preencherPerfil(perfil) {
 
 
-    const username =
-        perfilAtual.username ||
-        "usuario";
+    document.getElementById(
+        "nomePerfil"
+    ).textContent =
+        perfil.nome || "Usuário";
 
 
-    const nivel =
-        perfilAtual.nivel ||
+    document.getElementById(
+        "usernamePerfil"
+    ).textContent =
+        "@" +
+        (
+            perfil.username ||
+            "usuario"
+        );
+
+
+    document.getElementById(
+        "cursoPerfil"
+    ).textContent =
+        perfil.curso ||
+        "Não informado";
+
+
+    document.getElementById(
+        "semestrePerfil"
+    ).textContent =
+        perfil.semestre ||
+        "Não informado";
+
+
+    document.getElementById(
+        "nivelPerfil"
+    ).textContent =
+        perfil.nivel ||
         "Membro";
 
 
-    const tipoConta =
-        perfilAtual.tipo_conta ||
+    /* =========================
+       TIPO DE CONTA
+    ========================= */
+
+    const tipo =
+        perfil.tipo_conta ||
         "Aluno";
 
 
+    let icone = "👤";
+
+
+    if (
+        tipo
+            .toLowerCase()
+            .includes("professor")
+    ) {
+
+        icone = "👨‍🏫";
+
+    }
+
+
+    document.getElementById(
+        "badgePerfil"
+    ).textContent =
+        `${icone} ${tipo}`;
+
+
+    /* =========================
+       BIO
+    ========================= */
+
     const bio =
-        perfilAtual.bio ||
-        "";
-
-
-    document
-        .getElementById("nomePerfil")
-        .textContent =
-            nome;
-
-
-    document
-        .getElementById("usernamePerfil")
-        .textContent =
-            "@" + username;
-
-
-    document
-        .getElementById("tipoConta")
-        .textContent =
-            tipoConta;
-
-
-    const bioElemento =
         document.getElementById(
             "bioPerfil"
         );
 
 
-    if (bio) {
+    if (perfil.bio) {
 
-        bioElemento.textContent =
-            bio;
+        bio.textContent =
+            perfil.bio;
 
-        bioElemento.classList.remove(
+        bio.classList.remove(
             "sem-bio"
         );
 
     } else {
 
-        bioElemento.textContent =
-            "Nenhuma bio adicionada ainda.";
-
-        bioElemento.classList.add(
-            "sem-bio"
-        );
+        bio.innerHTML =
+            `<span class="sem-bio">
+                Nenhuma bio adicionada ainda.
+            </span>`;
 
     }
 
+
+    /* =========================
+       FOTO
+    ========================= */
 
     const foto =
         document.getElementById(
@@ -929,17 +1445,44 @@ function mostrarPerfil() {
         );
 
 
-    if (perfilAtual.avatar_url) {
+    if (perfil.avatar_url) {
 
         foto.src =
-            perfilAtual.avatar_url;
+            perfil.avatar_url;
 
     } else {
 
         foto.src =
-            criarAvatarPadrao(nome);
+            criarAvatarPadrao(
+                perfil.nome
+            );
 
     }
+
+
+    /* =========================
+       CAMPOS DO EDITOR
+    ========================= */
+
+    document.getElementById(
+        "editarNome"
+    ).value =
+        perfil.nome || "";
+
+
+    document.getElementById(
+        "editarUsername"
+    ).value =
+        perfil.username || "";
+
+
+    document.getElementById(
+        "editarBio"
+    ).value =
+        perfil.bio || "";
+
+
+    atualizarContadorBio();
 
 }
 
@@ -951,9 +1494,12 @@ function mostrarPerfil() {
 function criarAvatarPadrao(nome) {
 
     const inicial =
-        nome
-            .charAt(0)
-            .toUpperCase();
+        (
+            nome ||
+            "U"
+        )
+        .charAt(0)
+        .toUpperCase();
 
 
     return (
@@ -969,230 +1515,62 @@ function criarAvatarPadrao(nome) {
 
 
 /* =================================
-   ESTATÍSTICAS
+   ABRIR EDITOR
 ================================= */
 
-async function carregarEstatisticas() {
-
-    const { count: posts } =
-        await window.supabaseClient
-
-            .from("posts")
-
-            .select(
-                "id",
-                {
-                    count: "exact",
-                    head: true
-                }
-            )
-
-            .eq(
-                "author_id",
-                usuarioAtual.id
-            );
-
-
-    const { count: respostas } =
-        await window.supabaseClient
-
-            .from("respostas")
-
-            .select(
-                "id",
-                {
-                    count: "exact",
-                    head: true
-                }
-            )
-
-            .eq(
-                "author_id",
-                usuarioAtual.id
-            );
-
+function abrirEditor() {
 
     document
-        .getElementById("contadorPosts")
-        .textContent =
-            posts || 0;
-
-
-    document
-        .getElementById("contadorRespostas")
-        .textContent =
-            respostas || 0;
-
-}
-
-
-/* =================================
-   ABRIR FOTO
-================================= */
-
-function abrirFoto() {
-
-    document
-        .getElementById("inputFoto")
-        .click();
-
-}
-
-
-/* =================================
-   SELECIONAR FOTO
-================================= */
-
-function selecionarFoto(event) {
-
-    const arquivo =
-        event.target.files[0];
-
-
-    if (!arquivo) {
-        return;
-    }
-
-
-    if (!arquivo.type.startsWith("image/")) {
-
-        alert(
-            "Escolha uma imagem válida."
-        );
-
-        return;
-    }
-
-
-    /*
-       Limite de 5 MB
-    */
-
-    if (
-        arquivo.size >
-        5 * 1024 * 1024
-    ) {
-
-        alert(
-            "A imagem deve ter no máximo 5 MB."
-        );
-
-        return;
-    }
-
-
-    novaFoto = arquivo;
-
-
-    const leitor =
-        new FileReader();
-
-
-    leitor.onload = function(e) {
-
-        document
-            .getElementById("fotoPerfil")
-            .src =
-                e.target.result;
-
-
-        document
-            .getElementById("previewFoto")
-            .src =
-                e.target.result;
-
-
-        document
-            .getElementById("previewFoto")
-            .style.display =
-                "block";
-
-    };
-
-
-    leitor.readAsDataURL(
-        arquivo
-    );
-
-
-    /*
-       Se o modal estiver fechado,
-       abre automaticamente.
-    */
-
-    document
-        .getElementById("modal")
+        .getElementById("editor")
         .classList.add("ativo");
 
-}
-
-
-/* =================================
-   ABRIR EDIÇÃO
-================================= */
-
-function abrirEdicao() {
 
     document
-        .getElementById("editarNome")
-        .value =
-            perfilAtual?.nome || "";
-
-
-    document
-        .getElementById("editarUsername")
-        .value =
-            perfilAtual?.username || "";
-
-
-    document
-        .getElementById("editarBio")
-        .value =
-            perfilAtual?.bio || "";
-
-
-    document
-        .getElementById("mensagem")
-        .textContent =
-            "";
-
-
-    document
-        .getElementById("modal")
-        .classList.add("ativo");
+        .getElementById("editor")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
 }
 
 
 /* =================================
-   FECHAR EDIÇÃO
+   FECHAR EDITOR
 ================================= */
 
-function fecharEdicao() {
+function fecharEditor() {
 
     document
-        .getElementById("modal")
+        .getElementById("editor")
         .classList.remove("ativo");
 
 
-    document
-        .getElementById("mensagem")
-        .textContent =
-            "";
+    limparStatus();
+
+}
 
 
-    novaFoto = null;
+/* =================================
+   CONTADOR BIO
+================================= */
+
+function atualizarContadorBio() {
+
+    const campo =
+        document.getElementById(
+            "editarBio"
+        );
 
 
-    document
-        .getElementById("inputFoto")
-        .value = "";
+    const contador =
+        document.getElementById(
+            "contadorBio"
+        );
 
 
-    document
-        .getElementById("previewFoto")
-        .style.display =
-            "none";
+    contador.textContent =
+        `${campo.value.length}/250`;
 
 }
 
@@ -1203,17 +1581,6 @@ function fecharEdicao() {
 
 async function salvarPerfil() {
 
-    if (!usuarioAtual) {
-        return;
-    }
-
-
-    const mensagem =
-        document.getElementById(
-            "mensagem"
-        );
-
-
     const nome =
         document
             .getElementById("editarNome")
@@ -1221,7 +1588,7 @@ async function salvarPerfil() {
             .trim();
 
 
-    const username =
+    let username =
         document
             .getElementById("editarUsername")
             .value
@@ -1238,120 +1605,42 @@ async function salvarPerfil() {
 
     if (!nome) {
 
-        mensagem.textContent =
-            "Digite seu nome.";
-
-        mensagem.classList.add(
+        mostrarStatus(
+            "Digite seu nome.",
             "erro"
         );
 
         return;
+
     }
 
 
     if (!username) {
 
-        mensagem.textContent =
-            "Digite seu username.";
-
-        mensagem.classList.add(
+        mostrarStatus(
+            "Digite um username.",
             "erro"
         );
 
         return;
-    }
-
-
-    mensagem.classList.remove(
-        "erro"
-    );
-
-
-    mensagem.textContent =
-        "Salvando...";
-
-
-    let avatarUrl =
-        perfilAtual.avatar_url || null;
-
-
-    /* =================================
-       ENVIAR FOTO
-    ================================= */
-
-    if (novaFoto) {
-
-        const extensao =
-            novaFoto.name
-                .split(".")
-                .pop()
-                .toLowerCase();
-
-
-        const caminho =
-            usuarioAtual.id +
-            "." +
-            extensao;
-
-
-        const { error: uploadError } =
-            await window.supabaseClient
-                .storage
-                .from(BUCKET_FOTOS)
-                .upload(
-                    caminho,
-                    novaFoto,
-                    {
-                        upsert: true,
-                        contentType:
-                            novaFoto.type
-                    }
-                );
-
-
-        if (uploadError) {
-
-            console.error(
-                uploadError
-            );
-
-
-            mensagem.textContent =
-                "Erro ao enviar foto: " +
-                uploadError.message;
-
-
-            mensagem.classList.add(
-                "erro"
-            );
-
-
-            return;
-        }
-
-
-        const { data: urlData } =
-            window.supabaseClient
-                .storage
-                .from(BUCKET_FOTOS)
-                .getPublicUrl(
-                    caminho
-                );
-
-
-        avatarUrl =
-            urlData.publicUrl +
-            "?t=" +
-            Date.now();
 
     }
 
 
-    /* =================================
-       ATUALIZAR PROFILE
-    ================================= */
+    /* Remove espaços */
 
-    const { error } =
+    username =
+        username.replace(
+            /\s/g,
+            ""
+        );
+
+
+    /* =========================
+       ATUALIZAR
+    ========================= */
+
+    const { data, error } =
         await window.supabaseClient
 
             .from("profiles")
@@ -1365,17 +1654,17 @@ async function salvarPerfil() {
                     username,
 
                 bio:
-                    bio,
-
-                avatar_url:
-                    avatarUrl
+                    bio || null
 
             })
 
             .eq(
                 "id",
                 usuarioAtual.id
-            );
+            )
+
+            .select()
+            .single();
 
 
     if (error) {
@@ -1383,83 +1672,361 @@ async function salvarPerfil() {
         console.error(error);
 
 
-        mensagem.textContent =
-            "Erro ao salvar: " +
-            error.message;
+        if (
+            error.message
+                .toLowerCase()
+                .includes("duplicate")
+        ) {
 
+            mostrarStatus(
+                "Esse username já está sendo usado.",
+                "erro"
+            );
 
-        mensagem.classList.add(
-            "erro"
-        );
+        } else {
+
+            mostrarStatus(
+                "Erro ao salvar: " +
+                error.message,
+                "erro"
+            );
+
+        }
 
 
         return;
+
     }
 
 
-    mensagem.textContent =
-        "Perfil atualizado! 🎉";
+    perfilAtual = data;
 
 
-    perfilAtual.nome =
-        nome;
+    preencherPerfil(data);
 
 
-    perfilAtual.username =
-        username;
-
-
-    perfilAtual.bio =
-        bio;
-
-
-    perfilAtual.avatar_url =
-        avatarUrl;
-
-
-    mostrarPerfil();
-
-
-    novaFoto = null;
-
-
-    setTimeout(
-        () => {
-
-            fecharEdicao();
-
-        },
-        700
+    mostrarStatus(
+        "Perfil atualizado com sucesso! 🎉",
+        "sucesso"
     );
+
+
+    setTimeout(() => {
+
+        fecharEditor();
+
+    }, 1500);
 
 }
 
 
 /* =================================
-   FECHAR MODAL CLICANDO FORA
+   ALTERAR FOTO
 ================================= */
 
-document
-    .getElementById("modal")
-    .addEventListener(
-        "click",
-        function(event) {
+async function alterarFoto(event) {
 
-            if (
-                event.target ===
-                this
-            ) {
+    const arquivo =
+        event.target.files[0];
 
-                fecharEdicao();
 
-            }
+    if (!arquivo) {
+        return;
+    }
+
+
+    /* =========================
+       VERIFICAR TIPO
+    ========================= */
+
+    const tiposPermitidos = [
+
+        "image/jpeg",
+
+        "image/png",
+
+        "image/webp"
+
+    ];
+
+
+    if (
+        !tiposPermitidos.includes(
+            arquivo.type
+        )
+    ) {
+
+        alert(
+            "Escolha uma imagem JPG, PNG ou WEBP."
+        );
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    /* =========================
+       LIMITE 5MB
+    ========================= */
+
+    if (
+        arquivo.size >
+        5 * 1024 * 1024
+    ) {
+
+        alert(
+            "A imagem deve ter no máximo 5 MB."
+        );
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    const foto =
+        document.getElementById(
+            "fotoPerfil"
+        );
+
+
+    const fotoAnterior =
+        foto.src;
+
+
+    /* Preview imediato */
+
+    foto.src =
+        URL.createObjectURL(
+            arquivo
+        );
+
+
+    try {
+
+
+        /* =========================
+           NOME DO ARQUIVO
+        ========================= */
+
+        const extensao =
+            arquivo.name
+                .split(".")
+                .pop();
+
+
+        const nomeArquivo =
+            usuarioAtual.id +
+            "-" +
+            Date.now() +
+            "." +
+            extensao;
+
+
+        const caminho =
+            usuarioAtual.id +
+            "/" +
+            nomeArquivo;
+
+
+        /* =========================
+           UPLOAD
+        ========================= */
+
+        const { error:
+            uploadError
+        } = await window.supabaseClient
+
+            .storage
+
+            .from("avatars")
+
+            .upload(
+                caminho,
+                arquivo,
+                {
+                    cacheControl: "3600",
+                    upsert: false
+                }
+            );
+
+
+        if (uploadError) {
+
+            console.error(
+                uploadError
+            );
+
+
+            foto.src =
+                fotoAnterior;
+
+
+            alert(
+                "Erro ao enviar foto: " +
+                uploadError.message
+            );
+
+
+            return;
 
         }
-    );
+
+
+        /* =========================
+           URL PÚBLICA
+        ========================= */
+
+        const { data:
+            urlData
+        } =
+            window.supabaseClient
+
+                .storage
+
+                .from("avatars")
+
+                .getPublicUrl(
+                    caminho
+                );
+
+
+        const avatarUrl =
+            urlData.publicUrl;
+
+
+        /* =========================
+           SALVAR URL
+        ========================= */
+
+        const { error:
+            updateError
+        } =
+            await window.supabaseClient
+
+                .from("profiles")
+
+                .update({
+
+                    avatar_url:
+                        avatarUrl
+
+                })
+
+                .eq(
+                    "id",
+                    usuarioAtual.id
+                );
+
+
+        if (updateError) {
+
+            console.error(
+                updateError
+            );
+
+
+            foto.src =
+                fotoAnterior;
+
+
+            alert(
+                "A foto foi enviada, mas não foi possível salvar no perfil."
+            );
+
+
+            return;
+
+        }
+
+
+        /* =========================
+           SUCESSO
+        ========================= */
+
+        perfilAtual.avatar_url =
+            avatarUrl;
+
+
+        foto.src =
+            avatarUrl;
+
+
+        alert(
+            "Foto de perfil atualizada! 📷🎉"
+        );
+
+
+    } catch (erro) {
+
+        console.error(erro);
+
+
+        foto.src =
+            fotoAnterior;
+
+
+        alert(
+            "Erro inesperado ao alterar a foto."
+        );
+
+    }
+
+
+    event.target.value = "";
+
+}
 
 
 /* =================================
-   NAVEGAÇÃO
+   STATUS
+================================= */
+
+function mostrarStatus(
+    mensagem,
+    tipo
+) {
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    status.textContent =
+        mensagem;
+
+
+    status.className =
+        "status " +
+        tipo;
+
+}
+
+
+function limparStatus() {
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    status.className =
+        "status";
+
+
+    status.textContent =
+        "";
+
+}
+
+
+/* =================================
+   COMUNIDADE
 ================================= */
 
 function voltarComunidade() {
@@ -1491,7 +2058,7 @@ async function sair() {
    INICIAR
 ================================= */
 
-verificarLogin();
+iniciar();
 
 </script>
 
