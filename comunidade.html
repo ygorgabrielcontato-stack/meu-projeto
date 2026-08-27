@@ -2,8 +2,11 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Comunidade - TechCommunity</title>
 
@@ -14,322 +17,553 @@
         }
 
         body {
+
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background: #0b0d17;
+
             color: white;
+
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-            height: 70px;
-            padding: 0 8%;
+
+            padding: 20px 8%;
+
             border-bottom: 1px solid #25283a;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
-            background: #0b0d17;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+
         }
+
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
         }
+
 
         .logo span {
+
             color: #6c63ff;
+
         }
+
 
         .header-botoes {
+
             display: flex;
+
             gap: 10px;
+
         }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
 
         button {
+
+            background: #6258e8;
+
             border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
 
-        .btn-header {
-            background: #171a29;
             color: white;
-            border: 1px solid #292d42;
-            padding: 10px 16px;
-            border-radius: 9px;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
         }
 
-        .btn-header:hover {
-            background: #25283a;
+
+        button:hover {
+
+            opacity: 0.9;
+
         }
+
+
+        .btn-secundario {
+
+            background: #292d42;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
-            width: 92%;
-            max-width: 850px;
-            margin: 35px auto 70px;
+
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: 40px auto 80px;
+
         }
 
-        .titulo-area {
-            margin-bottom: 25px;
-        }
 
         h1 {
+
             font-size: 36px;
+
             margin-bottom: 8px;
+
         }
 
+
         .descricao {
+
             color: #9da3b8;
+
             margin-top: 0;
+
         }
+
 
         /* =========================
            CRIAR PERGUNTA
         ========================= */
 
         .criar-post {
+
             background: #171a29;
+
             border: 1px solid #292d42;
+
             padding: 25px;
-            border-radius: 18px;
-            margin-bottom: 40px;
+
+            border-radius: 15px;
+
+            margin-top: 30px;
+
         }
 
+
         .criar-post h2 {
+
             margin-top: 0;
+
         }
+
 
         input,
         textarea,
         select {
+
             width: 100%;
+
+            box-sizing: border-box;
+
             margin-top: 10px;
+
             margin-bottom: 15px;
+
             padding: 14px;
+
             background: #0d0f19;
+
             border: 1px solid #30344b;
-            border-radius: 9px;
+
+            border-radius: 8px;
+
             color: white;
+
+            font-family: Arial, sans-serif;
+
             outline: none;
+
         }
+
 
         input:focus,
         textarea:focus,
         select:focus {
+
             border-color: #6258e8;
+
         }
+
 
         textarea {
+
             min-height: 120px;
+
             resize: vertical;
+
         }
 
-        .btn-publicar {
-            background: #6258e8;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 9px;
-        }
-
-        .btn-publicar:hover {
-            background: #7168f0;
-        }
 
         /* =========================
-           POST
+           PESQUISA
         ========================= */
+
+        .filtros {
+
+            background: #171a29;
+
+            border: 1px solid #292d42;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .filtros h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .pesquisa-area {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+        .pesquisa-area input {
+
+            margin: 0;
+
+            flex: 1;
+
+        }
+
+
+        .pesquisa-area button {
+
+            white-space: nowrap;
+
+        }
+
+
+        .categorias {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+
+        }
+
+
+        .categoria-btn {
+
+            background: #292d42;
+
+            color: #c8ccda;
+
+            padding: 9px 14px;
+
+            border-radius: 20px;
+
+            border: 1px solid #363b54;
+
+            font-size: 13px;
+
+        }
+
+
+        .categoria-btn:hover {
+
+            background: #6258e8;
+
+        }
+
+
+        .categoria-btn.ativa {
+
+            background: #6258e8;
+
+            color: white;
+
+            border-color: #6258e8;
+
+        }
+
+
+        /* =========================
+           PERGUNTAS
+        ========================= */
+
+        .titulo-perguntas {
+
+            margin-top: 50px;
+
+            margin-bottom: 20px;
+
+        }
+
 
         .post {
-            background: #111421;
+
+            background: #171a29;
+
             border: 1px solid #292d42;
-            padding: 24px;
-            border-radius: 18px;
-            margin-top: 18px;
-            transition: 0.2s;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            margin-top: 20px;
+
+            transition:
+                transform 0.15s ease,
+                border-color 0.15s ease;
+
         }
+
 
         .post:hover {
-            border-color: #3a3f5a;
+
+            transform: translateY(-2px);
+
+            border-color: #3b405b;
+
         }
+
 
         .post h2 {
-            margin: 0 0 10px;
-            font-size: 21px;
-            line-height: 1.4;
+
+            margin-top: 0;
+
+            margin-bottom: 10px;
+
         }
+
 
         .post-info {
+
             color: #8e95aa;
+
             font-size: 14px;
-            margin-bottom: 18px;
+
         }
+
 
         .post-conteudo {
+
             color: #c8ccda;
-            line-height: 1.7;
+
+            line-height: 1.6;
+
             white-space: pre-wrap;
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-           AÇÕES
-        ========================= */
-
-        .acoes-post {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            border-top: 1px solid #25283a;
-            padding-top: 16px;
-        }
-
-        .acao {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #9da3b8;
-        }
-
-        /* CORAÇÃO */
-
-        .botao-coracao {
-            background: transparent;
-            color: #9da3b8;
-            font-size: 28px;
-            padding: 0;
-            line-height: 1;
-            transition: transform 0.15s ease;
-        }
-
-        .botao-coracao:hover {
-            transform: scale(1.15);
-        }
-
-        .botao-coracao.curtido {
-            color: #ff3b6b;
-            animation: coracao 0.25s ease;
-        }
-
-        @keyframes coracao {
-
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.35);
-            }
-
-            100% {
-                transform: scale(1);
-            }
 
         }
 
-        .contador-curtidas {
-            color: #c8ccda;
-            font-size: 14px;
-        }
 
         .botao-ver {
-            margin-left: auto;
-            background: transparent;
-            color: #8e95aa;
-            padding: 8px 0;
+
+            margin-top: 15px;
+
+            background: #292d42;
+
         }
 
+
         .botao-ver:hover {
-            color: white;
+
+            background: #6258e8;
+
         }
+
 
         /* =========================
            RESPOSTAS
         ========================= */
 
         .respostas {
-            margin-top: 22px;
-            border-top: 1px solid #25283a;
-            padding-top: 18px;
+
+            margin-top: 25px;
+
+            border-top: 1px solid #292d42;
+
+            padding-top: 15px;
+
         }
 
-        .respostas h3 {
-            font-size: 16px;
-            color: #c8ccda;
-        }
 
         .resposta {
+
             background: #0d0f19;
+
             padding: 15px;
-            border-radius: 10px;
+
+            border-radius: 8px;
+
             margin-top: 10px;
+
             border: 1px solid #25283a;
+
         }
 
-        .resposta strong {
-            font-size: 14px;
-        }
 
         .resposta p {
+
             color: #c8ccda;
+
             line-height: 1.5;
+
             margin-bottom: 0;
+
         }
 
-        /* =========================
-           RESPONDER
-        ========================= */
 
         .responder-area {
+
             margin-top: 20px;
+
         }
+
 
         .responder-area textarea {
+
             min-height: 80px;
+
         }
 
-        .btn-responder {
-            background: #292d42;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 8px;
+
+        /* =========================
+           RESULTADOS
+        ========================= */
+
+        .resultado-info {
+
+            color: #8e95aa;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+
         }
 
-        .btn-responder:hover {
-            background: #6258e8;
+
+        .sem-resultados {
+
+            background: #171a29;
+
+            border: 1px solid #292d42;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            color: #9da3b8;
+
+            margin-top: 20px;
+
         }
+
+
+        .carregando {
+
+            text-align: center;
+
+            color: #9da3b8;
+
+            padding: 40px;
+
+        }
+
 
         /* =========================
            RESPONSIVO
         ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             header {
-                padding: 0 5%;
+
+                padding: 15px 5%;
+
             }
+
 
             .logo {
+
                 font-size: 20px;
+
             }
 
-            .btn-header {
-                padding: 8px 10px;
+
+            .header-botoes button {
+
+                padding: 9px 12px;
+
             }
+
 
             main {
+
                 width: 94%;
+
                 margin-top: 25px;
+
             }
+
 
             h1 {
+
                 font-size: 30px;
+
             }
 
-            .post,
-            .criar-post {
-                padding: 18px;
+
+            .pesquisa-area {
+
+                flex-direction: column;
+
+            }
+
+
+            .pesquisa-area button {
+
+                width: 100%;
+
+            }
+
+
+            .post {
+
+                padding: 20px;
+
             }
 
         }
@@ -345,25 +579,27 @@
 <header>
 
     <div class="logo">
+
         Tech<span>Community</span>
+
     </div>
 
 
     <div class="header-botoes">
 
-        <button
-            class="btn-header"
-            onclick="perfil()"
-        >
-            👤 Perfil
+        <button onclick="perfil()">
+
+            👤 Meu Perfil
+
         </button>
 
 
         <button
-            class="btn-header"
-            onclick="sair()"
-        >
+            class="btn-secundario"
+            onclick="sair()">
+
             Sair
+
         </button>
 
     </div>
@@ -374,17 +610,18 @@
 <main>
 
 
-    <div class="titulo-area">
+    <h1>
 
-        <h1>
-            Comunidade
-        </h1>
+        Comunidade
 
-        <p class="descricao">
-            Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
-        </p>
+    </h1>
 
-    </div>
+
+    <p class="descricao">
+
+        Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
+
+    </p>
 
 
     <!-- =========================
@@ -394,15 +631,16 @@
     <div class="criar-post">
 
         <h2>
+
             Faça uma pergunta
+
         </h2>
 
 
         <input
             id="titulo"
             type="text"
-            placeholder="Título da sua pergunta"
-        >
+            placeholder="Título da sua pergunta">
 
 
         <select id="categoria">
@@ -432,27 +670,146 @@
 
         <textarea
             id="conteudo"
-            placeholder="Explique sua dúvida..."
-        ></textarea>
+            placeholder="Explique sua dúvida...">
+        </textarea>
 
 
-        <button
-            class="btn-publicar"
-            onclick="criarPost()"
-        >
+        <button onclick="criarPost()">
+
             Publicar pergunta
+
         </button>
 
     </div>
 
 
-    <h2>
+    <!-- =========================
+         PESQUISA E FILTROS
+    ========================== -->
+
+    <div class="filtros">
+
+        <h2>
+
+            🔎 Encontrar perguntas
+
+        </h2>
+
+
+        <div class="pesquisa-area">
+
+            <input
+                id="pesquisa"
+                type="text"
+                placeholder="Pesquisar por pergunta, conteúdo ou usuário..."
+                oninput="filtrarPosts()">
+
+
+            <button
+                class="btn-secundario"
+                onclick="limparFiltros()">
+
+                Limpar
+
+            </button>
+
+        </div>
+
+
+        <div class="categorias">
+
+            <button
+                class="categoria-btn ativa"
+                data-categoria="Todas"
+                onclick="selecionarCategoria('Todas')">
+
+                Todas
+
+            </button>
+
+
+            <button
+                class="categoria-btn"
+                data-categoria="Geral"
+                onclick="selecionarCategoria('Geral')">
+
+                Geral
+
+            </button>
+
+
+            <button
+                class="categoria-btn"
+                data-categoria="Programação"
+                onclick="selecionarCategoria('Programação')">
+
+                💻 Programação
+
+            </button>
+
+
+            <button
+                class="categoria-btn"
+                data-categoria="Banco de Dados"
+                onclick="selecionarCategoria('Banco de Dados')">
+
+                🗄️ Banco de Dados
+
+            </button>
+
+
+            <button
+                class="categoria-btn"
+                data-categoria="Redes"
+                onclick="selecionarCategoria('Redes')">
+
+                🌐 Redes
+
+            </button>
+
+
+            <button
+                class="categoria-btn"
+                data-categoria="Hardware"
+                onclick="selecionarCategoria('Hardware')">
+
+                🖥️ Hardware
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         LISTA DE PERGUNTAS
+    ========================== -->
+
+    <h2 class="titulo-perguntas">
+
         Perguntas recentes
+
     </h2>
 
 
-    <div id="posts">
+    <div
+        id="resultadoInfo"
+        class="resultado-info">
+
         Carregando perguntas...
+
+    </div>
+
+
+    <div id="posts">
+
+        <div class="carregando">
+
+            Carregando perguntas...
+
+        </div>
+
     </div>
 
 
@@ -467,16 +824,18 @@
 <script>
 
 
-/* =================================
-   USUÁRIO LOGADO
-================================= */
+/* ================================
+   VARIÁVEIS
+================================ */
 
-let usuarioLogado = null;
+let todosPosts = [];
+
+let categoriaSelecionada = "Todas";
 
 
-/* =================================
+/* ================================
    VERIFICAR LOGIN
-================================= */
+================================ */
 
 async function verificarLogin() {
 
@@ -495,6 +854,7 @@ async function verificarLogin() {
         );
 
         return;
+
     }
 
 
@@ -504,11 +864,8 @@ async function verificarLogin() {
             "index.html";
 
         return;
+
     }
-
-
-    usuarioLogado =
-        data.session.user;
 
 
     carregarPosts();
@@ -516,9 +873,9 @@ async function verificarLogin() {
 }
 
 
-/* =================================
+/* ================================
    CRIAR PERGUNTA
-================================= */
+================================ */
 
 async function criarPost() {
 
@@ -549,26 +906,43 @@ async function criarPost() {
         );
 
         return;
+
     }
 
 
-    if (!usuarioLogado) {
+    const { data: sessionData } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    const user =
+        sessionData.session?.user;
+
+
+    if (!user) {
 
         alert(
             "Você precisa estar logado."
         );
 
+        window.location.href =
+            "index.html";
+
         return;
+
     }
 
 
     const { error } =
         await window.supabaseClient
+
             .from("posts")
+
             .insert({
 
                 author_id:
-                    usuarioLogado.id,
+                    user.id,
 
                 titulo:
                     titulo,
@@ -592,6 +966,7 @@ async function criarPost() {
         );
 
         return;
+
     }
 
 
@@ -615,15 +990,17 @@ async function criarPost() {
 }
 
 
-/* =================================
-   CARREGAR POSTS
-================================= */
+/* ================================
+   CARREGAR PERGUNTAS
+================================ */
 
 async function carregarPosts() {
 
     const { data, error } =
         await window.supabaseClient
+
             .from("posts")
+
             .select(`
                 id,
                 titulo,
@@ -636,6 +1013,7 @@ async function carregarPosts() {
                     nivel
                 )
             `)
+
             .order(
                 "created_at",
                 {
@@ -651,29 +1029,282 @@ async function carregarPosts() {
         document
             .getElementById("posts")
             .innerHTML =
-                "Erro ao carregar perguntas.";
+                `
+                <div class="sem-resultados">
+
+                    Erro ao carregar perguntas.
+
+                </div>
+                `;
+
+        document
+            .getElementById("resultadoInfo")
+            .textContent =
+                "";
 
         return;
+
     }
 
 
+    todosPosts = data || [];
+
+
+    filtrarPosts();
+
+}
+
+
+/* ================================
+   FILTRAR POSTS
+================================ */
+
+function filtrarPosts() {
+
+    const pesquisa =
+        document
+            .getElementById("pesquisa")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const postsFiltrados =
+        todosPosts.filter(post => {
+
+
+            /* Filtro por categoria */
+
+            const categoriaOK =
+                categoriaSelecionada ===
+                "Todas"
+
+                ||
+
+                post.categoria ===
+                categoriaSelecionada;
+
+
+            if (!categoriaOK) {
+
+                return false;
+
+            }
+
+
+            /* Se não digitou pesquisa */
+
+            if (!pesquisa) {
+
+                return true;
+
+            }
+
+
+            const titulo =
+                post.titulo ||
+                "";
+
+
+            const conteudo =
+                post.conteudo ||
+                "";
+
+
+            const nome =
+                post.profiles?.nome ||
+                "";
+
+
+            const username =
+                post.profiles?.username ||
+                "";
+
+
+            const texto =
+                (
+                    titulo +
+                    " " +
+                    conteudo +
+                    " " +
+                    nome +
+                    " " +
+                    username
+                )
+                .toLowerCase();
+
+
+            return texto.includes(
+                pesquisa
+            );
+
+        });
+
+
+    mostrarPosts(
+        postsFiltrados
+    );
+
+}
+
+
+/* ================================
+   SELECIONAR CATEGORIA
+================================ */
+
+function selecionarCategoria(
+    categoria
+) {
+
+    categoriaSelecionada =
+        categoria;
+
+
+    const botoes =
+        document.querySelectorAll(
+            ".categoria-btn"
+        );
+
+
+    botoes.forEach(botao => {
+
+        botao.classList.remove(
+            "ativa"
+        );
+
+
+        if (
+            botao.dataset.categoria ===
+            categoria
+        ) {
+
+            botao.classList.add(
+                "ativa"
+            );
+
+        }
+
+    });
+
+
+    filtrarPosts();
+
+}
+
+
+/* ================================
+   LIMPAR FILTROS
+================================ */
+
+function limparFiltros() {
+
+    document
+        .getElementById("pesquisa")
+        .value = "";
+
+
+    categoriaSelecionada =
+        "Todas";
+
+
+    const botoes =
+        document.querySelectorAll(
+            ".categoria-btn"
+        );
+
+
+    botoes.forEach(botao => {
+
+        botao.classList.remove(
+            "ativa"
+        );
+
+
+        if (
+            botao.dataset.categoria ===
+            "Todas"
+        ) {
+
+            botao.classList.add(
+                "ativa"
+            );
+
+        }
+
+    });
+
+
+    filtrarPosts();
+
+}
+
+
+/* ================================
+   MOSTRAR POSTS
+================================ */
+
+function mostrarPosts(
+    posts
+) {
+
     const container =
-        document.getElementById("posts");
+        document.getElementById(
+            "posts"
+        );
 
 
-    if (!data || data.length === 0) {
+    const resultadoInfo =
+        document.getElementById(
+            "resultadoInfo"
+        );
 
-        container.innerHTML =
-            "<p>Nenhuma pergunta ainda. Seja o primeiro a perguntar!</p>";
+
+    resultadoInfo.textContent =
+        `${posts.length} pergunta${
+            posts.length !== 1
+                ? "s"
+                : ""
+        } encontrada${
+            posts.length !== 1
+                ? "s"
+                : ""
+        }`;
+
+
+    if (
+        !posts ||
+        posts.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="sem-resultados">
+
+                <div style="font-size:40px;">
+                    🔎
+                </div>
+
+                <h3>
+                    Nenhuma pergunta encontrada
+                </h3>
+
+                <p>
+                    Tente outra palavra ou categoria.
+                </p>
+
+            </div>
+
+        `;
 
         return;
+
     }
 
 
     container.innerHTML = "";
 
 
-    for (const post of data) {
+    posts.forEach(post => {
 
         const nome =
             post.profiles?.nome ||
@@ -686,7 +1317,9 @@ async function carregarPosts() {
 
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         div.className =
@@ -696,66 +1329,55 @@ async function carregarPosts() {
         div.innerHTML = `
 
             <h2>
-                ${post.titulo}
+
+                ${escaparHTML(
+                    post.titulo
+                )}
+
             </h2>
 
 
             <div class="post-info">
 
-                👤 ${nome}
+                👤 ${escaparHTML(
+                    nome
+                )}
 
-                · ${nivel}
+                · ${escaparHTML(
+                    nivel
+                )}
 
-                · ${post.categoria}
+                · ${escaparHTML(
+                    post.categoria
+                )}
 
             </div>
 
 
             <p class="post-conteudo">
-                ${post.conteudo}
+
+                ${escaparHTML(
+                    post.conteudo
+                )}
+
             </p>
 
 
-            <div class="acoes-post">
+            <button
+                class="botao-ver"
+                onclick="abrirPost('${post.id}')">
 
+                🔎 Ver pergunta
 
-                <div class="acao">
-
-                    <button
-                        id="curtir-${post.id}"
-                        class="botao-coracao"
-                        onclick="alternarCurtida('${post.id}')"
-                        aria-label="Curtir"
-                    >
-                        ♡
-                    </button>
-
-
-                    <span
-                        id="contador-${post.id}"
-                        class="contador-curtidas"
-                    >
-                        0 curtidas
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="botao-ver"
-                    onclick="abrirPost('${post.id}')"
-                >
-                    🔎 Ver pergunta
-                </button>
-
-            </div>
+            </button>
 
 
             <div
                 class="respostas"
-                id="respostas-${post.id}"
-            >
+                id="respostas-${post.id}">
+
                 Carregando respostas...
+
             </div>
 
 
@@ -763,15 +1385,15 @@ async function carregarPosts() {
 
                 <textarea
                     id="resposta-${post.id}"
-                    placeholder="Escreva sua resposta..."
-                ></textarea>
+                    placeholder="Escreva sua resposta...">
+                </textarea>
 
 
                 <button
-                    class="btn-responder"
-                    onclick="responder('${post.id}')"
-                >
+                    onclick="responder('${post.id}')">
+
                     💬 Responder
+
                 </button>
 
             </div>
@@ -779,249 +1401,27 @@ async function carregarPosts() {
         `;
 
 
-        container.appendChild(div);
+        container.appendChild(
+            div
+        );
 
 
         carregarRespostas(
             post.id
         );
 
-
-        carregarCurtidas(
-            post.id
-        );
-
-    }
+    });
 
 }
 
 
-/* =================================
-   CARREGAR CURTIDAS
-================================= */
-
-async function carregarCurtidas(postId) {
-
-    const contador =
-        document.getElementById(
-            `contador-${postId}`
-        );
-
-
-    const botao =
-        document.getElementById(
-            `curtir-${postId}`
-        );
-
-
-    const { data, error } =
-        await window.supabaseClient
-            .from("curtidas")
-            .select("user_id")
-            .eq(
-                "post_id",
-                postId
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        contador.textContent =
-            "Erro ao carregar curtidas.";
-
-        return;
-    }
-
-
-    const quantidade =
-        data?.length || 0;
-
-
-    contador.textContent =
-        quantidade === 1
-            ? "1 curtida"
-            : `${quantidade} curtidas`;
-
-
-    const usuarioCurtiu =
-        data?.some(
-            curtida =>
-                curtida.user_id ===
-                usuarioLogado?.id
-        );
-
-
-    if (usuarioCurtiu) {
-
-        botao.textContent =
-            "♥";
-
-        botao.classList.add(
-            "curtido"
-        );
-
-    } else {
-
-        botao.textContent =
-            "♡";
-
-        botao.classList.remove(
-            "curtido"
-        );
-
-    }
-
-}
-
-
-/* =================================
-   CURTIR / DESCURTIR
-================================= */
-
-async function alternarCurtida(postId) {
-
-    if (!usuarioLogado) {
-
-        alert(
-            "Você precisa estar logado."
-        );
-
-        return;
-    }
-
-
-    const botao =
-        document.getElementById(
-            `curtir-${postId}`
-        );
-
-
-    /*
-       Verifica se o usuário
-       já curtiu.
-    */
-
-    const { data, error } =
-        await window.supabaseClient
-            .from("curtidas")
-            .select("id")
-            .eq(
-                "post_id",
-                postId
-            )
-            .eq(
-                "user_id",
-                usuarioLogado.id
-            );
-
-
-    if (error) {
-
-        console.error(error);
-
-        alert(
-            "Erro ao verificar curtida: " +
-            error.message
-        );
-
-        return;
-    }
-
-
-    /*
-       Se já curtiu,
-       remove a curtida.
-    */
-
-    if (
-        data &&
-        data.length > 0
-    ) {
-
-        const { error: deleteError } =
-            await window.supabaseClient
-                .from("curtidas")
-                .delete()
-                .eq(
-                    "id",
-                    data[0].id
-                );
-
-
-        if (deleteError) {
-
-            console.error(
-                deleteError
-            );
-
-            alert(
-                "Erro ao remover curtida: " +
-                deleteError.message
-            );
-
-            return;
-        }
-
-
-    }
-
-    /*
-       Se ainda não curtiu,
-       cria a curtida.
-    */
-
-    else {
-
-        const { error: insertError } =
-            await window.supabaseClient
-                .from("curtidas")
-                .insert({
-
-                    post_id:
-                        postId,
-
-                    user_id:
-                        usuarioLogado.id
-
-                });
-
-
-        if (insertError) {
-
-            console.error(
-                insertError
-            );
-
-            alert(
-                "Erro ao curtir: " +
-                insertError.message
-            );
-
-            return;
-        }
-
-    }
-
-
-    /*
-       Atualiza o coração
-       e o contador.
-    */
-
-    carregarCurtidas(
-        postId
-    );
-
-}
-
-
-/* =================================
+/* ================================
    CARREGAR RESPOSTAS
-================================= */
+================================ */
 
-async function carregarRespostas(postId) {
+async function carregarRespostas(
+    postId
+) {
 
     const container =
         document.getElementById(
@@ -1030,13 +1430,17 @@ async function carregarRespostas(postId) {
 
 
     if (!container) {
+
         return;
+
     }
 
 
     const { data, error } =
         await window.supabaseClient
+
             .from("respostas")
+
             .select(`
                 id,
                 conteudo,
@@ -1046,10 +1450,12 @@ async function carregarRespostas(postId) {
                     username
                 )
             `)
+
             .eq(
                 "post_id",
                 postId
             )
+
             .order(
                 "created_at",
                 {
@@ -1066,6 +1472,7 @@ async function carregarRespostas(postId) {
             "<p>Erro ao carregar respostas.</p>";
 
         return;
+
     }
 
 
@@ -1074,17 +1481,31 @@ async function carregarRespostas(postId) {
         data.length === 0
     ) {
 
-        container.innerHTML =
-            "<p style='color:#8e95aa;'>Nenhuma resposta ainda.</p>";
+        container.innerHTML = `
+
+            <p
+                style="
+                    color:#8e95aa;
+                "
+            >
+
+                Nenhuma resposta ainda.
+
+            </p>
+
+        `;
 
         return;
+
     }
 
 
     container.innerHTML = `
 
         <h3>
+
             💬 Respostas (${data.length})
+
         </h3>
 
     `;
@@ -1113,11 +1534,20 @@ async function carregarRespostas(postId) {
             div.innerHTML = `
 
                 <strong>
-                    👤 ${nome}
+
+                    👤 ${escaparHTML(
+                        nome
+                    )}
+
                 </strong>
 
+
                 <p>
-                    ${resposta.conteudo}
+
+                    ${escaparHTML(
+                        resposta.conteudo
+                    )}
+
                 </p>
 
             `;
@@ -1133,11 +1563,13 @@ async function carregarRespostas(postId) {
 }
 
 
-/* =================================
+/* ================================
    RESPONDER
-================================= */
+================================ */
 
-async function responder(postId) {
+async function responder(
+    postId
+) {
 
     const campo =
         document.getElementById(
@@ -1146,7 +1578,9 @@ async function responder(postId) {
 
 
     if (!campo) {
+
         return;
+
     }
 
 
@@ -1161,29 +1595,46 @@ async function responder(postId) {
         );
 
         return;
+
     }
 
 
-    if (!usuarioLogado) {
+    const { data: sessionData } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    const user =
+        sessionData.session?.user;
+
+
+    if (!user) {
 
         alert(
             "Você precisa estar logado."
         );
 
+        window.location.href =
+            "index.html";
+
         return;
+
     }
 
 
     const { error } =
         await window.supabaseClient
+
             .from("respostas")
+
             .insert({
 
                 post_id:
                     postId,
 
                 author_id:
-                    usuarioLogado.id,
+                    user.id,
 
                 conteudo:
                     conteudo
@@ -1201,6 +1652,7 @@ async function responder(postId) {
         );
 
         return;
+
     }
 
 
@@ -1219,11 +1671,13 @@ async function responder(postId) {
 }
 
 
-/* =================================
+/* ================================
    ABRIR POST
-================================= */
+================================ */
 
-function abrirPost(postId) {
+function abrirPost(
+    postId
+) {
 
     window.location.href =
         "post.html?id=" +
@@ -1232,9 +1686,9 @@ function abrirPost(postId) {
 }
 
 
-/* =================================
+/* ================================
    PERFIL
-================================= */
+================================ */
 
 function perfil() {
 
@@ -1244,9 +1698,9 @@ function perfil() {
 }
 
 
-/* =================================
+/* ================================
    SAIR
-================================= */
+================================ */
 
 async function sair() {
 
@@ -1261,14 +1715,54 @@ async function sair() {
 }
 
 
-/* =================================
+/* ================================
+   PROTEÇÃO CONTRA HTML
+================================ */
+
+function escaparHTML(
+    texto
+) {
+
+    if (texto === null ||
+        texto === undefined) {
+
+        return "";
+
+    }
+
+
+    return String(texto)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* ================================
    INICIAR
-================================= */
+================================ */
 
 verificarLogin();
 
 </script>
-
 
 </body>
 
