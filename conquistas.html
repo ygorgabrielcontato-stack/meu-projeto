@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Conquistas - TechCommunity</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #191b3a 0%,
+                    #0b0d17 48%
+                );
+
+            color: white;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            height: 70px;
+
+            padding: 0 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom:
+                1px solid #25283a;
+
+            background:
+                rgba(11,13,23,0.90);
+
+            backdrop-filter:
+                blur(12px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo span {
+
+            color: #6c63ff;
+
+        }
+
+
+        .header-botoes {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .btn-header {
+
+            background: #171a29;
+
+            color: white;
+
+            border:
+                1px solid #292d42;
+
+            padding:
+                10px 16px;
+
+            border-radius: 9px;
+
+        }
+
+
+        .btn-header:hover {
+
+            background: #25283a;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+
+            width: 92%;
+
+            max-width: 1000px;
+
+            margin:
+                40px auto 80px;
+
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        .topo {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .topo h1 {
+
+            font-size: 38px;
+
+            margin:
+                0 0 8px;
+
+        }
+
+
+        .descricao {
+
+            color: #9da3b8;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =========================
+           CARD DO USUÁRIO
+        ========================= */
+
+        .status-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171a32,
+                    #111421
+                );
+
+            border:
+                1px solid #292d42;
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            margin-bottom: 35px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .status-item {
+
+            background: #0d0f19;
+
+            border:
+                1px solid #25283a;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+        }
+
+
+        .status-label {
+
+            color: #8e95aa;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .status-valor {
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+        }
+
+
+        .xp {
+
+            color: #aaa5ff;
+
+        }
+
+
+        /* =========================
+           PROGRESSO GERAL
+        ========================= */
+
+        .progresso-card {
+
+            background: #171a29;
+
+            border:
+                1px solid #292d42;
+
+            border-radius: 18px;
+
+            padding: 23px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .progresso-topo {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .progresso-topo strong {
+
+            font-size: 18px;
+
+        }
+
+
+        .barra {
+
+            width: 100%;
+
+            height: 10px;
+
+            background: #292d42;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+        .barra-preenchida {
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6258e8,
+                    #8b83ff
+                );
+
+            border-radius: 20px;
+
+            transition:
+                width 0.7s ease;
+
+        }
+
+
+        /* =========================
+           TÍTULO
+        ========================= */
+
+        .titulo-conquistas {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .titulo-conquistas h2 {
+
+            margin: 0;
+
+        }
+
+
+        .contador {
+
+            background: #292d42;
+
+            color: #aaa5ff;
+
+            padding:
+                6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .grid-conquistas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 17px;
+
+        }
+
+
+        /* =========================
+           CONQUISTA
+        ========================= */
+
+        .conquista {
+
+            background: #111421;
+
+            border:
+                1px solid #292d42;
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            display: flex;
+
+            gap: 17px;
+
+            transition:
+                0.25s ease;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .conquista:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                #4b4f70;
+
+        }
+
+
+        .conquista.desbloqueada {
+
+            border-color:
+                rgba(98,88,232,0.65);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(98,88,232,0.13),
+                    #111421
+                );
+
+        }
+
+
+        .conquista.bloqueada {
+
+            opacity: 0.55;
+
+        }
+
+
+        /* =========================
+           ÍCONE
+        ========================= */
+
+        .icone {
+
+            width: 65px;
+
+            height: 65px;
+
+            min-width: 65px;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 31px;
+
+            background: #292d42;
+
+            border:
+                1px solid #3a3f58;
+
+        }
+
+
+        .desbloqueada .icone {
+
+            background:
+                rgba(98,88,232,0.25);
+
+            border-color:
+                #6258e8;
+
+            box-shadow:
+                0 0 20px
+                rgba(98,88,232,0.20);
+
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .conquista-conteudo {
+
+            flex: 1;
+
+        }
+
+
+        .conquista h3 {
+
+            margin:
+                0 0 6px;
+
+            font-size: 17px;
+
+        }
+
+
+        .conquista p {
+
+            margin:
+                0 0 12px;
+
+            color: #8e95aa;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================
+           XP
+        ========================= */
+
+        .xp-conquista {
+
+            color: #aaa5ff;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           PROGRESSO
+        ========================= */
+
+        .progresso-conquista {
+
+            margin-top: 12px;
+
+        }
+
+
+        .progresso-texto {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            color: #777e94;
+
+            font-size: 11px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .mini-barra {
+
+            width: 100%;
+
+            height: 6px;
+
+            background: #292d42;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+        }
+
+
+        .mini-preenchida {
+
+            height: 100%;
+
+            background: #6258e8;
+
+            border-radius: 10px;
+
+            transition:
+                width 0.5s ease;
+
+        }
+
+
+        /* =========================
+           SELO
+        ========================= */
+
+        .selo {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================
+           VAZIO
+        ========================= */
+
+        .carregando {
+
+            text-align: center;
+
+            color: #8e95aa;
+
+            padding: 50px;
+
+        }
+
+
+        .erro {
+
+            background: #301820;
+
+            border:
+                1px solid #6b2636;
+
+            color: #ff9da9;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media(max-width:700px) {
+
+            header {
+
+                padding:
+                    0 5%;
+
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+
+            .btn-header {
+
+                padding:
+                    8px 10px;
+
+            }
+
+
+            main {
+
+                width: 94%;
+
+                margin-top: 25px;
+
+            }
+
+
+            .topo h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .status-card {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .grid-conquistas {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        Tech<span>Community</span>
+
+    </div>
+
+
+    <div class="header-botoes">
+
+        <button
+            class="btn-header"
+            onclick="voltarPerfil()">
+
+            👤 Perfil
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="voltarComunidade()">
+
+            ← Comunidade
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="sair()">
+
+            Sair
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- =========================
+         TOPO
+    ========================== -->
+
+    <section class="topo">
+
+        <h1>
+
+            🏆 Conquistas
+
+        </h1>
+
+
+        <p class="descricao">
+
+            Complete desafios, ganhe XP e mostre sua evolução para a comunidade.
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         STATUS
+    ========================== -->
+
+    <section
+        class="status-card"
+        id="statusCard">
+
+        <div class="status-item">
+
+            <div class="status-label">
+
+                Nível atual
+
+            </div>
+
+            <div
+                class="status-valor"
+                id="nivel">
+
+                --
+
+            </div>
+
+        </div>
+
+
+        <div class="status-item">
+
+            <div class="status-label">
+
+                XP acumulado
+
+            </div>
+
+            <div
+                class="status-valor xp"
+                id="xp">
+
+                --
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRESSO
+    ========================== -->
+
+    <section class="progresso-card">
+
+        <div class="progresso-topo">
+
+            <strong>
+
+                🏆 Progresso das conquistas
+
+            </strong>
+
+
+            <span
+                id="progressoTexto">
+
+                0%
+
+            </span>
+
+        </div>
+
+
+        <div class="barra">
+
+            <div
+                id="barraGeral"
+                class="barra-preenchida"
+                style="width:0%">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONQUISTAS
+    ========================== -->
+
+    <div class="titulo-conquistas">
+
+        <h2>
+
+            Todas as conquistas
+
+        </h2>
+
+
+        <span
+            id="contador"
+            class="contador">
+
+            0 / 0
+
+        </span>
+
+    </div>
+
+
+    <div
+        id="conquistas"
+        class="grid-conquistas">
+
+        <div class="carregando">
+
+            Carregando conquistas...
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+
+<script>
+
+
+/* ================================
+   VARIÁVEIS
+================================ */
+
+let usuarioAtual = null;
+
+
+/* ================================
+   LOGIN
+================================ */
+
+async function verificarLogin() {
+
+    const { data, error } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao verificar login."
+        );
+
+        return;
+
+    }
+
+
+    usuarioAtual =
+        data.session?.user;
+
+
+    if (!usuarioAtual) {
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
+
+
+    carregarConquistas();
+
+}
+
+
+/* ================================
+   CARREGAR CONQUISTAS
+================================ */
+
+async function carregarConquistas() {
+
+    const { data: conquistas, error } =
+        await window.supabaseClient
+
+            .from("conquistas")
+
+            .select("*")
+
+            .order(
+                "xp",
+                {
+                    ascending: true
+                }
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao carregar conquistas: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    const { data: minhasConquistas, error: erroUsuario } =
+        await window.supabaseClient
+
+            .from("usuario_conquistas")
+
+            .select(`
+                conquista_id,
+                progresso,
+                desbloqueada,
+                desbloqueada_em
+            `)
+
+            .eq(
+                "user_id",
+                usuarioAtual.id
+            );
+
+
+    if (erroUsuario) {
+
+        console.error(
+            erroUsuario
+        );
+
+        mostrarErro(
+            "Erro ao carregar seu progresso: " +
+            erroUsuario.message
+        );
+
+        return;
+
+    }
+
+
+    const mapa =
+        new Map();
+
+
+    (minhasConquistas || [])
+        .forEach(item => {
+
+            mapa.set(
+                item.conquista_id,
+                item
+            );
+
+        });
+
+
+    renderizarConquistas(
+        conquistas || [],
+        mapa
+    );
+
+
+    calcularProgresso(
+        conquistas || [],
+        mapa
+    );
+
+
+    carregarNivel();
+
+}
+
+
+/* ================================
+   RENDERIZAR
+================================ */
+
+function renderizarConquistas(
+    conquistas,
+    mapa
+) {
+
+    const container =
+        document.getElementById(
+            "conquistas"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (
+        !conquistas ||
+        conquistas.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="carregando">
+
+                Nenhuma conquista cadastrada ainda.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let desbloqueadas = 0;
+
+
+    conquistas.forEach(
+        conquista => {
+
+
+            const progressoUsuario =
+                mapa.get(
+                    conquista.id
+                );
+
+
+            const progresso =
+                progressoUsuario
+                ?.progresso || 0;
+
+
+            const desbloqueada =
+                progressoUsuario
+                ?.desbloqueada || false;
+
+
+            if (desbloqueada) {
+
+                desbloqueadas++;
+
+            }
+
+
+            const porcentagem =
+                Math.min(
+                    100,
+                    Math.round(
+                        (
+                            progresso /
+                            conquista.requisito
+                        ) * 100
+                    )
+                );
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "conquista " +
+                (
+                    desbloqueada
+                    ? "desbloqueada"
+                    : "bloqueada"
+                );
+
+
+            div.innerHTML = `
+
+                <div class="icone">
+
+                    ${escaparHTML(
+                        conquista.icone
+                    )}
+
+                </div>
+
+
+                <div class="conquista-conteudo">
+
+                    <h3>
+
+                        ${escaparHTML(
+                            conquista.nome
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${escaparHTML(
+                            conquista.descricao
+                        )}
+
+                    </p>
+
+
+                    <div class="xp-conquista">
+
+                        ⭐ +${conquista.xp} XP
+
+                    </div>
+
+
+                    ${
+                        desbloqueada
+
+                        ?
+
+                        `
+
+                        <div
+                            style="
+                                margin-top:10px;
+                                color:#8b83ff;
+                                font-size:12px;
+                                font-weight:bold;
+                            "
+                        >
+
+                            ✓ Conquista desbloqueada
+
+                        </div>
+
+                        `
+
+                        :
+
+                        `
+
+                        <div class="progresso-conquista">
+
+                            <div
+                                class="progresso-texto"
+                            >
+
+                                <span>
+                                    Progresso
+                                </span>
+
+                                <span>
+                                    ${progresso}
+                                    /
+                                    ${conquista.requisito}
+                                </span>
+
+                            </div>
+
+
+                            <div class="mini-barra">
+
+                                <div
+                                    class="mini-preenchida"
+                                    style="
+                                        width:${porcentagem}%;
+                                    "
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                        `
+
+                    }
+
+                </div>
+
+
+                <div class="selo">
+
+                    ${
+                        desbloqueada
+                        ? "🏆"
+                        : "🔒"
+                    }
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    document
+        .getElementById(
+            "contador"
+        )
+        .textContent =
+
+        `${desbloqueadas} / ${conquistas.length}`;
+
+}
+
+
+/* ================================
+   PROGRESSO GERAL
+================================ */
+
+function calcularProgresso(
+    conquistas,
+    mapa
+) {
+
+    if (!conquistas.length) {
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    conquistas.forEach(
+        conquista => {
+
+            if (
+                mapa.get(
+                    conquista.id
+                )?.desbloqueada
+            ) {
+
+                total++;
+
+            }
+
+        }
+    );
+
+
+    const porcentagem =
+        Math.round(
+            (
+                total /
+                conquistas.length
+            ) * 100
+        );
+
+
+    document
+        .getElementById(
+            "progressoTexto"
+        )
+        .textContent =
+        `${porcentagem}%`;
+
+
+    document
+        .getElementById(
+            "barraGeral"
+        )
+        .style.width =
+        `${porcentagem}%`;
+
+}
+
+
+/* ================================
+   CARREGAR NÍVEL
+================================ */
+
+async function carregarNivel() {
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .select(`
+                nivel,
+                xp
+            `)
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            )
+
+            .single();
+
+
+    if (error) {
+
+        console.warn(
+            "Não foi possível carregar XP:",
+            error.message
+        );
+
+        document
+            .getElementById(
+                "nivel"
+            )
+            .textContent =
+            "Membro";
+
+
+        document
+            .getElementById(
+                "xp"
+            )
+            .textContent =
+            "0 XP";
+
+        return;
+
+    }
+
+
+    document
+        .getElementById(
+            "nivel"
+        )
+        .textContent =
+        data.nivel || "Membro";
+
+
+    document
+        .getElementById(
+            "xp"
+        )
+        .textContent =
+        `${data.xp || 0} XP`;
+
+}
+
+
+/* ================================
+   ESCAPAR HTML
+================================ */
+
+function escaparHTML(
+    texto
+) {
+
+    return String(
+        texto ?? ""
+    )
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* ================================
+   ERRO
+================================ */
+
+function mostrarErro(
+    mensagem
+) {
+
+    document
+        .getElementById(
+            "conquistas"
+        )
+        .innerHTML = `
+
+            <div class="erro">
+
+                ${escaparHTML(
+                    mensagem
+                )}
+
+            </div>
+
+        `;
+
+}
+
+
+/* ================================
+   NAVEGAÇÃO
+================================ */
+
+function voltarPerfil() {
+
+    window.location.href =
+        "perfil.html";
+
+}
+
+
+function voltarComunidade() {
+
+    window.location.href =
+        "comunidade.html";
+
+}
+
+
+/* ================================
+   SAIR
+================================ */
+
+async function sair() {
+
+    await window.supabaseClient
+        .auth
+        .signOut();
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* ================================
+   INICIAR
+================================ */
+
+verificarLogin();
+
+</script>
+
+
+</body>
+
+</html>
