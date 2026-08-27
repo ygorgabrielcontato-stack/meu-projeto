@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -109,6 +110,15 @@
             line-height: 1.6;
         }
 
+        .botao-ver {
+            margin-top: 15px;
+            background: #292d42;
+        }
+
+        .botao-ver:hover {
+            background: #6258e8;
+        }
+
         .respostas {
             margin-top: 25px;
             border-top: 1px solid #292d42;
@@ -161,6 +171,7 @@
 
 </header>
 
+
 <main>
 
     <h1>Comunidade</h1>
@@ -168,6 +179,7 @@
     <p class="descricao">
         Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
     </p>
+
 
     <div class="criar-post">
 
@@ -200,9 +212,11 @@
 
     </div>
 
+
     <h2 style="margin-top: 50px;">
         Perguntas recentes
     </h2>
+
 
     <div id="posts">
         Carregando perguntas...
@@ -214,6 +228,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
+
 
 <script>
 
@@ -411,6 +426,7 @@ async function carregarPosts() {
                 ${post.titulo}
             </h2>
 
+
             <div class="post-info">
 
                 👤 ${nome}
@@ -421,9 +437,19 @@ async function carregarPosts() {
 
             </div>
 
+
             <p class="post-conteudo">
                 ${post.conteudo}
             </p>
+
+
+            <button
+                class="botao-ver"
+                onclick="abrirPost('${post.id}')"
+            >
+                🔎 Ver pergunta
+            </button>
+
 
             <div
                 class="respostas"
@@ -432,12 +458,14 @@ async function carregarPosts() {
                 Carregando respostas...
             </div>
 
+
             <div class="responder-area">
 
                 <textarea
                     id="resposta-${post.id}"
                     placeholder="Escreva sua resposta..."
                 ></textarea>
+
 
                 <button
                     onclick="responder('${post.id}')"
@@ -450,12 +478,12 @@ async function carregarPosts() {
         `;
 
 
-        /* Primeiro colocamos o post na página */
+        /* Coloca a pergunta na página */
 
         container.appendChild(div);
 
 
-        /* Depois carregamos as respostas */
+        /* Carrega as respostas */
 
         carregarRespostas(post.id);
 
@@ -546,6 +574,7 @@ async function carregarRespostas(postId) {
             <strong>
                 👤 ${nome}
             </strong>
+
 
             <p>
                 ${resposta.conteudo}
@@ -650,19 +679,41 @@ async function responder(postId) {
 
 
 /* ================================
+   ABRIR PERGUNTA
+================================ */
+
+function abrirPost(postId) {
+
+    window.location.href =
+        "post.html?id=" + postId;
+
+}
+
+
+/* ================================
+   PERFIL
+================================ */
+
+function perfil() {
+
+    window.location.href =
+        "perfil.html";
+
+}
+
+
+/* ================================
    SAIR
 ================================ */
 
 async function sair() {
 
-    await window.supabaseClient.auth.signOut();
+    await window.supabaseClient
+        .auth
+        .signOut();
 
-    window.location.href = "index.html";
-}
-    
-function perfil() {
-
-    window.location.href = "perfil.html";
+    window.location.href =
+        "index.html";
 
 }
 
@@ -678,3 +729,4 @@ verificarLogin();
 </body>
 
 </html>
+```
