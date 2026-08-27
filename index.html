@@ -1252,7 +1252,11 @@ async function demoRegister() {
 
     alert("Conta criada com sucesso! 🎉");
 
-    registerForm.reset();
+    registerForm.querySelectorAll("input").forEach(input => {
+    input.value = "";
+});
+
+registerForm.querySelector("select").selectedIndex = 0;
 
     closeModal();
 
