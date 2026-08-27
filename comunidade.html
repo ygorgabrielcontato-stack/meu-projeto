@@ -367,7 +367,147 @@ carregarRespostas(post.id);
 
     });
 }
+async function carregarRespostas(postId) {
 
+    const container =
+        document.getElementById(`respostas-${postId}`);
+
+
+    const { data, error } =
+        await window.supabaseClient
+            .from("respostas")
+            .select(`
+                id,
+                conteudo,
+                created_at,
+                profiles (
+                    nome,
+                    username
+                )
+            `)
+            .eq("post_id", postId)
+            .order("created_at", { ascending: true });
+
+
+    if (error) {
+
+        console.error(error);
+
+        container.innerHTML =
+            "<p>Erro ao carregar respostas.</p>";
+
+        return;
+    }
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML =
+            "<p style='color:#8e95aa;'>Nenhuma resposta ainda.</p>";
+
+        return;
+    }
+
+
+    container.innerHTML = `
+        <h3>💬 Respostas (${data.length})</h3>
+    `;
+
+
+    data.forEach(resposta => {
+
+        const nome =
+            resposta.profiles?.nome || "Usuário";
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.style.background = "#0d0f19";
+        div.style.padding = "15px";
+        div.style.borderRadius = "8px";
+        div.style.marginTop = "10px";
+
+
+        div.innerHTML = `
+
+            <strong>👤 ${nome}</strong>
+
+            <p style="color:#c8ccda;">
+                ${resposta.conteudo}
+            </p>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+}
+    
+async function responder(postId) {
+
+    const campo =
+        document.getElementById(`resposta-${postId}`);
+
+    const conteudo =
+        campo.value.trim();
+
+    if (!conteudo) {
+
+        alert("Escreva uma resposta.");
+
+        return;
+    }
+
+
+    const { data: sessionData } =
+        await window.supabaseClient.auth.getSession();
+
+    const user = sessionData.session?.user;
+
+
+    if (!user) {
+
+        alert("Você precisa estar logado.");
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    const { error } =
+        await window.supabaseClient
+            .from("respostas")
+            .insert({
+
+                post_id: postId,
+
+                author_id: user.id,
+
+                conteudo: conteudo
+
+            });
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert("Erro ao responder: " + error.message);
+
+        return;
+    }
+
+
+    campo.value = "";
+
+    alert("Resposta publicada! 🎉");
+
+    carregarRespostas(postId);
+}
 
 async function sair() {
 
