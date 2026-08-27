@@ -3,572 +3,1048 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Comunidade - TechCommunity</title>
+<title>Comunidade - TechCommunity</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
+body {
 
-            margin: 0;
+    margin: 0;
 
-            font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
 
-            background: #0b0d17;
+    background:
+        radial-gradient(
+            circle at top left,
+            #171934 0%,
+            #0b0d17 35%
+        );
 
-            color: white;
+    color: white;
 
-        }
+}
 
 
-        /* =========================
-           HEADER
-        ========================= */
+/* =========================
+   HEADER
+========================= */
 
-        header {
+header {
 
-            padding: 20px 8%;
+    height: 70px;
 
-            border-bottom: 1px solid #25283a;
+    padding: 0 7%;
 
-            display: flex;
+    border-bottom: 1px solid #25283a;
 
-            justify-content: space-between;
+    display: flex;
 
-            align-items: center;
+    justify-content: space-between;
 
-        }
+    align-items: center;
 
+    background: rgba(11,13,23,0.92);
 
-        .logo {
+    backdrop-filter: blur(12px);
 
-            font-size: 24px;
+    position: sticky;
 
-            font-weight: bold;
+    top: 0;
 
-        }
+    z-index: 100;
 
+}
 
-        .logo span {
 
-            color: #6c63ff;
+.logo {
 
-        }
+    font-size: 24px;
 
+    font-weight: bold;
 
-        .header-botoes {
+    letter-spacing: -0.5px;
 
-            display: flex;
+}
 
-            gap: 10px;
 
-        }
+.logo span {
 
+    color: #6c63ff;
 
-        /* =========================
-           BOTÕES
-        ========================= */
+}
 
-        button {
 
-            background: #6258e8;
+.header-botoes {
 
-            border: none;
+    display: flex;
 
-            color: white;
+    gap: 9px;
 
-            padding: 12px 20px;
+    align-items: center;
 
-            border-radius: 8px;
+}
 
-            cursor: pointer;
 
-            font-weight: bold;
+button {
 
-        }
+    border: none;
 
+    cursor: pointer;
 
-        button:hover {
+    font-weight: bold;
 
-            opacity: 0.9;
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        opacity .15s ease;
 
-        }
+}
 
 
-        .btn-secundario {
+button:hover {
 
-            background: #292d42;
+    transform: translateY(-1px);
 
-        }
+}
 
 
-        /* =========================
-           MAIN
-        ========================= */
+.btn-header {
 
-        main {
+    background: #171a29;
 
-            width: 90%;
+    color: white;
 
-            max-width: 1000px;
+    border: 1px solid #292d42;
 
-            margin: 40px auto 80px;
+    padding: 10px 15px;
 
-        }
+    border-radius: 10px;
 
+}
 
-        h1 {
 
-            font-size: 36px;
+.btn-header:hover {
 
-            margin-bottom: 8px;
+    background: #25283a;
 
-        }
+}
 
 
-        .descricao {
+.btn-sair {
 
-            color: #9da3b8;
+    background: #292d42;
 
-            margin-top: 0;
+}
 
-        }
 
+/* =========================
+   NOTIFICAÇÕES
+========================= */
 
-        /* =========================
-           CRIAR PERGUNTA
-        ========================= */
+.btn-notificacoes {
 
-        .criar-post {
+    position: relative;
 
-            background: #171a29;
+    background: #171a29;
 
-            border: 1px solid #292d42;
+    border: 1px solid #292d42;
 
-            padding: 25px;
+    color: white;
 
-            border-radius: 15px;
+    width: 43px;
 
-            margin-top: 30px;
+    height: 43px;
 
-        }
+    border-radius: 12px;
 
+    font-size: 19px;
 
-        .criar-post h2 {
+}
 
-            margin-top: 0;
 
-        }
+.badge-notificacao {
 
+    position: absolute;
 
-        input,
-        textarea,
-        select {
+    top: -5px;
 
-            width: 100%;
+    right: -5px;
 
-            box-sizing: border-box;
+    min-width: 18px;
 
-            margin-top: 10px;
+    height: 18px;
 
-            margin-bottom: 15px;
+    padding: 0 5px;
 
-            padding: 14px;
+    display: flex;
 
-            background: #0d0f19;
+    align-items: center;
 
-            border: 1px solid #30344b;
+    justify-content: center;
 
-            border-radius: 8px;
+    background: #ff3b6b;
 
-            color: white;
+    color: white;
 
-            font-family: Arial, sans-serif;
+    border-radius: 20px;
 
-            outline: none;
+    font-size: 10px;
 
-        }
+    border: 2px solid #0b0d17;
 
+}
 
-        input:focus,
-        textarea:focus,
-        select:focus {
 
-            border-color: #6258e8;
+/* =========================
+   MAIN
+========================= */
 
-        }
+main {
 
+    width: 92%;
 
-        textarea {
+    max-width: 900px;
 
-            min-height: 120px;
+    margin: 42px auto 80px;
 
-            resize: vertical;
+}
 
-        }
 
+.titulo-area {
 
-        /* =========================
-           PESQUISA
-        ========================= */
+    margin-bottom: 30px;
 
-        .filtros {
+}
 
-            background: #171a29;
 
-            border: 1px solid #292d42;
+h1 {
 
-            border-radius: 15px;
+    font-size: 38px;
 
-            padding: 20px;
+    margin: 0 0 8px;
 
-            margin-top: 35px;
+}
 
-        }
 
+.descricao {
 
-        .filtros h2 {
+    color: #9da3b8;
 
-            margin-top: 0;
+    margin: 0;
 
-            margin-bottom: 15px;
+    line-height: 1.6;
 
-        }
+}
 
 
-        .pesquisa-area {
+/* =========================
+   CRIAR POST
+========================= */
 
-            display: flex;
+.criar-post {
 
-            gap: 10px;
+    background:
 
-        }
+        linear-gradient(
+            145deg,
+            #181b2c,
+            #131625
+        );
 
+    border: 1px solid #292d42;
 
-        .pesquisa-area input {
+    padding: 26px;
 
-            margin: 0;
+    border-radius: 20px;
 
-            flex: 1;
+    margin-bottom: 28px;
 
-        }
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.18);
 
+}
 
-        .pesquisa-area button {
 
-            white-space: nowrap;
+.criar-post h2 {
 
-        }
+    margin-top: 0;
 
+    margin-bottom: 18px;
 
-        .categorias {
+}
 
-            display: flex;
 
-            gap: 8px;
+input,
+textarea,
+select {
 
-            flex-wrap: wrap;
+    width: 100%;
 
-            margin-top: 15px;
+    margin-top: 9px;
 
-        }
+    margin-bottom: 15px;
 
+    padding: 14px 15px;
 
-        .categoria-btn {
+    background: #0d0f19;
 
-            background: #292d42;
+    border: 1px solid #30344b;
 
-            color: #c8ccda;
+    border-radius: 10px;
 
-            padding: 9px 14px;
+    color: white;
 
-            border-radius: 20px;
+    font-family: Arial, sans-serif;
 
-            border: 1px solid #363b54;
+    outline: none;
 
-            font-size: 13px;
+    transition:
+        border-color .2s,
+        box-shadow .2s;
 
-        }
+}
 
 
-        .categoria-btn:hover {
+input:focus,
+textarea:focus,
+select:focus {
 
-            background: #6258e8;
+    border-color: #6258e8;
 
-        }
+    box-shadow:
+        0 0 0 3px rgba(98,88,232,.12);
 
+}
 
-        .categoria-btn.ativa {
 
-            background: #6258e8;
+textarea {
 
-            color: white;
+    min-height: 120px;
 
-            border-color: #6258e8;
+    resize: vertical;
 
-        }
+}
 
 
-        /* =========================
-           PERGUNTAS
-        ========================= */
+.btn-publicar {
 
-        .titulo-perguntas {
+    background:
+        linear-gradient(
+            135deg,
+            #6258e8,
+            #796ff5
+        );
 
-            margin-top: 50px;
+    color: white;
 
-            margin-bottom: 20px;
+    padding: 12px 20px;
 
-        }
+    border-radius: 10px;
 
+    box-shadow:
+        0 8px 20px rgba(98,88,232,.18);
 
-        .post {
+}
 
-            background: #171a29;
 
-            border: 1px solid #292d42;
+.btn-publicar:hover {
 
-            padding: 25px;
+    filter: brightness(1.08);
 
-            border-radius: 15px;
+}
 
-            margin-top: 20px;
 
-            transition:
-                transform 0.15s ease,
-                border-color 0.15s ease;
+/* =========================
+   FILTROS
+========================= */
 
-        }
+.filtros {
 
+    background: #171a29;
 
-        .post:hover {
+    border: 1px solid #292d42;
 
-            transform: translateY(-2px);
+    border-radius: 18px;
 
-            border-color: #3b405b;
+    padding: 21px;
 
-        }
+}
 
 
-        .post h2 {
+.filtros h2 {
 
-            margin-top: 0;
+    margin-top: 0;
 
-            margin-bottom: 10px;
+}
 
-        }
 
+.pesquisa-area {
 
-        .post-info {
+    display: flex;
 
-            color: #8e95aa;
+    gap: 10px;
 
-            font-size: 14px;
+}
 
-        }
 
+.pesquisa-area input {
 
-        .post-conteudo {
+    margin: 0;
 
-            color: #c8ccda;
+    flex: 1;
 
-            line-height: 1.6;
+}
 
-            white-space: pre-wrap;
 
-        }
+.btn-limpar {
 
+    background: #292d42;
 
-        .botao-ver {
+    color: white;
 
-            margin-top: 15px;
+    padding: 0 17px;
 
-            background: #292d42;
+    border-radius: 10px;
 
-        }
+}
 
 
-        .botao-ver:hover {
+.categorias {
 
-            background: #6258e8;
+    display: flex;
 
-        }
+    gap: 8px;
 
+    flex-wrap: wrap;
 
-        /* =========================
-           RESPOSTAS
-        ========================= */
+    margin-top: 14px;
 
-        .respostas {
+}
 
-            margin-top: 25px;
 
-            border-top: 1px solid #292d42;
+.categoria-btn {
 
-            padding-top: 15px;
+    background: #292d42;
 
-        }
+    color: #c8ccda;
 
+    padding: 9px 13px;
 
-        .resposta {
+    border-radius: 20px;
 
-            background: #0d0f19;
+    border: 1px solid #363b54;
 
-            padding: 15px;
+    font-size: 13px;
 
-            border-radius: 8px;
+}
 
-            margin-top: 10px;
 
-            border: 1px solid #25283a;
+.categoria-btn:hover {
 
-        }
+    background: #6258e8;
 
+    color: white;
 
-        .resposta p {
+}
 
-            color: #c8ccda;
 
-            line-height: 1.5;
+.categoria-btn.ativa {
 
-            margin-bottom: 0;
+    background: #6258e8;
 
-        }
+    color: white;
 
+    border-color: #6258e8;
 
-        .responder-area {
+}
 
-            margin-top: 20px;
 
-        }
+/* =========================
+   PERGUNTAS
+========================= */
 
+.titulo-perguntas {
 
-        .responder-area textarea {
+    margin-top: 42px;
 
-            min-height: 80px;
+    margin-bottom: 8px;
 
-        }
+}
 
 
-        /* =========================
-           RESULTADOS
-        ========================= */
+.resultado-info {
 
-        .resultado-info {
+    color: #8e95aa;
 
-            color: #8e95aa;
+    font-size: 14px;
 
-            font-size: 14px;
+    margin-bottom: 15px;
 
-            margin-bottom: 15px;
+}
 
-        }
 
+.post {
 
-        .sem-resultados {
+    background:
+        linear-gradient(
+            145deg,
+            #171a29,
+            #121522
+        );
 
-            background: #171a29;
+    border: 1px solid #292d42;
 
-            border: 1px solid #292d42;
+    padding: 24px;
 
-            border-radius: 15px;
+    border-radius: 18px;
 
-            padding: 35px;
+    margin-top: 18px;
 
-            text-align: center;
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 
-            color: #9da3b8;
+}
 
-            margin-top: 20px;
 
-        }
+.post:hover {
 
+    transform: translateY(-2px);
 
-        .carregando {
+    border-color: #3d4260;
 
-            text-align: center;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.16);
 
-            color: #9da3b8;
+}
 
-            padding: 40px;
 
-        }
+.post h2 {
 
+    margin: 0 0 11px;
 
-        /* =========================
-           RESPONSIVO
-        ========================= */
+    font-size: 21px;
 
-        @media (max-width: 650px) {
+    line-height: 1.4;
 
-            header {
+}
 
-                padding: 15px 5%;
 
-            }
+.post-info {
 
+    color: #8e95aa;
 
-            .logo {
+    font-size: 13px;
 
-                font-size: 20px;
+    margin-bottom: 17px;
 
-            }
+}
 
 
-            .header-botoes button {
+.post-conteudo {
 
-                padding: 9px 12px;
+    color: #c8ccda;
 
-            }
+    line-height: 1.7;
 
+    white-space: pre-wrap;
 
-            main {
+}
 
-                width: 94%;
 
-                margin-top: 25px;
+/* =========================
+   CATEGORIA DO POST
+========================= */
 
-            }
+.tag-categoria {
 
+    display: inline-block;
 
-            h1 {
+    padding: 5px 9px;
 
-                font-size: 30px;
+    border-radius: 15px;
 
-            }
+    background: #252940;
 
+    color: #aaa5ff;
 
-            .pesquisa-area {
+    font-size: 11px;
 
-                flex-direction: column;
+    margin-bottom: 12px;
 
-            }
+}
 
 
-            .pesquisa-area button {
+/* =========================
+   AÇÕES DO POST
+========================= */
 
-                width: 100%;
+.acoes-post {
 
-            }
+    display: flex;
 
+    align-items: center;
 
-            .post {
+    gap: 17px;
 
-                padding: 20px;
+    border-top: 1px solid #25283a;
 
-            }
+    padding-top: 15px;
 
-        }
+    margin-top: 18px;
 
-    </style>
+}
+
+
+.acao {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.botao-coracao {
+
+    background: transparent;
+
+    color: #9da3b8;
+
+    font-size: 28px;
+
+    padding: 0 3px;
+
+    line-height: 1;
+
+}
+
+
+.botao-coracao:hover {
+
+    background: transparent;
+
+    transform: scale(1.12);
+
+}
+
+
+.botao-coracao.curtido {
+
+    color: #ff3b6b;
+
+    animation: coracao .28s ease;
+
+}
+
+
+.contador-curtidas {
+
+    color: #aeb3c4;
+
+    font-size: 13px;
+
+}
+
+
+@keyframes coracao {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.35);
+    }
+
+    70% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+.botao-ver {
+
+    margin-left: auto;
+
+    background: #292d42;
+
+    color: white;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+}
+
+
+.botao-ver:hover {
+
+    background: #6258e8;
+
+}
+
+
+/* =========================
+   RESPOSTAS
+========================= */
+
+.respostas {
+
+    margin-top: 22px;
+
+    border-top: 1px solid #25283a;
+
+    padding-top: 18px;
+
+}
+
+
+.respostas h3 {
+
+    font-size: 16px;
+
+    color: #d4d7e2;
+
+    margin-bottom: 12px;
+
+}
+
+
+.resposta {
+
+    background: #0d0f19;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+
+    border: 1px solid #25283a;
+
+    transition: border-color .2s;
+
+}
+
+
+.resposta:hover {
+
+    border-color: #363b54;
+
+}
+
+
+.resposta-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.autor-resposta {
+
+    font-weight: bold;
+
+    color: #f0f1f6;
+
+}
+
+
+.tipo-professor {
+
+    display: inline-block;
+
+    margin-left: 6px;
+
+    background: #6258e8;
+
+    color: white;
+
+    padding: 4px 8px;
+
+    border-radius: 12px;
+
+    font-size: 10px;
+
+}
+
+
+.tipo-aluno {
+
+    display: inline-block;
+
+    margin-left: 6px;
+
+    background: #292d42;
+
+    color: #b9bdca;
+
+    border: 1px solid #3a3f56;
+
+    padding: 4px 8px;
+
+    border-radius: 12px;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================
+   CURTIDA DA RESPOSTA
+========================= */
+
+.acoes-resposta {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.curtir-resposta {
+
+    background: transparent;
+
+    color: #8e95aa;
+
+    padding: 3px 5px;
+
+    font-size: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+.curtir-resposta:hover {
+
+    background: transparent;
+
+}
+
+
+.coracao-resposta {
+
+    font-size: 22px;
+
+    line-height: 1;
+
+}
+
+
+.curtir-resposta.curtido {
+
+    color: #ff3b6b;
+
+    animation: coracao .28s ease;
+
+}
+
+
+.contador-resposta {
+
+    font-size: 12px;
+
+    color: #8e95aa;
+
+}
+
+
+.resposta p {
+
+    color: #c8ccda;
+
+    line-height: 1.6;
+
+    margin-bottom: 0;
+
+    white-space: pre-wrap;
+
+}
+
+
+/* =========================
+   RESPONDER
+========================= */
+
+.responder-area {
+
+    margin-top: 18px;
+
+}
+
+
+.responder-area textarea {
+
+    min-height: 80px;
+
+}
+
+
+.btn-responder {
+
+    background: #292d42;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+}
+
+
+.btn-responder:hover {
+
+    background: #6258e8;
+
+}
+
+
+/* =========================
+   ESTADOS
+========================= */
+
+.sem-resultados {
+
+    background: #171a29;
+
+    border: 1px solid #292d42;
+
+    border-radius: 15px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: #9da3b8;
+
+    margin-top: 20px;
+
+}
+
+
+.carregando {
+
+    text-align: center;
+
+    color: #9da3b8;
+
+    padding: 40px;
+
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 650px) {
+
+    header {
+
+        padding: 0 5%;
+
+    }
+
+
+    .logo {
+
+        font-size: 19px;
+
+    }
+
+
+    .btn-header {
+
+        padding: 8px 10px;
+
+    }
+
+
+    .btn-sair {
+
+        display: none;
+
+    }
+
+
+    main {
+
+        width: 94%;
+
+        margin-top: 25px;
+
+    }
+
+
+    h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .pesquisa-area {
+
+        flex-direction: column;
+
+    }
+
+
+    .btn-limpar {
+
+        padding: 11px;
+
+    }
+
+
+    .post {
+
+        padding: 19px;
+
+    }
+
+
+    .acoes-post {
+
+        gap: 10px;
+
+    }
+
+
+}
+
+</style>
 
 </head>
 
@@ -587,7 +1063,27 @@
 
     <div class="header-botoes">
 
-        <button onclick="perfil()">
+
+        <button
+            class="btn-notificacoes"
+            onclick="notificacoes()"
+            title="Notificações">
+
+            🔔
+
+            <span
+                id="badgeNotificacao"
+                class="badge-notificacao"
+                style="display:none;">
+                0
+            </span>
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="perfil()">
 
             👤 Meu Perfil
 
@@ -595,12 +1091,13 @@
 
 
         <button
-            class="btn-secundario"
+            class="btn-header btn-sair"
             onclick="sair()">
 
             Sair
 
         </button>
+
 
     </div>
 
@@ -610,207 +1107,195 @@
 <main>
 
 
+<div class="titulo-area">
+
     <h1>
-
         Comunidade
-
     </h1>
 
-
     <p class="descricao">
-
         Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
-
     </p>
 
+</div>
 
-    <!-- =========================
-         CRIAR PERGUNTA
-    ========================== -->
 
-    <div class="criar-post">
+<!-- =========================
+     CRIAR PERGUNTA
+========================= -->
 
-        <h2>
+<div class="criar-post">
 
-            Faça uma pergunta
+    <h2>
+        Faça uma pergunta
+    </h2>
 
-        </h2>
 
+    <input
+        id="titulo"
+        type="text"
+        placeholder="Título da sua pergunta">
+
+
+    <select id="categoria">
+
+        <option value="Geral">
+            Geral
+        </option>
+
+        <option value="Programação">
+            Programação
+        </option>
+
+        <option value="Banco de Dados">
+            Banco de Dados
+        </option>
+
+        <option value="Redes">
+            Redes
+        </option>
+
+        <option value="Hardware">
+            Hardware
+        </option>
+
+    </select>
+
+
+    <textarea
+        id="conteudo"
+        placeholder="Explique sua dúvida..."></textarea>
+
+
+    <button
+        class="btn-publicar"
+        onclick="criarPost()">
+
+        🚀 Publicar pergunta
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     FILTROS
+========================= -->
+
+<div class="filtros">
+
+    <h2>
+        🔎 Encontrar perguntas
+    </h2>
+
+
+    <div class="pesquisa-area">
 
         <input
-            id="titulo"
+            id="pesquisa"
             type="text"
-            placeholder="Título da sua pergunta">
+            placeholder="Pesquisar por pergunta, conteúdo ou usuário..."
+            oninput="filtrarPosts()">
 
 
-        <select id="categoria">
+        <button
+            class="btn-limpar"
+            onclick="limparFiltros()">
 
-            <option value="Geral">
-                Geral
-            </option>
-
-            <option value="Programação">
-                Programação
-            </option>
-
-            <option value="Banco de Dados">
-                Banco de Dados
-            </option>
-
-            <option value="Redes">
-                Redes
-            </option>
-
-            <option value="Hardware">
-                Hardware
-            </option>
-
-        </select>
-
-
-        <textarea
-            id="conteudo"
-            placeholder="Explique sua dúvida...">
-        </textarea>
-
-
-        <button onclick="criarPost()">
-
-            Publicar pergunta
+            Limpar
 
         </button>
 
     </div>
 
 
-    <!-- =========================
-         PESQUISA E FILTROS
-    ========================== -->
+    <div class="categorias">
 
-    <div class="filtros">
+        <button
+            class="categoria-btn ativa"
+            data-categoria="Todas"
+            onclick="selecionarCategoria('Todas')">
 
-        <h2>
+            Todas
 
-            🔎 Encontrar perguntas
-
-        </h2>
-
-
-        <div class="pesquisa-area">
-
-            <input
-                id="pesquisa"
-                type="text"
-                placeholder="Pesquisar por pergunta, conteúdo ou usuário..."
-                oninput="filtrarPosts()">
+        </button>
 
 
-            <button
-                class="btn-secundario"
-                onclick="limparFiltros()">
+        <button
+            class="categoria-btn"
+            data-categoria="Geral"
+            onclick="selecionarCategoria('Geral')">
 
-                Limpar
+            Geral
 
-            </button>
-
-        </div>
-
-
-        <div class="categorias">
-
-            <button
-                class="categoria-btn ativa"
-                data-categoria="Todas"
-                onclick="selecionarCategoria('Todas')">
-
-                Todas
-
-            </button>
+        </button>
 
 
-            <button
-                class="categoria-btn"
-                data-categoria="Geral"
-                onclick="selecionarCategoria('Geral')">
+        <button
+            class="categoria-btn"
+            data-categoria="Programação"
+            onclick="selecionarCategoria('Programação')">
 
-                Geral
+            💻 Programação
 
-            </button>
-
-
-            <button
-                class="categoria-btn"
-                data-categoria="Programação"
-                onclick="selecionarCategoria('Programação')">
-
-                💻 Programação
-
-            </button>
+        </button>
 
 
-            <button
-                class="categoria-btn"
-                data-categoria="Banco de Dados"
-                onclick="selecionarCategoria('Banco de Dados')">
+        <button
+            class="categoria-btn"
+            data-categoria="Banco de Dados"
+            onclick="selecionarCategoria('Banco de Dados')">
 
-                🗄️ Banco de Dados
+            🗄️ Banco de Dados
 
-            </button>
-
-
-            <button
-                class="categoria-btn"
-                data-categoria="Redes"
-                onclick="selecionarCategoria('Redes')">
-
-                🌐 Redes
-
-            </button>
+        </button>
 
 
-            <button
-                class="categoria-btn"
-                data-categoria="Hardware"
-                onclick="selecionarCategoria('Hardware')">
+        <button
+            class="categoria-btn"
+            data-categoria="Redes"
+            onclick="selecionarCategoria('Redes')">
 
-                🖥️ Hardware
+            🌐 Redes
 
-            </button>
+        </button>
 
-        </div>
+
+        <button
+            class="categoria-btn"
+            data-categoria="Hardware"
+            onclick="selecionarCategoria('Hardware')">
+
+            🖥️ Hardware
+
+        </button>
 
     </div>
 
-
-    <!-- =========================
-         LISTA DE PERGUNTAS
-    ========================== -->
-
-    <h2 class="titulo-perguntas">
-
-        Perguntas recentes
-
-    </h2>
+</div>
 
 
-    <div
-        id="resultadoInfo"
-        class="resultado-info">
+<h2 class="titulo-perguntas">
+    Perguntas recentes
+</h2>
 
+
+<div
+    id="resultadoInfo"
+    class="resultado-info">
+
+    Carregando perguntas...
+
+</div>
+
+
+<div id="posts">
+
+    <div class="carregando">
         Carregando perguntas...
-
     </div>
 
-
-    <div id="posts">
-
-        <div class="carregando">
-
-            Carregando perguntas...
-
-        </div>
-
-    </div>
+</div>
 
 
 </main>
@@ -832,9 +1317,11 @@ let todosPosts = [];
 
 let categoriaSelecionada = "Todas";
 
+let usuarioLogado = null;
+
 
 /* ================================
-   VERIFICAR LOGIN
+   LOGIN
 ================================ */
 
 async function verificarLogin() {
@@ -868,7 +1355,13 @@ async function verificarLogin() {
     }
 
 
+    usuarioLogado =
+        data.session.user;
+
+
     carregarPosts();
+
+    carregarContadorNotificacoes();
 
 }
 
@@ -910,24 +1403,11 @@ async function criarPost() {
     }
 
 
-    const { data: sessionData } =
-        await window.supabaseClient
-            .auth
-            .getSession();
-
-
-    const user =
-        sessionData.session?.user;
-
-
-    if (!user) {
+    if (!usuarioLogado) {
 
         alert(
             "Você precisa estar logado."
         );
-
-        window.location.href =
-            "index.html";
 
         return;
 
@@ -942,7 +1422,7 @@ async function criarPost() {
             .insert({
 
                 author_id:
-                    user.id,
+                    usuarioLogado.id,
 
                 titulo:
                     titulo,
@@ -970,11 +1450,6 @@ async function criarPost() {
     }
 
 
-    alert(
-        "Pergunta publicada! 🎉"
-    );
-
-
     document
         .getElementById("titulo")
         .value = "";
@@ -985,13 +1460,18 @@ async function criarPost() {
         .value = "";
 
 
+    alert(
+        "Pergunta publicada! 🎉"
+    );
+
+
     carregarPosts();
 
 }
 
 
 /* ================================
-   CARREGAR PERGUNTAS
+   CARREGAR POSTS
 ================================ */
 
 async function carregarPosts() {
@@ -1010,7 +1490,8 @@ async function carregarPosts() {
                 profiles (
                     nome,
                     username,
-                    nivel
+                    nivel,
+                    tipo_conta
                 )
             `)
 
@@ -1028,26 +1509,23 @@ async function carregarPosts() {
 
         document
             .getElementById("posts")
-            .innerHTML =
-                `
+            .innerHTML = `
+
                 <div class="sem-resultados">
 
                     Erro ao carregar perguntas.
 
                 </div>
-                `;
 
-        document
-            .getElementById("resultadoInfo")
-            .textContent =
-                "";
+            `;
 
         return;
 
     }
 
 
-    todosPosts = data || [];
+    todosPosts =
+        data || [];
 
 
     filtrarPosts();
@@ -1056,7 +1534,7 @@ async function carregarPosts() {
 
 
 /* ================================
-   FILTRAR POSTS
+   FILTRAR
 ================================ */
 
 function filtrarPosts() {
@@ -1072,8 +1550,6 @@ function filtrarPosts() {
     const postsFiltrados =
         todosPosts.filter(post => {
 
-
-            /* Filtro por categoria */
 
             const categoriaOK =
                 categoriaSelecionada ===
@@ -1092,8 +1568,6 @@ function filtrarPosts() {
             }
 
 
-            /* Se não digitou pesquisa */
-
             if (!pesquisa) {
 
                 return true;
@@ -1101,37 +1575,17 @@ function filtrarPosts() {
             }
 
 
-            const titulo =
-                post.titulo ||
-                "";
+            const texto = (
 
+                (post.titulo || "") +
+                " " +
+                (post.conteudo || "") +
+                " " +
+                (post.profiles?.nome || "") +
+                " " +
+                (post.profiles?.username || "")
 
-            const conteudo =
-                post.conteudo ||
-                "";
-
-
-            const nome =
-                post.profiles?.nome ||
-                "";
-
-
-            const username =
-                post.profiles?.username ||
-                "";
-
-
-            const texto =
-                (
-                    titulo +
-                    " " +
-                    conteudo +
-                    " " +
-                    nome +
-                    " " +
-                    username
-                )
-                .toLowerCase();
+            ).toLowerCase();
 
 
             return texto.includes(
@@ -1149,7 +1603,7 @@ function filtrarPosts() {
 
 
 /* ================================
-   SELECIONAR CATEGORIA
+   CATEGORIA
 ================================ */
 
 function selecionarCategoria(
@@ -1160,31 +1614,29 @@ function selecionarCategoria(
         categoria;
 
 
-    const botoes =
-        document.querySelectorAll(
+    document
+        .querySelectorAll(
             ".categoria-btn"
-        );
+        )
+        .forEach(botao => {
 
-
-    botoes.forEach(botao => {
-
-        botao.classList.remove(
-            "ativa"
-        );
-
-
-        if (
-            botao.dataset.categoria ===
-            categoria
-        ) {
-
-            botao.classList.add(
+            botao.classList.remove(
                 "ativa"
             );
 
-        }
 
-    });
+            if (
+                botao.dataset.categoria ===
+                categoria
+            ) {
+
+                botao.classList.add(
+                    "ativa"
+                );
+
+            }
+
+        });
 
 
     filtrarPosts();
@@ -1193,7 +1645,7 @@ function selecionarCategoria(
 
 
 /* ================================
-   LIMPAR FILTROS
+   LIMPAR
 ================================ */
 
 function limparFiltros() {
@@ -1203,38 +1655,9 @@ function limparFiltros() {
         .value = "";
 
 
-    categoriaSelecionada =
-        "Todas";
-
-
-    const botoes =
-        document.querySelectorAll(
-            ".categoria-btn"
-        );
-
-
-    botoes.forEach(botao => {
-
-        botao.classList.remove(
-            "ativa"
-        );
-
-
-        if (
-            botao.dataset.categoria ===
-            "Todas"
-        ) {
-
-            botao.classList.add(
-                "ativa"
-            );
-
-        }
-
-    });
-
-
-    filtrarPosts();
+    selecionarCategoria(
+        "Todas"
+    );
 
 }
 
@@ -1243,9 +1666,7 @@ function limparFiltros() {
    MOSTRAR POSTS
 ================================ */
 
-function mostrarPosts(
-    posts
-) {
+function mostrarPosts(posts) {
 
     const container =
         document.getElementById(
@@ -1253,13 +1674,13 @@ function mostrarPosts(
         );
 
 
-    const resultadoInfo =
+    const resultado =
         document.getElementById(
             "resultadoInfo"
         );
 
 
-    resultadoInfo.textContent =
+    resultado.textContent =
         `${posts.length} pergunta${
             posts.length !== 1
                 ? "s"
@@ -1280,7 +1701,7 @@ function mostrarPosts(
 
             <div class="sem-resultados">
 
-                <div style="font-size:40px;">
+                <div style="font-size:42px;">
                     🔎
                 </div>
 
@@ -1316,6 +1737,11 @@ function mostrarPosts(
             "Membro";
 
 
+        const tipoConta =
+            post.profiles?.tipo_conta ||
+            "Aluno";
+
+
         const div =
             document.createElement(
                 "div"
@@ -1328,6 +1754,15 @@ function mostrarPosts(
 
         div.innerHTML = `
 
+            <div class="tag-categoria">
+
+                ${escaparHTML(
+                    post.categoria
+                )}
+
+            </div>
+
+
             <h2>
 
                 ${escaparHTML(
@@ -1339,17 +1774,11 @@ function mostrarPosts(
 
             <div class="post-info">
 
-                👤 ${escaparHTML(
-                    nome
-                )}
+                👤 ${escaparHTML(nome)}
 
-                · ${escaparHTML(
-                    nivel
-                )}
+                · ${escaparHTML(nivel)}
 
-                · ${escaparHTML(
-                    post.categoria
-                )}
+                · ${escaparHTML(tipoConta)}
 
             </div>
 
@@ -1363,13 +1792,41 @@ function mostrarPosts(
             </p>
 
 
-            <button
-                class="botao-ver"
-                onclick="abrirPost('${post.id}')">
+            <div class="acoes-post">
 
-                🔎 Ver pergunta
+                <div class="acao">
 
-            </button>
+                    <button
+                        id="curtir-${post.id}"
+                        class="botao-coracao"
+                        onclick="alternarCurtida('${post.id}')"
+                        aria-label="Curtir pergunta">
+
+                        ♡
+
+                    </button>
+
+
+                    <span
+                        id="contador-${post.id}"
+                        class="contador-curtidas">
+
+                        0 curtidas
+
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="botao-ver"
+                    onclick="abrirPost('${post.id}')">
+
+                    🔎 Ver pergunta
+
+                </button>
+
+            </div>
 
 
             <div
@@ -1385,11 +1842,11 @@ function mostrarPosts(
 
                 <textarea
                     id="resposta-${post.id}"
-                    placeholder="Escreva sua resposta...">
-                </textarea>
+                    placeholder="Escreva uma resposta para ajudar..."></textarea>
 
 
                 <button
+                    class="btn-responder"
                     onclick="responder('${post.id}')">
 
                     💬 Responder
@@ -1406,11 +1863,221 @@ function mostrarPosts(
         );
 
 
+        carregarCurtidas(
+            post.id
+        );
+
+
         carregarRespostas(
             post.id
         );
 
     });
+
+}
+
+
+/* ================================
+   CURTIDAS DAS PERGUNTAS
+================================ */
+
+async function carregarCurtidas(
+    postId
+) {
+
+    const contador =
+        document.getElementById(
+            `contador-${postId}`
+        );
+
+
+    const botao =
+        document.getElementById(
+            `curtir-${postId}`
+        );
+
+
+    if (!contador || !botao) {
+
+        return;
+
+    }
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("curtidas")
+
+            .select("user_id")
+
+            .eq(
+                "post_id",
+                postId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar curtidas:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    const quantidade =
+        data?.length || 0;
+
+
+    contador.textContent =
+        quantidade === 1
+            ? "1 curtida"
+            : `${quantidade} curtidas`;
+
+
+    const usuarioCurtiu =
+        data?.some(
+            curtida =>
+                curtida.user_id ===
+                usuarioLogado?.id
+        );
+
+
+    if (usuarioCurtiu) {
+
+        botao.textContent =
+            "♥";
+
+        botao.classList.add(
+            "curtido"
+        );
+
+    } else {
+
+        botao.textContent =
+            "♡";
+
+        botao.classList.remove(
+            "curtido"
+        );
+
+    }
+
+}
+
+
+/* ================================
+   CURTIR PERGUNTA
+================================ */
+
+async function alternarCurtida(
+    postId
+) {
+
+    if (!usuarioLogado) {
+
+        alert(
+            "Você precisa estar logado."
+        );
+
+        return;
+
+    }
+
+
+    const botao =
+        document.getElementById(
+            `curtir-${postId}`
+        );
+
+
+    if (!botao) {
+
+        return;
+
+    }
+
+
+    const jaCurtiu =
+        botao.classList.contains(
+            "curtido"
+        );
+
+
+    if (jaCurtiu) {
+
+        const { error } =
+            await window.supabaseClient
+
+                .from("curtidas")
+
+                .delete()
+
+                .eq(
+                    "post_id",
+                    postId
+                )
+
+                .eq(
+                    "user_id",
+                    usuarioLogado.id
+                );
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Erro ao remover curtida: " +
+                error.message
+            );
+
+            return;
+
+        }
+
+    } else {
+
+        const { error } =
+            await window.supabaseClient
+
+                .from("curtidas")
+
+                .insert({
+
+                    post_id:
+                        postId,
+
+                    user_id:
+                        usuarioLogado.id
+
+                });
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Erro ao curtir: " +
+                error.message
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    carregarCurtidas(
+        postId
+    );
 
 }
 
@@ -1447,7 +2114,9 @@ async function carregarRespostas(
                 created_at,
                 profiles (
                     nome,
-                    username
+                    username,
+                    nivel,
+                    tipo_conta
                 )
             `)
 
@@ -1468,8 +2137,13 @@ async function carregarRespostas(
 
         console.error(error);
 
-        container.innerHTML =
-            "<p>Erro ao carregar respostas.</p>";
+        container.innerHTML = `
+
+            <p style="color:#8e95aa;">
+                Erro ao carregar respostas.
+            </p>
+
+        `;
 
         return;
 
@@ -1483,11 +2157,7 @@ async function carregarRespostas(
 
         container.innerHTML = `
 
-            <p
-                style="
-                    color:#8e95aa;
-                "
-            >
+            <p style="color:#8e95aa;">
 
                 Nenhuma resposta ainda.
 
@@ -1503,9 +2173,7 @@ async function carregarRespostas(
     container.innerHTML = `
 
         <h3>
-
             💬 Respostas (${data.length})
-
         </h3>
 
     `;
@@ -1515,10 +2183,18 @@ async function carregarRespostas(
         resposta => {
 
             const nome =
-                resposta
-                    .profiles
-                    ?.nome ||
+                resposta.profiles?.nome ||
                 "Usuário";
+
+
+            const nivel =
+                resposta.profiles?.nivel ||
+                "Membro";
+
+
+            const tipoConta =
+                resposta.profiles?.tipo_conta ||
+                "Aluno";
 
 
             const div =
@@ -1531,15 +2207,84 @@ async function carregarRespostas(
                 "resposta";
 
 
+            const professor =
+                tipoConta
+                    .toLowerCase()
+                    .includes(
+                        "professor"
+                    );
+
+
             div.innerHTML = `
 
-                <strong>
+                <div class="resposta-topo">
 
-                    👤 ${escaparHTML(
-                        nome
-                    )}
+                    <div>
 
-                </strong>
+                        <span class="autor-resposta">
+
+                            👤 ${escaparHTML(nome)}
+
+                        </span>
+
+
+                        ${
+                            professor
+
+                            ?
+
+                            `<span class="tipo-professor">
+                                👨‍🏫 Professor
+                            </span>`
+
+                            :
+
+                            `<span class="tipo-aluno">
+                                🎓 Aluno
+                            </span>`
+                        }
+
+                    </div>
+
+
+                    <div class="acoes-resposta">
+
+                        <button
+                            id="curtir-resposta-${resposta.id}"
+                            class="curtir-resposta"
+                            onclick="alternarCurtidaResposta('${resposta.id}')">
+
+                            <span
+                                id="coracao-resposta-${resposta.id}"
+                                class="coracao-resposta">
+
+                                ♡
+
+                            </span>
+
+
+                            <span
+                                id="contador-resposta-${resposta.id}"
+                                class="contador-resposta">
+
+                                0
+
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="post-info">
+
+                    ${escaparHTML(nivel)}
+
+                    · ${escaparHTML(tipoConta)}
+
+                </div>
 
 
                 <p>
@@ -1557,7 +2302,227 @@ async function carregarRespostas(
                 div
             );
 
+
+            carregarCurtidasResposta(
+                resposta.id
+            );
+
         }
+    );
+
+}
+
+
+/* ================================
+   CURTIDAS DAS RESPOSTAS
+================================ */
+
+async function carregarCurtidasResposta(
+    respostaId
+) {
+
+    const contador =
+        document.getElementById(
+            `contador-resposta-${respostaId}`
+        );
+
+
+    const coracao =
+        document.getElementById(
+            `coracao-resposta-${respostaId}`
+        );
+
+
+    const botao =
+        document.getElementById(
+            `curtir-resposta-${respostaId}`
+        );
+
+
+    if (
+        !contador ||
+        !coracao ||
+        !botao
+    ) {
+
+        return;
+
+    }
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("curtidas_respostas")
+
+            .select("user_id")
+
+            .eq(
+                "resposta_id",
+                respostaId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar curtidas da resposta:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    contador.textContent =
+        data?.length || 0;
+
+
+    const usuarioCurtiu =
+        data?.some(
+            curtida =>
+                curtida.user_id ===
+                usuarioLogado?.id
+        );
+
+
+    if (usuarioCurtiu) {
+
+        coracao.textContent =
+            "♥";
+
+        botao.classList.add(
+            "curtido"
+        );
+
+    } else {
+
+        coracao.textContent =
+            "♡";
+
+        botao.classList.remove(
+            "curtido"
+        );
+
+    }
+
+}
+
+
+/* ================================
+   CURTIR RESPOSTA
+================================ */
+
+async function alternarCurtidaResposta(
+    respostaId
+) {
+
+    if (!usuarioLogado) {
+
+        alert(
+            "Você precisa estar logado."
+        );
+
+        return;
+
+    }
+
+
+    const botao =
+        document.getElementById(
+            `curtir-resposta-${respostaId}`
+        );
+
+
+    const coracao =
+        document.getElementById(
+            `coracao-resposta-${respostaId}`
+        );
+
+
+    if (!botao || !coracao) {
+
+        return;
+
+    }
+
+
+    const jaCurtiu =
+        botao.classList.contains(
+            "curtido"
+        );
+
+
+    if (jaCurtiu) {
+
+        const { error } =
+            await window.supabaseClient
+
+                .from("curtidas_respostas")
+
+                .delete()
+
+                .eq(
+                    "resposta_id",
+                    respostaId
+                )
+
+                .eq(
+                    "user_id",
+                    usuarioLogado.id
+                );
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Erro ao remover curtida: " +
+                error.message
+            );
+
+            return;
+
+        }
+
+    } else {
+
+        const { error } =
+            await window.supabaseClient
+
+                .from("curtidas_respostas")
+
+                .insert({
+
+                    resposta_id:
+                        respostaId,
+
+                    user_id:
+                        usuarioLogado.id
+
+                });
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Erro ao curtir resposta: " +
+                error.message
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    carregarCurtidasResposta(
+        respostaId
     );
 
 }
@@ -1599,24 +2564,11 @@ async function responder(
     }
 
 
-    const { data: sessionData } =
-        await window.supabaseClient
-            .auth
-            .getSession();
-
-
-    const user =
-        sessionData.session?.user;
-
-
-    if (!user) {
+    if (!usuarioLogado) {
 
         alert(
             "Você precisa estar logado."
         );
-
-        window.location.href =
-            "index.html";
 
         return;
 
@@ -1634,7 +2586,7 @@ async function responder(
                     postId,
 
                 author_id:
-                    user.id,
+                    usuarioLogado.id,
 
                 conteudo:
                     conteudo
@@ -1659,14 +2611,99 @@ async function responder(
     campo.value = "";
 
 
+    carregarRespostas(
+        postId
+    );
+
+
     alert(
         "Resposta publicada! 🎉"
     );
 
+}
 
-    carregarRespostas(
-        postId
-    );
+
+/* ================================
+   NOTIFICAÇÕES
+================================ */
+
+async function carregarContadorNotificacoes() {
+
+    if (!usuarioLogado) {
+
+        return;
+
+    }
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("notificacoes")
+
+            .select("id")
+
+            .eq(
+                "user_id",
+                usuarioLogado.id
+            )
+
+            .eq(
+                "lida",
+                false
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar notificações:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    const badge =
+        document.getElementById(
+            "badgeNotificacao"
+        );
+
+
+    const quantidade =
+        data?.length || 0;
+
+
+    if (quantidade > 0) {
+
+        badge.style.display =
+            "flex";
+
+        badge.textContent =
+            quantidade > 99
+                ? "99+"
+                : quantidade;
+
+    } else {
+
+        badge.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* ================================
+   ABRIR NOTIFICAÇÕES
+================================ */
+
+function notificacoes() {
+
+    window.location.href =
+        "notificacoes.html";
 
 }
 
@@ -1716,15 +2753,17 @@ async function sair() {
 
 
 /* ================================
-   PROTEÇÃO CONTRA HTML
+   PROTEÇÃO HTML
 ================================ */
 
 function escaparHTML(
     texto
 ) {
 
-    if (texto === null ||
-        texto === undefined) {
+    if (
+        texto === null ||
+        texto === undefined
+    ) {
 
         return "";
 
@@ -1732,22 +2771,27 @@ function escaparHTML(
 
 
     return String(texto)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -1761,6 +2805,7 @@ function escaparHTML(
 ================================ */
 
 verificarLogin();
+
 
 </script>
 
