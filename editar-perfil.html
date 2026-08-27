@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar Perfil - TechCommunity</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0d17;
+            color: white;
+        }
+
+        header {
+            padding: 20px 8%;
+            border-bottom: 1px solid #25283a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #6c63ff;
+        }
+
+        main {
+            width: 80%;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        .caixa {
+            background: #171a29;
+            border: 1px solid #292d42;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .descricao {
+            color: #9da3b8;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            background: #0d0f19;
+            border: 1px solid #30344b;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #6258e8;
+        }
+
+        .botoes {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #6258e8;
+            border: none;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .cancelar {
+            background: #292d42;
+        }
+
+        .mensagem {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .sucesso {
+            background: #12351f;
+            border: 1px solid #246b3a;
+            color: #8ff0aa;
+        }
+
+        .erro {
+            background: #35151b;
+            border: 1px solid #702631;
+            color: #ff9da9;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Tech<span>Community</span>
+    </div>
+
+</header>
+
+
+<main>
+
+    <div class="caixa">
+
+        <h1>✏️ Editar Perfil</h1>
+
+        <p class="descricao">
+            Atualize suas informações pessoais.
+        </p>
+
+
+        <label for="nome">
+            Nome
+        </label>
+
+        <input
+            id="nome"
+            type="text"
+            placeholder="Seu nome"
+        >
+
+
+        <label for="username">
+            Username
+        </label>
+
+        <input
+            id="username"
+            type="text"
+            placeholder="Seu username"
+        >
+
+
+        <label for="curso">
+            Curso
+        </label>
+
+        <input
+            id="curso"
+            type="text"
+            placeholder="Seu curso"
+        >
+
+
+        <label for="semestre">
+            Semestre
+        </label>
+
+        <input
+            id="semestre"
+            type="text"
+            placeholder="Ex: 3º semestre"
+        >
+
+
+        <label for="nivel">
+            Nível
+        </label>
+
+        <select id="nivel">
+
+            <option value="">
+                Selecione seu nível
+            </option>
+
+            <option value="Iniciante">
+                Iniciante
+            </option>
+
+            <option value="Intermediário">
+                Intermediário
+            </option>
+
+            <option value="Avançado">
+                Avançado
+            </option>
+
+        </select>
+
+
+        <div class="botoes">
+
+            <button onclick="salvarPerfil()">
+                💾 Salvar alterações
+            </button>
+
+            <button
+                class="cancelar"
+                onclick="voltar()"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+
+        <div
+            id="mensagem"
+            class="mensagem"
+        ></div>
+
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+
+<script>
+
+
+/* ================================
+   MENSAGEM
+================================ */
+
+function mostrarMensagem(texto, tipo) {
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+    mensagem.innerText = texto;
+
+    mensagem.className =
+        "mensagem " + tipo;
+
+    mensagem.style.display = "block";
+}
+
+
+/* ================================
+   CARREGAR DADOS DO PERFIL
+================================ */
+
+async function carregarPerfil() {
+
+    const { data: sessionData, error: sessionError } =
+        await window.supabaseClient.auth.getSession();
+
+
+    if (sessionError) {
+
+        console.error(sessionError);
+
+        mostrarMensagem(
+            "Erro ao verificar login.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    const user =
+        sessionData.session?.user;
+
+
+    if (!user) {
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    const { data, error } =
+        await window.supabaseClient
+            .from("profiles")
+            .select(`
+                nome,
+                username,
+                curso,
+                semestre,
+                nivel
+            `)
+            .eq("id", user.id)
+            .single();
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao carregar seus dados: " +
+            error.message,
+            "erro"
+        );
+
+        return;
+    }
+
+
+    document.getElementById("nome").value =
+        data.nome || "";
+
+
+    document.getElementById("username").value =
+        data.username || "";
+
+
+    document.getElementById("curso").value =
+        data.curso || "";
+
+
+    document.getElementById("semestre").value =
+        data.semestre || "";
+
+
+    document.getElementById("nivel").value =
+        data.nivel || "";
+}
+
+
+/* ================================
+   SALVAR PERFIL
+================================ */
+
+async function salvarPerfil() {
+
+    const nome =
+        document.getElementById("nome").value.trim();
+
+
+    const username =
+        document.getElementById("username").value.trim();
+
+
+    const curso =
+        document.getElementById("curso").value.trim();
+
+
+    const semestre =
+        document.getElementById("semestre").value.trim();
+
+
+    const nivel =
+        document.getElementById("nivel").value;
+
+
+    if (!nome || !username) {
+
+        mostrarMensagem(
+            "Preencha pelo menos o nome e o username.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    const { data: sessionData } =
+        await window.supabaseClient.auth.getSession();
+
+
+    const user =
+        sessionData.session?.user;
+
+
+    if (!user) {
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    const { error } =
+        await window.supabaseClient
+            .from("profiles")
+            .update({
+
+                nome: nome,
+
+                username: username,
+
+                curso: curso,
+
+                semestre: semestre,
+
+                nivel: nivel
+
+            })
+            .eq("id", user.id);
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao salvar: " +
+            error.message,
+            "erro"
+        );
+
+        return;
+    }
+
+
+    mostrarMensagem(
+        "Perfil atualizado com sucesso! 🎉",
+        "sucesso"
+    );
+
+}
+
+
+/* ================================
+   VOLTAR
+================================ */
+
+function voltar() {
+
+    window.location.href = "perfil.html";
+
+}
+
+
+/* ================================
+   INICIAR
+================================ */
+
+carregarPerfil();
+
+</script>
+
+</body>
+
+</html>
