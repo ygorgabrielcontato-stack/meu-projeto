@@ -333,20 +333,35 @@ async function carregarPosts() {
 
         div.innerHTML = `
 
-            <h2>${post.titulo}</h2>
+    <h2>${post.titulo}</h2>
 
-            <div class="post-info">
-                👤 ${nome}
-                · ${nivel}
-                · ${post.categoria}
-            </div>
+    <div class="post-info">
+        👤 ${nome}
+        · ${nivel}
+        · ${post.categoria}
+    </div>
 
-            <p class="post-conteudo">
-                ${post.conteudo}
-            </p>
+    <p class="post-conteudo">
+        ${post.conteudo}
+    </p>
 
-        `;
+    <div id="respostas-${post.id}">
+        Carregando respostas...
+    </div>
 
+    <textarea
+        id="resposta-${post.id}"
+        placeholder="Escreva sua resposta..."
+        style="margin-top: 15px;"
+    ></textarea>
+
+    <button onclick="responder('${post.id}')">
+        Responder
+    </button>
+
+`;
+
+carregarRespostas(post.id);
 
         container.appendChild(div);
 
