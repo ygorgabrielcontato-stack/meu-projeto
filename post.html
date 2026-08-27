@@ -1,12 +1,17 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Pergunta - TechCommunity</title>
+
 
     <style>
 
@@ -14,243 +19,502 @@
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background: #0b0d17;
+
             color: white;
+
         }
 
+
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
-            padding: 20px 8%;
+
+            height: 70px;
+
+            padding: 0 8%;
+
             border-bottom: 1px solid #25283a;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
+            background: #0b0d17;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
         }
+
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
         }
+
 
         .logo span {
+
             color: #6c63ff;
+
         }
 
-        .botoes {
+
+        .header-botoes {
+
             display: flex;
+
             gap: 10px;
+
         }
+
 
         button {
-            background: #6258e8;
+
             border: none;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
+
             cursor: pointer;
+
             font-weight: bold;
+
         }
 
-        button:hover {
-            opacity: 0.9;
+
+        .btn-header {
+
+            background: #171a29;
+
+            color: white;
+
+            border: 1px solid #292d42;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
         }
 
-        .btn-voltar,
-        .btn-sair {
-            background: #292d42;
+
+        .btn-header:hover {
+
+            background: #25283a;
+
         }
+
+
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
-            width: 80%;
-            max-width: 900px;
-            margin: 40px auto;
+
+            width: 92%;
+
+            max-width: 850px;
+
+            margin: 35px auto 70px;
+
         }
+
 
         .voltar {
+
+            background: transparent;
+
             color: #9da3b8;
-            cursor: pointer;
-            margin-bottom: 20px;
-            display: inline-block;
+
+            padding: 0;
+
+            margin-bottom: 25px;
+
+            font-size: 15px;
+
         }
+
 
         .voltar:hover {
+
             color: white;
+
         }
+
+
+        /* =========================
+           POST
+        ========================= */
 
         .post {
-            background: #171a29;
+
+            background: #111421;
+
             border: 1px solid #292d42;
-            border-radius: 15px;
+
             padding: 30px;
+
+            border-radius: 18px;
+
         }
 
-        .categoria {
-            display: inline-block;
-            background: #292d42;
-            color: #aaa4ff;
-            padding: 7px 13px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
 
         .post h1 {
+
             font-size: 30px;
-            margin: 5px 0 15px;
+
+            line-height: 1.4;
+
+            margin: 0 0 12px;
+
         }
 
-        .autor {
+
+        .post-info {
+
             color: #8e95aa;
+
             font-size: 14px;
+
             margin-bottom: 25px;
+
         }
 
-        .conteudo {
+
+        .post-conteudo {
+
             color: #c8ccda;
-            line-height: 1.7;
+
             font-size: 16px;
+
+            line-height: 1.8;
+
             white-space: pre-wrap;
+
         }
 
-        .linha {
-            border: none;
-            border-top: 1px solid #292d42;
-            margin: 30px 0;
+
+        /* =========================
+           AÇÕES
+        ========================= */
+
+        .acoes {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            border-top: 1px solid #25283a;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
         }
 
-        .titulo-respostas {
+
+        .curtida-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .botao-coracao {
+
+            background: transparent;
+
+            color: #9da3b8;
+
+            font-size: 30px;
+
+            padding: 0;
+
+            line-height: 1;
+
+            transition: transform 0.15s ease;
+
+        }
+
+
+        .botao-coracao:hover {
+
+            transform: scale(1.15);
+
+        }
+
+
+        .botao-coracao.curtido {
+
+            color: #ff3b6b;
+
+            animation: coracao 0.25s ease;
+
+        }
+
+
+        @keyframes coracao {
+
+            0% {
+
+                transform: scale(1);
+
+            }
+
+            50% {
+
+                transform: scale(1.35);
+
+            }
+
+            100% {
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        .contador {
+
+            color: #c8ccda;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           RESPOSTAS
+        ========================= */
+
+        .respostas-container {
+
+            margin-top: 30px;
+
+        }
+
+
+        .respostas-container h2 {
+
             font-size: 22px;
-            margin-bottom: 20px;
+
+            margin-bottom: 15px;
+
         }
+
 
         .resposta {
-            background: #0d0f19;
-            border: 1px solid #25283a;
-            border-radius: 10px;
-            padding: 18px;
+
+            background: #111421;
+
+            border: 1px solid #292d42;
+
+            padding: 20px;
+
+            border-radius: 14px;
+
             margin-top: 12px;
+
         }
 
-        .resposta.melhor {
-            border: 2px solid #6258e8;
-            background: #17152b;
-        }
 
-        .melhor-label {
-            display: inline-block;
-            background: #6258e8;
-            color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
+        .resposta-info {
 
-        .resposta-autor {
-            color: #aaa4ff;
-            font-weight: bold;
+            color: #9da3b8;
+
+            font-size: 14px;
+
             margin-bottom: 8px;
+
         }
 
-        .resposta-texto {
+
+        .resposta p {
+
             color: #c8ccda;
+
             line-height: 1.6;
+
+            margin: 0;
+
             white-space: pre-wrap;
+
         }
 
-        .botao-melhor {
-            margin-top: 15px;
-            background: #292d42;
-            padding: 9px 14px;
-            font-size: 13px;
-        }
 
-        .botao-melhor:hover {
-            background: #6258e8;
-        }
+        /* =========================
+           RESPONDER
+        ========================= */
 
         .responder {
-            margin-top: 30px;
+
+            background: #171a29;
+
+            border: 1px solid #292d42;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            margin-top: 25px;
+
         }
 
-        .responder h3 {
-            margin-bottom: 10px;
+
+        .responder h2 {
+
+            margin-top: 0;
+
+            font-size: 20px;
+
         }
+
 
         textarea {
+
             width: 100%;
-            min-height: 110px;
-            background: #0d0f19;
-            border: 1px solid #30344b;
-            border-radius: 8px;
-            color: white;
-            padding: 14px;
-            font-family: Arial, sans-serif;
-            font-size: 15px;
+
+            min-height: 120px;
+
             resize: vertical;
+
+            margin-top: 10px;
+
+            padding: 14px;
+
+            background: #0d0f19;
+
+            border: 1px solid #30344b;
+
+            border-radius: 9px;
+
+            color: white;
+
+            outline: none;
+
+            font-family: Arial, sans-serif;
+
         }
+
 
         textarea:focus {
-            outline: none;
+
             border-color: #6258e8;
+
         }
+
+
+        .btn-responder {
+
+            margin-top: 12px;
+
+            background: #6258e8;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 9px;
+
+        }
+
+
+        .btn-responder:hover {
+
+            background: #7168f0;
+
+        }
+
+
+        /* =========================
+           CARREGANDO / ERRO
+        ========================= */
 
         .mensagem {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
-            display: none;
-        }
 
-        .sucesso {
-            background: #16351f;
-            color: #8be09d;
-        }
+            background: #171a29;
 
-        .erro {
-            background: #301820;
-            color: #ff9da9;
-        }
+            border: 1px solid #292d42;
 
-        .carregando {
-            text-align: center;
+            padding: 25px;
+
+            border-radius: 15px;
+
             color: #9da3b8;
-            padding: 40px;
+
         }
 
-        .sem-respostas {
-            color: #8e95aa;
-            padding: 10px 0;
-        }
 
-        @media (max-width: 700px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
 
             header {
-                padding: 15px 5%;
+
+                padding: 0 5%;
+
             }
+
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+
+            .btn-header {
+
+                padding: 8px 10px;
+
+            }
+
 
             main {
-                width: 90%;
+
+                width: 94%;
+
+                margin-top: 25px;
+
             }
 
-            .botoes {
-                gap: 5px;
-            }
-
-            button {
-                padding: 9px 12px;
-            }
 
             .post {
+
                 padding: 20px;
+
             }
 
+
             .post h1 {
+
                 font-size: 24px;
+
             }
 
         }
@@ -265,48 +529,63 @@
 
 <header>
 
+
     <div class="logo">
+
         Tech<span>Community</span>
+
     </div>
 
 
-    <div class="botoes">
+    <div class="header-botoes">
+
 
         <button
-            class="btn-voltar"
-            onclick="voltarComunidade()"
+            class="btn-header"
+            onclick="perfil()"
         >
-            💬 Comunidade
+
+            👤 Perfil
+
         </button>
 
 
         <button
-            class="btn-sair"
+            class="btn-header"
             onclick="sair()"
         >
+
             Sair
+
         </button>
+
 
     </div>
 
+
 </header>
+
 
 
 <main>
 
 
-    <div
+    <button
         class="voltar"
         onclick="voltarComunidade()"
     >
+
         ← Voltar para comunidade
-    </div>
+
+    </button>
 
 
-    <div id="postContainer">
+    <div id="conteudoPagina">
 
-        <div class="carregando">
+        <div class="mensagem">
+
             Carregando pergunta...
+
         </div>
 
     </div>
@@ -315,47 +594,48 @@
 </main>
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
 
 
+
 <script>
 
 
-/* =====================================
-   PEGAR ID DA PERGUNTA
-===================================== */
-
-const parametros =
-    new URLSearchParams(window.location.search);
-
-
-const postId =
-    parametros.get("id");
-
-
-/* =====================================
-   USUÁRIO LOGADO
-===================================== */
+/* =================================
+   VARIÁVEIS
+================================= */
 
 let usuarioLogado = null;
 
-
-/* =====================================
-   AUTOR DA PERGUNTA
-===================================== */
-
-let autorDaPergunta = null;
+let postId = null;
 
 
-/* =====================================
+/* =================================
+   PEGAR ID DA URL
+================================= */
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+postId =
+    parametros.get("id");
+
+
+/* =================================
    VERIFICAR LOGIN
-===================================== */
+================================= */
 
 async function verificarLogin() {
 
+
     const { data, error } =
+
         await window.supabaseClient
             .auth
             .getSession();
@@ -365,50 +645,54 @@ async function verificarLogin() {
 
         console.error(error);
 
+        mostrarErro(
+            "Erro ao verificar login."
+        );
+
         return;
+
+    }
+
+
+    if (!data.session) {
+
+        window.location.href =
+            "index.html";
+
+        return;
+
     }
 
 
     usuarioLogado =
-        data.session?.user || null;
-
-}
-
-
-/* =====================================
-   CARREGAR PERGUNTA
-===================================== */
-
-async function carregarPost() {
-
-    const container =
-        document.getElementById("postContainer");
+        data.session.user;
 
 
     if (!postId) {
 
-        container.innerHTML = `
-
-            <div class="post">
-
-                <div
-                    class="erro"
-                    style="display:block;"
-                >
-
-                    Pergunta não encontrada.
-
-                </div>
-
-            </div>
-
-        `;
+        mostrarErro(
+            "Pergunta não encontrada."
+        );
 
         return;
+
     }
 
 
-    const { data: post, error } =
+    carregarPost();
+
+}
+
+
+/* =================================
+   CARREGAR PERGUNTA
+================================= */
+
+async function carregarPost() {
+
+
+    const { data, error } =
+
         await window.supabaseClient
 
             .from("posts")
@@ -420,17 +704,21 @@ async function carregarPost() {
                 conteudo,
                 categoria,
                 created_at,
-                author_id,
 
                 profiles (
+
                     nome,
                     username,
                     nivel
+
                 )
 
             `)
 
-            .eq("id", postId)
+            .eq(
+                "id",
+                postId
+            )
 
             .single();
 
@@ -439,166 +727,170 @@ async function carregarPost() {
 
         console.error(error);
 
-
-        container.innerHTML = `
-
-            <div class="post">
-
-                <div
-                    class="erro"
-                    style="display:block;"
-                >
-
-                    Erro ao carregar a pergunta.
-
-                    <br><br>
-
-                    ${error.message}
-
-                </div>
-
-            </div>
-
-        `;
+        mostrarErro(
+            "Não foi possível carregar essa pergunta."
+        );
 
         return;
+
     }
 
 
-    if (!post) {
+    if (!data) {
 
-        container.innerHTML = `
-
-            <div class="post">
-
-                <div
-                    class="erro"
-                    style="display:block;"
-                >
-
-                    Essa pergunta não existe.
-
-                </div>
-
-            </div>
-
-        `;
+        mostrarErro(
+            "Essa pergunta não existe."
+        );
 
         return;
+
     }
-
-
-    autorDaPergunta =
-        post.author_id;
 
 
     const nome =
-        post.profiles?.nome ||
+        data.profiles?.nome ||
         "Usuário";
 
 
     const username =
-        post.profiles?.username ||
-        "";
+        data.profiles?.username ||
+        "usuário";
 
 
     const nivel =
-        post.profiles?.nivel ||
+        data.profiles?.nivel ||
         "Membro";
 
 
-    container.innerHTML = `
+    const categoria =
+        data.categoria ||
+        "Geral";
+
+
+    document
+        .getElementById(
+            "conteudoPagina"
+        )
+        .innerHTML = `
 
         <div class="post">
 
-
-            <div class="categoria">
-
-                🏷️ ${post.categoria || "Geral"}
-
-            </div>
-
-
             <h1>
-
-                ${post.titulo}
-
+                ${data.titulo}
             </h1>
 
 
-            <div class="autor">
+            <div class="post-info">
 
                 👤 ${nome}
 
-                ${username
-                    ? ` · @${username}`
-                    : ""
-                }
+                · @${username}
 
                 · ${nivel}
 
-            </div>
-
-
-            <div class="conteudo">
-
-                ${post.conteudo}
+                · ${categoria}
 
             </div>
 
 
-            <hr class="linha">
+            <div class="post-conteudo">
 
-
-            <div class="titulo-respostas">
-
-                💬 Respostas
+                ${data.conteudo}
 
             </div>
 
 
-            <div id="respostas">
+            <div class="acoes">
 
-                <div class="carregando">
 
-                    Carregando respostas...
+                <div class="curtida-area">
+
+
+                    <button
+
+                        id="botaoCurtir"
+
+                        class="botao-coracao"
+
+                        onclick="alternarCurtida()"
+
+                        aria-label="Curtir"
+
+                    >
+
+                        ♡
+
+                    </button>
+
+
+                    <span
+                        id="contadorCurtidas"
+                        class="contador"
+                    >
+
+                        Carregando...
+
+                    </span>
+
 
                 </div>
 
+
+            </div>
+
+        </div>
+
+
+        <div class="respostas-container">
+
+
+            <h2>
+
+                💬 Respostas
+
+            </h2>
+
+
+            <div id="listaRespostas">
+
+                Carregando respostas...
+
             </div>
 
 
-            <div class="responder">
-
-                <h3>
-
-                    ✍️ Sua resposta
-
-                </h3>
+        </div>
 
 
-                <textarea
-                    id="textoResposta"
-                    placeholder="Escreva sua resposta..."
-                ></textarea>
+        <div class="responder">
 
 
-                <button
-                    onclick="responder()"
-                    style="margin-top:10px;"
-                >
+            <h2>
 
-                    💬 Responder
+                Sua resposta
 
-                </button>
+            </h2>
 
 
-                <div
-                    id="mensagem"
-                    class="mensagem"
-                ></div>
+            <textarea
 
-            </div>
+                id="campoResposta"
+
+                placeholder="Compartilhe seu conhecimento ou ajude quem fez a pergunta..."
+
+            ></textarea>
+
+
+            <button
+
+                class="btn-responder"
+
+                onclick="responder()"
+
+            >
+
+                💬 Publicar resposta
+
+            </button>
 
 
         </div>
@@ -606,22 +898,267 @@ async function carregarPost() {
     `;
 
 
+    carregarCurtida();
+
     carregarRespostas();
 
 }
 
 
-/* =====================================
-   CARREGAR RESPOSTAS
-===================================== */
+/* =================================
+   CARREGAR CURTIDA
+================================= */
 
-async function carregarRespostas() {
+async function carregarCurtida() {
 
-    const container =
-        document.getElementById("respostas");
+
+    const contador =
+        document.getElementById(
+            "contadorCurtidas"
+        );
+
+
+    const botao =
+        document.getElementById(
+            "botaoCurtir"
+        );
+
+
+    if (!contador || !botao) {
+
+        return;
+
+    }
 
 
     const { data, error } =
+
+        await window.supabaseClient
+
+            .from("curtidas")
+
+            .select("user_id")
+
+            .eq(
+                "post_id",
+                postId
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        contador.textContent =
+            "Erro";
+
+        return;
+
+    }
+
+
+    const quantidade =
+        data?.length || 0;
+
+
+    contador.textContent =
+
+        quantidade === 1
+
+            ? "1 curtida"
+
+            : `${quantidade} curtidas`;
+
+
+    const curtiu =
+
+        data?.some(
+
+            curtida =>
+
+                curtida.user_id ===
+                usuarioLogado.id
+
+        );
+
+
+    if (curtiu) {
+
+        botao.textContent =
+            "♥";
+
+        botao.classList.add(
+            "curtido"
+        );
+
+    } else {
+
+        botao.textContent =
+            "♡";
+
+        botao.classList.remove(
+            "curtido"
+        );
+
+    }
+
+}
+
+
+/* =================================
+   CURTIR / DESCURTIR
+================================= */
+
+async function alternarCurtida() {
+
+
+    if (!usuarioLogado) {
+
+        alert(
+            "Você precisa estar logado."
+        );
+
+        return;
+
+    }
+
+
+    const { data, error } =
+
+        await window.supabaseClient
+
+            .from("curtidas")
+
+            .select("id")
+
+            .eq(
+                "post_id",
+                postId
+            )
+
+            .eq(
+                "user_id",
+                usuarioLogado.id
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao verificar curtida: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    if (
+        data &&
+        data.length > 0
+    ) {
+
+
+        const { error: deleteError } =
+
+            await window.supabaseClient
+
+                .from("curtidas")
+
+                .delete()
+
+                .eq(
+                    "id",
+                    data[0].id
+                );
+
+
+        if (deleteError) {
+
+            console.error(
+                deleteError
+            );
+
+            alert(
+                "Erro ao remover curtida: " +
+                deleteError.message
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    else {
+
+
+        const { error: insertError } =
+
+            await window.supabaseClient
+
+                .from("curtidas")
+
+                .insert({
+
+                    post_id:
+                        postId,
+
+                    user_id:
+                        usuarioLogado.id
+
+                });
+
+
+        if (insertError) {
+
+            console.error(
+                insertError
+            );
+
+            alert(
+                "Erro ao curtir: " +
+                insertError.message
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    carregarCurtida();
+
+}
+
+
+/* =================================
+   CARREGAR RESPOSTAS
+================================= */
+
+async function carregarRespostas() {
+
+
+    const container =
+        document.getElementById(
+            "listaRespostas"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    const { data, error } =
+
         await window.supabaseClient
 
             .from("respostas")
@@ -631,329 +1168,180 @@ async function carregarRespostas() {
                 id,
                 conteudo,
                 created_at,
-                author_id,
-                melhor_resposta,
 
                 profiles (
+
                     nome,
                     username
+
                 )
 
             `)
 
-            .eq("post_id", postId)
+            .eq(
+                "post_id",
+                postId
+            )
 
-            .order("created_at", {
-                ascending: true
-            });
+            .order(
+                "created_at",
+                {
+                    ascending: true
+                }
+            );
 
 
     if (error) {
 
         console.error(error);
 
-
         container.innerHTML = `
 
-            <div
-                class="erro"
-                style="display:block;"
-            >
+            <div class="mensagem">
 
                 Erro ao carregar respostas.
 
-                <br><br>
-
-                ${error.message}
-
             </div>
 
         `;
 
         return;
+
     }
 
 
-    if (!data || data.length === 0) {
+    if (
+        !data ||
+        data.length === 0
+    ) {
 
         container.innerHTML = `
 
-            <div class="sem-respostas">
+            <div class="mensagem">
 
-                Nenhuma resposta ainda.
-
-                Seja o primeiro a responder! 👇
+                Ainda não existem respostas.
+                Seja o primeiro a ajudar! 🚀
 
             </div>
 
         `;
 
         return;
+
     }
 
 
-    container.innerHTML = `
-
-        <h3>
-
-            💬 Respostas (${data.length})
-
-        </h3>
-
-    `;
+    container.innerHTML = "";
 
 
-    data.forEach(resposta => {
-
-        const nome =
-            resposta.profiles?.nome ||
-            "Usuário";
+    data.forEach(
+        resposta => {
 
 
-        const username =
-            resposta.profiles?.username ||
-            "";
+            const nome =
+
+                resposta
+                    .profiles
+                    ?.nome ||
+
+                "Usuário";
 
 
-        const div =
-            document.createElement("div");
+            const username =
+
+                resposta
+                    .profiles
+                    ?.username ||
+
+                "usuário";
 
 
-        div.className =
-            resposta.melhor_resposta
-                ? "resposta melhor"
-                : "resposta";
+            const div =
+
+                document.createElement(
+                    "div"
+                );
 
 
-        let melhorLabel = "";
+            div.className =
+                "resposta";
 
 
-        if (resposta.melhor_resposta) {
+            div.innerHTML = `
 
-            melhorLabel = `
+                <div class="resposta-info">
 
-                <div class="melhor-label">
+                    👤 ${nome}
 
-                    ⭐ Melhor resposta
+                    · @${username}
 
                 </div>
 
-            `;
 
-        }
+                <p>
 
+                    ${resposta.conteudo}
 
-        let botaoMelhor = "";
-
-
-        /* Só mostra o botão para o autor da pergunta */
-
-        if (
-            usuarioLogado &&
-            usuarioLogado.id === autorDaPergunta &&
-            !resposta.melhor_resposta
-        ) {
-
-            botaoMelhor = `
-
-                <button
-                    class="botao-melhor"
-                    onclick="marcarMelhor('${resposta.id}')"
-                >
-
-                    ⭐ Marcar como melhor resposta
-
-                </button>
+                </p>
 
             `;
 
+
+            container.appendChild(
+                div
+            );
+
         }
-
-
-        div.innerHTML = `
-
-            ${melhorLabel}
-
-
-            <div class="resposta-autor">
-
-                👤 ${nome}
-
-                ${username
-                    ? ` · @${username}`
-                    : ""
-                }
-
-            </div>
-
-
-            <div class="resposta-texto">
-
-                ${resposta.conteudo}
-
-            </div>
-
-
-            ${botaoMelhor}
-
-        `;
-
-
-        container.appendChild(div);
-
-    });
-
-}
-
-
-/* =====================================
-   MARCAR MELHOR RESPOSTA
-===================================== */
-
-async function marcarMelhor(respostaId) {
-
-    if (!usuarioLogado) {
-
-        mostrarMensagem(
-            "Você precisa estar logado.",
-            "erro"
-        );
-
-        return;
-    }
-
-
-    if (
-        usuarioLogado.id !== autorDaPergunta
-    ) {
-
-        mostrarMensagem(
-            "Somente o autor da pergunta pode marcar a melhor resposta.",
-            "erro"
-        );
-
-        return;
-    }
-
-
-    /* Remove a melhor resposta anterior */
-
-    const { error: limparErro } =
-        await window.supabaseClient
-
-            .from("respostas")
-
-            .update({
-                melhor_resposta: false
-            })
-
-            .eq("post_id", postId);
-
-
-    if (limparErro) {
-
-        console.error(limparErro);
-
-        mostrarMensagem(
-            "Erro ao atualizar a resposta.",
-            "erro"
-        );
-
-        return;
-    }
-
-
-    /* Marca a nova melhor resposta */
-
-    const { error } =
-        await window.supabaseClient
-
-            .from("respostas")
-
-            .update({
-                melhor_resposta: true
-            })
-
-            .eq("id", respostaId);
-
-
-    if (error) {
-
-        console.error(error);
-
-        mostrarMensagem(
-            "Erro ao marcar melhor resposta: " +
-            error.message,
-            "erro"
-        );
-
-        return;
-    }
-
-
-    mostrarMensagem(
-        "Melhor resposta marcada! ⭐",
-        "sucesso"
     );
 
-
-    carregarRespostas();
-
 }
 
 
-/* =====================================
+/* =================================
    RESPONDER
-===================================== */
+================================= */
 
 async function responder() {
 
+
     const campo =
+
         document.getElementById(
-            "textoResposta"
+            "campoResposta"
         );
 
 
-    const texto =
+    if (!campo) {
+
+        return;
+
+    }
+
+
+    const conteudo =
         campo.value.trim();
 
 
-    if (!texto) {
+    if (!conteudo) {
 
-        mostrarMensagem(
-            "Escreva uma resposta.",
-            "erro"
+        alert(
+            "Escreva uma resposta."
         );
 
         return;
+
     }
 
 
-    const {
-        data: sessionData,
-        error: sessionError
-    } =
-        await window.supabaseClient
-            .auth
-            .getSession();
+    if (!usuarioLogado) {
 
-
-    if (
-        sessionError ||
-        !sessionData.session
-    ) {
-
-        mostrarMensagem(
-            "Você precisa estar logado para responder.",
-            "erro"
+        alert(
+            "Você precisa estar logado."
         );
 
         return;
+
     }
-
-
-    const user =
-        sessionData.session.user;
 
 
     const { error } =
@@ -964,13 +1352,14 @@ async function responder() {
 
             .insert({
 
-                post_id: postId,
+                post_id:
+                    postId,
 
-                author_id: user.id,
+                author_id:
+                    usuarioLogado.id,
 
-                conteudo: texto,
-
-                melhor_resposta: false
+                conteudo:
+                    conteudo
 
             });
 
@@ -979,22 +1368,23 @@ async function responder() {
 
         console.error(error);
 
-        mostrarMensagem(
-            "Erro ao responder: " +
-            error.message,
-            "erro"
+        alert(
+
+            "Erro ao publicar resposta: " +
+            error.message
+
         );
 
         return;
+
     }
 
 
     campo.value = "";
 
 
-    mostrarMensagem(
-        "Resposta publicada! 🎉",
-        "sucesso"
+    alert(
+        "Resposta publicada! 🎉"
     );
 
 
@@ -1003,46 +1393,9 @@ async function responder() {
 }
 
 
-/* =====================================
-   MENSAGEM
-===================================== */
-
-function mostrarMensagem(
-    texto,
-    tipo
-) {
-
-    const mensagem =
-        document.getElementById(
-            "mensagem"
-        );
-
-
-    mensagem.textContent =
-        texto;
-
-
-    mensagem.className =
-        "mensagem " + tipo;
-
-
-    mensagem.style.display =
-        "block";
-
-
-    setTimeout(() => {
-
-        mensagem.style.display =
-            "none";
-
-    }, 4000);
-
-}
-
-
-/* =====================================
+/* =================================
    VOLTAR
-===================================== */
+================================= */
 
 function voltarComunidade() {
 
@@ -1052,9 +1405,21 @@ function voltarComunidade() {
 }
 
 
-/* =====================================
+/* =================================
+   PERFIL
+================================= */
+
+function perfil() {
+
+    window.location.href =
+        "perfil.html";
+
+}
+
+
+/* =================================
    SAIR
-===================================== */
+================================= */
 
 async function sair() {
 
@@ -1069,20 +1434,45 @@ async function sair() {
 }
 
 
-/* =====================================
-   INICIAR
-===================================== */
+/* =================================
+   ERRO
+================================= */
 
-async function iniciar() {
+function mostrarErro(mensagem) {
 
-    await verificarLogin();
+    document
+        .getElementById(
+            "conteudoPagina"
+        )
+        .innerHTML = `
 
-    await carregarPost();
+        <div class="mensagem">
+
+            ❌ ${mensagem}
+
+            <br><br>
+
+            <button
+                class="btn-header"
+                onclick="voltarComunidade()"
+            >
+
+                ← Voltar para comunidade
+
+            </button>
+
+        </div>
+
+    `;
 
 }
 
 
-iniciar();
+/* =================================
+   INICIAR
+================================= */
+
+verificarLogin();
 
 </script>
 
@@ -1090,4 +1480,3 @@ iniciar();
 </body>
 
 </html>
-```
