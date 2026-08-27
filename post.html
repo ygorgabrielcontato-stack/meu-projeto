@@ -17,535 +17,313 @@
         }
 
         body {
-
             margin: 0;
-
             font-family: Arial, sans-serif;
-
             background: #0b0d17;
-
             color: white;
-
         }
-
 
         header {
-
             padding: 20px 8%;
-
             border-bottom: 1px solid #25283a;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
         }
-
 
         .logo {
-
             font-size: 24px;
-
             font-weight: bold;
-
         }
-
 
         .logo span {
-
             color: #6c63ff;
-
         }
-
 
         .header-botoes {
-
             display: flex;
-
             gap: 10px;
-
         }
-
 
         button {
-
             background: #6258e8;
-
             border: none;
-
             color: white;
-
             padding: 11px 18px;
-
             border-radius: 8px;
-
             cursor: pointer;
-
             font-weight: bold;
-
         }
-
 
         button:hover {
-
             opacity: 0.9;
-
         }
-
 
         .btn-voltar {
-
             background: #292d42;
-
         }
-
 
         main {
-
             width: 90%;
-
             max-width: 900px;
-
             margin: 40px auto 80px;
-
         }
-
 
         .voltar {
-
             color: #9da3b8;
-
             cursor: pointer;
-
             margin-bottom: 25px;
-
             display: inline-block;
-
         }
-
 
         .voltar:hover {
-
             color: white;
-
         }
-
 
         .post {
-
             background: #171a29;
-
             border: 1px solid #292d42;
-
             border-radius: 18px;
-
             padding: 30px;
-
         }
-
 
         .categoria {
-
             display: inline-block;
-
             background: #292d42;
-
             color: #aaa5ff;
-
             padding: 7px 12px;
-
             border-radius: 20px;
-
             font-size: 13px;
-
             margin-bottom: 15px;
-
         }
-
 
         .post h1 {
-
             font-size: 30px;
-
             margin: 5px 0 15px;
-
         }
-
 
         .autor {
-
             color: #8e95aa;
-
             font-size: 14px;
-
             margin-bottom: 25px;
-
         }
-
 
         .conteudo {
-
             color: #d0d3df;
-
             font-size: 16px;
-
             line-height: 1.7;
-
             white-space: pre-wrap;
-
         }
-
 
         .separador {
-
             border: none;
-
             border-top: 1px solid #292d42;
-
             margin: 30px 0;
-
         }
-
 
         .titulo-respostas {
-
             font-size: 22px;
-
             margin-bottom: 20px;
-
         }
-
 
         .resposta {
-
             background: #0d0f19;
-
             border: 1px solid #25283a;
-
             border-radius: 14px;
-
             padding: 20px;
-
             margin-bottom: 15px;
-
         }
-
 
         .resposta-topo {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             gap: 15px;
-
         }
-
 
         .autor-resposta {
-
             font-weight: bold;
-
         }
 
+        /* =========================
+           CARGOS
+        ========================= */
+
+        .tipo-professor,
+        .tipo-aluno {
+            display: inline-block;
+            margin-left: 7px;
+            padding: 4px 9px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
 
         .tipo-professor {
-
-            display: inline-block;
-
-            margin-left: 7px;
-
             background: #6258e8;
-
             color: white;
-
-            padding: 4px 8px;
-
-            border-radius: 12px;
-
-            font-size: 11px;
-
         }
 
-
-        .resposta-conteudo {
-
-            color: #c8ccda;
-
-            line-height: 1.6;
-
-            margin: 15px 0;
-
-            white-space: pre-wrap;
-
+        .tipo-aluno {
+            background: #292d42;
+            color: #aaa5ff;
+            border: 1px solid #454b68;
         }
-
 
         /* =========================
            CURTIDA
         ========================= */
 
-
         .acoes-resposta {
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
         }
-
 
         .curtir {
-
             background: transparent;
-
             border: none;
-
             padding: 4px 6px;
-
             display: flex;
-
             align-items: center;
-
             gap: 5px;
-
             color: #8e95aa;
-
             font-size: 16px;
-
             cursor: pointer;
-
         }
-
 
         .curtir:hover {
-
             background: transparent;
-
             opacity: 1;
-
         }
 
-
         .coracao {
-
-            font-size: 25px;
-
+            font-size: 27px;
             line-height: 1;
-
             transition:
                 transform 0.15s ease,
                 color 0.15s ease;
-
         }
-
 
         .coracao.vazio {
-
             color: #9da3b8;
-
         }
-
 
         .coracao.curtiu {
-
             color: #ff3040;
-
         }
-
 
         .curtir.animar .coracao {
-
             animation: bater 0.3s ease;
-
         }
-
 
         @keyframes bater {
 
             0% {
-
                 transform: scale(1);
-
             }
 
             40% {
-
                 transform: scale(1.35);
-
             }
 
             70% {
-
                 transform: scale(0.9);
-
             }
 
             100% {
-
                 transform: scale(1);
-
             }
 
         }
 
-
         .contador {
-
             font-size: 14px;
-
             color: #8e95aa;
-
         }
-
 
         .responder {
-
             margin-top: 30px;
-
             background: #171a29;
-
             border: 1px solid #292d42;
-
             border-radius: 15px;
-
             padding: 25px;
-
         }
-
 
         .responder h2 {
-
             margin-top: 0;
-
         }
-
 
         textarea {
-
             width: 100%;
-
             min-height: 120px;
-
             resize: vertical;
-
             padding: 14px;
-
             background: #0d0f19;
-
             border: 1px solid #30344b;
-
             border-radius: 8px;
-
             color: white;
-
             font-family: Arial, sans-serif;
-
             font-size: 15px;
-
             outline: none;
-
         }
-
 
         textarea:focus {
-
             border-color: #6258e8;
-
         }
-
 
         .btn-responder {
-
             margin-top: 12px;
-
         }
-
 
         .carregando {
-
             text-align: center;
-
             color: #9da3b8;
-
             padding: 40px;
-
         }
-
 
         .erro {
-
             background: #301820;
-
             border: 1px solid #6b2636;
-
             color: #ff9da9;
-
             padding: 20px;
-
             border-radius: 10px;
-
         }
-
 
         .sem-respostas {
-
             color: #8e95aa;
-
             padding: 15px 0;
-
         }
-
 
         @media (max-width: 600px) {
 
             header {
-
                 padding: 15px 5%;
-
             }
-
 
             .logo {
-
                 font-size: 20px;
-
             }
-
 
             .header-botoes button {
-
                 padding: 9px 12px;
-
             }
-
 
             main {
-
                 width: 94%;
-
                 margin-top: 25px;
-
             }
-
 
             .post {
-
                 padding: 20px;
-
             }
 
-
             .post h1 {
-
                 font-size: 24px;
+            }
 
+            .resposta-topo {
+                align-items: flex-start;
             }
 
         }
@@ -764,6 +542,32 @@ async function carregarPost() {
         "Aluno";
 
 
+    let etiquetaCargo = "";
+
+
+    if (
+        tipoConta
+            .toLowerCase()
+            .includes("professor")
+    ) {
+
+        etiquetaCargo = `
+            <span class="tipo-professor">
+                👨‍🏫 Professor
+            </span>
+        `;
+
+    } else {
+
+        etiquetaCargo = `
+            <span class="tipo-aluno">
+                🎓 Aluno
+            </span>
+        `;
+
+    }
+
+
     container.innerHTML = `
 
         <article class="post">
@@ -790,7 +594,7 @@ async function carregarPost() {
 
                 · ${nivel}
 
-                · ${tipoConta}
+                ${etiquetaCargo}
 
             </div>
 
@@ -955,6 +759,16 @@ async function carregarRespostas() {
             "Usuário";
 
 
+        const username =
+            resposta.profiles?.username ||
+            "usuario";
+
+
+        const nivel =
+            resposta.profiles?.nivel ||
+            "Membro";
+
+
         const tipoConta =
             resposta.profiles?.tipo_conta ||
             "Aluno";
@@ -966,6 +780,44 @@ async function carregarRespostas() {
 
         div.className =
             "resposta";
+
+
+        /*
+         * Define a etiqueta do cargo
+         */
+
+        let etiquetaCargo = "";
+
+
+        if (
+            tipoConta
+                .toLowerCase()
+                .includes("professor")
+        ) {
+
+            etiquetaCargo = `
+
+                <span class="tipo-professor">
+
+                    👨‍🏫 Professor
+
+                </span>
+
+            `;
+
+        } else {
+
+            etiquetaCargo = `
+
+                <span class="tipo-aluno">
+
+                    🎓 Aluno
+
+                </span>
+
+            `;
+
+        }
 
 
         div.innerHTML = `
@@ -981,21 +833,20 @@ async function carregarRespostas() {
                     </span>
 
 
-                    ${
-                        tipoConta
-                            .toLowerCase()
-                            .includes("professor")
+                    ${etiquetaCargo}
 
-                        ?
+                    <div
+                        style="
+                            color:#737991;
+                            font-size:12px;
+                            margin-top:6px;
+                        "
+                    >
 
-                        `<span class="tipo-professor">
-                            👨‍🏫 Professor
-                        </span>`
+                        @${username}
+                        · ${nivel}
 
-                        :
-
-                        ""
-                    }
+                    </div>
 
                 </div>
 
@@ -1043,7 +894,9 @@ async function carregarRespostas() {
         container.appendChild(div);
 
 
-        carregarCurtidas(resposta.id);
+        carregarCurtidas(
+            resposta.id
+        );
 
     }
 
@@ -1131,6 +984,19 @@ async function carregarCurtidas(
 
         coracao.classList.add(
             "curtiu"
+        );
+
+    } else {
+
+        coracao.textContent =
+            "♡";
+
+        coracao.classList.remove(
+            "curtiu"
+        );
+
+        coracao.classList.add(
+            "vazio"
         );
 
     }
