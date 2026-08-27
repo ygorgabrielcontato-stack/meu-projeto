@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Notificações - TechCommunity</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #0b0d17;
+
+            color: white;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            height: 70px;
+
+            padding: 0 8%;
+
+            border-bottom: 1px solid #25283a;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: #0b0d17;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo span {
+
+            color: #6c63ff;
+
+        }
+
+
+        .header-botoes {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+
+        .btn-header {
+
+            background: #171a29;
+
+            color: white;
+
+            border: 1px solid #292d42;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .btn-header:hover {
+
+            background: #25283a;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        main {
+
+            width: 92%;
+
+            max-width: 850px;
+
+            margin: 40px auto 80px;
+
+        }
+
+
+        .topo {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .topo h1 {
+
+            margin: 0;
+
+            font-size: 34px;
+
+        }
+
+
+        .descricao {
+
+            color: #9da3b8;
+
+            margin-top: 8px;
+
+        }
+
+
+        .btn-lidas {
+
+            background: #6258e8;
+
+            color: white;
+
+            padding: 11px 16px;
+
+            border-radius: 9px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .btn-lidas:hover {
+
+            background: #7168f0;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =========================
+           CONTADOR
+        ========================= */
+
+        .contador-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            color: #9da3b8;
+
+        }
+
+
+        .contador {
+
+            background: #6258e8;
+
+            color: white;
+
+            min-width: 27px;
+
+            height: 27px;
+
+            padding: 0 8px;
+
+            border-radius: 20px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           NOTIFICAÇÃO
+        ========================= */
+
+        .notificacao {
+
+            background: #111421;
+
+            border: 1px solid #292d42;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            cursor: pointer;
+
+            transition:
+
+                transform 0.2s ease,
+
+                border-color 0.2s ease,
+
+                background 0.2s ease;
+
+        }
+
+
+        .notificacao:hover {
+
+            transform: translateY(-2px);
+
+            border-color: #464b6b;
+
+            background: #151829;
+
+        }
+
+
+        .notificacao.nao-lida {
+
+            border-left: 4px solid #6258e8;
+
+            background: #15172a;
+
+        }
+
+
+        /* =========================
+           ÍCONE
+        ========================= */
+
+        .icone-notificacao {
+
+            width: 48px;
+
+            height: 48px;
+
+            min-width: 48px;
+
+            border-radius: 50%;
+
+            background: #292d42;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+
+        }
+
+
+        .notificacao.resposta
+        .icone-notificacao {
+
+            background: rgba(98, 88, 232, 0.18);
+
+        }
+
+
+        .notificacao.curtida
+        .icone-notificacao {
+
+            background: rgba(255, 59, 107, 0.15);
+
+        }
+
+
+        /* =========================
+           TEXTO
+        ========================= */
+
+        .notificacao-conteudo {
+
+            flex: 1;
+
+            min-width: 0;
+
+        }
+
+
+        .notificacao-titulo {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .notificacao-mensagem {
+
+            color: #aeb3c5;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .notificacao-data {
+
+            color: #73798f;
+
+            font-size: 12px;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* =========================
+           INDICADOR NÃO LIDA
+        ========================= */
+
+        .indicador {
+
+            width: 9px;
+
+            height: 9px;
+
+            min-width: 9px;
+
+            border-radius: 50%;
+
+            background: #6258e8;
+
+        }
+
+
+        /* =========================
+           VAZIO
+        ========================= */
+
+        .vazio {
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background: #111421;
+
+            border: 1px solid #292d42;
+
+            border-radius: 18px;
+
+        }
+
+
+        .vazio-icone {
+
+            font-size: 55px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .vazio h2 {
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .vazio p {
+
+            color: #8e95aa;
+
+        }
+
+
+        /* =========================
+           CARREGANDO
+        ========================= */
+
+        .carregando {
+
+            text-align: center;
+
+            color: #9da3b8;
+
+            padding: 60px;
+
+        }
+
+
+        .spinner {
+
+            width: 35px;
+
+            height: 35px;
+
+            border: 3px solid #292d42;
+
+            border-top-color: #6258e8;
+
+            border-radius: 50%;
+
+            margin: 0 auto 15px;
+
+            animation: girar 0.8s linear infinite;
+
+        }
+
+
+        @keyframes girar {
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+
+        /* =========================
+           ERRO
+        ========================= */
+
+        .erro {
+
+            background: #301820;
+
+            border: 1px solid #6b2636;
+
+            color: #ff9da9;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 0 5%;
+
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+
+            .btn-header {
+
+                padding: 8px 10px;
+
+            }
+
+
+            main {
+
+                width: 94%;
+
+                margin-top: 25px;
+
+            }
+
+
+            .topo {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+
+            .topo h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .notificacao {
+
+                padding: 15px;
+
+            }
+
+
+            .icone-notificacao {
+
+                width: 42px;
+
+                height: 42px;
+
+                min-width: 42px;
+
+                font-size: 19px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+
+    <div class="logo">
+
+        Tech<span>Community</span>
+
+    </div>
+
+
+    <div class="header-botoes">
+
+        <button
+            class="btn-header"
+            onclick="voltarComunidade()">
+
+            ← Comunidade
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="perfil()">
+
+            👤 Perfil
+
+        </button>
+
+
+        <button
+            class="btn-header"
+            onclick="sair()">
+
+            Sair
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <div class="topo">
+
+        <div>
+
+            <h1>
+                Notificações
+            </h1>
+
+            <p class="descricao">
+                Veja quem respondeu suas perguntas ou curtiu suas respostas.
+            </p>
+
+        </div>
+
+
+        <button
+            class="btn-lidas"
+            onclick="marcarTodasComoLidas()">
+
+            ✓ Marcar todas como lidas
+
+        </button>
+
+    </div>
+
+
+    <div class="contador-area">
+
+        <span>
+            Não lidas
+        </span>
+
+
+        <span
+            id="contadorNaoLidas"
+            class="contador">
+
+            0
+
+        </span>
+
+    </div>
+
+
+    <div id="listaNotificacoes">
+
+        <div class="carregando">
+
+            <div class="spinner"></div>
+
+            Carregando notificações...
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+
+<script>
+
+
+/* =================================
+   USUÁRIO LOGADO
+================================= */
+
+let usuarioAtual = null;
+
+
+/* =================================
+   VERIFICAR LOGIN
+================================= */
+
+async function verificarLogin() {
+
+    const { data, error } =
+
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao verificar login."
+        );
+
+        return;
+
+    }
+
+
+    if (!data.session) {
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
+
+
+    usuarioAtual =
+        data.session.user;
+
+
+    carregarNotificacoes();
+
+}
+
+
+/* =================================
+   CARREGAR NOTIFICAÇÕES
+================================= */
+
+async function carregarNotificacoes() {
+
+    const container =
+        document.getElementById(
+            "listaNotificacoes"
+        );
+
+
+    const { data, error } =
+
+        await window.supabaseClient
+
+            .from("notificacoes")
+
+            .select(`
+                id,
+                user_id,
+                tipo,
+                titulo,
+                mensagem,
+                post_id,
+                resposta_id,
+                lida,
+                created_at
+            `)
+
+            .eq(
+                "user_id",
+                usuarioAtual.id
+            )
+
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao carregar notificações: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    atualizarContador(data);
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="vazio">
+
+                <div class="vazio-icone">
+                    🔔
+                </div>
+
+                <h2>
+                    Nenhuma notificação
+                </h2>
+
+                <p>
+                    Quando alguém responder sua pergunta
+                    ou curtir sua resposta, aparecerá aqui.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.forEach(
+        notificacao => {
+
+            criarNotificacao(
+                notificacao,
+                container
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   CRIAR NOTIFICAÇÃO
+================================= */
+
+function criarNotificacao(
+    notificacao,
+    container
+) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    const naoLida =
+        !notificacao.lida;
+
+
+    div.className =
+        "notificacao " +
+        (naoLida
+            ? "nao-lida "
+            : "") +
+        notificacao.tipo;
+
+
+    let icone = "🔔";
+
+
+    if (
+        notificacao.tipo ===
+        "resposta"
+    ) {
+
+        icone = "💬";
+
+    }
+
+
+    if (
+        notificacao.tipo ===
+        "curtida"
+    ) {
+
+        icone = "❤️";
+
+    }
+
+
+    const dataFormatada =
+        formatarData(
+            notificacao.created_at
+        );
+
+
+    div.innerHTML = `
+
+        <div class="icone-notificacao">
+
+            ${icone}
+
+        </div>
+
+
+        <div class="notificacao-conteudo">
+
+            <div class="notificacao-titulo">
+
+                ${notificacao.titulo}
+
+            </div>
+
+
+            <div class="notificacao-mensagem">
+
+                ${notificacao.mensagem}
+
+            </div>
+
+
+            <div class="notificacao-data">
+
+                ${dataFormatada}
+
+            </div>
+
+        </div>
+
+
+        ${
+            naoLida
+
+            ?
+
+            `<div
+                class="indicador"
+                title="Não lida">
+            </div>`
+
+            :
+
+            ""
+
+        }
+
+    `;
+
+
+    div.addEventListener(
+        "click",
+        async function() {
+
+            if (!notificacao.lida) {
+
+                await marcarComoLida(
+                    notificacao.id
+                );
+
+            }
+
+
+            /*
+             * Se a notificação
+             * estiver relacionada
+             * a uma pergunta,
+             * abre o post.
+             */
+
+            if (
+                notificacao.post_id
+            ) {
+
+                window.location.href =
+                    "post.html?id=" +
+                    notificacao.post_id;
+
+            }
+
+        }
+    );
+
+
+    container.appendChild(div);
+
+}
+
+
+/* =================================
+   MARCAR UMA COMO LIDA
+================================= */
+
+async function marcarComoLida(
+    notificacaoId
+) {
+
+    const { error } =
+
+        await window.supabaseClient
+
+            .from("notificacoes")
+
+            .update({
+                lida: true
+            })
+
+            .eq(
+                "id",
+                notificacaoId
+            )
+
+            .eq(
+                "user_id",
+                usuarioAtual.id
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao marcar notificação:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    carregarNotificacoes();
+
+}
+
+
+/* =================================
+   MARCAR TODAS COMO LIDAS
+================================= */
+
+async function marcarTodasComoLidas() {
+
+    const { error } =
+
+        await window.supabaseClient
+
+            .from("notificacoes")
+
+            .update({
+                lida: true
+            })
+
+            .eq(
+                "user_id",
+                usuarioAtual.id
+            )
+
+            .eq(
+                "lida",
+                false
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao marcar notificações: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    carregarNotificacoes();
+
+}
+
+
+/* =================================
+   CONTADOR
+================================= */
+
+function atualizarContador(
+    notificacoes
+) {
+
+    const contador =
+        document.getElementById(
+            "contadorNaoLidas"
+        );
+
+
+    const quantidade =
+        notificacoes
+
+            .filter(
+                notificacao =>
+                    !notificacao.lida
+            )
+
+            .length;
+
+
+    contador.textContent =
+        quantidade;
+
+}
+
+
+/* =================================
+   FORMATAR DATA
+================================= */
+
+function formatarData(
+    dataString
+) {
+
+    if (!dataString) {
+
+        return "";
+
+    }
+
+
+    const data =
+        new Date(dataString);
+
+
+    const agora =
+        new Date();
+
+
+    const diferenca =
+        agora - data;
+
+
+    const segundos =
+        Math.floor(
+            diferenca / 1000
+        );
+
+
+    if (segundos < 60) {
+
+        return "Agora";
+
+    }
+
+
+    const minutos =
+        Math.floor(
+            segundos / 60
+        );
+
+
+    if (minutos < 60) {
+
+        return minutos === 1
+            ? "Há 1 minuto"
+            : `Há ${minutos} minutos`;
+
+    }
+
+
+    const horas =
+        Math.floor(
+            minutos / 60
+        );
+
+
+    if (horas < 24) {
+
+        return horas === 1
+            ? "Há 1 hora"
+            : `Há ${horas} horas`;
+
+    }
+
+
+    const dias =
+        Math.floor(
+            horas / 24
+        );
+
+
+    if (dias < 7) {
+
+        return dias === 1
+            ? "Há 1 dia"
+            : `Há ${dias} dias`;
+
+    }
+
+
+    return data.toLocaleDateString(
+        "pt-BR",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =================================
+   ERRO
+================================= */
+
+function mostrarErro(
+    mensagem
+) {
+
+    document.getElementById(
+        "listaNotificacoes"
+    ).innerHTML = `
+
+        <div class="erro">
+
+            ${mensagem}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =================================
+   NAVEGAÇÃO
+================================= */
+
+function voltarComunidade() {
+
+    window.location.href =
+        "comunidade.html";
+
+}
+
+
+function perfil() {
+
+    window.location.href =
+        "perfil.html";
+
+}
+
+
+/* =================================
+   SAIR
+================================= */
+
+async function sair() {
+
+    await window.supabaseClient
+        .auth
+        .signOut();
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =================================
+   INICIAR
+================================= */
+
+verificarLogin();
+
+</script>
+
+
+</body>
+
+</html>
