@@ -9,6 +9,7 @@
     <title>Pergunta - TechCommunity</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -23,6 +24,7 @@
         header {
             padding: 20px 8%;
             border-bottom: 1px solid #25283a;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,7 +39,7 @@
             color: #6c63ff;
         }
 
-        .botoes-header {
+        .botoes {
             display: flex;
             gap: 10px;
         }
@@ -46,7 +48,7 @@
             background: #6258e8;
             border: none;
             color: white;
-            padding: 11px 18px;
+            padding: 12px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
@@ -56,11 +58,11 @@
             opacity: 0.9;
         }
 
-        .voltar {
+        .btn-voltar {
             background: #292d42;
         }
 
-        .sair {
+        .btn-sair {
             background: #292d42;
         }
 
@@ -70,52 +72,58 @@
             margin: 40px auto;
         }
 
-        .voltar-link {
-            display: inline-block;
+        .voltar {
             color: #9da3b8;
-            margin-bottom: 20px;
             cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
-        .voltar-link:hover {
+        .voltar:hover {
             color: white;
         }
 
         .post {
             background: #171a29;
             border: 1px solid #292d42;
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 30px;
         }
 
         .categoria {
             display: inline-block;
+
             background: #292d42;
             color: #aaa4ff;
-            padding: 7px 12px;
+
+            padding: 7px 13px;
+
             border-radius: 20px;
+
             font-size: 13px;
+
             margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 28px;
-            margin: 10px 0 15px;
+        .post h1 {
+            font-size: 30px;
+            margin: 5px 0 15px;
         }
 
         .autor {
             color: #8e95aa;
+            font-size: 14px;
             margin-bottom: 25px;
         }
 
         .conteudo {
-            color: #d8dbea;
-            font-size: 16px;
+            color: #c8ccda;
             line-height: 1.7;
+            font-size: 16px;
             white-space: pre-wrap;
         }
 
-        .separador {
+        .linha {
             border: none;
             border-top: 1px solid #292d42;
             margin: 30px 0;
@@ -128,54 +136,61 @@
 
         .resposta {
             background: #0d0f19;
-            border: 1px solid #292d42;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
+            border: 1px solid #25283a;
+            border-radius: 10px;
+            padding: 18px;
+            margin-top: 12px;
         }
 
         .resposta-autor {
             color: #aaa4ff;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .resposta-texto {
-            color: #d8dbea;
+            color: #c8ccda;
             line-height: 1.6;
             white-space: pre-wrap;
         }
 
-        .form-resposta {
+        .responder {
             margin-top: 30px;
+        }
+
+        .responder h3 {
+            margin-bottom: 10px;
         }
 
         textarea {
             width: 100%;
-            min-height: 130px;
-            resize: vertical;
+            min-height: 110px;
+
             background: #0d0f19;
-            border: 1px solid #292d42;
-            border-radius: 10px;
+            border: 1px solid #30344b;
+
+            border-radius: 8px;
+
             color: white;
-            padding: 15px;
+
+            padding: 14px;
+
             font-family: Arial, sans-serif;
             font-size: 15px;
-            outline: none;
+
+            resize: vertical;
         }
 
         textarea:focus {
+            outline: none;
             border-color: #6258e8;
-        }
-
-        .botao-responder {
-            margin-top: 12px;
         }
 
         .mensagem {
             margin-top: 15px;
             padding: 12px;
             border-radius: 8px;
+
             display: none;
         }
 
@@ -197,8 +212,9 @@
 
         .sem-respostas {
             color: #8e95aa;
-            padding: 20px 0;
+            padding: 10px 0;
         }
+
 
         @media (max-width: 700px) {
 
@@ -210,7 +226,7 @@
                 width: 90%;
             }
 
-            .botoes-header {
+            .botoes {
                 gap: 5px;
             }
 
@@ -222,14 +238,19 @@
                 padding: 20px;
             }
 
-            h1 {
-                font-size: 23px;
+            .post h1 {
+                font-size: 24px;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -237,13 +258,21 @@
         Tech<span>Community</span>
     </div>
 
-    <div class="botoes-header">
 
-        <button class="voltar" onclick="voltarComunidade()">
+    <div class="botoes">
+
+        <button
+            class="btn-voltar"
+            onclick="voltarComunidade()"
+        >
             💬 Comunidade
         </button>
 
-        <button class="sair" onclick="sair()">
+
+        <button
+            class="btn-sair"
+            onclick="sair()"
+        >
             Sair
         </button>
 
@@ -254,7 +283,11 @@
 
 <main>
 
-    <div class="voltar-link" onclick="voltarComunidade()">
+
+    <div
+        class="voltar"
+        onclick="voltarComunidade()"
+    >
         ← Voltar para comunidade
     </div>
 
@@ -267,6 +300,7 @@
 
     </div>
 
+
 </main>
 
 
@@ -277,158 +311,41 @@
 
 <script>
 
-    /* =====================================
-       PEGAR ID DA PERGUNTA
-    ===================================== */
 
-    const parametros = new URLSearchParams(
-        window.location.search
-    );
+/* =====================================
+   PEGAR ID DA PERGUNTA NA URL
+===================================== */
 
-    const postId = parametros.get("id");
+const parametros =
+    new URLSearchParams(window.location.search);
 
 
-    /* =====================================
-       CARREGAR PERGUNTA
-    ===================================== */
-
-    async function carregarPost() {
-
-        const container =
-            document.getElementById("postContainer");
+const postId =
+    parametros.get("id");
 
 
-        if (!postId) {
+/* =====================================
+   CARREGAR PERGUNTA
+===================================== */
 
-            container.innerHTML = `
-                <div class="post">
-                    <div class="erro">
-                        Pergunta não encontrada.
-                    </div>
-                </div>
-            `;
+async function carregarPost() {
 
-            return;
-        }
+    const container =
+        document.getElementById("postContainer");
 
 
-        const { data: post, error } =
-            await window.supabaseClient
-                .from("posts")
-                .select("*")
-                .eq("id", postId)
-                .single();
+    /* Verifica se recebeu o ID */
 
-
-        if (error) {
-
-            console.error(error);
-
-            container.innerHTML = `
-                <div class="post">
-                    <div class="erro">
-                        Erro ao carregar a pergunta.
-                        <br><br>
-                        ${error.message}
-                    </div>
-                </div>
-            `;
-
-            return;
-        }
-
-
-        if (!post) {
-
-            container.innerHTML = `
-                <div class="post">
-                    <div class="erro">
-                        Essa pergunta não existe.
-                    </div>
-                </div>
-            `;
-
-            return;
-        }
-
-
-        const titulo =
-            post.titulo ||
-            post.title ||
-            "Sem título";
-
-
-        const conteudo =
-            post.conteudo ||
-            post.content ||
-            post.descricao ||
-            post.description ||
-            "";
-
-
-        const categoria =
-            post.categoria ||
-            post.category ||
-            "Geral";
-
-
-        const autor =
-            post.username ||
-            post.autor ||
-            post.nome ||
-            "Usuário";
-
+    if (!postId) {
 
         container.innerHTML = `
 
             <div class="post">
 
-                <div class="categoria">
-                    🏷️ ${categoria}
-                </div>
+                <div class="erro"
+                    style="display:block;">
 
-                <h1>
-                    ${titulo}
-                </h1>
-
-                <div class="autor">
-                    👤 ${autor}
-                </div>
-
-                <div class="conteudo">
-                    ${conteudo}
-                </div>
-
-                <hr class="separador">
-
-                <div class="titulo-respostas">
-                    💬 Respostas
-                </div>
-
-                <div id="respostas">
-                    <div class="carregando">
-                        Carregando respostas...
-                    </div>
-                </div>
-
-                <div class="form-resposta">
-
-                    <textarea
-                        id="textoResposta"
-                        placeholder="Escreva sua resposta..."
-                    ></textarea>
-
-                    <button
-                        class="botao-responder"
-                        onclick="enviarResposta()"
-                    >
-                        💬 Responder
-                    </button>
-
-                    <div
-                        id="mensagem"
-                        class="mensagem"
-                    ></div>
+                    Pergunta não encontrada.
 
                 </div>
 
@@ -436,287 +353,563 @@
 
         `;
 
-
-        carregarRespostas();
-
+        return;
     }
 
 
-    /* =====================================
-       CARREGAR RESPOSTAS
-    ===================================== */
+    /* Busca a pergunta */
 
-    async function carregarRespostas() {
+    const { data: post, error } =
+        await window.supabaseClient
 
-        const container =
-            document.getElementById("respostas");
+            .from("posts")
+
+            .select(`
+
+                id,
+                titulo,
+                conteudo,
+                categoria,
+                created_at,
+
+                profiles (
+                    nome,
+                    username,
+                    nivel
+                )
+
+            `)
+
+            .eq("id", postId)
+
+            .single();
 
 
-        const { data: respostas, error } =
-            await window.supabaseClient
-                .from("respostas")
-                .select("*")
-                .eq("post_id", postId)
-                .order("created_at", {
-                    ascending: true
-                });
+    /* Erro */
+
+    if (error) {
+
+        console.error(error);
 
 
-        if (error) {
+        container.innerHTML = `
 
-            console.error(error);
+            <div class="post">
 
-            container.innerHTML = `
-                <div class="erro">
-                    Erro ao carregar respostas.
+                <div
+                    class="erro"
+                    style="display:block;"
+                >
+
+                    Erro ao carregar a pergunta.
+
                     <br><br>
+
                     ${error.message}
-                </div>
-            `;
 
-            return;
-        }
-
-
-        if (!respostas || respostas.length === 0) {
-
-            container.innerHTML = `
-                <div class="sem-respostas">
-                    Ainda não existem respostas.
-                    Seja o primeiro a responder! 👇
-                </div>
-            `;
-
-            return;
-        }
-
-
-        container.innerHTML = "";
-
-
-        respostas.forEach(resposta => {
-
-            const autor =
-                resposta.username ||
-                resposta.autor ||
-                resposta.nome ||
-                "Usuário";
-
-
-            const texto =
-                resposta.conteudo ||
-                resposta.content ||
-                resposta.texto ||
-                "";
-
-
-            const elemento =
-                document.createElement("div");
-
-
-            elemento.className =
-                "resposta";
-
-
-            elemento.innerHTML = `
-
-                <div class="resposta-autor">
-                    👤 ${autor}
                 </div>
 
-                <div class="resposta-texto">
-                    ${texto}
-                </div>
+            </div>
 
-            `;
+        `;
 
-
-            container.appendChild(elemento);
-
-        });
-
+        return;
     }
 
 
-    /* =====================================
-       ENVIAR RESPOSTA
-    ===================================== */
+    /* Pergunta não encontrada */
 
-    async function enviarResposta() {
+    if (!post) {
 
-        const textarea =
-            document.getElementById("textoResposta");
+        container.innerHTML = `
 
+            <div class="post">
 
-        const mensagem =
-            document.getElementById("mensagem");
+                <div
+                    class="erro"
+                    style="display:block;"
+                >
 
+                    Essa pergunta não existe.
 
-        const texto =
-            textarea.value.trim();
+                </div>
 
+            </div>
 
-        if (!texto) {
+        `;
 
-            mostrarMensagem(
-                "Digite uma resposta antes de enviar.",
-                "erro"
-            );
-
-            return;
-        }
+        return;
+    }
 
 
-        const {
-            data: sessionData,
-            error: sessionError
-        } =
-            await window.supabaseClient.auth.getSession();
+    /* Dados do perfil */
+
+    const nome =
+        post.profiles?.nome ||
+        "Usuário";
 
 
-        if (sessionError || !sessionData.session) {
-
-            mostrarMensagem(
-                "Você precisa estar logado para responder.",
-                "erro"
-            );
-
-            return;
-        }
+    const username =
+        post.profiles?.username ||
+        "";
 
 
-        const user =
-            sessionData.session.user;
+    const nivel =
+        post.profiles?.nivel ||
+        "Membro";
 
 
-        const { data: perfil } =
-            await window.supabaseClient
-                .from("profiles")
-                .select("nome, username")
-                .eq("id", user.id)
-                .single();
+    /* Mostra a pergunta */
 
+    container.innerHTML = `
+
+        <div class="post">
+
+
+            <div class="categoria">
+
+                🏷️ ${post.categoria || "Geral"}
+
+            </div>
+
+
+            <h1>
+
+                ${post.titulo}
+
+            </h1>
+
+
+            <div class="autor">
+
+                👤 ${nome}
+
+                ${username ? ` · @${username}` : ""}
+
+                · ${nivel}
+
+            </div>
+
+
+            <div class="conteudo">
+
+                ${post.conteudo}
+
+            </div>
+
+
+            <hr class="linha">
+
+
+            <div class="titulo-respostas">
+
+                💬 Respostas
+
+            </div>
+
+
+            <div id="respostas">
+
+                <div class="carregando">
+
+                    Carregando respostas...
+
+                </div>
+
+            </div>
+
+
+            <div class="responder">
+
+                <h3>
+
+                    ✍️ Sua resposta
+
+                </h3>
+
+
+                <textarea
+                    id="textoResposta"
+                    placeholder="Escreva sua resposta..."
+                ></textarea>
+
+
+                <button
+                    onclick="responder()"
+                    style="margin-top:10px;"
+                >
+
+                    💬 Responder
+
+                </button>
+
+
+                <div
+                    id="mensagem"
+                    class="mensagem"
+                ></div>
+
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    /* Depois carrega as respostas */
+
+    carregarRespostas();
+
+}
+
+
+/* =====================================
+   CARREGAR RESPOSTAS
+===================================== */
+
+async function carregarRespostas() {
+
+    const container =
+        document.getElementById("respostas");
+
+
+    const { data, error } =
+
+        await window.supabaseClient
+
+            .from("respostas")
+
+            .select(`
+
+                id,
+                conteudo,
+                created_at,
+
+                profiles (
+                    nome,
+                    username
+                )
+
+            `)
+
+            .eq("post_id", postId)
+
+            .order("created_at", {
+
+                ascending: true
+
+            });
+
+
+    /* Erro */
+
+    if (error) {
+
+        console.error(error);
+
+
+        container.innerHTML = `
+
+            <div
+                class="erro"
+                style="display:block;"
+            >
+
+                Erro ao carregar respostas.
+
+                <br><br>
+
+                ${error.message}
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* Nenhuma resposta */
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="sem-respostas">
+
+                Nenhuma resposta ainda.
+
+                Seja o primeiro a responder! 👇
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* Título */
+
+    container.innerHTML = `
+
+        <h3>
+
+            💬 Respostas (${data.length})
+
+        </h3>
+
+    `;
+
+
+    /* Mostrar respostas */
+
+    data.forEach(resposta => {
 
         const nome =
-            perfil?.nome ||
-            perfil?.username ||
+            resposta.profiles?.nome ||
             "Usuário";
 
 
         const username =
-            perfil?.username ||
-            nome;
+            resposta.profiles?.username ||
+            "";
 
 
-        const { error } =
-            await window.supabaseClient
-                .from("respostas")
-                .insert([
-
-                    {
-                        post_id: postId,
-                        user_id: user.id,
-                        username: username,
-                        nome: nome,
-                        conteudo: texto
-                    }
-
-                ]);
+        const div =
+            document.createElement("div");
 
 
-        if (error) {
-
-            console.error(error);
-
-            mostrarMensagem(
-                "Erro ao enviar resposta: " +
-                error.message,
-                "erro"
-            );
-
-            return;
-        }
+        div.className =
+            "resposta";
 
 
-        textarea.value = "";
+        div.innerHTML = `
+
+            <div class="resposta-autor">
+
+                👤 ${nome}
+
+                ${username
+                    ? ` · @${username}`
+                    : ""
+                }
+
+            </div>
 
 
-        mostrarMensagem(
-            "Resposta enviada com sucesso! ✅",
-            "sucesso"
+            <div class="resposta-texto">
+
+                ${resposta.conteudo}
+
+            </div>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================
+   RESPONDER
+===================================== */
+
+async function responder() {
+
+    const campo =
+        document.getElementById(
+            "textoResposta"
         );
 
 
-        carregarRespostas();
+    const texto =
+        campo.value.trim();
 
+
+    /* Verifica texto */
+
+    if (!texto) {
+
+        mostrarMensagem(
+            "Escreva uma resposta.",
+            "erro"
+        );
+
+        return;
     }
 
 
-    /* =====================================
-       MENSAGEM
-    ===================================== */
+    /* Verifica login */
 
-    function mostrarMensagem(texto, tipo) {
+    const {
+        data: sessionData,
+        error: sessionError
 
-        const mensagem =
-            document.getElementById("mensagem");
-
-
-        mensagem.textContent =
-            texto;
+    } =
+        await window.supabaseClient
+            .auth
+            .getSession();
 
 
-        mensagem.className =
-            "mensagem " + tipo;
+    if (
+        sessionError ||
+        !sessionData.session
+    ) {
 
+        mostrarMensagem(
+            "Você precisa estar logado para responder.",
+            "erro"
+        );
+
+        return;
+    }
+
+
+    const user =
+        sessionData.session.user;
+
+
+    /* Insere resposta */
+
+    const { error } =
+
+        await window.supabaseClient
+
+            .from("respostas")
+
+            .insert({
+
+                post_id: postId,
+
+                author_id: user.id,
+
+                conteudo: texto
+
+            });
+
+
+    /* Erro */
+
+    if (error) {
+
+        console.error(error);
+
+
+        mostrarMensagem(
+
+            "Erro ao responder: " +
+            error.message,
+
+            "erro"
+
+        );
+
+        return;
+    }
+
+
+    /* Limpa campo */
+
+    campo.value = "";
+
+
+    /* Mensagem */
+
+    mostrarMensagem(
+
+        "Resposta publicada! 🎉",
+
+        "sucesso"
+
+    );
+
+
+    /* Atualiza respostas */
+
+    carregarRespostas();
+
+}
+
+
+/* =====================================
+   MOSTRAR MENSAGEM
+===================================== */
+
+function mostrarMensagem(
+    texto,
+    tipo
+) {
+
+    const mensagem =
+        document.getElementById(
+            "mensagem"
+        );
+
+
+    mensagem.textContent =
+        texto;
+
+
+    mensagem.className =
+        "mensagem " + tipo;
+
+
+    mensagem.style.display =
+        "block";
+
+
+    setTimeout(() => {
 
         mensagem.style.display =
-            "block";
+            "none";
+
+    }, 4000);
+
+}
 
 
-        setTimeout(() => {
+/* =====================================
+   VOLTAR PARA COMUNIDADE
+===================================== */
 
-            mensagem.style.display =
-                "none";
+function voltarComunidade() {
 
-        }, 4000);
+    window.location.href =
+        "comunidade.html";
 
-    }
-
-
-    /* =====================================
-       COMUNIDADE
-    ===================================== */
-
-    function voltarComunidade() {
-
-        window.location.href =
-            "comunidade.html";
-
-    }
+}
 
 
-    /* =====================================
-       SAIR
-    ===================================== */
+/* =====================================
+   SAIR
+===================================== */
 
-    async function sair() {
+async function sair() {
 
-        await window.supabaseClient.auth.signOut();
-
-        window.location.href =
-            "index.html";
-
-    }
+    await window.supabaseClient
+        .auth
+        .signOut();
 
 
-    /* =====================================
-       INICIAR
-    ===================================== */
+    window.location.href =
+        "index.html";
 
-    carregarPost();
+}
+
+
+/* =====================================
+   INICIAR
+===================================== */
+
+carregarPost();
 
 </script>
+
 
 </body>
 
