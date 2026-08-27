@@ -9,6 +9,10 @@
 
     <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -17,11 +21,16 @@
         }
 
         header {
-            padding: 20px 8%;
+            height: 70px;
+            padding: 0 8%;
             border-bottom: 1px solid #25283a;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: #0b0d17;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
@@ -33,40 +42,83 @@
             color: #6c63ff;
         }
 
+        .header-botoes {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-header {
+            background: #171a29;
+            color: white;
+            border: 1px solid #292d42;
+            padding: 10px 16px;
+            border-radius: 9px;
+        }
+
+        .btn-header:hover {
+            background: #25283a;
+        }
+
         main {
-            width: 80%;
-            max-width: 1000px;
-            margin: 40px auto;
+            width: 92%;
+            max-width: 850px;
+            margin: 35px auto 70px;
+        }
+
+        .titulo-area {
+            margin-bottom: 25px;
         }
 
         h1 {
             font-size: 36px;
+            margin-bottom: 8px;
         }
 
         .descricao {
             color: #9da3b8;
+            margin-top: 0;
         }
+
+        /* =========================
+           CRIAR PERGUNTA
+        ========================= */
 
         .criar-post {
             background: #171a29;
             border: 1px solid #292d42;
             padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
+            border-radius: 18px;
+            margin-bottom: 40px;
+        }
+
+        .criar-post h2 {
+            margin-top: 0;
         }
 
         input,
         textarea,
         select {
             width: 100%;
-            box-sizing: border-box;
             margin-top: 10px;
             margin-bottom: 15px;
             padding: 14px;
             background: #0d0f19;
             border: 1px solid #30344b;
-            border-radius: 8px;
+            border-radius: 9px;
             color: white;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #6258e8;
         }
 
         textarea {
@@ -74,83 +126,149 @@
             resize: vertical;
         }
 
-        button {
+        .btn-publicar {
             background: #6258e8;
-            border: none;
             color: white;
             padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
+            border-radius: 9px;
         }
 
-        button:hover {
-            opacity: 0.9;
+        .btn-publicar:hover {
+            background: #7168f0;
         }
+
+        /* =========================
+           POST
+        ========================= */
 
         .post {
-            background: #171a29;
+            background: #111421;
             border: 1px solid #292d42;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
+            padding: 24px;
+            border-radius: 18px;
+            margin-top: 18px;
+            transition: 0.2s;
+        }
+
+        .post:hover {
+            border-color: #3a3f5a;
         }
 
         .post h2 {
-            margin-top: 0;
+            margin: 0 0 10px;
+            font-size: 21px;
+            line-height: 1.4;
         }
 
         .post-info {
             color: #8e95aa;
             font-size: 14px;
+            margin-bottom: 18px;
         }
 
         .post-conteudo {
             color: #c8ccda;
-            line-height: 1.6;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
         }
+
+        /* =========================
+           AÇÕES
+        ========================= */
 
         .acoes-post {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+            gap: 18px;
+            border-top: 1px solid #25283a;
+            padding-top: 16px;
         }
 
-        .botao-curtir {
-            background: #292d42;
+        .acao {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #9da3b8;
         }
 
-        .botao-curtir.curtido {
-            background: #6258e8;
+        /* CORAÇÃO */
+
+        .botao-coracao {
+            background: transparent;
+            color: #9da3b8;
+            font-size: 28px;
+            padding: 0;
+            line-height: 1;
+            transition: transform 0.15s ease;
+        }
+
+        .botao-coracao:hover {
+            transform: scale(1.15);
+        }
+
+        .botao-coracao.curtido {
+            color: #ff3b6b;
+            animation: coracao 0.25s ease;
+        }
+
+        @keyframes coracao {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.35);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
         }
 
         .contador-curtidas {
-            color: #9da3b8;
+            color: #c8ccda;
             font-size: 14px;
         }
 
         .botao-ver {
-            background: #292d42;
+            margin-left: auto;
+            background: transparent;
+            color: #8e95aa;
+            padding: 8px 0;
         }
 
         .botao-ver:hover {
-            background: #6258e8;
+            color: white;
         }
 
+        /* =========================
+           RESPOSTAS
+        ========================= */
+
         .respostas {
-            margin-top: 25px;
-            border-top: 1px solid #292d42;
-            padding-top: 15px;
+            margin-top: 22px;
+            border-top: 1px solid #25283a;
+            padding-top: 18px;
+        }
+
+        .respostas h3 {
+            font-size: 16px;
+            color: #c8ccda;
         }
 
         .resposta {
             background: #0d0f19;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-top: 10px;
             border: 1px solid #25283a;
+        }
+
+        .resposta strong {
+            font-size: 14px;
         }
 
         .resposta p {
@@ -159,12 +277,61 @@
             margin-bottom: 0;
         }
 
+        /* =========================
+           RESPONDER
+        ========================= */
+
         .responder-area {
             margin-top: 20px;
         }
 
         .responder-area textarea {
             min-height: 80px;
+        }
+
+        .btn-responder {
+            background: #292d42;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+        }
+
+        .btn-responder:hover {
+            background: #6258e8;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .btn-header {
+                padding: 8px 10px;
+            }
+
+            main {
+                width: 94%;
+                margin-top: 25px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .post,
+            .criar-post {
+                padding: 18px;
+            }
+
         }
 
     </style>
@@ -182,14 +349,20 @@
     </div>
 
 
-    <div style="display: flex; gap: 10px;">
+    <div class="header-botoes">
 
-        <button onclick="perfil()">
-            👤 Meu Perfil
+        <button
+            class="btn-header"
+            onclick="perfil()"
+        >
+            👤 Perfil
         </button>
 
 
-        <button onclick="sair()">
+        <button
+            class="btn-header"
+            onclick="sair()"
+        >
             Sair
         </button>
 
@@ -200,15 +373,23 @@
 
 <main>
 
-    <h1>
-        Comunidade
-    </h1>
+
+    <div class="titulo-area">
+
+        <h1>
+            Comunidade
+        </h1>
+
+        <p class="descricao">
+            Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
+        </p>
+
+    </div>
 
 
-    <p class="descricao">
-        Tire dúvidas, compartilhe conhecimento e ajude quem está começando.
-    </p>
-
+    <!-- =========================
+         CRIAR PERGUNTA
+    ========================== -->
 
     <div class="criar-post">
 
@@ -255,14 +436,17 @@
         ></textarea>
 
 
-        <button onclick="criarPost()">
+        <button
+            class="btn-publicar"
+            onclick="criarPost()"
+        >
             Publicar pergunta
         </button>
 
     </div>
 
 
-    <h2 style="margin-top: 50px;">
+    <h2>
         Perguntas recentes
     </h2>
 
@@ -270,6 +454,7 @@
     <div id="posts">
         Carregando perguntas...
     </div>
+
 
 </main>
 
@@ -305,7 +490,9 @@ async function verificarLogin() {
 
         console.error(error);
 
-        alert("Erro ao verificar login.");
+        alert(
+            "Erro ao verificar login."
+        );
 
         return;
     }
@@ -525,42 +712,40 @@ async function carregarPosts() {
 
 
             <p class="post-conteudo">
-
                 ${post.conteudo}
-
             </p>
 
 
             <div class="acoes-post">
 
-                <button
-                    id="curtir-${post.id}"
-                    class="botao-curtir"
-                    onclick="alternarCurtida('${post.id}')"
-                >
 
-                    👍 Curtir
+                <div class="acao">
 
-                </button>
+                    <button
+                        id="curtir-${post.id}"
+                        class="botao-coracao"
+                        onclick="alternarCurtida('${post.id}')"
+                        aria-label="Curtir"
+                    >
+                        ♡
+                    </button>
 
 
-                <span
-                    id="contador-${post.id}"
-                    class="contador-curtidas"
-                >
+                    <span
+                        id="contador-${post.id}"
+                        class="contador-curtidas"
+                    >
+                        0 curtidas
+                    </span>
 
-                    Carregando curtidas...
-
-                </span>
+                </div>
 
 
                 <button
                     class="botao-ver"
                     onclick="abrirPost('${post.id}')"
                 >
-
                     🔎 Ver pergunta
-
                 </button>
 
             </div>
@@ -570,9 +755,7 @@ async function carregarPosts() {
                 class="respostas"
                 id="respostas-${post.id}"
             >
-
                 Carregando respostas...
-
             </div>
 
 
@@ -585,11 +768,10 @@ async function carregarPosts() {
 
 
                 <button
+                    class="btn-responder"
                     onclick="responder('${post.id}')"
                 >
-
                     💬 Responder
-
                 </button>
 
             </div>
@@ -600,10 +782,14 @@ async function carregarPosts() {
         container.appendChild(div);
 
 
-        carregarRespostas(post.id);
+        carregarRespostas(
+            post.id
+        );
 
 
-        carregarCurtidas(post.id);
+        carregarCurtidas(
+            post.id
+        );
 
     }
 
@@ -630,13 +816,8 @@ async function carregarCurtidas(postId) {
 
     const { data, error } =
         await window.supabaseClient
-
             .from("curtidas")
-
-            .select(
-                "user_id"
-            )
-
+            .select("user_id")
             .eq(
                 "post_id",
                 postId
@@ -660,8 +841,8 @@ async function carregarCurtidas(postId) {
 
     contador.textContent =
         quantidade === 1
-            ? "👍 1 curtida"
-            : `👍 ${quantidade} curtidas`;
+            ? "1 curtida"
+            : `${quantidade} curtidas`;
 
 
     const usuarioCurtiu =
@@ -675,7 +856,7 @@ async function carregarCurtidas(postId) {
     if (usuarioCurtiu) {
 
         botao.textContent =
-            "👎 Descurtir";
+            "♥";
 
         botao.classList.add(
             "curtido"
@@ -684,7 +865,7 @@ async function carregarCurtidas(postId) {
     } else {
 
         botao.textContent =
-            "👍 Curtir";
+            "♡";
 
         botao.classList.remove(
             "curtido"
@@ -711,18 +892,25 @@ async function alternarCurtida(postId) {
     }
 
 
+    const botao =
+        document.getElementById(
+            `curtir-${postId}`
+        );
+
+
+    /*
+       Verifica se o usuário
+       já curtiu.
+    */
+
     const { data, error } =
         await window.supabaseClient
-
             .from("curtidas")
-
             .select("id")
-
             .eq(
                 "post_id",
                 postId
             )
-
             .eq(
                 "user_id",
                 usuarioLogado.id
@@ -742,15 +930,20 @@ async function alternarCurtida(postId) {
     }
 
 
-    if (data && data.length > 0) {
+    /*
+       Se já curtiu,
+       remove a curtida.
+    */
+
+    if (
+        data &&
+        data.length > 0
+    ) {
 
         const { error: deleteError } =
             await window.supabaseClient
-
                 .from("curtidas")
-
                 .delete()
-
                 .eq(
                     "id",
                     data[0].id
@@ -772,13 +965,18 @@ async function alternarCurtida(postId) {
         }
 
 
-    } else {
+    }
+
+    /*
+       Se ainda não curtiu,
+       cria a curtida.
+    */
+
+    else {
 
         const { error: insertError } =
             await window.supabaseClient
-
                 .from("curtidas")
-
                 .insert({
 
                     post_id:
@@ -807,7 +1005,14 @@ async function alternarCurtida(postId) {
     }
 
 
-    carregarCurtidas(postId);
+    /*
+       Atualiza o coração
+       e o contador.
+    */
+
+    carregarCurtidas(
+        postId
+    );
 
 }
 
@@ -825,16 +1030,13 @@ async function carregarRespostas(postId) {
 
 
     if (!container) {
-
         return;
     }
 
 
     const { data, error } =
         await window.supabaseClient
-
             .from("respostas")
-
             .select(`
                 id,
                 conteudo,
@@ -844,12 +1046,10 @@ async function carregarRespostas(postId) {
                     username
                 )
             `)
-
             .eq(
                 "post_id",
                 postId
             )
-
             .order(
                 "created_at",
                 {
@@ -869,7 +1069,10 @@ async function carregarRespostas(postId) {
     }
 
 
-    if (!data || data.length === 0) {
+    if (
+        !data ||
+        data.length === 0
+    ) {
 
         container.innerHTML =
             "<p style='color:#8e95aa;'>Nenhuma resposta ainda.</p>";
@@ -913,7 +1116,6 @@ async function carregarRespostas(postId) {
                     👤 ${nome}
                 </strong>
 
-
                 <p>
                     ${resposta.conteudo}
                 </p>
@@ -944,7 +1146,6 @@ async function responder(postId) {
 
 
     if (!campo) {
-
         return;
     }
 
@@ -975,9 +1176,7 @@ async function responder(postId) {
 
     const { error } =
         await window.supabaseClient
-
             .from("respostas")
-
             .insert({
 
                 post_id:
@@ -1021,7 +1220,7 @@ async function responder(postId) {
 
 
 /* =================================
-   ABRIR PERGUNTA
+   ABRIR POST
 ================================= */
 
 function abrirPost(postId) {
