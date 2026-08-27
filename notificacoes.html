@@ -10,576 +10,374 @@
 
     <title>Notificações - TechCommunity</title>
 
-
     <style>
 
         * {
             box-sizing: border-box;
         }
 
-
         body {
-
             margin: 0;
-
             font-family: Arial, sans-serif;
-
-            background: #0b0d17;
-
+            background:
+                radial-gradient(
+                    circle at top,
+                    #171a35 0%,
+                    #0b0d17 45%
+                );
             color: white;
-
             min-height: 100vh;
-
         }
-
 
         /* =========================
            HEADER
         ========================= */
 
         header {
-
             height: 70px;
-
             padding: 0 8%;
-
             border-bottom: 1px solid #25283a;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
-            background: #0b0d17;
-
+            background: rgba(11, 13, 23, 0.92);
+            backdrop-filter: blur(12px);
             position: sticky;
-
             top: 0;
-
-            z-index: 10;
-
+            z-index: 20;
         }
-
 
         .logo {
-
             font-size: 24px;
-
             font-weight: bold;
-
         }
-
 
         .logo span {
-
             color: #6c63ff;
-
         }
-
 
         .header-botoes {
-
             display: flex;
-
             gap: 10px;
-
         }
-
 
         button {
-
             border: none;
-
             cursor: pointer;
-
             font-weight: bold;
-
         }
-
 
         .btn-header {
-
             background: #171a29;
-
             color: white;
-
             border: 1px solid #292d42;
-
             padding: 10px 16px;
-
             border-radius: 9px;
-
             transition: 0.2s;
-
         }
-
 
         .btn-header:hover {
-
             background: #25283a;
-
             transform: translateY(-1px);
-
         }
 
-
         /* =========================
-           CONTAINER
+           MAIN
         ========================= */
 
         main {
-
             width: 92%;
-
             max-width: 850px;
-
-            margin: 40px auto 80px;
-
+            margin: 45px auto 80px;
         }
-
 
         .topo {
-
             display: flex;
-
             justify-content: space-between;
-
-            align-items: center;
-
+            align-items: flex-end;
             gap: 20px;
-
-            margin-bottom: 25px;
-
+            margin-bottom: 30px;
         }
-
 
         .topo h1 {
-
-            margin: 0;
-
-            font-size: 34px;
-
+            margin: 0 0 8px;
+            font-size: 36px;
         }
-
 
         .descricao {
-
+            margin: 0;
             color: #9da3b8;
-
-            margin-top: 8px;
-
         }
 
-
-        .btn-lidas {
-
+        .btn-marcar-todas {
             background: #6258e8;
-
             color: white;
-
-            padding: 11px 16px;
-
+            padding: 11px 17px;
             border-radius: 9px;
-
             transition: 0.2s;
-
         }
 
-
-        .btn-lidas:hover {
-
+        .btn-marcar-todas:hover {
             background: #7168f0;
-
             transform: translateY(-1px);
-
         }
-
 
         /* =========================
            CONTADOR
         ========================= */
 
-        .contador-area {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
+        .resumo {
+            background: #171a29;
+            border: 1px solid #292d42;
+            border-radius: 16px;
+            padding: 18px 20px;
             margin-bottom: 20px;
-
-            color: #9da3b8;
-
-        }
-
-
-        .contador {
-
-            background: #6258e8;
-
-            color: white;
-
-            min-width: 27px;
-
-            height: 27px;
-
-            padding: 0 8px;
-
-            border-radius: 20px;
-
-            display: inline-flex;
-
+            display: flex;
             align-items: center;
-
-            justify-content: center;
-
-            font-size: 13px;
-
-            font-weight: bold;
-
+            justify-content: space-between;
         }
 
+        .resumo-texto {
+            color: #c8ccda;
+        }
+
+        .contador-nao-lidas {
+            background: #6258e8;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
 
         /* =========================
-           NOTIFICAÇÃO
+           NOTIFICAÇÕES
         ========================= */
 
-        .notificacao {
-
-            background: #111421;
-
-            border: 1px solid #292d42;
-
-            border-radius: 16px;
-
-            padding: 20px;
-
-            margin-bottom: 12px;
-
+        .lista {
             display: flex;
-
-            align-items: center;
-
-            gap: 16px;
-
-            cursor: pointer;
-
-            transition:
-
-                transform 0.2s ease,
-
-                border-color 0.2s ease,
-
-                background 0.2s ease;
-
+            flex-direction: column;
+            gap: 12px;
         }
 
+        .notificacao {
+            position: relative;
+            background: #171a29;
+            border: 1px solid #292d42;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
 
         .notificacao:hover {
-
             transform: translateY(-2px);
-
-            border-color: #464b6b;
-
-            background: #151829;
-
+            border-color: #414764;
+            background: #1a1e30;
         }
-
 
         .notificacao.nao-lida {
-
-            border-left: 4px solid #6258e8;
-
-            background: #15172a;
-
+            border-color: #6258e8;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(98, 88, 232, 0.12),
+                    #171a29
+                );
         }
 
+        .notificacao.nao-lida::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            bottom: 16px;
+            width: 3px;
+            background: #6258e8;
+            border-radius: 0 5px 5px 0;
+        }
 
         /* =========================
            ÍCONE
         ========================= */
 
         .icone-notificacao {
-
             width: 48px;
-
             height: 48px;
-
             min-width: 48px;
-
-            border-radius: 50%;
-
+            border-radius: 14px;
             background: #292d42;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-size: 22px;
-
         }
-
-
-        .notificacao.resposta
-        .icone-notificacao {
-
-            background: rgba(98, 88, 232, 0.18);
-
-        }
-
-
-        .notificacao.curtida
-        .icone-notificacao {
-
-            background: rgba(255, 59, 107, 0.15);
-
-        }
-
-
-        /* =========================
-           TEXTO
-        ========================= */
 
         .notificacao-conteudo {
-
             flex: 1;
-
             min-width: 0;
-
         }
-
-
-        .notificacao-titulo {
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            margin-bottom: 6px;
-
-        }
-
 
         .notificacao-mensagem {
-
-            color: #aeb3c5;
-
-            font-size: 14px;
-
+            color: #e4e6ef;
             line-height: 1.5;
-
+            margin: 0 0 8px;
+            font-size: 15px;
         }
-
 
         .notificacao-data {
-
-            color: #73798f;
-
+            color: #777f97;
             font-size: 12px;
-
-            margin-top: 8px;
-
         }
-
 
         /* =========================
-           INDICADOR NÃO LIDA
+           AÇÕES
         ========================= */
 
-        .indicador {
-
-            width: 9px;
-
-            height: 9px;
-
-            min-width: 9px;
-
-            border-radius: 50%;
-
-            background: #6258e8;
-
+        .acoes {
+            display: flex;
+            gap: 7px;
+            align-items: center;
         }
 
+        .btn-acao {
+            width: 34px;
+            height: 34px;
+            padding: 0;
+            border-radius: 9px;
+            background: #292d42;
+            color: #c8ccda;
+            transition: 0.2s;
+        }
+
+        .btn-acao:hover {
+            background: #3a3f5a;
+            color: white;
+        }
+
+        .btn-excluir:hover {
+            background: #512734;
+            color: #ff8d9a;
+        }
 
         /* =========================
            VAZIO
         ========================= */
 
         .vazio {
-
             text-align: center;
-
             padding: 70px 20px;
-
-            background: #111421;
-
+            background: #171a29;
             border: 1px solid #292d42;
-
             border-radius: 18px;
-
         }
-
 
         .vazio-icone {
-
             font-size: 55px;
-
             margin-bottom: 15px;
-
         }
-
 
         .vazio h2 {
-
-            margin-bottom: 8px;
-
+            margin: 0 0 8px;
         }
-
 
         .vazio p {
-
             color: #8e95aa;
-
+            margin: 0;
         }
-
 
         /* =========================
            CARREGANDO
         ========================= */
 
         .carregando {
-
             text-align: center;
-
             color: #9da3b8;
-
             padding: 60px;
-
         }
-
 
         .spinner {
-
             width: 35px;
-
             height: 35px;
-
             border: 3px solid #292d42;
-
             border-top-color: #6258e8;
-
             border-radius: 50%;
-
             margin: 0 auto 15px;
-
             animation: girar 0.8s linear infinite;
-
         }
-
 
         @keyframes girar {
 
             to {
-
                 transform: rotate(360deg);
-
             }
 
         }
-
 
         /* =========================
            ERRO
         ========================= */
 
         .erro {
-
             background: #301820;
-
             border: 1px solid #6b2636;
-
             color: #ff9da9;
-
             padding: 20px;
-
             border-radius: 12px;
-
         }
-
 
         /* =========================
            RESPONSIVO
         ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             header {
-
                 padding: 0 5%;
-
             }
-
 
             .logo {
-
                 font-size: 20px;
-
             }
 
-
-            .btn-header {
-
+            .header-botoes button {
                 padding: 8px 10px;
-
             }
-
 
             main {
-
                 width: 94%;
-
-                margin-top: 25px;
-
+                margin-top: 30px;
             }
-
 
             .topo {
-
-                align-items: flex-start;
-
                 flex-direction: column;
-
+                align-items: stretch;
             }
-
 
             .topo h1 {
-
-                font-size: 29px;
-
+                font-size: 30px;
             }
 
+            .btn-marcar-todas {
+                width: 100%;
+            }
 
             .notificacao {
-
-                padding: 15px;
-
+                padding: 16px;
             }
 
-
             .icone-notificacao {
-
                 width: 42px;
-
                 height: 42px;
-
                 min-width: 42px;
-
                 font-size: 19px;
+            }
 
+            .acoes {
+                flex-direction: column;
             }
 
         }
@@ -594,11 +392,8 @@
 
 <header>
 
-
     <div class="logo">
-
         Tech<span>Community</span>
-
     </div>
 
 
@@ -621,15 +416,6 @@
 
         </button>
 
-
-        <button
-            class="btn-header"
-            onclick="sair()">
-
-            Sair
-
-        </button>
-
     </div>
 
 </header>
@@ -647,14 +433,14 @@
             </h1>
 
             <p class="descricao">
-                Veja quem respondeu suas perguntas ou curtiu suas respostas.
+                Acompanhe as novidades da comunidade.
             </p>
 
         </div>
 
 
         <button
-            class="btn-lidas"
+            class="btn-marcar-todas"
             onclick="marcarTodasComoLidas()">
 
             ✓ Marcar todas como lidas
@@ -664,25 +450,29 @@
     </div>
 
 
-    <div class="contador-area">
+    <div class="resumo">
 
-        <span>
-            Não lidas
+        <span class="resumo-texto">
+
+            Suas notificações
+
         </span>
 
 
         <span
             id="contadorNaoLidas"
-            class="contador">
+            class="contador-nao-lidas">
 
-            0
+            0 novas
 
         </span>
 
     </div>
 
 
-    <div id="listaNotificacoes">
+    <div
+        id="listaNotificacoes"
+        class="lista">
 
         <div class="carregando">
 
@@ -706,21 +496,23 @@
 <script>
 
 
-/* =================================
-   USUÁRIO LOGADO
-================================= */
+/* ================================
+   VARIÁVEIS
+================================ */
 
 let usuarioAtual = null;
 
 
-/* =================================
+/* ================================
    VERIFICAR LOGIN
-================================= */
+================================ */
 
 async function verificarLogin() {
 
-    const { data, error } =
-
+    const {
+        data,
+        error
+    } =
         await window.supabaseClient
             .auth
             .getSession();
@@ -758,9 +550,9 @@ async function verificarLogin() {
 }
 
 
-/* =================================
+/* ================================
    CARREGAR NOTIFICAÇÕES
-================================= */
+================================ */
 
 async function carregarNotificacoes() {
 
@@ -770,17 +562,18 @@ async function carregarNotificacoes() {
         );
 
 
-    const { data, error } =
-
+    const {
+        data,
+        error
+    } =
         await window.supabaseClient
 
             .from("notificacoes")
 
             .select(`
                 id,
-                user_id,
+                autor_id,
                 tipo,
-                titulo,
                 mensagem,
                 post_id,
                 resposta_id,
@@ -803,22 +596,45 @@ async function carregarNotificacoes() {
 
     if (error) {
 
-        console.error(error);
-
-        mostrarErro(
-            "Erro ao carregar notificações: " +
-            error.message
+        console.error(
+            "Erro ao carregar notificações:",
+            error
         );
+
+
+        container.innerHTML = `
+
+            <div class="erro">
+
+                Erro ao carregar notificações:
+
+                <br><br>
+
+                ${escaparHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    atualizarContador(data);
+    const notificacoes =
+        data || [];
 
 
-    if (!data || data.length === 0) {
+    atualizarContador(
+        notificacoes
+    );
+
+
+    if (
+        notificacoes.length === 0
+    ) {
 
         container.innerHTML = `
 
@@ -829,12 +645,11 @@ async function carregarNotificacoes() {
                 </div>
 
                 <h2>
-                    Nenhuma notificação
+                    Tudo tranquilo por aqui!
                 </h2>
 
                 <p>
-                    Quando alguém responder sua pergunta
-                    ou curtir sua resposta, aparecerá aqui.
+                    Você ainda não recebeu nenhuma notificação.
                 </p>
 
             </div>
@@ -849,12 +664,11 @@ async function carregarNotificacoes() {
     container.innerHTML = "";
 
 
-    data.forEach(
+    notificacoes.forEach(
         notificacao => {
 
             criarNotificacao(
-                notificacao,
-                container
+                notificacao
             );
 
         }
@@ -863,14 +677,19 @@ async function carregarNotificacoes() {
 }
 
 
-/* =================================
+/* ================================
    CRIAR NOTIFICAÇÃO
-================================= */
+================================ */
 
 function criarNotificacao(
-    notificacao,
-    container
+    notificacao
 ) {
+
+    const container =
+        document.getElementById(
+            "listaNotificacoes"
+        );
+
 
     const div =
         document.createElement(
@@ -878,39 +697,19 @@ function criarNotificacao(
         );
 
 
-    const naoLida =
-        !notificacao.lida;
-
-
     div.className =
-        "notificacao " +
-        (naoLida
-            ? "nao-lida "
-            : "") +
-        notificacao.tipo;
+        "notificacao" +
+        (
+            !notificacao.lida
+                ? " nao-lida"
+                : ""
+        );
 
 
-    let icone = "🔔";
-
-
-    if (
-        notificacao.tipo ===
-        "resposta"
-    ) {
-
-        icone = "💬";
-
-    }
-
-
-    if (
-        notificacao.tipo ===
-        "curtida"
-    ) {
-
-        icone = "❤️";
-
-    }
+    const icone =
+        obterIcone(
+            notificacao.tipo
+        );
 
 
     const dataFormatada =
@@ -928,99 +727,191 @@ function criarNotificacao(
         </div>
 
 
-        <div class="notificacao-conteudo">
+        <div
+            class="notificacao-conteudo"
+            onclick="abrirNotificacao('${notificacao.id}', '${notificacao.post_id || ""}')"
+            style="cursor:pointer;">
 
-            <div class="notificacao-titulo">
+            <p class="notificacao-mensagem">
 
-                ${notificacao.titulo}
+                ${escaparHTML(
+                    notificacao.mensagem
+                )}
 
-            </div>
-
-
-            <div class="notificacao-mensagem">
-
-                ${notificacao.mensagem}
-
-            </div>
+            </p>
 
 
             <div class="notificacao-data">
 
                 ${dataFormatada}
 
+                ${
+                    !notificacao.lida
+                        ? " · <strong style='color:#8d84ff;'>Nova</strong>"
+                        : ""
+                }
+
             </div>
 
         </div>
 
 
-        ${
-            naoLida
+        <div class="acoes">
 
-            ?
+            ${
+                !notificacao.lida
 
-            `<div
-                class="indicador"
-                title="Não lida">
-            </div>`
+                ?
 
-            :
+                `
+                <button
+                    class="btn-acao"
+                    title="Marcar como lida"
+                    onclick="marcarComoLida(event, '${notificacao.id}')">
 
-            ""
+                    ✓
 
-        }
+                </button>
+                `
+
+                :
+
+                ""
+            }
+
+
+            <button
+                class="btn-acao btn-excluir"
+                title="Excluir notificação"
+                onclick="excluirNotificacao(event, '${notificacao.id}')">
+
+                🗑
+
+            </button>
+
+        </div>
 
     `;
 
 
-    div.addEventListener(
-        "click",
-        async function() {
-
-            if (!notificacao.lida) {
-
-                await marcarComoLida(
-                    notificacao.id
-                );
-
-            }
-
-
-            /*
-             * Se a notificação
-             * estiver relacionada
-             * a uma pergunta,
-             * abre o post.
-             */
-
-            if (
-                notificacao.post_id
-            ) {
-
-                window.location.href =
-                    "post.html?id=" +
-                    notificacao.post_id;
-
-            }
-
-        }
+    container.appendChild(
+        div
     );
-
-
-    container.appendChild(div);
 
 }
 
 
-/* =================================
-   MARCAR UMA COMO LIDA
-================================= */
+/* ================================
+   ÍCONE POR TIPO
+================================ */
+
+function obterIcone(
+    tipo
+) {
+
+    if (!tipo) {
+
+        return "🔔";
+
+    }
+
+
+    const tipoNormalizado =
+        tipo
+            .toLowerCase()
+            .trim();
+
+
+    if (
+        tipoNormalizado.includes(
+            "resposta"
+        )
+    ) {
+
+        return "💬";
+
+    }
+
+
+    if (
+        tipoNormalizado.includes(
+            "curtida"
+        )
+        ||
+        tipoNormalizado.includes(
+            "like"
+        )
+    ) {
+
+        return "❤️";
+
+    }
+
+
+    if (
+        tipoNormalizado.includes(
+            "post"
+        )
+        ||
+        tipoNormalizado.includes(
+            "pergunta"
+        )
+    ) {
+
+        return "📚";
+
+    }
+
+
+    return "🔔";
+
+}
+
+
+/* ================================
+   CONTADOR
+================================ */
+
+function atualizarContador(
+    notificacoes
+) {
+
+    const contador =
+        document.getElementById(
+            "contadorNaoLidas"
+        );
+
+
+    const quantidade =
+        notificacoes.filter(
+            notificacao =>
+                !notificacao.lida
+        ).length;
+
+
+    contador.textContent =
+        quantidade === 1
+            ? "1 nova"
+            : `${quantidade} novas`;
+
+}
+
+
+/* ================================
+   MARCAR COMO LIDA
+================================ */
 
 async function marcarComoLida(
+    event,
     notificacaoId
 ) {
 
-    const { error } =
+    event.stopPropagation();
 
+
+    const {
+        error
+    } =
         await window.supabaseClient
 
             .from("notificacoes")
@@ -1042,9 +933,11 @@ async function marcarComoLida(
 
     if (error) {
 
-        console.error(
-            "Erro ao marcar notificação:",
-            error
+        console.error(error);
+
+        alert(
+            "Erro ao marcar como lida: " +
+            error.message
         );
 
         return;
@@ -1057,14 +950,15 @@ async function marcarComoLida(
 }
 
 
-/* =================================
-   MARCAR TODAS COMO LIDAS
-================================= */
+/* ================================
+   MARCAR TODAS
+================================ */
 
 async function marcarTodasComoLidas() {
 
-    const { error } =
-
+    const {
+        error
+    } =
         await window.supabaseClient
 
             .from("notificacoes")
@@ -1103,54 +997,125 @@ async function marcarTodasComoLidas() {
 }
 
 
-/* =================================
-   CONTADOR
-================================= */
+/* ================================
+   EXCLUIR
+================================ */
 
-function atualizarContador(
-    notificacoes
+async function excluirNotificacao(
+    event,
+    notificacaoId
 ) {
 
-    const contador =
-        document.getElementById(
-            "contadorNaoLidas"
-        );
+    event.stopPropagation();
 
 
-    const quantidade =
-        notificacoes
+    const {
+        error
+    } =
+        await window.supabaseClient
 
-            .filter(
-                notificacao =>
-                    !notificacao.lida
+            .from("notificacoes")
+
+            .delete()
+
+            .eq(
+                "id",
+                notificacaoId
             )
 
-            .length;
+            .eq(
+                "user_id",
+                usuarioAtual.id
+            );
 
 
-    contador.textContent =
-        quantidade;
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao excluir notificação: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    carregarNotificacoes();
 
 }
 
 
-/* =================================
-   FORMATAR DATA
-================================= */
+/* ================================
+   ABRIR NOTIFICAÇÃO
+================================ */
 
-function formatarData(
-    dataString
+async function abrirNotificacao(
+    notificacaoId,
+    postId
 ) {
 
-    if (!dataString) {
+    /* Marca como lida */
+
+    await window.supabaseClient
+
+        .from("notificacoes")
+
+        .update({
+            lida: true
+        })
+
+        .eq(
+            "id",
+            notificacaoId
+        )
+
+        .eq(
+            "user_id",
+            usuarioAtual.id
+        );
+
+
+    /*
+       Se houver post relacionado,
+       abre a pergunta.
+    */
+
+    if (postId) {
+
+        window.location.href =
+            "post.html?id=" +
+            postId;
+
+        return;
+
+    }
+
+
+    carregarNotificacoes();
+
+}
+
+
+/* ================================
+   FORMATAR DATA
+================================ */
+
+function formatarData(
+    data
+) {
+
+    if (!data) {
 
         return "";
 
     }
 
 
-    const data =
-        new Date(dataString);
+    const dataNotificacao =
+        new Date(data);
 
 
     const agora =
@@ -1158,7 +1123,8 @@ function formatarData(
 
 
     const diferenca =
-        agora - data;
+        agora -
+        dataNotificacao;
 
 
     const segundos =
@@ -1169,7 +1135,7 @@ function formatarData(
 
     if (segundos < 60) {
 
-        return "Agora";
+        return "Agora mesmo";
 
     }
 
@@ -1213,13 +1179,13 @@ function formatarData(
     if (dias < 7) {
 
         return dias === 1
-            ? "Há 1 dia"
+            ? "Ontem"
             : `Há ${dias} dias`;
 
     }
 
 
-    return data.toLocaleDateString(
+    return dataNotificacao.toLocaleDateString(
         "pt-BR",
         {
             day: "2-digit",
@@ -1231,32 +1197,57 @@ function formatarData(
 }
 
 
-/* =================================
-   ERRO
-================================= */
+/* ================================
+   PROTEÇÃO HTML
+================================ */
 
-function mostrarErro(
-    mensagem
+function escaparHTML(
+    texto
 ) {
 
-    document.getElementById(
-        "listaNotificacoes"
-    ).innerHTML = `
+    if (
+        texto === null ||
+        texto === undefined
+    ) {
 
-        <div class="erro">
+        return "";
 
-            ${mensagem}
+    }
 
-        </div>
 
-    `;
+    return String(texto)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-/* =================================
+/* ================================
    NAVEGAÇÃO
-================================= */
+================================ */
 
 function voltarComunidade() {
 
@@ -1274,26 +1265,34 @@ function perfil() {
 }
 
 
-/* =================================
-   SAIR
-================================= */
+/* ================================
+   ERRO
+================================ */
 
-async function sair() {
+function mostrarErro(
+    mensagem
+) {
 
-    await window.supabaseClient
-        .auth
-        .signOut();
+    document.getElementById(
+        "listaNotificacoes"
+    ).innerHTML = `
 
+        <div class="erro">
 
-    window.location.href =
-        "index.html";
+            ${escaparHTML(
+                mensagem
+            )}
+
+        </div>
+
+    `;
 
 }
 
 
-/* =================================
+/* ================================
    INICIAR
-================================= */
+================================ */
 
 verificarLogin();
 
