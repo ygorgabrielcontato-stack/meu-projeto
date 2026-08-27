@@ -2,168 +2,719 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Meu Perfil - TechCommunity</title>
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b0d17;
-            color: white;
+
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #0b0d17;
+
+            color: white;
+
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
-            padding: 20px 8%;
+
+            height: 70px;
+
+            padding: 0 8%;
+
             border-bottom: 1px solid #25283a;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
+            background: #0b0d17;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
         }
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
         }
 
         .logo span {
+
             color: #6c63ff;
+
         }
 
-        .botoes-header {
+        .header-botoes {
+
             display: flex;
+
             gap: 10px;
+
         }
 
         button {
-            background: #6258e8;
+
             border: none;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 8px;
+
             cursor: pointer;
+
             font-weight: bold;
+
         }
 
-        button:hover {
-            opacity: 0.9;
+        .btn-header {
+
+            background: #171a29;
+
+            color: white;
+
+            border: 1px solid #292d42;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
         }
 
-        .sair {
-            background: #292d42;
+        .btn-header:hover {
+
+            background: #25283a;
+
         }
+
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
-            width: 80%;
-            max-width: 800px;
-            margin: 50px auto;
+
+            width: 92%;
+
+            max-width: 900px;
+
+            margin: 40px auto 80px;
+
         }
 
-        .perfil {
-            background: #171a29;
+        /* =========================
+           VOLTAR
+        ========================= */
+
+        .voltar {
+
+            color: #9da3b8;
+
+            cursor: pointer;
+
+            display: inline-block;
+
+            margin-bottom: 25px;
+
+        }
+
+        .voltar:hover {
+
+            color: white;
+
+        }
+
+        /* =========================
+           PERFIL
+        ========================= */
+
+        .perfil-card {
+
+            background: #111421;
+
             border: 1px solid #292d42;
-            border-radius: 18px;
+
+            border-radius: 20px;
+
             padding: 35px;
+
+            position: relative;
+
+            overflow: hidden;
+
         }
 
-        .topo-perfil {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
+        .perfil-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 4px;
+
+            background: #6258e8;
+
         }
+
+        .perfil-topo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+        /* =========================
+           AVATAR
+        ========================= */
 
         .avatar {
-            width: 90px;
-            height: 90px;
+
+            width: 100px;
+
+            height: 100px;
+
             border-radius: 50%;
-            background: #6258e8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
 
-        h1 {
-            margin-bottom: 5px;
-        }
-
-        .username {
-            color: #8e95aa;
-            margin-bottom: 25px;
-        }
-
-        .tipo {
-            display: inline-block;
             background: #292d42;
-            padding: 8px 14px;
-            border-radius: 20px;
-            margin-bottom: 25px;
+
+            border: 3px solid #6258e8;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 42px;
+
+            flex-shrink: 0;
+
         }
 
         .informacoes {
-            border-top: 1px solid #292d42;
-            padding-top: 20px;
+
+            flex: 1;
+
         }
 
-        .informacao {
+        .informacoes h1 {
+
+            margin: 0 0 5px;
+
+            font-size: 30px;
+
+        }
+
+        .username {
+
+            color: #8e95aa;
+
+            font-size: 15px;
+
+        }
+
+        /* =========================
+           BADGES
+        ========================= */
+
+        .badges {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 12px;
+
+        }
+
+        .badge {
+
+            background: #292d42;
+
+            color: #c8ccda;
+
+            padding: 6px 10px;
+
+            border-radius: 15px;
+
+            font-size: 12px;
+
+        }
+
+        .badge-professor {
+
+            background: #6258e8;
+
+            color: white;
+
+        }
+
+        /* =========================
+           BIO
+        ========================= */
+
+        .bio {
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #292d42;
+
+        }
+
+        .bio h3 {
+
+            margin-top: 0;
+
+        }
+
+        .bio p {
+
+            color: #aeb4c7;
+
+            line-height: 1.6;
+
+        }
+
+        /* =========================
+           ESTATÍSTICAS
+        ========================= */
+
+        .estatisticas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 25px;
+
+        }
+
+        .estatistica {
+
             background: #0d0f19;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 10px;
+
+            border: 1px solid #25283a;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            text-align: center;
+
+            transition: 0.2s;
+
+        }
+
+        .estatistica:hover {
+
+            transform: translateY(-3px);
+
+            border-color: #6258e8;
+
+        }
+
+        .numero {
+
+            display: block;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: white;
+
         }
 
         .label {
+
             color: #8e95aa;
+
             font-size: 13px;
-            margin-bottom: 5px;
+
+            margin-top: 5px;
+
+            display: block;
+
         }
 
-        .valor {
-            font-size: 17px;
+        /* =========================
+           BOTÃO EDITAR
+        ========================= */
+
+        .acoes-perfil {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            gap: 10px;
+
         }
+
+        .btn-editar {
+
+            background: #6258e8;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 9px;
+
+        }
+
+        .btn-editar:hover {
+
+            background: #7168f0;
+
+        }
+
+        /* =========================
+           ATIVIDADE
+        ========================= */
+
+        .atividade {
+
+            margin-top: 35px;
+
+        }
+
+        .atividade h2 {
+
+            margin-bottom: 20px;
+
+        }
+
+        .item {
+
+            background: #111421;
+
+            border: 1px solid #292d42;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+        .item:hover {
+
+            border-color: #6258e8;
+
+            transform: translateY(-2px);
+
+        }
+
+        .item h3 {
+
+            margin: 0 0 8px;
+
+            font-size: 17px;
+
+        }
+
+        .item p {
+
+            color: #8e95aa;
+
+            margin: 0;
+
+            font-size: 14px;
+
+        }
+
+        .sem-atividade {
+
+            color: #8e95aa;
+
+            padding: 20px 0;
+
+        }
+
+        /* =========================
+           MODAL EDITAR
+        ========================= */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.75);
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 100;
+
+            padding: 20px;
+
+        }
+
+        .modal.ativo {
+
+            display: flex;
+
+        }
+
+        .modal-conteudo {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background: #171a29;
+
+            border: 1px solid #292d42;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+        }
+
+        .modal-conteudo h2 {
+
+            margin-top: 0;
+
+        }
+
+        .modal-conteudo input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-top: 8px;
+
+            margin-bottom: 15px;
+
+            background: #0d0f19;
+
+            border: 1px solid #30344b;
+
+            border-radius: 8px;
+
+            color: white;
+
+            outline: none;
+
+        }
+
+        .modal-conteudo input:focus {
+
+            border-color: #6258e8;
+
+        }
+
+        .modal-botoes {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 10px;
+
+        }
+
+        .btn-cancelar {
+
+            background: #292d42;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+        }
+
+        .btn-salvar {
+
+            background: #6258e8;
+
+            color: white;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+        }
+
+        /* =========================
+           CARREGANDO
+        ========================= */
 
         .carregando {
+
             text-align: center;
+
             color: #9da3b8;
+
+            padding: 50px;
+
         }
 
         .erro {
+
             background: #301820;
+
             border: 1px solid #6b2636;
-            padding: 20px;
-            border-radius: 10px;
+
             color: #ff9da9;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
         }
 
-        .acoes {
-            margin-top: 30px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 0 5%;
+
+            }
+
+            .logo {
+
+                font-size: 20px;
+
+            }
+
+            .btn-header {
+
+                padding: 8px 10px;
+
+            }
+
+            main {
+
+                width: 94%;
+
+                margin-top: 25px;
+
+            }
+
+            .perfil-card {
+
+                padding: 22px;
+
+            }
+
+            .perfil-topo {
+
+                align-items: flex-start;
+
+            }
+
+            .avatar {
+
+                width: 75px;
+
+                height: 75px;
+
+                font-size: 32px;
+
+            }
+
+            .informacoes h1 {
+
+                font-size: 23px;
+
+            }
+
+            .estatisticas {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
     <div class="logo">
+
         Tech<span>Community</span>
+
     </div>
 
-    <div class="botoes-header">
 
-        <button onclick="voltarComunidade()">
+    <div class="header-botoes">
+
+        <button
+            class="btn-header"
+            onclick="comunidade()"
+        >
             💬 Comunidade
         </button>
 
-        <button class="sair" onclick="sair()">
+
+        <button
+            class="btn-header"
+            onclick="sair()"
+        >
             Sair
         </button>
 
@@ -174,15 +725,112 @@
 
 <main>
 
-    <div id="perfil" class="perfil">
+    <div
+        class="voltar"
+        onclick="comunidade()"
+    >
+
+        ← Voltar para comunidade
+
+    </div>
+
+
+    <div id="perfil">
 
         <div class="carregando">
+
             Carregando perfil...
+
         </div>
 
     </div>
 
+
 </main>
+
+
+<!-- =========================
+     MODAL EDITAR
+========================= -->
+
+<div
+    id="modal"
+    class="modal"
+>
+
+    <div class="modal-conteudo">
+
+        <h2>
+            ✏️ Editar perfil
+        </h2>
+
+
+        <label>
+            Nome
+        </label>
+
+        <input
+            id="editarNome"
+            type="text"
+            placeholder="Seu nome"
+        >
+
+
+        <label>
+            Username
+        </label>
+
+        <input
+            id="editarUsername"
+            type="text"
+            placeholder="Seu username"
+        >
+
+
+        <label>
+            Curso
+        </label>
+
+        <input
+            id="editarCurso"
+            type="text"
+            placeholder="Seu curso"
+        >
+
+
+        <label>
+            Semestre
+        </label>
+
+        <input
+            id="editarSemestre"
+            type="text"
+            placeholder="Ex: 3º semestre"
+        >
+
+
+        <div class="modal-botoes">
+
+            <button
+                class="btn-cancelar"
+                onclick="fecharModal()"
+            >
+                Cancelar
+            </button>
+
+
+            <button
+                class="btn-salvar"
+                onclick="salvarPerfil()"
+            >
+                Salvar alterações
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -192,6 +840,60 @@
 
 <script>
 
+
+/* ================================
+   USUÁRIO
+================================ */
+
+let usuarioAtual = null;
+
+let perfilAtual = null;
+
+
+/* ================================
+   VERIFICAR LOGIN
+================================ */
+
+async function verificarLogin() {
+
+    const { data, error } =
+        await window.supabaseClient
+            .auth
+            .getSession();
+
+
+    if (error) {
+
+        console.error(error);
+
+        mostrarErro(
+            "Erro ao verificar login."
+        );
+
+        return;
+
+    }
+
+
+    usuarioAtual =
+        data.session?.user;
+
+
+    if (!usuarioAtual) {
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
+
+
+    carregarPerfil();
+
+}
+
+
 /* ================================
    CARREGAR PERFIL
 ================================ */
@@ -199,43 +901,18 @@
 async function carregarPerfil() {
 
     const container =
-        document.getElementById("perfil");
-
-
-    const { data: sessionData, error: sessionError } =
-        await window.supabaseClient.auth.getSession();
-
-
-    if (sessionError) {
-
-        console.error(sessionError);
-
-        container.innerHTML = `
-            <div class="erro">
-                Erro ao verificar login.
-            </div>
-        `;
-
-        return;
-    }
-
-
-    const user =
-        sessionData.session?.user;
-
-
-    if (!user) {
-
-        window.location.href = "index.html";
-
-        return;
-    }
+        document.getElementById(
+            "perfil"
+        );
 
 
     const { data, error } =
         await window.supabaseClient
+
             .from("profiles")
+
             .select(`
+                id,
                 nome,
                 username,
                 curso,
@@ -243,7 +920,12 @@ async function carregarPerfil() {
                 nivel,
                 tipo_conta
             `)
-            .eq("id", user.id)
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            )
+
             .single();
 
 
@@ -251,155 +933,403 @@ async function carregarPerfil() {
 
         console.error(error);
 
-        container.innerHTML = `
-            <div class="erro">
-                <strong>Erro ao carregar perfil.</strong>
-                <br><br>
-                ${error.message}
-            </div>
-        `;
+        mostrarErro(
+            "Erro ao carregar seu perfil."
+        );
 
         return;
+
     }
+
+
+    perfilAtual = data;
 
 
     const nome =
-        data.nome || "Usuário";
+        data.nome ||
+        "Usuário";
 
 
     const username =
-        data.username || "usuário";
+        data.username ||
+        "usuario";
 
 
     const curso =
-        data.curso || "Não informado";
+        data.curso ||
+        "Curso não informado";
 
 
     const semestre =
-        data.semestre || "Não informado";
+        data.semestre ||
+        "Semestre não informado";
 
 
     const nivel =
-        data.nivel || "Não informado";
+        data.nivel ||
+        "Membro";
 
 
     const tipoConta =
-        data.tipo_conta || "Aluno";
+        data.tipo_conta ||
+        "Aluno";
 
 
-    const inicial =
-        nome.charAt(0).toUpperCase();
+    /* =========================
+       CARREGAR ESTATÍSTICAS
+    ========================= */
 
 
-    let icone = "👨‍🎓";
+    const { count: perguntas } =
+        await window.supabaseClient
+
+            .from("posts")
+
+            .select(
+                "id",
+                {
+                    count: "exact",
+                    head: true
+                }
+            )
+
+            .eq(
+                "author_id",
+                usuarioAtual.id
+            );
 
 
-    if (
-        tipoConta.toLowerCase() === "professor"
-    ) {
+    const { count: respostas } =
+        await window.supabaseClient
 
-        icone = "👨‍🏫";
+            .from("respostas")
 
-    }
+            .select(
+                "id",
+                {
+                    count: "exact",
+                    head: true
+                }
+            )
+
+            .eq(
+                "author_id",
+                usuarioAtual.id
+            );
+
+
+    const { count: curtidas } =
+        await window.supabaseClient
+
+            .from("curtidas_respostas")
+
+            .select(
+                "id",
+                {
+                    count: "exact",
+                    head: true
+                }
+            );
 
 
     container.innerHTML = `
 
-        <div class="topo-perfil">
+        <section class="perfil-card">
 
-            <div>
+            <div class="perfil-topo">
 
                 <div class="avatar">
-                    ${inicial}
+
+                    👤
+
                 </div>
 
-                <h1>
-                    ${nome}
-                </h1>
 
-                <div class="username">
-                    @${username}
-                </div>
+                <div class="informacoes">
 
-                <div class="tipo">
-                    ${icone} ${tipoConta}
-                    · ${nivel}
+                    <h1>
+                        ${nome}
+                    </h1>
+
+
+                    <div class="username">
+
+                        @${username}
+
+                    </div>
+
+
+                    <div class="badges">
+
+                        <span class="badge">
+
+                            🎓 ${curso}
+
+                        </span>
+
+
+                        <span class="badge">
+
+                            📚 ${semestre}
+
+                        </span>
+
+
+                        <span class="badge">
+
+                            ⭐ ${nivel}
+
+                        </span>
+
+
+                        ${
+                            tipoConta
+                                .toLowerCase()
+                                .includes("professor")
+
+                            ?
+
+                            `
+                            <span
+                                class="badge badge-professor"
+                            >
+                                👨‍🏫 Professor
+                            </span>
+                            `
+
+                            :
+
+                            `
+                            <span class="badge">
+                                👨‍🎓 Aluno
+                            </span>
+                            `
+                        }
+
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
+
+            <div class="bio">
+
+                <h3>
+                    Sobre mim
+                </h3>
 
 
-        <div class="informacoes">
+                <p>
+                    👋 Bem-vindo ao meu perfil na TechCommunity!
+                    Estou aqui para aprender, compartilhar conhecimento
+                    e ajudar outros estudantes.
+                </p>
 
-            <div class="informacao">
+            </div>
 
-                <div class="label">
-                    🎓 CURSO
+
+            <div class="estatisticas">
+
+                <div class="estatistica">
+
+                    <span class="numero">
+                        ${perguntas || 0}
+                    </span>
+
+                    <span class="label">
+                        Perguntas
+                    </span>
+
                 </div>
 
-                <div class="valor">
-                    ${curso}
+
+                <div class="estatistica">
+
+                    <span class="numero">
+                        ${respostas || 0}
+                    </span>
+
+                    <span class="label">
+                        Respostas
+                    </span>
+
+                </div>
+
+
+                <div class="estatistica">
+
+                    <span class="numero">
+                        ${curtidas || 0}
+                    </span>
+
+                    <span class="label">
+                        Curtidas
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <div class="informacao">
+            <div class="acoes-perfil">
 
-                <div class="label">
-                    📚 SEMESTRE
-                </div>
+                <button
+                    class="btn-editar"
+                    onclick="abrirModal()"
+                >
+                    ✏️ Editar perfil
+                </button>
 
-                <div class="valor">
-                    ${semestre}
+            </div>
+
+        </section>
+
+
+        <section class="atividade">
+
+            <h2>
+                📝 Minhas perguntas
+            </h2>
+
+
+            <div id="minhasPerguntas">
+
+                <div class="carregando">
+
+                    Carregando perguntas...
+
                 </div>
 
             </div>
 
-
-            <div class="informacao">
-
-                <div class="label">
-                    👤 TIPO DE CONTA
-                </div>
-
-                <div class="valor">
-                    ${tipoConta}
-                </div>
-
-            </div>
-
-
-            <div class="informacao">
-
-                <div class="label">
-                    📊 NÍVEL
-                </div>
-
-                <div class="valor">
-                    ${nivel}
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="acoes">
-
-            <button onclick="editarPerfil()">
-                ✏️ Editar Perfil
-            </button>
-
-            <button onclick="voltarComunidade()">
-                💬 Ir para Comunidade
-            </button>
-
-        </div>
+        </section>
 
     `;
+
+
+    carregarMinhasPerguntas();
+
+}
+
+
+/* ================================
+   MINHAS PERGUNTAS
+================================ */
+
+async function carregarMinhasPerguntas() {
+
+    const container =
+        document.getElementById(
+            "minhasPerguntas"
+        );
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("posts")
+
+            .select(`
+                id,
+                titulo,
+                conteudo,
+                categoria,
+                created_at
+            `)
+
+            .eq(
+                "author_id",
+                usuarioAtual.id
+            )
+
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        container.innerHTML =
+            "<p class='sem-atividade'>Erro ao carregar perguntas.</p>";
+
+        return;
+
+    }
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="sem-atividade">
+
+                Você ainda não publicou nenhuma pergunta. 🚀
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.forEach(post => {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.className =
+            "item";
+
+
+        div.onclick = function() {
+
+            abrirPost(post.id);
+
+        };
+
+
+        div.innerHTML = `
+
+            <h3>
+
+                ${post.titulo}
+
+            </h3>
+
+
+            <p>
+
+                ${post.categoria}
+
+                ·
+
+                ${formatarData(
+                    post.created_at
+                )}
+
+            </p>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
 }
 
 
@@ -407,19 +1337,165 @@ async function carregarPerfil() {
    EDITAR PERFIL
 ================================ */
 
-function editarPerfil() {
+function abrirModal() {
 
-    window.location.href =
-        "editar-perfil.html";
+    document.getElementById(
+        "editarNome"
+    ).value =
+        perfilAtual.nome || "";
+
+
+    document.getElementById(
+        "editarUsername"
+    ).value =
+        perfilAtual.username || "";
+
+
+    document.getElementById(
+        "editarCurso"
+    ).value =
+        perfilAtual.curso || "";
+
+
+    document.getElementById(
+        "editarSemestre"
+    ).value =
+        perfilAtual.semestre || "";
+
+
+    document.getElementById(
+        "modal"
+    ).classList.add(
+        "ativo"
+    );
+
+}
+
+
+function fecharModal() {
+
+    document.getElementById(
+        "modal"
+    ).classList.remove(
+        "ativo"
+    );
 
 }
 
 
 /* ================================
-   VOLTAR PARA COMUNIDADE
+   SALVAR PERFIL
 ================================ */
 
-function voltarComunidade() {
+async function salvarPerfil() {
+
+    const nome =
+        document.getElementById(
+            "editarNome"
+        ).value.trim();
+
+
+    const username =
+        document.getElementById(
+            "editarUsername"
+        ).value.trim();
+
+
+    const curso =
+        document.getElementById(
+            "editarCurso"
+        ).value.trim();
+
+
+    const semestre =
+        document.getElementById(
+            "editarSemestre"
+        ).value.trim();
+
+
+    if (!nome || !username) {
+
+        alert(
+            "Nome e username são obrigatórios."
+        );
+
+        return;
+
+    }
+
+
+    const { error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .update({
+
+                nome:
+                    nome,
+
+                username:
+                    username,
+
+                curso:
+                    curso,
+
+                semestre:
+                    semestre
+
+            })
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Erro ao atualizar perfil: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Perfil atualizado! 🎉"
+    );
+
+
+    fecharModal();
+
+
+    carregarPerfil();
+
+}
+
+
+/* ================================
+   ABRIR POST
+================================ */
+
+function abrirPost(postId) {
+
+    window.location.href =
+        "post.html?id=" +
+        postId;
+
+}
+
+
+/* ================================
+   COMUNIDADE
+================================ */
+
+function comunidade() {
 
     window.location.href =
         "comunidade.html";
@@ -433,7 +1509,10 @@ function voltarComunidade() {
 
 async function sair() {
 
-    await window.supabaseClient.auth.signOut();
+    await window.supabaseClient
+        .auth
+        .signOut();
+
 
     window.location.href =
         "index.html";
@@ -442,12 +1521,57 @@ async function sair() {
 
 
 /* ================================
+   DATA
+================================ */
+
+function formatarData(data) {
+
+    if (!data) {
+
+        return "";
+
+    }
+
+
+    return new Date(data)
+        .toLocaleDateString(
+            "pt-BR"
+        );
+
+}
+
+
+/* ================================
+   ERRO
+================================ */
+
+function mostrarErro(
+    mensagem
+) {
+
+    document.getElementById(
+        "perfil"
+    ).innerHTML = `
+
+        <div class="erro">
+
+            ${mensagem}
+
+        </div>
+
+    `;
+
+}
+
+
+/* ================================
    INICIAR
 ================================ */
 
-carregarPerfil();
+verificarLogin();
 
 </script>
+
 
 </body>
 
