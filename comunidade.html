@@ -146,6 +146,163 @@ button:hover {
 
 
 /* =========================
+   BARRA DE NÍVEL
+========================= */
+
+.nivel-area {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17,20,33,.98),
+            rgba(11,13,23,.98)
+        );
+
+    border-bottom: 1px solid #25283a;
+
+    padding: 12px 7%;
+
+}
+
+
+.nivel-container {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.nivel-icone {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(98,88,232,.16);
+
+    border: 1px solid rgba(98,88,232,.35);
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+
+}
+
+
+.nivel-informacoes {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.nivel-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.nivel-texto {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #e4e6ef;
+
+}
+
+
+.nivel-xp {
+
+    font-size: 11px;
+
+    color: #8e95aa;
+
+    white-space: nowrap;
+
+}
+
+
+.barra-nivel {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: #292d42;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.progresso-nivel {
+
+    height: 100%;
+
+    width: 0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6258e8,
+            #8a80ff
+        );
+
+    border-radius: 20px;
+
+    transition: width .5s ease;
+
+}
+
+
+.nivel-percentual {
+
+    font-size: 11px;
+
+    color: #aaa5ff;
+
+    min-width: 35px;
+
+    text-align: right;
+
+}
+
+
+/* =========================
    NOTIFICAÇÕES
 ========================= */
 
@@ -1042,6 +1199,37 @@ textarea {
     }
 
 
+    .nivel-area {
+
+        padding: 10px 5%;
+
+    }
+
+
+    .nivel-container {
+
+        gap: 9px;
+
+    }
+
+
+    .nivel-icone {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 17px;
+
+    }
+
+
+    .nivel-percentual {
+
+        display: none;
+
+    }
+
 }
 
 </style>
@@ -1102,6 +1290,71 @@ textarea {
     </div>
 
 </header>
+
+
+<!-- =========================
+     BARRA DE NÍVEL
+========================= -->
+
+<div class="nivel-area">
+
+    <div class="nivel-container">
+
+        <div class="nivel-icone">
+
+            🏆
+
+        </div>
+
+
+        <div class="nivel-informacoes">
+
+            <div class="nivel-topo">
+
+                <span
+                    id="nivelTexto"
+                    class="nivel-texto">
+
+                    Nível 1
+
+                </span>
+
+
+                <span
+                    id="nivelXP"
+                    class="nivel-xp">
+
+                    0 / 100 XP
+
+                </span>
+
+            </div>
+
+
+            <div class="barra-nivel">
+
+                <div
+                    id="progressoNivel"
+                    class="progresso-nivel">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="nivelPercentual"
+            class="nivel-percentual">
+
+            0%
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <main>
@@ -1195,7 +1448,7 @@ textarea {
             id="pesquisa"
             type="text"
             placeholder="Pesquisar por pergunta, conteúdo ou usuário..."
-            oninput="filtrarPosts()">
+            oninput="filtrarPosts">
 
 
         <button
@@ -1362,6 +1615,147 @@ async function verificarLogin() {
     carregarPosts();
 
     carregarContadorNotificacoes();
+
+    carregarNivel();
+
+}
+
+
+/* ================================
+   CARREGAR NÍVEL
+================================ */
+
+async function carregarNivel() {
+
+    if (!usuarioLogado) {
+
+        return;
+
+    }
+
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .select(`
+                xp,
+                nivel
+            `)
+
+            .eq(
+                "id",
+                usuarioLogado.id
+            )
+
+            .single();
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao carregar nível:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    const xp =
+        Number(data?.xp || 0);
+
+
+    let nivel =
+        Number(data?.nivel || 1);
+
+
+    if (isNaN(nivel) || nivel < 1) {
+
+        nivel = 1;
+
+    }
+
+
+    /*
+       Cada nível possui 100 XP.
+
+       Exemplo:
+
+       Nível 1 = 0 até 99 XP
+       Nível 2 = 100 até 199 XP
+       Nível 3 = 200 até 299 XP
+    */
+
+
+    const xpNoNivel =
+        xp % 100;
+
+
+    const progresso =
+        xpNoNivel;
+
+
+    const proximoNivelXP =
+        100;
+
+
+    const nivelTexto =
+        document.getElementById(
+            "nivelTexto"
+        );
+
+
+    const nivelXP =
+        document.getElementById(
+            "nivelXP"
+        );
+
+
+    const progressoNivel =
+        document.getElementById(
+            "progressoNivel"
+        );
+
+
+    const nivelPercentual =
+        document.getElementById(
+            "nivelPercentual"
+        );
+
+
+    if (nivelTexto) {
+
+        nivelTexto.textContent =
+            `🏆 Nível ${nivel}`;
+
+    }
+
+
+    if (nivelXP) {
+
+        nivelXP.textContent =
+            `${xpNoNivel} / ${proximoNivelXP} XP`;
+
+    }
+
+
+    if (progressoNivel) {
+
+        progressoNivel.style.width =
+            `${progresso}%`;
+
+    }
+
+
+    if (nivelPercentual) {
+
+        nivelPercentual.textContent =
+            `${progresso}%`;
+
+    }
 
 }
 
@@ -2614,6 +3008,9 @@ async function responder(
     carregarRespostas(
         postId
     );
+
+
+    carregarNivel();
 
 
     alert(
