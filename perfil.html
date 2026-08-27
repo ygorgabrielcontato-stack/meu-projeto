@@ -10,13 +10,11 @@
 
     <title>Meu Perfil - TechCommunity</title>
 
-
     <style>
 
         * {
             box-sizing: border-box;
         }
-
 
         body {
 
@@ -37,7 +35,6 @@
 
         }
 
-
         /* =========================
            HEADER
         ========================= */
@@ -52,7 +49,7 @@
                 1px solid #25283a;
 
             background:
-                rgba(11, 13, 23, 0.9);
+                rgba(11, 13, 23, 0.92);
 
             backdrop-filter: blur(12px);
 
@@ -66,10 +63,9 @@
 
             top: 0;
 
-            z-index: 10;
+            z-index: 20;
 
         }
-
 
         .logo {
 
@@ -79,13 +75,11 @@
 
         }
 
-
         .logo span {
 
             color: #6c63ff;
 
         }
-
 
         .header-botoes {
 
@@ -94,7 +88,6 @@
             gap: 10px;
 
         }
-
 
         .btn-header {
 
@@ -113,10 +106,9 @@
 
             font-weight: bold;
 
-            transition: 0.2s;
+            transition: .2s;
 
         }
-
 
         .btn-header:hover {
 
@@ -126,9 +118,8 @@
 
         }
 
-
         /* =========================
-           CONTAINER
+           MAIN
         ========================= */
 
         main {
@@ -141,9 +132,8 @@
 
         }
 
-
         /* =========================
-           PERFIL
+           CARD
         ========================= */
 
         .perfil-card {
@@ -164,10 +154,9 @@
 
             box-shadow:
                 0 20px 60px
-                rgba(0,0,0,0.25);
+                rgba(0,0,0,.28);
 
         }
-
 
         /* =========================
            CAPA
@@ -175,7 +164,7 @@
 
         .capa {
 
-            height: 180px;
+            height: 190px;
 
             background:
                 linear-gradient(
@@ -189,7 +178,6 @@
 
         }
 
-
         .capa::after {
 
             content: "";
@@ -201,23 +189,22 @@
             background:
                 radial-gradient(
                     circle at 20% 30%,
-                    rgba(255,255,255,0.15),
+                    rgba(255,255,255,.15),
                     transparent 30%
                 );
 
         }
 
-
         /* =========================
-           FOTO
+           CONTEÚDO
         ========================= */
 
         .perfil-conteudo {
 
-            padding: 0 35px 35px;
+            padding:
+                0 35px 35px;
 
         }
-
 
         .foto-area {
 
@@ -233,6 +220,15 @@
 
         }
 
+        /* =========================
+           FOTO
+        ========================= */
+
+        .foto-container {
+
+            position: relative;
+
+        }
 
         .foto {
 
@@ -266,10 +262,9 @@
 
             box-shadow:
                 0 8px 25px
-                rgba(0,0,0,0.35);
+                rgba(0,0,0,.4);
 
         }
-
 
         .foto img {
 
@@ -281,6 +276,56 @@
 
         }
 
+        /* BOTÃO DA FOTO */
+
+        .botao-foto {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 5px;
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            border:
+                3px solid #111421;
+
+            background: #6258e8;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 17px;
+
+            transition: .2s;
+
+        }
+
+        .botao-foto:hover {
+
+            transform: scale(1.08);
+
+            background: #7168f0;
+
+        }
+
+        #inputFoto {
+
+            display: none;
+
+        }
 
         /* =========================
            BOTÃO EDITAR
@@ -302,10 +347,9 @@
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition: .2s;
 
         }
-
 
         .btn-editar:hover {
 
@@ -314,7 +358,6 @@
             transform: translateY(-2px);
 
         }
-
 
         /* =========================
            INFORMAÇÕES
@@ -326,7 +369,6 @@
 
         }
 
-
         .nome {
 
             font-size: 30px;
@@ -337,7 +379,6 @@
 
         }
 
-
         .username {
 
             color: #8e95aa;
@@ -345,7 +386,6 @@
             margin-top: 5px;
 
         }
-
 
         .bio {
 
@@ -358,7 +398,6 @@
             white-space: pre-wrap;
 
         }
-
 
         /* =========================
            BADGES
@@ -376,7 +415,6 @@
 
         }
 
-
         .badge {
 
             background: #292d42;
@@ -391,11 +429,10 @@
 
         }
 
-
         .badge-professor {
 
             background:
-                rgba(98, 88, 232, 0.25);
+                rgba(98,88,232,.25);
 
             color: #aaa5ff;
 
@@ -404,11 +441,10 @@
 
         }
 
-
         .badge-aluno {
 
             background:
-                rgba(46, 160, 67, 0.15);
+                rgba(46,160,67,.15);
 
             color: #8be09b;
 
@@ -416,7 +452,6 @@
                 1px solid #34783e;
 
         }
-
 
         /* =========================
            ESTATÍSTICAS
@@ -427,7 +462,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             border-top:
                 1px solid #292d42;
@@ -440,7 +475,6 @@
 
         }
 
-
         .estatistica {
 
             border-right:
@@ -448,13 +482,11 @@
 
         }
 
-
         .estatistica:last-child {
 
             border-right: none;
 
         }
-
 
         .numero {
 
@@ -466,7 +498,6 @@
 
         }
 
-
         .label {
 
             color: #8e95aa;
@@ -477,9 +508,8 @@
 
         }
 
-
         /* =========================
-           FORMULÁRIO
+           EDITAR
         ========================= */
 
         .editar-area {
@@ -495,16 +525,14 @@
 
         }
 
-
         .editar-area.aberto {
 
             display: block;
 
             animation:
-                aparecer 0.25s ease;
+                aparecer .25s ease;
 
         }
-
 
         @keyframes aparecer {
 
@@ -528,13 +556,11 @@
 
         }
 
-
         .campo {
 
             margin-bottom: 18px;
 
         }
-
 
         .campo label {
 
@@ -549,7 +575,6 @@
             margin-bottom: 7px;
 
         }
-
 
         input,
         textarea,
@@ -570,12 +595,11 @@
 
             outline: none;
 
-            font-family: Arial, sans-serif;
+            font-family: Arial,sans-serif;
 
             font-size: 14px;
 
         }
-
 
         input:focus,
         textarea:focus,
@@ -585,10 +609,9 @@
 
             box-shadow:
                 0 0 0 3px
-                rgba(98,88,232,0.12);
+                rgba(98,88,232,.12);
 
         }
-
 
         textarea {
 
@@ -597,7 +620,6 @@
             resize: vertical;
 
         }
-
 
         .botoes-edicao {
 
@@ -608,7 +630,6 @@
             margin-top: 20px;
 
         }
-
 
         .btn-salvar {
 
@@ -628,7 +649,6 @@
 
         }
 
-
         .btn-cancelar {
 
             background: #292d42;
@@ -647,13 +667,11 @@
 
         }
 
-
         .btn-salvar:hover {
 
             background: #7168f0;
 
         }
-
 
         .btn-cancelar:hover {
 
@@ -661,9 +679,68 @@
 
         }
 
+        /* =========================
+           FOTO PREVIEW
+        ========================= */
+
+        .foto-preview {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            background: #0d0f19;
+
+            border:
+                1px solid #292d42;
+
+            border-radius: 12px;
+
+        }
+
+        .foto-preview.aberto {
+
+            display: block;
+
+        }
+
+        .foto-preview img {
+
+            width: 90px;
+
+            height: 90px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            display: block;
+
+            margin-bottom: 10px;
+
+        }
+
+        .btn-remover-foto {
+
+            background: #301820;
+
+            border:
+                1px solid #6b2636;
+
+            color: #ff9da9;
+
+            padding: 8px 12px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+        }
 
         /* =========================
-           CARREGANDO
+           LOADING
         ========================= */
 
         .carregando {
@@ -675,7 +752,6 @@
             color: #9da3b8;
 
         }
-
 
         .erro {
 
@@ -692,12 +768,11 @@
 
         }
 
-
         /* =========================
-           RESPONSIVO
+           MOBILE
         ========================= */
 
-        @media (max-width: 600px) {
+        @media(max-width:600px) {
 
             header {
 
@@ -705,20 +780,17 @@
 
             }
 
-
             .logo {
 
                 font-size: 20px;
 
             }
 
-
             .btn-header {
 
                 padding: 8px 10px;
 
             }
-
 
             main {
 
@@ -728,13 +800,11 @@
 
             }
 
-
             .capa {
 
                 height: 140px;
 
             }
-
 
             .perfil-conteudo {
 
@@ -742,7 +812,6 @@
                     0 20px 25px;
 
             }
-
 
             .foto {
 
@@ -754,20 +823,17 @@
 
             }
 
-
             .foto-area {
 
                 margin-top: -52px;
 
             }
 
-
             .nome {
 
                 font-size: 25px;
 
             }
-
 
             .btn-editar {
 
@@ -822,7 +888,6 @@
 
 <main>
 
-
     <div id="perfilContainer">
 
         <div class="carregando">
@@ -832,7 +897,6 @@
         </div>
 
     </div>
-
 
 </main>
 
@@ -845,9 +909,8 @@
 
 <script>
 
-
 /* ================================
-   USUÁRIO
+   VARIÁVEIS
 ================================ */
 
 let usuarioAtual = null;
@@ -856,7 +919,7 @@ let perfilAtual = null;
 
 
 /* ================================
-   VERIFICAR LOGIN
+   LOGIN
 ================================ */
 
 async function verificarLogin() {
@@ -924,6 +987,76 @@ async function carregarPerfil() {
                 semestre,
                 nivel,
                 tipo_conta,
+                bio,
+                avatar_url
+            `)
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            )
+
+            .single();
+
+
+    if (error) {
+
+        console.error(error);
+
+        /*
+           Se avatar_url ainda não existir,
+           o restante do perfil continua funcionando.
+        */
+
+        if (
+            error.message &&
+            error.message.includes(
+                "avatar_url"
+            )
+        ) {
+
+            carregarPerfilSemFoto();
+
+            return;
+
+        }
+
+
+        mostrarErro(
+            "Erro ao carregar seu perfil."
+        );
+
+        return;
+
+    }
+
+
+    perfilAtual = data;
+
+    renderizarPerfil();
+
+}
+
+
+/* ================================
+   PERFIL SEM AVATAR_URL
+================================ */
+
+async function carregarPerfilSemFoto() {
+
+    const { data, error } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .select(`
+                id,
+                nome,
+                username,
+                curso,
+                semestre,
+                nivel,
+                tipo_conta,
                 bio
             `)
 
@@ -948,7 +1081,13 @@ async function carregarPerfil() {
     }
 
 
-    perfilAtual = data;
+    perfilAtual = {
+
+        ...data,
+
+        avatar_url: null
+
+    };
 
 
     renderizarPerfil();
@@ -957,7 +1096,7 @@ async function carregarPerfil() {
 
 
 /* ================================
-   MOSTRAR PERFIL
+   RENDERIZAR
 ================================ */
 
 function renderizarPerfil() {
@@ -1017,6 +1156,23 @@ function renderizarPerfil() {
             : "badge-aluno";
 
 
+    const fotoHTML =
+        perfilAtual.avatar_url
+
+        ?
+
+        `<img
+            src="${escaparAtributo(
+                perfilAtual.avatar_url
+            )}"
+            alt="Foto de perfil"
+        >`
+
+        :
+
+        inicial;
+
+
     container.innerHTML = `
 
         <div class="perfil-card">
@@ -1031,9 +1187,32 @@ function renderizarPerfil() {
                 <div class="foto-area">
 
 
-                    <div class="foto">
+                    <div class="foto-container">
 
-                        ${inicial}
+
+                        <div class="foto">
+
+                            ${fotoHTML}
+
+                        </div>
+
+
+                        <label
+                            class="botao-foto"
+                            for="inputFoto"
+                            title="Alterar foto">
+
+                            📷
+
+                        </label>
+
+
+                        <input
+                            id="inputFoto"
+                            type="file"
+                            accept="image/*"
+                            onchange="selecionarFoto(event)"
+                        >
 
                     </div>
 
@@ -1045,7 +1224,6 @@ function renderizarPerfil() {
                         ✏️ Editar perfil
 
                     </button>
-
 
                 </div>
 
@@ -1096,14 +1274,16 @@ function renderizarPerfil() {
 
                         <span class="badge">
 
-                            📚 ${escaparHTML(curso)}
+                            📚
+                            ${escaparHTML(curso)}
 
                         </span>
 
 
                         <span class="badge">
 
-                            📅 ${escaparHTML(
+                            📅
+                            ${escaparHTML(
                                 String(semestre)
                             )}
 
@@ -1112,7 +1292,8 @@ function renderizarPerfil() {
 
                         <span class="badge">
 
-                            ⭐ ${escaparHTML(nivel)}
+                            ⭐
+                            ${escaparHTML(nivel)}
 
                         </span>
 
@@ -1164,8 +1345,7 @@ function renderizarPerfil() {
 
                         <div class="estatistica">
 
-                            <span
-                                class="numero">
+                            <span class="numero">
 
                                 ✓
 
@@ -1185,7 +1365,7 @@ function renderizarPerfil() {
 
 
                     <!-- =====================
-                         EDIÇÃO
+                         EDITAR PERFIL
                     ====================== -->
 
 
@@ -1261,9 +1441,7 @@ function renderizarPerfil() {
                                 type="text"
                                 maxlength="100"
                                 value="${escaparAtributo(
-                                    curso === "Curso não informado"
-                                        ? ""
-                                        : curso
+                                    perfilAtual.curso || ""
                                 )}"
                             >
 
@@ -1378,7 +1556,246 @@ function renderizarPerfil() {
 
 
 /* ================================
-   ABRIR EDIÇÃO
+   SELECIONAR FOTO
+================================ */
+
+async function selecionarFoto(event) {
+
+    const arquivo =
+        event.target.files[0];
+
+
+    if (!arquivo) {
+        return;
+    }
+
+
+    if (!arquivo.type.startsWith("image/")) {
+
+        alert(
+            "Selecione uma imagem válida."
+        );
+
+        return;
+
+    }
+
+
+    if (arquivo.size > 5 * 1024 * 1024) {
+
+        alert(
+            "A imagem deve ter no máximo 5 MB."
+        );
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    /*
+       Preview imediato
+    */
+
+    const leitor =
+        new FileReader();
+
+
+    leitor.onload = function(e) {
+
+        const foto =
+            document.querySelector(
+                ".foto"
+            );
+
+
+        if (foto) {
+
+            foto.innerHTML = `
+
+                <img
+                    src="${e.target.result}"
+                    alt="Nova foto"
+                >
+
+            `;
+
+        }
+
+    };
+
+
+    leitor.readAsDataURL(arquivo);
+
+
+    /*
+       Faz upload
+    */
+
+    await enviarFoto(arquivo);
+
+}
+
+
+/* ================================
+   ENVIAR FOTO
+================================ */
+
+async function enviarFoto(arquivo) {
+
+    if (!usuarioAtual) {
+
+        alert(
+            "Você precisa estar logado."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Nome único da imagem
+    */
+
+    const extensao =
+        arquivo.name
+            .split(".")
+            .pop()
+            .toLowerCase();
+
+
+    const caminho =
+        `${usuarioAtual.id}/avatar-${Date.now()}.${extensao}`;
+
+
+    /*
+       Upload
+    */
+
+    const { error: uploadError } =
+        await window.supabaseClient
+            .storage
+            .from("avatars")
+            .upload(
+                caminho,
+                arquivo,
+                {
+                    cacheControl: "3600",
+                    upsert: false
+                }
+            );
+
+
+    if (uploadError) {
+
+        console.error(
+            uploadError
+        );
+
+        alert(
+            "Erro ao enviar foto: " +
+            uploadError.message
+        );
+
+        carregarPerfil();
+
+        return;
+
+    }
+
+
+    /*
+       Pegar URL pública
+    */
+
+    const { data } =
+        window.supabaseClient
+            .storage
+            .from("avatars")
+            .getPublicUrl(
+                caminho
+            );
+
+
+    const url =
+        data.publicUrl;
+
+
+    /*
+       Salvar URL no perfil
+    */
+
+    const { error: updateError } =
+        await window.supabaseClient
+
+            .from("profiles")
+
+            .update({
+
+                avatar_url:
+                    url
+
+            })
+
+            .eq(
+                "id",
+                usuarioAtual.id
+            );
+
+
+    if (updateError) {
+
+        console.error(
+            updateError
+        );
+
+        /*
+           Caso a coluna ainda não exista
+        */
+
+        if (
+            updateError.message &&
+            updateError.message.includes(
+                "avatar_url"
+            )
+        ) {
+
+            alert(
+                "A coluna avatar_url ainda não existe na tabela profiles."
+            );
+
+        } else {
+
+            alert(
+                "Erro ao salvar foto: " +
+                updateError.message
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    perfilAtual.avatar_url =
+        url;
+
+
+    alert(
+        "Foto de perfil atualizada! 📸"
+    );
+
+
+    renderizarPerfil();
+
+}
+
+
+/* ================================
+   EDITAR PERFIL
 ================================ */
 
 function abrirEdicao() {
@@ -1395,16 +1812,15 @@ function abrirEdicao() {
 
 
     area.scrollIntoView({
+
         behavior: "smooth",
+
         block: "center"
+
     });
 
 }
 
-
-/* ================================
-   FECHAR EDIÇÃO
-================================ */
 
 function fecharEdicao() {
 
@@ -1490,7 +1906,13 @@ async function salvarPerfil() {
     }
 
 
-    const { data: usernameExistente, error: erroUsername } =
+    /*
+       Verificar username
+    */
+
+    const { data: existente,
+            error: erroUsername } =
+
         await window.supabaseClient
 
             .from("profiles")
@@ -1525,8 +1947,8 @@ async function salvarPerfil() {
 
 
     if (
-        usernameExistente &&
-        usernameExistente.length > 0
+        existente &&
+        existente.length > 0
     ) {
 
         alert(
@@ -1537,6 +1959,10 @@ async function salvarPerfil() {
 
     }
 
+
+    /*
+       Atualizar
+    */
 
     const { error } =
         await window.supabaseClient
@@ -1590,7 +2016,7 @@ async function salvarPerfil() {
     );
 
 
-    await carregarPerfil();
+    carregarPerfil();
 
 }
 
@@ -1600,7 +2026,6 @@ async function salvarPerfil() {
 ================================ */
 
 async function carregarEstatisticas() {
-
 
     const { count: posts } =
         await window.supabaseClient
@@ -1677,11 +2102,31 @@ async function carregarEstatisticas() {
 function escaparHTML(valor) {
 
     return String(valor)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -1748,7 +2193,6 @@ function mostrarErro(mensagem) {
 ================================ */
 
 verificarLogin();
-
 
 </script>
 
